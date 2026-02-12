@@ -75,6 +75,9 @@
   - просьба пользователю подтвердить/дать правки.
 - Пока DEMO-xx не получит **PASS или явно согласованный workaround**, следующий крупный срез не стартует.
 - Для UI: демо включает ключевые состояния (loading/empty/error/success).
+- Ответственность за содержание DEMO-xx несёт Dev: Dev обязан приложить DEMO-инструкции (How to run / What to test / Expected / PASS/FAIL criteria).
+- Дирижёр создаёт DEMO-xx задачу и блокирует pipeline, если Dev не предоставил DEMO-инструкции.
+- Tester обязан валидировать DEMO-xx (повторить шаги и зафиксировать PASS/FAIL в QA-отчёте).
 
 ---
 
@@ -127,7 +130,8 @@
 - Любой 🔴 P0 → статус BLOCKED до исправления.
 
 ### 6) Testing
-- Запросить отчёт Tester (PASS/FAIL/BLOCKED + баги + evidence).
+- Запросить отчёт Tester (**PASS/FAIL/BLOCKED + баги + evidence + DEMO results**).
+- QA-отчёт обязан содержать: какие DEMO-xx выполнены, статус PASS/FAIL и шаги воспроизведения для FAIL.
 - Любой 🔴 P0 → статус BLOCKED до исправления.
 
 ### 7) Release Gate (финальный этап)
@@ -135,6 +139,10 @@
 2) Собрать отчёты Reviewer + Tester + CI и заполнить статусы RG пунктов.
 3) Выполнить `$release_gate` и вынести решение GO/NO-GO (или GO-with-conditions если это принято проектом).
 4) Опубликовать Release Report (Evidence + DoD + Decision + Risks/Actions).
+5) Если отсутствует любой из артефактов: REV-xx report / QA-xx report / список DEMO-xx статусов → 🔴 **P0 / BLOCKER: Missing release evidence**.
+6) Release Gate Decision:
+  - ❌ NO-GO если есть хотя бы один 🔴 P0 из Reviewer или Tester.
+  - ✅ GO только если: DoD PASS + RG-checklist PASS + REV GO + QA PASS + DEMO required PASS.
 
 ---
 
@@ -180,11 +188,12 @@
 ### Risks / Notes (P1/P2)
 - 🟠 ...
 - 🟡 ...
-### Demo Gate (если есть активный DEMO-xx)
-- What to test:
+### DEMO-xx (template)
 - How to run:
+- What to test:
 - Expected:
-- PASS/FAIL:
+- PASS/FAIL criteria:
+- Notes (edge/error states):
 ### Release Gate (только перед релизом)
 - RG Checklist: PASS/MISSING (со статусами)
 - Evidence: CI + Reviewer + Tester

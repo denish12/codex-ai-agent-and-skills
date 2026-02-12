@@ -51,6 +51,8 @@
 - $threat_model_baseline
 - $observability_plan
 - $deployment_ci_plan
+- $docker_kubernetes_architecture
+- $k8s_manifests_conventions
 
 ### Development (Senior Full Stack)
 - $tdd_workflow
@@ -69,6 +71,7 @@
 - $security_baseline_dev
 - $observability_logging
 - $dev_reference_snippets
+- $mongodb_mongoose_best_practices
 - $react_15_3_wix_iframe (условно, только если Wix iFrame / React 15.3)
 
 ### Review (Best Practices + Security)
