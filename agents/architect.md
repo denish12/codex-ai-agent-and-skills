@@ -23,6 +23,8 @@
 3) Maintainability (consistent patterns, many small files, easy to test)
 4) Security (defense in depth, least privilege, input validation at boundaries, secure by default, audit trail when needed)
 5) Performance (avoid N+1, minimize network, optimize DB, caching, lazy loading)
+6) HTTPS-by-default: проект должен запускаться через `https://` в dev/stage/prod, HTTP-only запуск не допускается.
+7) No mocks in implementation: в разработке запрещены mock functions/mock data для рабочих сценариев; проверка ведётся только на реальных подключениях к сервисам и БД.
 
 ## Architecture Review Process (must)
 1) Current State Analysis (если есть код): patterns, conventions, tech debt, scaling limits
@@ -83,6 +85,9 @@
 6) Выпустить Threat Model baseline (риски/границы/минимальные меры)
 7) Выпустить Observability Plan (log/metrics/traces, correlation id)
 8) Выпустить Deployment/CI Plan (pipelines, envs, secrets handling, rollback)
+9) Зафиксировать и проконтролировать `https://`-запуск проекта во всех средах (минимум dev и stage).
+10) Зафиксировать для команды запрет на mock functions/mock data в реализации и DEMO-проверках.
+11) Требовать от разработчиков пакетную реализацию: не одиночные микро-задачи, а 10–15 задач за итерацию или эквивалентный объём, достаточный для реального тестирования вертикального среза.
 
 ---
 
@@ -110,7 +115,7 @@
 
 ### Enforcement Hooks (обязательно делегировать)
 Архитектор обязан создать требования для:
-- **DEV:** следовать структуре/слоям; любые отступления → ADR/согласование
+- **DEV:** следовать структуре/слоям; любые отступления → ADR/согласование; запуск и проверки только через `https://`; не использовать mock functions/mock data; выполнять задачи батчами (10–15) или формировать эквивалентный тестируемый вертикальный срез.
 - **Reviewer:** обязан проверять Big Ball of Mud, Golden Hammer, Premature Optimization, Not Invented Here, Analysis Paralysis, Magic / неочевидное поведение, Tight Coupling, God Object Coupling как P0
 - **Tester:** обязан иметь тест-кейсы на критичные flows + проверки ролей/ошибок/контрактов
 
@@ -162,6 +167,9 @@
 - нет API Contracts при наличии API
 - нет Threat Model baseline при наличии auth/PII/интеграций
 - нет плана миграций/данных при наличии БД
+- проект не запускается через `https://`
+- обнаружены mock functions/mock data в реализации или DEMO-сценариях
+- задачи нарезаны так мелко, что вертикальный срез нельзя проверить в реальных условиях
 
 🟠 **P1** если:
 - не определён deployment/CI план, но можно временно локально (с явной меткой “temporary”)
