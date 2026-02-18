@@ -95,25 +95,26 @@ describe("installer", () => {
     expect(installedAgent.includes("<!-- claude: thinking=high; note=\"strict review\" -->")).toBe(true);
   });
 
-  it("fails in strict-hints mode when native hint is missing", async () => {
+  it("auto-adapts in strict-hints mode when native hint is missing", async () => {
     const projectDir = await createFixtureProject();
     const destinationDir = path.join(projectDir, "out");
 
-    await expect(
-      runInstall({
-        target: "claude",
-        projectDir,
-        destinationDir,
-        selectedAgents: ["reviewer"],
-        selectedSkills: [],
-        dryRun: false,
-        overwriteMode: "overwrite",
-        strictHints: true,
-      }),
-    ).rejects.toThrow("Strict hints check failed");
+    await runInstall({
+      target: "claude",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: [],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: true,
+    });
+
+    const installedAgent = await fs.readFile(path.join(destinationDir, ".claude", "agents", "reviewer.md"), "utf8");
+    expect(installedAgent.includes("<!-- claude: thinking=high; note=\"strict review\" -->")).toBe(true);
   });
 
-  it("fails in strict-hints mode during dry-run as well", async () => {
+  it("does not fail in strict-hints mode during dry-run", async () => {
     const projectDir = await createFixtureProject();
     const destinationDir = path.join(projectDir, "out");
 
@@ -128,6 +129,6 @@ describe("installer", () => {
         overwriteMode: "overwrite",
         strictHints: true,
       }),
-    ).rejects.toThrow("Strict hints check failed");
+    ).resolves.toBeDefined();
   });
 });

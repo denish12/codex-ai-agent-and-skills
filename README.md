@@ -81,14 +81,14 @@ code-ai uninstall --target claude --apply
 - Agent files copied to target-specific agents directory.
 - Skill files copied to target-specific skills directory.
 - Markdown content is normalized per target (model-specific hint comments like `codex:` are transformed).
-  - `codex reasoning` is mapped to target-native hints (`claude thinking`, `qwen reasoning_effort`, `gemini reasoning`).
+  - `codex reasoning` is mapped to target-native hints (`copilot reasoning`, `claude thinking`, `qwen reasoning_effort`, `gemini reasoning`).
 
 ## Safety model
 - Default mode is `dry-run`.
 - Backup is created before writes under `.code-ai-installer/backups/<target>/<timestamp>/`.
 - State is tracked in `.code-ai-installer/state/<target>.json` for uninstall.
 - Rollback restores previous files on install failure.
-- Optional strict policy: `--strict-hints` fails install if selected agent/skill files don't contain explicit target-native hint markers.
+- Optional strict adaptation mode: `--strict-hints` enforces target-hint emission and auto-fills missing hints with target defaults.
 
 ## Notes
 - Target aliases are accepted: `copilot`, `codex`, `claude`, `qwen`, `google`, `antigravity`.

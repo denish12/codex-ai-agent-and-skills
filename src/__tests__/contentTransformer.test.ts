@@ -24,4 +24,19 @@ describe("contentTransformer", () => {
 
     expect(output.includes("<!-- qwen: reasoning_effort=high -->")).toBe(true);
   });
+
+  it("adds default target hint when source has no model hint", () => {
+    const input = "# Agent\n";
+    const output = transformContentForTarget(input, "claude", "agent");
+
+    expect(output.includes("<!-- claude: thinking=medium; note=\"auto-adapted default\" -->")).toBe(true);
+  });
+
+  it("maps codex hint to copilot hint for vscode-copilot target", () => {
+    const input = "<!-- codex: reasoning=high; note=\"review carefully\" -->\n# Agent\n";
+    const output = transformContentForTarget(input, "vscode-copilot", "agent");
+
+    expect(output.includes("<!-- copilot: reasoning=high; note=\"review carefully\" -->")).toBe(true);
+    expect(output.includes("<!-- codex:")).toBe(false);
+  });
 });

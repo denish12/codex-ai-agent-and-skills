@@ -3,7 +3,7 @@ import fs from "fs-extra";
 import type { InstallOperation, InstallOptions, InstallState } from "./types.js";
 import { getPlatformAdapter } from "./platforms/adapters.js";
 import { loadSourceCatalog } from "./catalog.js";
-import { hasExplicitTargetHint, transformContentForTarget } from "./contentTransformer.js";
+import { transformContentForTarget } from "./contentTransformer.js";
 
 interface ApplyResult {
   plannedFiles: string[];
@@ -143,18 +143,6 @@ async function applyOperations(args: {
       }
 
       let sourceContentForTransform: string | undefined;
-      if (
-        operation.transform &&
-        args.strictHints &&
-        (operation.transform.assetType === "agent" || operation.transform.assetType === "skill")
-      ) {
-        sourceContentForTransform = await fs.readFile(operation.sourcePath, "utf8");
-        if (!hasExplicitTargetHint(sourceContentForTransform, operation.transform.target)) {
-          throw new Error(
-            `Strict hints check failed: missing explicit '${operation.transform.target}' hint in ${operation.sourcePath}`,
-          );
-        }
-      }
 
       if (!args.dryRun && exists && backupDir) {
         const rel = path.relative(args.destinationDir, destination);

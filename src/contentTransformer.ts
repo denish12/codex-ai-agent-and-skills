@@ -1,11 +1,11 @@
 ﻿import type { TargetId } from "./types.js";
 
 interface ModelHint {
-  model: "codex" | "claude" | "qwen" | "gemini";
+  model: "codex" | "copilot" | "claude" | "qwen" | "gemini";
   payload: string;
 }
 
-const hintRegex = /<!--\s*(codex|claude|qwen|gemini)\s*:\s*([\s\S]*?)-->\s*\n?/gi;
+const hintRegex = /<!--\s*(codex|copilot|claude|qwen|gemini)\s*:\s*([\s\S]*?)-->\s*\n?/gi;
 
 /**
  * Transforms markdown content for selected AI target.
@@ -34,19 +34,6 @@ export function transformContentForTarget(
   const mappedHint = buildMappedHint(target, parsedHints);
   const output = cleaned.trimStart();
   return `${marker}${mappedHint}${output.endsWith("\n") ? output : `${output}\n`}`;
-}
-
-/**
- * Returns whether markdown contains explicit hint for the selected target model.
- * @param input Original markdown content.
- * @param target Target AI identifier.
- * @returns True when a native target hint is present.
- */
-export function hasExplicitTargetHint(input: string, target: TargetId): boolean {
-  const content = stripBom(input).replace(/\r\n/g, "\n");
-  const targetModel = targetToModel(target);
-  const hints = [...content.matchAll(/<!--\s*(codex|claude|qwen|gemini)\s*:\s*[\s\S]*?-->/gi)];
-  return hints.some((match) => String(match[1]).toLowerCase() === targetModel);
 }
 
 /**
@@ -89,11 +76,32 @@ function buildMappedHint(target: TargetId, hints: ModelHint[]): string {
 
   const codex = hints.find((hint) => hint.model === "codex");
   if (!codex) {
-    return "";
+    return `<!-- ${targetModel}: ${defaultPayloadForTarget(targetModel)} -->\n`;
   }
 
   const mappedPayload = mapCodexPayload(codex.payload, targetModel);
   return `<!-- ${targetModel}: ${mappedPayload} -->\n`;
+}
+
+/**
+ * Returns fallback payload when source markdown has no model hints.
+ * @param targetModel Destination model label.
+ * @returns Default target-model payload.
+ */
+function defaultPayloadForTarget(targetModel: ModelHint["model"]): string {
+  if (targetModel === "copilot") {
+    return "reasoning=medium; note=\"auto-adapted default\"";
+  }
+  if (targetModel === "claude") {
+    return "thinking=medium; note=\"auto-adapted default\"";
+  }
+  if (targetModel === "qwen") {
+    return "reasoning_effort=medium; note=\"auto-adapted default\"";
+  }
+  if (targetModel === "gemini") {
+    return "reasoning=medium; note=\"auto-adapted default\"";
+  }
+  return "reasoning=medium; note=\"auto-adapted default\"";
 }
 
 /**
@@ -102,6 +110,9 @@ function buildMappedHint(target: TargetId, hints: ModelHint[]): string {
  * @returns Target model name used in markdown hints.
  */
 function targetToModel(target: TargetId): ModelHint["model"] {
+  if (target === "vscode-copilot") {
+    return "copilot";
+  }
   if (target === "claude") {
     return "claude";
   }
@@ -136,6 +147,9 @@ function mapCodexPayload(payload: string, targetModel: ModelHint["model"]): stri
   if (targetModel === "gemini") {
     const effort = mapReasoningToGemini(normalizedReasoning);
     return withNote(`reasoning=${effort}`, note);
+  }
+  if (targetModel === "copilot") {
+    return withNote(`reasoning=${normalizedReasoning}`, note);
   }
 
   return withNote(`reasoning=${normalizedReasoning}`, note);
