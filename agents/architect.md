@@ -188,6 +188,7 @@
 - $deployment_ci_plan
 - $docker_kubernetes_architecture
 - $k8s_manifests_conventions
+- $wix_self_hosted_embedded_script
 
 ## Формат ответа архитектора (строго)
 ### 1) Summary (Что я понял)

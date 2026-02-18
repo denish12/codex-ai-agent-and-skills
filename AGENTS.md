@@ -53,6 +53,7 @@
 - $deployment_ci_plan
 - $docker_kubernetes_architecture
 - $k8s_manifests_conventions
+- $wix_self_hosted_embedded_script
 
 ### Development (Senior Full Stack)
 - $tdd_workflow
@@ -72,6 +73,7 @@
 - $observability_logging
 - $dev_reference_snippets
 - $mongodb_mongoose_best_practices
+- $wix_self_hosted_embedded_script
 - $react_15_3_wix_iframe (условно, только если Wix iFrame / React 15.3)
 
 ### Review (Best Practices + Security)
@@ -97,3 +99,22 @@
 
 ## Гейты (Pipeline)
 PM(PRD) → UX(UX Spec) → ARCH(Architecture/ADR/Contracts) → DEV(TDD) → REV(Security/Best) → TEST(Test plan/report) → RG(Release Gate)
+
+---
+
+## Обязательное правило документации функций
+- Для всех функций в кодовой базе использовать JSDoc-блок в формате:
+
+```js
+/**
+ * Считает сумму двух чисел.
+ * @param {number} a - Первое число.
+ * @param {number} b - Второе число.
+ * @returns {number} Сумма a и b.
+ */
+function add(a, b) {
+    return a + b;
+}
+```
+
+- Требование обязательное для DEV и REV этапов.
