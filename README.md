@@ -1,6 +1,7 @@
 ﻿# code-ai installer
 
 CLI for installing your `agents/` and `.agents/skills/` assets into AI-specific layouts.
+The global package contains bundled templates, so `code-ai` works from any directory.
 
 ## Supported targets
 - `vscode-copilot`
@@ -53,6 +54,9 @@ code-ai doctor --target claude
 # dry-run install (default)
 code-ai install --target claude --agents conductor,reviewer --skills board,security_review
 
+# install into a newly created folder under current directory
+code-ai install --target gpt-codex --create-dir my-new-project --agents all --skills all --apply
+
 # apply install with overwrite
 code-ai install --target claude --agents all --skills all --overwrite --apply
 
@@ -89,3 +93,4 @@ code-ai uninstall --target claude --apply
 ## Notes
 - Target aliases are accepted: `copilot`, `codex`, `claude`, `qwen`, `google`, `antigravity`.
 - If your AI tool requires a custom location, pass `--destination <path>`.
+- Source templates are resolved automatically: current directory first, bundled package templates second.

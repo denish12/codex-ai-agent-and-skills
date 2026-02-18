@@ -5,7 +5,10 @@
   "type": "module",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "AGENTS.md",
+    "agents",
+    ".agents"
   ],
   "bin": {
     "code-ai": "dist/index.js"

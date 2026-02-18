@@ -1,5 +1,6 @@
 ﻿#!/usr/bin/env node
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import prompts from "prompts";
 import { Command } from "commander";
 import { loadSourceCatalog, listAgentNames, listSkillNames, resolveSelection } from "./catalog.js";
@@ -7,9 +8,11 @@ import { runDoctor } from "./doctor.js";
 import { runInstall, runUninstall } from "./installer.js";
 import { error, info, success, warn } from "./logger.js";
 import { getPlatformAdapters } from "./platforms/adapters.js";
+import { resolveSourceRoot } from "./sourceResolver.js";
 import type { TargetId } from "./types.js";
 
 const program = new Command();
+const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 program
   .name("code-ai")
@@ -29,15 +32,20 @@ program
 
 program
   .command("list")
-  .description("List available agents and skills from current repository")
-  .option("--project-dir <path>", "Project root path", process.cwd())
-  .action(async (options: { projectDir: string }) => {
+  .description("List available bundled agents and skills")
+  .option("--project-dir <path>", "Optional custom source root path")
+  .action(async (options: { projectDir?: string }) => {
     try {
-      const projectDir = path.resolve(options.projectDir);
+      const projectDir = await resolveSourceRoot({
+        projectDirOption: options.projectDir,
+        cwd: process.cwd(),
+        packageRoot,
+      });
       const catalog = await loadSourceCatalog(projectDir);
       const agents = listAgentNames(catalog);
       const skills = listSkillNames(catalog);
 
+      info(`Source: ${projectDir}`);
       info(`Agents (${agents.length}): ${agents.join(", ")}`);
       info(`Skills (${skills.length}): ${skills.join(", ")}`);
     } catch (err) {
@@ -50,15 +58,20 @@ program
   .command("doctor")
   .description("Check source and destination health before install")
   .requiredOption("--target <id>", "Target AI id")
-  .option("--project-dir <path>", "Project root path", process.cwd())
-  .option("--destination <path>", "Destination root (default: project root)")
-  .action(async (options: { target: string; projectDir: string; destination?: string }) => {
+  .option("--project-dir <path>", "Optional custom source root path")
+  .option("--destination <path>", "Destination root (default: current directory)")
+  .action(async (options: { target: string; projectDir?: string; destination?: string }) => {
     try {
       const target = normalizeTarget(options.target);
-      const projectDir = path.resolve(options.projectDir);
-      const destinationDir = path.resolve(options.destination ?? projectDir);
+      const projectDir = await resolveSourceRoot({
+        projectDirOption: options.projectDir,
+        cwd: process.cwd(),
+        packageRoot,
+      });
+      const destinationDir = path.resolve(options.destination ?? process.cwd());
       const report = await runDoctor(projectDir, destinationDir, target);
 
+      info(`Source: ${projectDir}`);
       for (const line of report.info) {
         info(line);
       }
@@ -84,8 +97,9 @@ program
   .command("install")
   .description("Install selected agents and skills for target AI")
   .requiredOption("--target <id>", "Target AI id")
-  .option("--project-dir <path>", "Project root path", process.cwd())
-  .option("--destination <path>", "Destination root (default: project root)")
+  .option("--project-dir <path>", "Optional custom source root path")
+  .option("--destination <path>", "Destination root (default: current directory)")
+  .option("--create-dir <name>", "Create child folder in current directory and install there")
   .option("--agents <list>", "Comma list of agents or 'all'", "all")
   .option("--skills <list>", "Comma list of skills or 'all'", "all")
   .option("--overwrite", "Overwrite existing files", false)
@@ -94,8 +108,9 @@ program
   .action(
     async (options: {
       target: string;
-      projectDir: string;
+      projectDir?: string;
       destination?: string;
+      createDir?: string;
       agents: string;
       skills: string;
       overwrite: boolean;
@@ -104,8 +119,13 @@ program
     }) => {
       try {
         const target = normalizeTarget(options.target);
-        const projectDir = path.resolve(options.projectDir);
-        const destinationDir = path.resolve(options.destination ?? projectDir);
+        const projectDir = await resolveSourceRoot({
+          projectDirOption: options.projectDir,
+          cwd: process.cwd(),
+          packageRoot,
+        });
+        const baseDestination = path.resolve(options.destination ?? process.cwd());
+        const destinationDir = options.createDir ? path.join(baseDestination, options.createDir) : baseDestination;
         const catalog = await loadSourceCatalog(projectDir);
 
         const selectedAgents = resolveSelection(options.agents, listAgentNames(catalog), "agents");
@@ -128,6 +148,7 @@ program
           strictHints: options.strictHints,
         });
 
+        info(`Source: ${projectDir}`);
         info(`Target: ${state.target}`);
         info(`Destination: ${state.destinationDir}`);
         info(`Files planned: ${result.plannedFiles.length}`);
@@ -186,8 +207,11 @@ program
  * Runs interactive installer workflow when no subcommand is provided.
  */
 async function runInteractiveWizard(): Promise<void> {
-  const projectDir = process.cwd();
-  const catalog = await loadSourceCatalog(projectDir);
+  const sourceRoot = await resolveSourceRoot({
+    cwd: process.cwd(),
+    packageRoot,
+  });
+  const catalog = await loadSourceCatalog(sourceRoot);
   const adapters = getPlatformAdapters();
 
   const targetAnswer = await prompts({
@@ -205,16 +229,33 @@ async function runInteractiveWizard(): Promise<void> {
     return;
   }
 
-  const destinationAnswer = await prompts({
-    type: "text",
-    name: "destination",
-    message: "Папка установки:",
-    initial: projectDir,
-    validate: (value: string) => (value.trim().length === 0 ? "Укажи путь" : true),
+  const destinationModeAnswer = await prompts({
+    type: "select",
+    name: "mode",
+    message: "Куда устанавливать?",
+    choices: [
+      { title: "Текущая папка", value: "current" },
+      { title: "Новая папка", value: "new" },
+    ],
   });
-  if (!destinationAnswer.destination) {
+  if (!destinationModeAnswer.mode) {
     warn("Установка отменена.");
     return;
+  }
+
+  let destinationDir = process.cwd();
+  if (destinationModeAnswer.mode === "new") {
+    const newFolderAnswer = await prompts({
+      type: "text",
+      name: "folderName",
+      message: "Название новой папки:",
+      validate: (value: string) => (value.trim().length === 0 ? "Укажи название папки" : true),
+    });
+    if (!newFolderAnswer.folderName) {
+      warn("Установка отменена.");
+      return;
+    }
+    destinationDir = path.join(process.cwd(), String(newFolderAnswer.folderName).trim());
   }
 
   const agents = listAgentNames(catalog);
@@ -274,10 +315,9 @@ async function runInteractiveWizard(): Promise<void> {
   ]);
 
   const target = targetAnswer.target as TargetId;
-  const destinationDir = path.resolve(destinationAnswer.destination as string);
 
   info("Запускаю doctor перед установкой...");
-  const doctor = await runDoctor(projectDir, destinationDir, target);
+  const doctor = await runDoctor(sourceRoot, destinationDir, target);
   for (const line of doctor.info) {
     info(line);
   }
@@ -299,7 +339,7 @@ async function runInteractiveWizard(): Promise<void> {
 
   const { state, result } = await runInstall({
     target,
-    projectDir,
+    projectDir: sourceRoot,
     destinationDir,
     selectedAgents: agentsAnswer.selectedAgents as string[],
     selectedSkills: skillsAnswer.selectedSkills as string[],
@@ -308,6 +348,7 @@ async function runInteractiveWizard(): Promise<void> {
     strictHints: Boolean(optionsAnswer.strictHints),
   });
 
+  info(`Source: ${sourceRoot}`);
   info(`Target: ${state.target}`);
   info(`Destination: ${state.destinationDir}`);
   info(`Files planned: ${result.plannedFiles.length}`);
