@@ -15,34 +15,55 @@ npm install
 npm run build
 ```
 
+## Global install
+```bash
+# from npm registry
+npm install -g code-ai-installer
+# or
+pnpm add -g code-ai-installer
+# or
+yarn global add code-ai-installer
+# or
+bun add -g code-ai-installer
+
+# verify binary in system terminal
+code-ai --help
+```
+
+```bash
+# install globally from local repository
+npm install -g .
+code-ai --help
+```
+
 ## Usage
 ```bash
 # interactive wizard (recommended)
-npx tsx src/index.ts
+code-ai
 
 # list targets
-npx tsx src/index.ts targets
+code-ai targets
 
 # list available agents and skills from current repository
-npx tsx src/index.ts list
+code-ai list
 
 # health checks
-npx tsx src/index.ts doctor --target claude
+code-ai doctor --target claude
 
 # dry-run install (default)
-npx tsx src/index.ts install --target claude --agents conductor,reviewer --skills board,security_review
+code-ai install --target claude --agents conductor,reviewer --skills board,security_review
 
 # apply install with overwrite
-npx tsx src/index.ts install --target claude --agents all --skills all --overwrite --apply
+code-ai install --target claude --agents all --skills all --overwrite --apply
 
 # strict mode: require explicit target hints in agent/skill files
-npx tsx src/index.ts install --target claude --agents all --skills all --strict-hints --apply
+code-ai install --target claude --agents all --skills all --strict-hints --apply
 
 # uninstall preview
-npx tsx src/index.ts uninstall --target claude
+code-ai uninstall --target claude
 
 # uninstall apply
-npx tsx src/index.ts uninstall --target claude --apply
+code-ai uninstall --target claude --apply
 ```
 
 ## What gets generated
