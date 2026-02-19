@@ -15,6 +15,76 @@ import { printBanner } from "./banner.js";
 const program = new Command();
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
+interface WizardText {
+  cancelled: string;
+  selectTemplateLanguage: string;
+  languageRu: string;
+  languageEn: string;
+  selectAiTarget: string;
+  installWhere: string;
+  currentFolder: string;
+  newFolder: string;
+  newFolderName: string;
+  newFolderNameRequired: string;
+  selectAgents: string;
+  selectSkills: string;
+  selectHint: string;
+  overwritePrompt: string;
+  applyPrompt: string;
+  strictHintsPrompt: string;
+  runDoctor: string;
+  doctorFailed: string;
+  dryRunMode: string;
+  previewCompleted: string;
+}
+
+const WIZARD_TEXT: Record<TemplateLanguage, WizardText> = {
+  en: {
+    cancelled: "Installation cancelled.",
+    selectTemplateLanguage: "Select template language:",
+    languageRu: "Russian (ru)",
+    languageEn: "English (en)",
+    selectAiTarget: "Select AI target:",
+    installWhere: "Where should files be installed?",
+    currentFolder: "Current folder",
+    newFolder: "New folder",
+    newFolderName: "New folder name:",
+    newFolderNameRequired: "Please provide folder name",
+    selectAgents: "Select agents:",
+    selectSkills: "Select skills:",
+    selectHint: "space: toggle, enter: submit",
+    overwritePrompt: "Overwrite existing files?",
+    applyPrompt: "Run installation now?",
+    strictHintsPrompt: "Enforce strict target-hint adaptation?",
+    runDoctor: "Running doctor before install...",
+    doctorFailed: "Doctor checks failed. Fix issues and run again.",
+    dryRunMode: "Preview mode selected (no file writes).",
+    previewCompleted: "Preview completed.",
+  },
+  ru: {
+    cancelled: "Установка отменена.",
+    selectTemplateLanguage: "Выбери язык шаблонов:",
+    languageRu: "Русский (ru)",
+    languageEn: "English (en)",
+    selectAiTarget: "Выбери AI для установки:",
+    installWhere: "Куда устанавливать?",
+    currentFolder: "Текущая папка",
+    newFolder: "Новая папка",
+    newFolderName: "Название новой папки:",
+    newFolderNameRequired: "Укажи название папки",
+    selectAgents: "Выбери агентов:",
+    selectSkills: "Выбери skills:",
+    selectHint: "space: выбрать, enter: подтвердить",
+    overwritePrompt: "Перезаписывать существующие файлы?",
+    applyPrompt: "Сразу выполнить установку?",
+    strictHintsPrompt: "Требовать явные target-hints в agent/skill файлах?",
+    runDoctor: "Запускаю doctor перед установкой...",
+    doctorFailed: "Doctor не пройден. Исправь ошибки и запусти снова.",
+    dryRunMode: "Выбран preview-режим без записи файлов.",
+    previewCompleted: "Preview completed.",
+  },
+};
+
 program
   .name("code-ai")
   .description("Install code-ai agents and skills for AI coding assistants")
@@ -220,21 +290,23 @@ program
 async function runInteractiveWizard(): Promise<void> {
   printBanner();
 
+  const bootstrapText = WIZARD_TEXT.en;
   const languageAnswer = await prompts({
     type: "select",
     name: "language",
-    message: "Выбери язык шаблонов:",
+    message: bootstrapText.selectTemplateLanguage,
     choices: [
-      { title: "Русский (ru)", value: "ru" },
-      { title: "English (en)", value: "en" },
+      { title: bootstrapText.languageEn, value: "en" },
+      { title: bootstrapText.languageRu, value: "ru" },
     ],
     initial: 0,
   });
   if (!languageAnswer.language) {
-    warn("Установка отменена.");
+    warn(bootstrapText.cancelled);
     return;
   }
   const language = normalizeLanguage(languageAnswer.language as string);
+  const text = WIZARD_TEXT[language];
   const sourceRoot = await resolveSourceRoot({
     cwd: process.cwd(),
     packageRoot,
@@ -246,7 +318,7 @@ async function runInteractiveWizard(): Promise<void> {
   const targetAnswer = await prompts({
     type: "select",
     name: "target",
-    message: "Выбери AI для установки:",
+    message: text.selectAiTarget,
     choices: adapters.map((adapter) => ({
       title: `${adapter.label} (${adapter.id})`,
       value: adapter.id,
@@ -254,21 +326,21 @@ async function runInteractiveWizard(): Promise<void> {
     })),
   });
   if (!targetAnswer.target) {
-    warn("Установка отменена.");
+    warn(text.cancelled);
     return;
   }
 
   const destinationModeAnswer = await prompts({
     type: "select",
     name: "mode",
-    message: "Куда устанавливать?",
+    message: text.installWhere,
     choices: [
-      { title: "Текущая папка", value: "current" },
-      { title: "Новая папка", value: "new" },
+      { title: text.currentFolder, value: "current" },
+      { title: text.newFolder, value: "new" },
     ],
   });
   if (!destinationModeAnswer.mode) {
-    warn("Установка отменена.");
+    warn(text.cancelled);
     return;
   }
 
@@ -277,11 +349,11 @@ async function runInteractiveWizard(): Promise<void> {
     const newFolderAnswer = await prompts({
       type: "text",
       name: "folderName",
-      message: "Название новой папки:",
-      validate: (value: string) => (value.trim().length === 0 ? "Укажи название папки" : true),
+      message: text.newFolderName,
+      validate: (value: string) => (value.trim().length === 0 ? text.newFolderNameRequired : true),
     });
     if (!newFolderAnswer.folderName) {
-      warn("Установка отменена.");
+      warn(text.cancelled);
       return;
     }
     destinationDir = path.join(process.cwd(), String(newFolderAnswer.folderName).trim());
@@ -293,26 +365,26 @@ async function runInteractiveWizard(): Promise<void> {
   const agentsAnswer = await prompts({
     type: "multiselect",
     name: "selectedAgents",
-    message: "Выбери агентов:",
+    message: text.selectAgents,
     choices: agents.map((agentName) => ({ title: agentName, value: agentName, selected: true })),
     min: 1,
-    hint: "space: выбрать, enter: подтвердить",
+    hint: text.selectHint,
   });
   if (!agentsAnswer.selectedAgents || agentsAnswer.selectedAgents.length === 0) {
-    warn("Установка отменена.");
+    warn(text.cancelled);
     return;
   }
 
   const skillsAnswer = await prompts({
     type: "multiselect",
     name: "selectedSkills",
-    message: "Выбери skills:",
+    message: text.selectSkills,
     choices: skills.map((skillName) => ({ title: skillName, value: skillName, selected: true })),
     min: 1,
-    hint: "space: выбрать, enter: подтвердить",
+    hint: text.selectHint,
   });
   if (!skillsAnswer.selectedSkills || skillsAnswer.selectedSkills.length === 0) {
-    warn("Установка отменена.");
+    warn(text.cancelled);
     return;
   }
 
@@ -320,7 +392,7 @@ async function runInteractiveWizard(): Promise<void> {
     {
       type: "toggle",
       name: "overwrite",
-      message: "Перезаписывать существующие файлы?",
+      message: text.overwritePrompt,
       initial: false,
       active: "yes",
       inactive: "no",
@@ -328,7 +400,7 @@ async function runInteractiveWizard(): Promise<void> {
     {
       type: "toggle",
       name: "apply",
-      message: "Сразу выполнить установку?",
+      message: text.applyPrompt,
       initial: true,
       active: "yes",
       inactive: "no",
@@ -336,7 +408,7 @@ async function runInteractiveWizard(): Promise<void> {
     {
       type: "toggle",
       name: "strictHints",
-      message: "Требовать явные target-hints в agent/skill файлах?",
+      message: text.strictHintsPrompt,
       initial: false,
       active: "yes",
       inactive: "no",
@@ -345,7 +417,7 @@ async function runInteractiveWizard(): Promise<void> {
 
   const target = targetAnswer.target as TargetId;
 
-  info("Запускаю doctor перед установкой...");
+  info(text.runDoctor);
   const doctor = await runDoctor(sourceRoot, destinationDir, target);
   for (const line of doctor.info) {
     info(line);
@@ -357,13 +429,13 @@ async function runInteractiveWizard(): Promise<void> {
     error(line);
   }
   if (doctor.errors.length > 0) {
-    throw new Error("Doctor не пройден. Исправь ошибки и запусти снова.");
+    throw new Error(text.doctorFailed);
   }
 
   const dryRun = !Boolean(optionsAnswer.apply);
   const overwriteMode = optionsAnswer.overwrite ? "overwrite" : "skip";
   if (dryRun) {
-    warn("Выбран preview-режим без записи файлов.");
+    warn(text.dryRunMode);
   }
 
   const { state, result } = await runInstall({
@@ -383,7 +455,7 @@ async function runInteractiveWizard(): Promise<void> {
   info(`Files planned: ${result.plannedFiles.length}`);
   if (dryRun) {
     info(`Files would write: ${result.writtenFiles.length}`);
-    success("Preview completed.");
+    success(text.previewCompleted);
   } else {
     info(`Files written: ${result.writtenFiles.length}`);
     if (result.backupDir) {
