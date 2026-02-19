@@ -36,14 +36,14 @@ const targetLayouts: Record<TargetId, PlatformLayout> = {
     orchestratorMirrorFile: "AGENTS.md",
     agentsDir: ".gemini/agents",
     skillsDir: ".gemini/skills",
-    notes: "Uses GEMINI.md convention and .gemini folder for role/skill docs.",
+    notes: "Uses GEMINI.md and antugravity-style layout with per-agent folders and script-oriented skills.",
   },
   "gpt-codex": {
     instructionFile: "CODEX.md",
     orchestratorMirrorFile: "AGENTS.md",
-    agentsDir: ".codex/agents",
-    skillsDir: ".codex/skills",
-    notes: "Uses CODEX.md and .codex folder for role/skill docs.",
+    agentsDir: "agents",
+    skillsDir: ".agents",
+    notes: "Uses AGENTS.md/agents/.agents layout compatible with Codex agent and skills discovery.",
   },
 };
 
@@ -126,6 +126,10 @@ function planForLayout(
   selectedSkills: string[],
   target: TargetId,
 ): InstallOperation[] {
+  if (target === "google-antugravity") {
+    return planForGeminiLayout(layout, catalog, destinationDir, selectedAgents, selectedSkills, target);
+  }
+
   const operations: InstallOperation[] = [];
 
   operations.push({
@@ -145,6 +149,15 @@ function planForLayout(
     generated: true,
     content: instructionContent,
   });
+
+  if (target === "qwen-3.5") {
+    operations.push({
+      sourcePath: "<generated>",
+      destinationPath: path.join(destinationDir, ".qwen", "settings.json"),
+      generated: true,
+      content: renderQwenSettings(),
+    });
+  }
 
   for (const agentName of selectedAgents) {
     const sourcePath = catalog.agentFiles[agentName];
@@ -182,6 +195,95 @@ function planForLayout(
 }
 
 /**
+ * Plans google-antugravity specific layout with per-agent folders and script-first skills.
+ * @param layout Platform layout.
+ * @param catalog Source catalog.
+ * @param destinationDir Destination root.
+ * @param selectedAgents Selected agent names.
+ * @param selectedSkills Selected skill names.
+ * @param target Target id.
+ * @returns Planned operations list.
+ */
+function planForGeminiLayout(
+  layout: PlatformLayout,
+  catalog: SourceCatalog,
+  destinationDir: string,
+  selectedAgents: string[],
+  selectedSkills: string[],
+  target: TargetId,
+): InstallOperation[] {
+  const operations: InstallOperation[] = [];
+
+  operations.push({
+    sourcePath: catalog.orchestratorPath,
+    destinationPath: path.join(destinationDir, layout.orchestratorMirrorFile),
+    generated: false,
+    transform: {
+      target,
+      assetType: "orchestrator",
+    },
+  });
+
+  const instructionContent = renderInstructionFile(target, selectedAgents, selectedSkills);
+  operations.push({
+    sourcePath: "<generated>",
+    destinationPath: path.join(destinationDir, layout.instructionFile),
+    generated: true,
+    content: instructionContent,
+  });
+
+  for (const agentName of selectedAgents) {
+    const sourcePath = catalog.agentFiles[agentName];
+    if (!sourcePath) {
+      continue;
+    }
+
+    operations.push({
+      sourcePath,
+      destinationPath: path.join(destinationDir, layout.agentsDir, agentName, "prompt.md"),
+      generated: false,
+      transform: {
+        target,
+        assetType: "agent",
+      },
+    });
+
+    operations.push({
+      sourcePath: "<generated>",
+      destinationPath: path.join(destinationDir, layout.agentsDir, agentName, "config.json"),
+      generated: true,
+      content: renderGeminiAgentConfig(agentName),
+    });
+  }
+
+  for (const skillName of selectedSkills) {
+    const sourcePath = catalog.skillFiles[skillName];
+    if (!sourcePath) {
+      continue;
+    }
+
+    operations.push({
+      sourcePath,
+      destinationPath: path.join(destinationDir, layout.skillsDir, `${skillName}.md`),
+      generated: false,
+      transform: {
+        target,
+        assetType: "skill",
+      },
+    });
+
+    operations.push({
+      sourcePath: "<generated>",
+      destinationPath: path.join(destinationDir, layout.skillsDir, `${skillName}.py`),
+      generated: true,
+      content: renderGeminiSkillStub(skillName),
+    });
+  }
+
+  return operations;
+}
+
+/**
  * Renders a platform-level instruction file with selected assets.
  * @param target Target id.
  * @param selectedAgents Selected agent list.
@@ -209,4 +311,51 @@ function renderInstructionFile(target: TargetId, selectedAgents: string[], selec
   lines.push("- Agents: see platform-specific agents directory.");
   lines.push("- Skills: see platform-specific skills directory.");
   return `${lines.join("\n")}\n`;
+}
+
+/**
+ * Renders default antugravity agent config file.
+ * @param agentName Agent identifier.
+ * @returns Config JSON.
+ */
+function renderGeminiAgentConfig(agentName: string): string {
+  return `${JSON.stringify(
+    {
+      name: agentName,
+      model: "gemini-2.5-pro",
+      promptFile: "prompt.md",
+      reasoning: "medium",
+      temperature: 0.2,
+    },
+    null,
+    2,
+  )}\n`;
+}
+
+/**
+ * Renders python stub for gemini skill file.
+ * @param skillName Skill identifier.
+ * @returns Python source code.
+ */
+function renderGeminiSkillStub(skillName: string): string {
+  return `\"\"\"Auto-generated skill stub for ${skillName}.\\nSee ${skillName}.md for behavior details.\"\"\"\\n\\n\\ndef run(input_text: str) -> str:\\n    \"\"\"Execute ${skillName} skill logic.\"\"\"\\n    return f\"${skillName}: {input_text}\"\\n`;
+}
+
+/**
+ * Renders default Qwen settings.json.
+ * @returns Qwen settings JSON.
+ */
+function renderQwenSettings(): string {
+  return `${JSON.stringify(
+    {
+      model: {
+        name: "qwen3-coder-plus",
+      },
+      context: {
+        fileName: ["QWEN.md", "AGENTS.md"],
+      },
+    },
+    null,
+    2,
+  )}\n`;
 }
