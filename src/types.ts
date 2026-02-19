@@ -2,6 +2,7 @@
  * Supported AI target identifiers.
  */
 export type TargetId = "vscode-copilot" | "claude" | "qwen-3.5" | "google-antugravity" | "gpt-codex";
+export type TemplateLanguage = "ru" | "en";
 
 /**
  * Defines one source file and destination path copy action.

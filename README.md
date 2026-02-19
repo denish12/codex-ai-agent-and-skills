@@ -47,12 +47,15 @@ code-ai targets
 
 # list available agents and skills from current repository
 code-ai list
+code-ai list --lang en
 
 # health checks
 code-ai doctor --target claude
+code-ai doctor --target claude --lang en
 
 # dry-run install (default)
 code-ai install --target claude --agents conductor,reviewer --skills board,security_review
+code-ai install --target claude --lang en --agents conductor,reviewer --skills board,security_review
 
 # install into a newly created folder under current directory
 code-ai install --target gpt-codex --create-dir my-new-project --agents all --skills all --apply
@@ -99,3 +102,4 @@ code-ai uninstall --target claude --apply
 - Target aliases are accepted: `copilot`, `codex`, `claude`, `qwen`, `google`, `antigravity`.
 - If your AI tool requires a custom location, pass `--destination <path>`.
 - Source templates are resolved automatically: current directory first, bundled package templates second.
+- Template language is selectable via `--lang ru|en` (default: `ru`).

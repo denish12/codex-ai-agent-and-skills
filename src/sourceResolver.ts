@@ -1,5 +1,6 @@
 ﻿import path from "node:path";
 import fs from "fs-extra";
+import type { TemplateLanguage } from "./types.js";
 
 /**
  * Resolves source root with agent templates.
@@ -10,6 +11,7 @@ export async function resolveSourceRoot(args: {
   projectDirOption?: string;
   cwd: string;
   packageRoot: string;
+  language: TemplateLanguage;
 }): Promise<string> {
   if (args.projectDirOption) {
     const explicitPath = path.resolve(args.projectDirOption);
@@ -19,14 +21,23 @@ export async function resolveSourceRoot(args: {
     throw new Error(`Invalid --project-dir: ${explicitPath}. Required: AGENTS.md, agents/, and .agents/.`);
   }
 
+  const bundledPath = getBundledPath(args.packageRoot, args.language);
   const cwdPath = path.resolve(args.cwd);
-  if (await isValidSourceRoot(cwdPath)) {
-    return cwdPath;
-  }
 
-  const bundledPath = path.resolve(args.packageRoot);
-  if (await isValidSourceRoot(bundledPath)) {
-    return bundledPath;
+  if (args.language === "en") {
+    if (await isValidSourceRoot(bundledPath)) {
+      return bundledPath;
+    }
+    if (await isValidSourceRoot(cwdPath)) {
+      return cwdPath;
+    }
+  } else {
+    if (await isValidSourceRoot(cwdPath)) {
+      return cwdPath;
+    }
+    if (await isValidSourceRoot(bundledPath)) {
+      return bundledPath;
+    }
   }
 
   throw new Error(
@@ -45,4 +56,17 @@ async function isValidSourceRoot(rootDir: string): Promise<boolean> {
   const dotAgentsDir = path.join(rootDir, ".agents");
 
   return (await fs.pathExists(orchestratorPath)) && (await fs.pathExists(agentsDir)) && (await fs.pathExists(dotAgentsDir));
+}
+
+/**
+ * Returns bundled templates root for selected language.
+ * @param packageRoot Installed package root.
+ * @param language Template language.
+ * @returns Absolute bundled source path.
+ */
+function getBundledPath(packageRoot: string, language: TemplateLanguage): string {
+  if (language === "en") {
+    return path.resolve(packageRoot, "locales", "en");
+  }
+  return path.resolve(packageRoot);
 }

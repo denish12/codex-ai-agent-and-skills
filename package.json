@@ -8,7 +8,8 @@
     "README.md",
     "AGENTS.md",
     "agents",
-    ".agents"
+    ".agents",
+    "locales"
   ],
   "bin": {
     "code-ai": "dist/index.js"

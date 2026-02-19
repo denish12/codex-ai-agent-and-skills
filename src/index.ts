@@ -9,7 +9,8 @@ import { runInstall, runUninstall } from "./installer.js";
 import { error, info, success, warn } from "./logger.js";
 import { getPlatformAdapters } from "./platforms/adapters.js";
 import { resolveSourceRoot } from "./sourceResolver.js";
-import type { TargetId } from "./types.js";
+import type { TargetId, TemplateLanguage } from "./types.js";
+import { printBanner } from "./banner.js";
 
 const program = new Command();
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -34,12 +35,15 @@ program
   .command("list")
   .description("List available bundled agents and skills")
   .option("--project-dir <path>", "Optional custom source root path")
-  .action(async (options: { projectDir?: string }) => {
+  .option("--lang <lang>", "Template language: ru | en", "ru")
+  .action(async (options: { projectDir?: string; lang: string }) => {
     try {
+      const language = normalizeLanguage(options.lang);
       const projectDir = await resolveSourceRoot({
         projectDirOption: options.projectDir,
         cwd: process.cwd(),
         packageRoot,
+        language,
       });
       const catalog = await loadSourceCatalog(projectDir);
       const agents = listAgentNames(catalog);
@@ -60,13 +64,16 @@ program
   .requiredOption("--target <id>", "Target AI id")
   .option("--project-dir <path>", "Optional custom source root path")
   .option("--destination <path>", "Destination root (default: current directory)")
-  .action(async (options: { target: string; projectDir?: string; destination?: string }) => {
+  .option("--lang <lang>", "Template language: ru | en", "ru")
+  .action(async (options: { target: string; projectDir?: string; destination?: string; lang: string }) => {
     try {
       const target = normalizeTarget(options.target);
+      const language = normalizeLanguage(options.lang);
       const projectDir = await resolveSourceRoot({
         projectDirOption: options.projectDir,
         cwd: process.cwd(),
         packageRoot,
+        language,
       });
       const destinationDir = path.resolve(options.destination ?? process.cwd());
       const report = await runDoctor(projectDir, destinationDir, target);
@@ -100,6 +107,7 @@ program
   .option("--project-dir <path>", "Optional custom source root path")
   .option("--destination <path>", "Destination root (default: current directory)")
   .option("--create-dir <name>", "Create child folder in current directory and install there")
+  .option("--lang <lang>", "Template language: ru | en", "ru")
   .option("--agents <list>", "Comma list of agents or 'all'", "all")
   .option("--skills <list>", "Comma list of skills or 'all'", "all")
   .option("--overwrite", "Overwrite existing files", false)
@@ -111,6 +119,7 @@ program
       projectDir?: string;
       destination?: string;
       createDir?: string;
+      lang: string;
       agents: string;
       skills: string;
       overwrite: boolean;
@@ -119,10 +128,12 @@ program
     }) => {
       try {
         const target = normalizeTarget(options.target);
+        const language = normalizeLanguage(options.lang);
         const projectDir = await resolveSourceRoot({
           projectDirOption: options.projectDir,
           cwd: process.cwd(),
           packageRoot,
+          language,
         });
         const baseDestination = path.resolve(options.destination ?? process.cwd());
         const destinationDir = options.createDir ? path.join(baseDestination, options.createDir) : baseDestination;
@@ -207,9 +218,27 @@ program
  * Runs interactive installer workflow when no subcommand is provided.
  */
 async function runInteractiveWizard(): Promise<void> {
+  printBanner();
+
+  const languageAnswer = await prompts({
+    type: "select",
+    name: "language",
+    message: "Выбери язык шаблонов:",
+    choices: [
+      { title: "Русский (ru)", value: "ru" },
+      { title: "English (en)", value: "en" },
+    ],
+    initial: 0,
+  });
+  if (!languageAnswer.language) {
+    warn("Установка отменена.");
+    return;
+  }
+  const language = normalizeLanguage(languageAnswer.language as string);
   const sourceRoot = await resolveSourceRoot({
     cwd: process.cwd(),
     packageRoot,
+    language,
   });
   const catalog = await loadSourceCatalog(sourceRoot);
   const adapters = getPlatformAdapters();
@@ -391,6 +420,19 @@ function normalizeTarget(rawTarget: string): TargetId {
     throw new Error(`Unsupported target '${rawTarget}'. Run 'code-ai targets' for full list.`);
   }
   return normalized;
+}
+
+/**
+ * Normalizes template language code.
+ * @param rawLanguage Raw language value.
+ * @returns Normalized template language.
+ */
+function normalizeLanguage(rawLanguage: string): TemplateLanguage {
+  const value = rawLanguage.trim().toLowerCase();
+  if (value === "ru" || value === "en") {
+    return value;
+  }
+  throw new Error(`Unsupported language '${rawLanguage}'. Use 'ru' or 'en'.`);
 }
 
 if (process.argv.length <= 2) {
