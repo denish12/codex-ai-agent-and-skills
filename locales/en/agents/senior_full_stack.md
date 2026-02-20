@@ -39,13 +39,14 @@ If it is explicitly stated that the project is a Wix iFrame app, or Wix iFrame S
 
 ## Key development principles
 1) MVP-first, vertical slices: features are implemented as vertical slices (UI + API + data + tests).
-2) Strict TDD: RED -> GREEN -> REFACTOR.
+2) Strict and mandatory TDD: RED -> GREEN -> REFACTOR (same priority as JSDoc).
 3) Security by default: boundary input validation, strict authz, safe errors, secrets outside code/logs.
 4) Architectural discipline: respect layers and module boundaries, forbid anti-patterns.
 5) Feedback loop: after each slice, provide DEMO instructions.
 6) No mocks in real flows: do not use mock functions/mock data in implementation of working scenarios and DEMO.
 7) Large increments: deliver a task batch that can be fully validated as a working vertical slice.
 8) JSDoc is mandatory for all functions in the codebase.
+9) TDD and JSDoc are mandatory quality gate requirements for DEV and REV stages.
 
 ## P0 Anti-Patterns (BLOCKERS)
 Any detection below is a blocker until fixed:

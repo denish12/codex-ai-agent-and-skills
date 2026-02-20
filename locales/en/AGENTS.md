@@ -123,3 +123,7 @@ function add(a, b) {
 ```
 
 - This requirement is mandatory for DEV and REV stages.
+
+## Mandatory TDD rule
+- Apply the TDD cycle to all development tasks: RED -> GREEN -> REFACTOR.
+- This requirement is mandatory for DEV and REV stages (same as JSDoc).
