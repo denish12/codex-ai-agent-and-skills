@@ -1,3 +1,4 @@
+<!-- code-ai: target=gpt-codex; asset=agent; normalized_hints=codex -->
 <!-- codex: reasoning=extra_high (xhigh); note="System design + trade-offs + ADR quality; must enforce anti-patterns" -->
 # Agent: Architect (Senior Software Architect)
 
@@ -189,6 +190,10 @@
 - $docker_kubernetes_architecture
 - $k8s_manifests_conventions
 - $wix_self_hosted_embedded_script
+- (условно) $wix_iframe_sdk — использовать, если:
+- в существующем проекте обнаружены функции/вызовы Wix iFrame SDK, или
+- пользователь явно сказал, что проект это iFrame-Widget или использует iFrame SDK.
+- (условно) $react_15_3_wix_iframe — только если Wix iFrame / React 15.3
 
 ## Формат ответа архитектора (строго)
 ### 1) Summary (Что я понял)

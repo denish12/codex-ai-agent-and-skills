@@ -1,7 +1,9 @@
-# AGENTS.md – Web Development Orchestra
+<!-- code-ai: target=gpt-codex; asset=orchestrator; normalized_hints=none -->
+<!-- codex: reasoning=medium; note="auto-adapted default" -->
+# AGENTS.md - Web Development Orchestra
 
-## Source of truth by role
-The roles are described in:
+## Source of truth by roles
+Roles are described in:
 - agents/conductor.md
 - agents/product_manager.md
 - agents/ux_ui_designer.md
@@ -10,14 +12,14 @@ The roles are described in:
 - agents/reviewer.md
 - agents/tester.md
 
-Follow these roles when working. If necessary, open the appropriate role file and apply.
+Follow these roles during work. If needed, open the corresponding role file and apply it.
 
 ---
 
 ## Skills (explicitly call)
 Use skills (folders with `SKILL.md`). Full list:
 
-###Core/Orchestration
+### Core / Orchestration
 - $board
 - $handoff
 - $memory
@@ -30,7 +32,7 @@ Use skills (folders with `SKILL.md`). Full list:
 - $pm_prd
 - $pm_backlog
 
-### UX/UI/Design
+### UX/UI / Design
 - $ux_discovery
 - $ux_spec
 - $ui_inventory
@@ -54,6 +56,8 @@ Use skills (folders with `SKILL.md`). Full list:
 - $docker_kubernetes_architecture
 - $k8s_manifests_conventions
 - $wix_self_hosted_embedded_script
+- $wix_iframe_sdk
+- $react_15_3_wix_iframe (conditional, only for Wix iFrame / React 15.3)
 
 ### Development (Senior Full Stack)
 - $tdd_workflow
@@ -74,7 +78,8 @@ Use skills (folders with `SKILL.md`). Full list:
 - $dev_reference_snippets
 - $mongodb_mongoose_best_practices
 - $wix_self_hosted_embedded_script
-- $react_15_3_wix_iframe (conditionally, only if Wix iFrame / React 15.3)
+- $wix_iframe_sdk
+- $react_15_3_wix_iframe (conditional, only for Wix iFrame / React 15.3)
 
 ### Review (Best Practices + Security)
 - $code_review_checklist
@@ -98,23 +103,23 @@ Use skills (folders with `SKILL.md`). Full list:
 ---
 
 ## Gates (Pipeline)
-PM(PRD) → UX(UX Spec) → ARCH(Architecture/ADR/Contracts) → DEV(TDD) → REV(Security/Best) → TEST(Test plan/report) → RG(Release Gate)
+PM(PRD) -> UX(UX Spec) -> ARCH(Architecture/ADR/Contracts) -> DEV(TDD) -> REV(Security/Best) -> TEST(Test plan/report) -> RG(Release Gate)
 
 ---
 
 ## Mandatory function documentation rule
-- For all functions in the code base, use a JSDoc block in the format:
+- For all functions in the codebase, use a JSDoc block in this format:
 
 ```js
 /**
- * Считает сумму двух чисел.
- * @param {number} a - Первое число.
- * @param {number} b - Второе число.
- * @returns {number} Сумма a и b.
+ * Calculates the sum of two numbers.
+ * @param {number} a - First number.
+ * @param {number} b - Second number.
+ * @returns {number} Sum of a and b.
  */
 function add(a, b) {
     return a + b;
 }
 ```
 
-- The requirement is mandatory for DEV and REV stages.
+- This requirement is mandatory for DEV and REV stages.

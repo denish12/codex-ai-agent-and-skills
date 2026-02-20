@@ -1,3 +1,5 @@
+<!-- code-ai: target=gpt-codex; asset=orchestrator; normalized_hints=none -->
+<!-- codex: reasoning=medium; note="auto-adapted default" -->
 # AGENTS.md — Оркестр веб-разработки
 
 ## Источник правды по ролям
@@ -54,6 +56,8 @@
 - $docker_kubernetes_architecture
 - $k8s_manifests_conventions
 - $wix_self_hosted_embedded_script
+- $wix_iframe_sdk
+- $react_15_3_wix_iframe (условно, только если Wix iFrame / React 15.3)
 
 ### Development (Senior Full Stack)
 - $tdd_workflow
@@ -74,6 +78,7 @@
 - $dev_reference_snippets
 - $mongodb_mongoose_best_practices
 - $wix_self_hosted_embedded_script
+- $wix_iframe_sdk
 - $react_15_3_wix_iframe (условно, только если Wix iFrame / React 15.3)
 
 ### Review (Best Practices + Security)
