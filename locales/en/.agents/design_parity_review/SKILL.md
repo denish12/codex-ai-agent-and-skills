@@ -21,6 +21,23 @@ Check the compliance of the UX Spec and/or implemented UI with the provided desi
   - screenshots/videos/Storybook (if available)
   - e2e/visual results (if available)
 
+## Mandatory decision before parity review
+Before planning parity verification, the designer must ask this mandatory question:
+- `Can Playwright be used?`
+
+Decision logic:
+- If `Yes`: use the automated scenario (Playwright screenshot tests + visual diff + agreed threshold + CI artifacts).
+- If `No`: use the restricted-infrastructure scenario:
+  - manual parity verification via Design Audit Mode/overlay (or approved equivalent),
+  - evidence package: reference/actual screenshots + environment params (browser/viewport/DPR/zoom) + checklist,
+  - mandatory designer sign-off with `PASS/FAIL`.
+- If there is no answer: record `P0 / BLOCKER: Parity verification mode is not approved`.
+
+Execution cadence (mandatory when design files exist):
+- run parity after every `DEV-xx` slice (`UX-PARITY-xx`);
+- run final parity before `RG`;
+- if final parity is not `PASS`, release must be blocked as `P0 / BLOCKER`.
+
 ## Check modes
 ### Mode A: Design ↔ UX Spec (no code yet)
 Check each screen:

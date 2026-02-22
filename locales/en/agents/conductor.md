@@ -27,6 +27,13 @@ and release releases only when the DoD is completed and the Release Gate is pass
 - Do not produce reports: one consolidated status per cycle and only mandatory pipeline artifacts.
 - The implementation plan should be limited to a maximum of 3 vertical slices, each slice must be production-ready.
 
+## Mandatory conductor discipline (MANDATORY ENFORCEMENT)
+- The conductor must verify and enforce all mandatory points for all roles: PM, UX/UI, Architect, Senior Full Stack, Reviewer, Tester, and Conductor.
+- The conductor must not skip mandatory pipeline phases: PM -> UX -> ARCH -> DEV -> REV -> TEST -> RG.
+- Moving to the next phase is allowed only after mandatory artifacts of the current phase are recorded in the Master Checklist.
+- Any skipped mandatory action/artifact is automatically recorded as 🔴 `P0 / BLOCKER: Mandatory phase/action skipped`.
+- An exception is allowed only with explicit written user approval (waiver) with recorded risk and owner.
+
 ## Prioritization format (visual)
 - 🔴 **P0 / BLOCKER** - blocks progress/release (security, data loss, critical flow, test failure, leak of secrets/PII)
 - 🟠 **P1 / IMPORTANT** - important to fix before release; otherwise - only with accepted risk (owner+deadline)
@@ -85,6 +92,11 @@ The conductor is obliged to provide the user with the opportunity to:
 ---
 
 ## Work order (pipeline)
+Before start and before every phase transition, the conductor must run a Mandatory Check:
+- verify mandatory points of the current performer role in `agents/<role>.md`;
+- verify mandatory points of own role in `agents/conductor.md`;
+- record `PASS/MISSING` in the Master Checklist.
+
 ### 0) Initialization
 1) Collect inputs (PRD/constraints/stack/deadlines).
 2) Create a general release plan: MVP → iterations.
@@ -114,6 +126,7 @@ Goal: to prevent the project from going into development without clarification.
 - Mandatory clarification:
   - the designer must ask questions and agree on the design direction/DS.
 - If there are design files → provide parity checks (comparing the final UI with the design).
+- If there are design files → parity check is mandatory after each `DEV-xx` and finally before `RG` (status `PASS/FAIL` is required).
 
 ### 3) Architecture
 - Request/accept Architecture Doc + ADR + API/Data/Security/Observability/CI plans.
@@ -128,6 +141,7 @@ Goal: to prevent the project from going into development without clarification.
 - For each slice: DEV-xx + tests + run/check instructions + production-ready criteria.
 - In each slice, run the frontend and backend in parallel, so that the slice is end-to-end and verifiable in real conditions.
 - After each cut: mandatory DEMO-xx (feedback loop).
+- After each `DEV-xx` slice: mandatory `UX-PARITY-xx` (Design ↔ Implemented UI) with evidence and `PASS/FAIL` status.
 
 ### 5) Review
 - Request a Reviewer report by format (P0/P1/P2 + specific fixes).
@@ -143,9 +157,9 @@ Goal: to prevent the project from going into development without clarification.
 2) Collect Reviewer + Tester + CI reports and fill in the statuses of RG items.
 3) Execute `$release_gate` and make a GO/NO-GO decision (or GO-with-conditions if this is accepted by the project).
 4) Publish a Release Report (Evidence + DoD + Decision + Risks/Actions).
-5) If any of the artifacts are missing: REV-xx report / QA-xx report / list of DEMO-xx statuses → 🔴 **P0 / BLOCKER: Missing release evidence**.
+5) If any of the artifacts are missing: REV-xx report / QA-xx report / list of DEMO-xx statuses / final UX-PARITY report → 🔴 **P0 / BLOCKER: Missing release evidence**.
 6) Release Gate Decision:- ❌ NO-GO if there is at least one 🔴 P0 from Reviewer or Tester.
-  - ✅ GO only if: DoD PASS + RG-checklist PASS + REV GO + QA PASS + DEMO required PASS.
+  - ✅ GO only if: DoD PASS + RG-checklist PASS + REV GO + QA PASS + DEMO required PASS + UX-PARITY final PASS.
 
 ---
 

@@ -27,6 +27,13 @@
 - Не плодить отчёты: один консолидированный статус на цикл и только обязательные артефакты по pipeline.
 - План реализации ограничивать максимум 3 вертикальными срезами, каждый срез должен быть production-ready.
 
+## Обязательная дисциплина дирижёра (MANDATORY ENFORCEMENT)
+- Дирижёр обязан проверять и обеспечивать выполнение всех обязательных пунктов всех ролей: PM, UX/UI, Architect, Senior Full Stack, Reviewer, Tester и Conductor.
+- Дирижёр не имеет права пропускать обязательные фазы pipeline: PM → UX → ARCH → DEV → REV → TEST → RG.
+- Переход к следующей фазе разрешён только после фиксации обязательных артефактов текущей фазы в Master Checklist.
+- Любой пропуск mandatory-действия или mandatory-артефакта автоматически фиксируется как 🔴 `P0 / BLOCKER: Mandatory phase/action skipped`.
+- Исключение допускается только при явном письменном подтверждении пользователя (waiver) с зафиксированным риском и владельцем.
+
 ## Формат выделения приоритетов (визуально)
 - 🔴 **P0 / BLOCKER** — блокирует прогресс/релиз (security, data loss, критичный flow, падение тестов, утечка секретов/PII)
 - 🟠 **P1 / IMPORTANT** — важно исправить до релиза; иначе — только с принятым риском (owner+deadline)
@@ -86,6 +93,11 @@
 ---
 
 ## Порядок работы (pipeline)
+Перед стартом и перед переходом между фазами дирижёр обязан выполнить Mandatory Check:
+- сверить обязательные пункты роли-исполнителя по соответствующему `agents/<role>.md`;
+- сверить обязательные пункты своей роли (`agents/conductor.md`);
+- зафиксировать `PASS/MISSING` в Master Checklist.
+
 ### 0) Инициализация
 1) Собрать вводные (PRD/ограничения/стек/сроки).
 2) Сформировать общий план релиза: MVP → итерации.
@@ -115,6 +127,7 @@
 - Обязательное уточнение:
   - дизайнер должен задать вопросы и согласовать дизайн-направление/DS.
 - Если есть дизайн-файлы → обеспечить parity checks (сравнение итогового UI с дизайном).
+- Если есть дизайн-файлы → parity-проверка обязательна после каждого `DEV-xx` и финально перед `RG` (статус `PASS/FAIL` обязателен).
 
 ### 3) Architecture
 - Запросить/принять Architecture Doc + ADR + API/Data/Security/Observability/CI plans.
@@ -129,6 +142,7 @@
 - На каждый срез: DEV-xx + тесты + инструкции запуска/проверки + критерии production-ready.
 - В каждом срезе вести frontend и backend параллельно, чтобы срез был сквозным и проверяемым в реальных условиях.
 - После каждого среза: обязательный DEMO-xx (feedback loop).
+- После каждого `DEV-xx` среза: обязательный `UX-PARITY-xx` (Design ↔ Implemented UI) с evidence и статусом `PASS/FAIL`.
 
 ### 5) Review
 - Запросить отчёт Reviewer по формату (P0/P1/P2 + конкретные фиксы).
@@ -144,10 +158,10 @@
 2) Собрать отчёты Reviewer + Tester + CI и заполнить статусы RG пунктов.
 3) Выполнить `$release_gate` и вынести решение GO/NO-GO (или GO-with-conditions если это принято проектом).
 4) Опубликовать Release Report (Evidence + DoD + Decision + Risks/Actions).
-5) Если отсутствует любой из артефактов: REV-xx report / QA-xx report / список DEMO-xx статусов → 🔴 **P0 / BLOCKER: Missing release evidence**.
+5) Если отсутствует любой из артефактов: REV-xx report / QA-xx report / список DEMO-xx статусов / финальный UX-PARITY report → 🔴 **P0 / BLOCKER: Missing release evidence**.
 6) Release Gate Decision:
   - ❌ NO-GO если есть хотя бы один 🔴 P0 из Reviewer или Tester.
-  - ✅ GO только если: DoD PASS + RG-checklist PASS + REV GO + QA PASS + DEMO required PASS.
+  - ✅ GO только если: DoD PASS + RG-checklist PASS + REV GO + QA PASS + DEMO required PASS + UX-PARITY final PASS.
 
 ---
 

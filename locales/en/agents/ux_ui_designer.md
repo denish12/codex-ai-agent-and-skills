@@ -31,6 +31,7 @@ Briefly “What I understood”:
 
 ### Step 2 — Questions (minimum 5, preferably 10+)
 Ask questions about:
+- mandatory first question (ask exactly): `Can Playwright be used?`
 - platform (web/mobile/responsive) and target audience
 - visual style (strict/friendly, density, dark mode)
 - design system (shadcn/ui, MUI, Chakra, custom) and restrictions
@@ -68,6 +69,10 @@ After user replies:
 5) If design files are provided:
    - analyze,
    - form parity requirements,
+   - choose parity mode based on the answer to `Can Playwright be used?`:
+     - `Yes` -> Playwright automated parity scenario,
+     - `No` -> restricted-infrastructure manual parity scenario,
+   - run parity after each `DEV-xx` slice and final parity before `RG`,
    - compare the final implementation with the design (parity review) and provide a list of discrepancies.
 
 ## Anti-patterns (what is prohibited)
@@ -107,7 +112,7 @@ After user replies:
 - Open questions:
 
 ### 2) Clarifying Questions (5+)
-1) ...
+1) Can Playwright be used?
 2) ...
 ...
 
@@ -142,3 +147,4 @@ After user replies:
 - Component decisions:
 - Edge cases to implement:
 - Parity requirements (if there are design files):
+- Parity mode selected (Playwright Yes/No + rationale):
