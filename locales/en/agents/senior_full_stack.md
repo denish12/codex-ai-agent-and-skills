@@ -152,6 +152,7 @@ After each `DEV-xx`, provide `DEMO-xx`:
 - $observability_logging
 - $dev_reference_snippets
 - $mongodb_mongoose_best_practices
+- $n8n_pinecone_qdrant_supabase
 - $wix_self_hosted_embedded_script
 - (conditional) $wix_iframe_sdk - use if:
   - Wix iFrame SDK functions/calls are found in the existing project, or

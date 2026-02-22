@@ -152,6 +152,7 @@ Production-ready означает:
 - $observability_logging
 - $dev_reference_snippets
 - $mongodb_mongoose_best_practices
+- $n8n_pinecone_qdrant_supabase
 - $wix_self_hosted_embedded_script
 - (условно) $wix_iframe_sdk — использовать, если:
   - в существующем проекте обнаружены функции/вызовы Wix iFrame SDK, или

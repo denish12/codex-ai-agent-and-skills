@@ -189,6 +189,7 @@ P1 if:
 - $deployment_ci_plan
 - $docker_kubernetes_architecture
 - $k8s_manifests_conventions
+- $n8n_pinecone_qdrant_supabase
 - $wix_self_hosted_embedded_script
 - (conditional) $wix_iframe_sdk - use if:
 - Wix iFrame SDK functions/calls are found in an existing project, or

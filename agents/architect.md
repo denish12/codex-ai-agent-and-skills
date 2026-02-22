@@ -189,6 +189,7 @@
 - $deployment_ci_plan
 - $docker_kubernetes_architecture
 - $k8s_manifests_conventions
+- $n8n_pinecone_qdrant_supabase
 - $wix_self_hosted_embedded_script
 - (условно) $wix_iframe_sdk — использовать, если:
 - в существующем проекте обнаружены функции/вызовы Wix iFrame SDK, или

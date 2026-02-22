@@ -55,6 +55,7 @@ Use skills (folders with `SKILL.md`). Full list:
 - $deployment_ci_plan
 - $docker_kubernetes_architecture
 - $k8s_manifests_conventions
+- $n8n_pinecone_qdrant_supabase
 - $wix_self_hosted_embedded_script
 - $wix_iframe_sdk
 - $react_15_3_wix_iframe (conditional, only for Wix iFrame / React 15.3)
@@ -77,6 +78,7 @@ Use skills (folders with `SKILL.md`). Full list:
 - $observability_logging
 - $dev_reference_snippets
 - $mongodb_mongoose_best_practices
+- $n8n_pinecone_qdrant_supabase
 - $wix_self_hosted_embedded_script
 - $wix_iframe_sdk
 - $react_15_3_wix_iframe (conditional, only for Wix iFrame / React 15.3)
