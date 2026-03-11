@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Supported AI target identifiers.
  */
 export type TargetId = "vscode-copilot" | "claude" | "qwen-3.5" | "google-antugravity" | "gpt-codex";
@@ -12,6 +12,7 @@ export interface InstallOperation {
   destinationPath: string;
   generated: boolean;
   content?: string;
+  optional?: boolean;
   transform?: {
     target: TargetId;
     assetType: "orchestrator" | "agent" | "skill";

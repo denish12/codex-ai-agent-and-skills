@@ -1,4 +1,4 @@
-﻿import path from "node:path";
+import path from "node:path";
 import fs from "fs-extra";
 import type { InstallOperation, InstallOptions, InstallState } from "./types.js";
 import { getPlatformAdapter } from "./platforms/adapters.js";
@@ -136,6 +136,12 @@ async function applyOperations(args: {
     for (const operation of args.operations) {
       const destination = operation.destinationPath;
       plannedFiles.push(destination);
+
+      if (!operation.generated && operation.optional && !(await fs.pathExists(operation.sourcePath))) {
+        skippedFiles.push(destination);
+        continue;
+      }
+
       const exists = await fs.pathExists(destination);
       if (exists && args.overwriteMode === "skip") {
         skippedFiles.push(destination);

@@ -1,6 +1,7 @@
-﻿import fs from "fs-extra";
-import { getPlatformAdapter } from "./platforms/adapters.js";
+import fs from "fs-extra";
 import { loadSourceCatalog } from "./catalog.js";
+import { auditMetadataLayer } from "./metadataAudit.js";
+import { getPlatformAdapter } from "./platforms/adapters.js";
 import type { TargetId } from "./types.js";
 
 /**
@@ -23,6 +24,11 @@ export async function runDoctor(projectDir: string, destinationDir: string, targ
     const catalog = await loadSourceCatalog(projectDir);
     info.push(`Found ${Object.keys(catalog.agentFiles).length} agents.`);
     info.push(`Found ${Object.keys(catalog.skillFiles).length} skills.`);
+
+    const metadataAudit = await auditMetadataLayer(projectDir, catalog, target);
+    errors.push(...metadataAudit.errors);
+    warnings.push(...metadataAudit.warnings);
+    info.push(...metadataAudit.info);
   } catch (error) {
     errors.push((error as Error).message);
   }

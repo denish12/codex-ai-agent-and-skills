@@ -1,5 +1,6 @@
-﻿import path from "node:path";
+import path from "node:path";
 import type { InstallOperation, PlatformAdapter, SourceCatalog, TargetId } from "../types.js";
+import { appendOrchestratorMetadataOperations, appendSkillMetadataOperations } from "./metadataSidecars.js";
 
 interface PlatformLayout {
   instructionFile: string;
@@ -142,6 +143,12 @@ function planForLayout(
     },
   });
 
+  appendOrchestratorMetadataOperations(operations, {
+    sourceRoot: catalog.rootDir,
+    destinationDir,
+    target,
+  });
+
   const instructionContent = renderInstructionFile(target, selectedAgents, selectedSkills);
   operations.push({
     sourcePath: "<generated>",
@@ -189,6 +196,13 @@ function planForLayout(
         assetType: "skill",
       },
     });
+    appendSkillMetadataOperations(operations, {
+      sourceSkillFile: sourcePath,
+      destinationDir,
+      skillsDir: layout.skillsDir,
+      skillName,
+      target,
+    });
   }
 
   return operations;
@@ -222,6 +236,12 @@ function planForGeminiLayout(
       target,
       assetType: "orchestrator",
     },
+  });
+
+  appendOrchestratorMetadataOperations(operations, {
+    sourceRoot: catalog.rootDir,
+    destinationDir,
+    target,
   });
 
   const instructionContent = renderInstructionFile(target, selectedAgents, selectedSkills);
@@ -277,6 +297,14 @@ function planForGeminiLayout(
       destinationPath: path.join(destinationDir, layout.skillsDir, `${skillName}.py`),
       generated: true,
       content: renderGeminiSkillStub(skillName),
+    });
+
+    appendSkillMetadataOperations(operations, {
+      sourceSkillFile: sourcePath,
+      destinationDir,
+      skillsDir: layout.skillsDir,
+      skillName,
+      target,
     });
   }
 
