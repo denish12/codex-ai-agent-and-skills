@@ -37,7 +37,7 @@ const targetLayouts: Record<TargetId, PlatformLayout> = {
     orchestratorMirrorFile: "AGENTS.md",
     agentsDir: ".gemini/agents",
     skillsDir: ".gemini/skills",
-    notes: "Uses GEMINI.md and antugravity-style layout with per-agent folders and script-oriented skills.",
+    notes: "Uses AGENTS.md with GEMINI.md compatibility alias and antugravity-style layout with per-agent folders and script-oriented skills.",
   },
   "gpt-codex": {
     instructionFile: "CODEX.md",
@@ -244,12 +244,14 @@ function planForGeminiLayout(
     target,
   });
 
-  const instructionContent = renderInstructionFile(target, selectedAgents, selectedSkills);
   operations.push({
-    sourcePath: "<generated>",
+    sourcePath: catalog.orchestratorPath,
     destinationPath: path.join(destinationDir, layout.instructionFile),
-    generated: true,
-    content: instructionContent,
+    generated: false,
+    transform: {
+      target,
+      assetType: "orchestrator",
+    },
   });
 
   for (const agentName of selectedAgents) {

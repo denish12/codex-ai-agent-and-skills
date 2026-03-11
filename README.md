@@ -80,11 +80,11 @@ code-ai uninstall --target claude --apply
   - GPT Codex: `CODEX.md`
   - Claude: `CLAUDE.md`
   - Qwen: `QWEN.md`
-  - Google Antugravity: `GEMINI.md`
+  - Google Antugravity: `AGENTS.md` (`GEMINI.md` is also installed for compatibility)
 - Agent files copied to target-specific agents directory.
 - Skill files copied to target-specific skills directory.
 - For `gpt-codex`, assets are installed to `agents/` and `.agents/` for native Codex discovery.
-- For `google-antugravity`, assets are installed in antugravity-friendly structure:
+- For `google-antugravity`, root instructions are provided via `AGENTS.md`, and a mirrored `GEMINI.md` is installed for backward compatibility. Assets are installed in antugravity-friendly structure:
   - agents: `.gemini/agents/<agent>/prompt.md` and `.gemini/agents/<agent>/config.json`
   - skills: `.gemini/skills/<skill>.md` and `.gemini/skills/<skill>.py`
 - For `qwen-3.5`, installer also generates `.qwen/settings.json` with model/context defaults.

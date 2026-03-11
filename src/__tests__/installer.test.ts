@@ -189,6 +189,12 @@ describe("installer", () => {
       strictHints: false,
     });
 
+    expect(await fs.pathExists(path.join(destinationDir, "AGENTS.md"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, "GEMINI.md"))).toBe(true);
+
+    const installedAgents = await fs.readFile(path.join(destinationDir, "AGENTS.md"), "utf8");
+    const installedGemini = await fs.readFile(path.join(destinationDir, "GEMINI.md"), "utf8");
+    expect(installedGemini).toBe(installedAgents);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "agents", "reviewer", "prompt.md"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "agents", "reviewer", "config.json"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board.md"))).toBe(true);
