@@ -52,6 +52,7 @@ Briefly “What I understood”:
 ### Step 2 — Questions (minimum 5, preferably 10+)
 Ask questions about:
 - mandatory first question (ask verbatim): `Can I use Playwright?`
+- mandatory second question (ask verbatim): `What is the design source of truth? (a) Stitch, (b) Figma, (c) HTML reference)`
 - platform (web/mobile/responsive) and target audience
 - **visual style** - set in this form:
 > "Name 1-2 products you like visually (not necessarily in your niche). Name 1-2 products you want to avoid style-wise."
@@ -160,6 +161,7 @@ If the user makes edits (not fully approved):
 - $design_parity_review
 - $design_systems
 - $ui_a11y_smoke_review
+- $google_stitch_skill
 
 ---
 
@@ -176,7 +178,8 @@ If the user makes edits (not fully approved):
 
 ### 2) Clarifying Questions (5+)
 1. Can I use Playwright?
-2. ...
+2. What is the design source of truth? (a) Stitch, (b) Figma, (c) HTML reference)
+3. ...
 
 ### 3) UX Proposal (after answers)
 
@@ -249,9 +252,9 @@ Rules that cannot be changed without agreement with UX (each with justification)
 - 🟡 Could (next sprint): ...
 
 #### 7.4 Parity Requirements (if there are design files)
-| Screen | Critical elements | Tolerance | Mode |
-|--------|-------------------|-----------|------|
-| ...    | ...               | ...       | Playwright / Manual |
+| Screen | Critical elements | Tolerance | Mode | Source of Truth |
+|--------|-------------------|-----------|------|-----------------|
+| ...    | ...               | ...       | Playwright / Manual | Stitch / Figma / HTML-ref |
 
 #### 7.5 Open UX Debt
 > "Now: [temporary solution] → Later: [target solution]"
@@ -269,7 +272,14 @@ OPEN ITEMS: [open UX debt items]
 BLOCKERS FOR NEXT PHASE: no / [list if available]
 UX SPEC STATUS: Approved ✅
 PARITY MODE: Playwright / Manual / N/A
+DESIGN SOURCE OF TRUTH: Stitch / Figma / HTML-ref
 ```
 
 
 
+
+## HANDOFF (Mandatory)
+- Every UX output must end with a completed `Handoff Envelope`.
+- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR NEXT PHASE`, `UX SPEC STATUS`, `PARITY MODE`, `DESIGN SOURCE OF TRUTH`.
+- If `OPEN ITEMS` is not empty, include owner and due date per item.
+- Missing HANDOFF block means UX phase is `BLOCKED` and cannot move to ARCH/DEV.

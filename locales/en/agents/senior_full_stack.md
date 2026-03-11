@@ -72,6 +72,12 @@ Owner: Dev
 - Tight Coupling
 - God Object / God Component / God Service
 
+> Recommended maximum: 500 lines per file.
+> - Do not create files longer than 500 lines.
+> - When working in an existing file > 500 lines, extract logic into hooks, utils, or sub-components before handoff to REVIEW.
+> - One file = one responsibility.
+> - If decomposition is impossible, request an Architect decision with ADR.
+
 ---
 
 ## Operating procedure (strictly)
@@ -272,3 +278,9 @@ CI STATUS: GREEN ✅ / RED ❌
 
 
 
+
+## HANDOFF (Mandatory)
+- Every DEV output must end with a completed `Handoff Envelope`.
+- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR REVIEW`, `ANTI-PATTERN CHECK`, `JSDOC COVERAGE`, `CI STATUS`.
+- If `OPEN ITEMS` is not empty, include owner and due date per item.
+- Missing HANDOFF block means DEV phase is `BLOCKED` and cannot move to REV.

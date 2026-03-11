@@ -1,7 +1,7 @@
 interface:
-  display_name: "QA E2E Playwright"
-  short_description: "E2E testing with Playwright for critical user journeys: happy path, edge cases, network failure…"
-  default_prompt: "Use $qa_e2e_playwright when the task matches the \"QA E2E Playwright\" skill."
+  display_name: "E2E Playwright (CI/CD Automated)"
+  short_description: "Playwright-based E2E testing for CI/CD — automated spec files, page objects, visual regression,…"
+  default_prompt: "Use $qa_e2e_playwright when the task matches the \"E2E Playwright (CI/CD Automated)\" skill."
 dependencies:
   tools: []
 policy:

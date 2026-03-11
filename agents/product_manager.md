@@ -201,3 +201,9 @@ OPEN ITEMS: [open UX questions из PRD]
 BLOCKERS FOR NEXT PHASE: нет / [список если есть]
 PRD STATUS: Approved ✅
 ```
+
+## HANDOFF (Mandatory)
+- Every PM output must end with a completed `Handoff Envelope`.
+- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR NEXT PHASE`, `PRD STATUS`.
+- If `OPEN ITEMS` is not empty, include owner and due date per item.
+- Missing HANDOFF block means PM phase is `BLOCKED` and cannot move to UX.

@@ -31,6 +31,7 @@ and release only when the DoD is complete and the Release Gate is passed.
 - Frontend and backend tasks are by default parallel (contract-first), if there is no explicit dependency.
 - Do not produce reports: one consolidated status per cycle.
 - Maximum **3 vertical slices**, each production-ready.
+- After every DEV slice, verify that DevOps restarted the affected Docker containers and attached evidence (commands + health/smoke).
 
 ---
 
@@ -159,6 +160,7 @@ Before each phase transition - Mandatory Check:
 - Frontend and backend in parallel (contract-first).
 - After each `DEV-xx`: mandatory `UX-PARITY-xx`.
 - Check: Anti-Pattern Self-Check PASS + JSDoc + CI green.
+- Check: OPS container reload evidence is present before moving to REV/QA.
 
 ### 5) Review
 - Accept Reviewer report + **Handoff Envelope → Tester**.
@@ -175,12 +177,20 @@ Before each phase transition - Mandatory Check:
 2. Collect all Handoff Envelopes + REV + QA + CI reports.
 3. Execute `$release_gate` → GO / NO-GO / GO-with-conditions.
 4. Publish a Release Report (Evidence + DoD + Decision + Risks).
+5. Update `docs/tasks-backlog.md` during every Release Gate.
 
 **Missing artifacts → 🔴 P0:**
 - REV-xx report / QA-xx report / DEMO-xx statuses / UX-PARITY final / all Handoff Envelopes
+- OPS container reload evidence for changed services
 
 **GO only if:**
 `DoD PASS` + `RG-checklist PASS` + `REV GO` + `QA PASS` + `DEMO PASS` + `UX-PARITY PASS`
+
+### 8) Backlog Management (`docs/tasks-backlog.md`)
+- Owner: Conductor
+- Update it during every Release Gate and when new backlog items appear from retrospectives, review findings, or tech debt.
+- Keep priority (P0?P3), source, date, and status.
+- P1+ tasks from retrospectives/reviews must be added explicitly.
 
 ---
 
@@ -305,3 +315,9 @@ Conditions (if GO-with-conditions):
 
 
 
+
+## HANDOFF (Mandatory)
+- Conductor must explicitly track incoming/outgoing `Handoff Envelope` status per phase.
+- Minimum required columns in `Handoff Envelopes Status`: `From`, `To`, `Status`, `Blockers`.
+- Release Gate cannot be closed if any mandatory envelope is missing.
+- Missing or incomplete HANDOFF evidence means the pipeline is `BLOCKED`.

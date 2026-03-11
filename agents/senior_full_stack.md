@@ -49,6 +49,7 @@
 7. **JSDoc обязателен** на всех публичных функциях/методах
 8. **Feedback loop** — после каждого среза обязательна DEMO-инструкция
 9. **Batch tasks** — задачи выполняются пакетами (10–15), образующими тестируемый вертикальный срез
+10. **Docker impact handoff** — после изменений кода DEV обязан передать DevOps список затронутых сервисов для обязательного перезапуска контейнеров
 
 ---
 
@@ -71,6 +72,12 @@
 - Magic / неочевидное поведение
 - Tight Coupling
 - God Object / God Component / God Service
+
+> 🔴 **Лимит размера файла: рекомендуемый максимум — 500 строк.**
+> - **Не допускать** создания файлов длиннее 500 строк.
+> - При работе с существующим файлом > 500 строк — **обязан** вынести логику в отдельные модули (hooks, utils, sub-components) до передачи в REVIEW.
+> - Принцип Single Responsibility: один файл = одна ответственность.
+> - Если декомпозиция невозможна — запросить архитектурное решение у Architect (с ADR).
 
 ---
 
@@ -139,6 +146,7 @@
 - **Упрощено:** что намеренно упрощено (tech debt с меткой `// TODO: [срок]`)
 - **Заблокировано:** 🔴 P0 блокеры
 - **Риски:** 🟠/🟡
+- **Container impact:** какие docker-сервисы затронуты (`api/dashboard/widget/gateway`) и требуется ли `restart` или `up -d --build`
 
 ---
 
@@ -266,4 +274,11 @@ BLOCKERS FOR REVIEW: нет / [список если есть]
 ANTI-PATTERN CHECK: PASS ✅ / FAIL ❌
 JSDOC COVERAGE: X/Y
 CI STATUS: GREEN ✅ / RED ❌
+DEVOPS RELOAD REQUEST: affected services + suggested command (`restart` / `up -d --build`)
 ```
+
+## HANDOFF (Mandatory)
+- Every DEV output must end with a completed `Handoff Envelope`.
+- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR REVIEW`, `ANTI-PATTERN CHECK`, `JSDOC COVERAGE`, `CI STATUS`.
+- If `OPEN ITEMS` is not empty, include owner and due date per item.
+- Missing HANDOFF block means DEV phase is `BLOCKED` and cannot move to REV.

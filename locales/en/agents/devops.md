@@ -82,6 +82,13 @@ lint → typecheck → unit tests → integration tests → build → deploy (st
 - Rollback: automatic when smoke test fails or manual by command
 - CI should not contain secrets in logs
 
+### 2.1) Mandatory Docker Reload
+- After each DEV slice determine affected services (`api`, `dashboard`, `widget`, and if needed `gateway`).
+- Run `docker compose restart <service>` for runtime changes.
+- Run `docker compose up -d --build <service>` when Dockerfile, dependencies, build settings, or compose config changed.
+- Verify health/smoke after reload.
+- Record commands and evidence in the report and Handoff Envelope.
+
 ### 3) Secrets Management
 - No secrets in `.env` files in the repository
 - `.env.example` with a description of all variables (without values)
@@ -241,3 +248,9 @@ SECRETS STATUS: ✅ no secrets in code / ❌ [issues]
 INFRASTRUCTURE STATUS: Approved ✅ / Pending ⏳
 ```
 
+
+## HANDOFF (Mandatory)
+- Every DevOps output must end with a completed `Handoff Envelope`.
+- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR DEV`, `HTTPS STATUS`, `SECRETS STATUS`, `CONTAINER RELOAD STATUS`, `INFRASTRUCTURE STATUS`.
+- If `OPEN ITEMS` is not empty, include owner and due date per item.
+- Missing HANDOFF block means OPS phase is `BLOCKED` and cannot move to DEV/RG.

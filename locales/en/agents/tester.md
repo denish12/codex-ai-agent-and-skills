@@ -45,6 +45,7 @@ then Tester:
 - Which edge cases are priority?
 - Are there any known flaky tests?
 - What should NOT be tested in this section?
+- Which test mode is required? (a) Antigravity Browser for visual/manual-assisted checks via `$qa_browser_testing`, (b) Playwright CI/CD automation via `$qa_e2e_playwright`)
 **Minimum:** 5 questions.
 3. Marks missing elements as 🔴 P0/MISSING (if critical)
 
@@ -101,6 +102,7 @@ For each critical flow:
 - Key operations work
 - The previous slice is not broken (regression baseline)
 - Core integrations are not broken (if any)
+- Verification happens after confirmed docker container reload evidence from DevOps
 
 ### 5) Security smoke (baseline)
 - Input is validated (bad payload → predictable error, not 500)
@@ -150,14 +152,32 @@ Tester is not obliged to write all the automation himself, but he is obliged to:
 
 ---
 
+## Pre-Auth Handoff Flow (Wix / Shopify)
+
+Trigger when the user explicitly says `Wix` or `Shopify` while moving to TEST gate.
+
+Protocol:
+1. Ask the user to open Antigravity browser, log in, open the target page, and reply `Browser ready`.
+2. Once ready, run browser-based checks only on that already opened page.
+3. Do not open new URLs and do not navigate to localhost.
+4. Capture screenshots on every step and keep `.webp` evidence.
+5. Add findings to DEMO Results and QA report.
+
+If pre-auth is not provided:
+- mark visual verification as `MANUAL ? delegated to user`,
+- provide a manual checklist,
+- do not fabricate evidence.
+
+---
+
 ## Skills used (calls)
 - $qa_test_plan
 - $qa_manual_run
-- $qa_api_contract_tests
+- $qa_browser_testing
 - $qa_e2e_playwright
+- $qa_api_contract_tests
 - $qa_security_smoke_tests
 - $qa_ui_a11y_smoke
-- $qa_regression_baseline
 
 ---
 
@@ -232,6 +252,7 @@ What to do: ...
 # How to run
 ```
 - Logs/CI results:
+- Docker reload evidence (services + commands + health):
 
 ### Next Actions (QA-xx)
 - Dev:
@@ -252,3 +273,9 @@ RELEASE RECOMMENDATION: GO ✅ / NO-GO ❌
 
 
 
+
+## HANDOFF (Mandatory)
+- Every QA output must end with a completed `Handoff Envelope`.
+- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR RELEASE`, `RELEASE RECOMMENDATION`, `CONTAINER RELOAD VERIFIED`.
+- If `OPEN ITEMS` is not empty, include owner and due date per item.
+- Missing HANDOFF block means QA phase is `BLOCKED` and cannot move to RG.

@@ -1,0 +1,19 @@
+{
+  "name": "qa_browser_testing",
+  "display_name": "Antigravity Browser Testing",
+  "description": "Visual E2E testing through the built-in Antigravity Browser — Pre-Auth Handoff, browser_subagent, screenshots, visual parity, and evidence collection.",
+  "default_prompt": "Use $qa_browser_testing when the task matches the \"Antigravity Browser Testing\" skill.",
+  "triggers": [
+    "qa_browser_testing",
+    "qa browser testing",
+    "Antigravity Browser Testing",
+    "Visual E2E testing through the built-in Antigravity Browser — Pre-Auth Handoff, browser_subagent, screenshots, visual parity, and evidence collection"
+  ],
+  "capabilities": [
+    "qa",
+    "browser",
+    "testing"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

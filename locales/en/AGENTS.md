@@ -8,6 +8,7 @@ Roles are described in:
 - agents/product_manager.md
 - agents/ux_ui_designer.md
 - agents/architect.md
+- agents/devops.md
 - agents/senior_full_stack.md
 - agents/reviewer.md
 - agents/tester.md
@@ -41,6 +42,7 @@ Use skills (folders with `SKILL.md`). Full list:
 - $design_parity_review
 - $design_systems
 - $ui_a11y_smoke_review
+- $google_stitch_skill
 
 ### Architecture
 - $current_state_analysis
@@ -98,6 +100,7 @@ Use skills (folders with `SKILL.md`). Full list:
 - $qa_test_plan
 - $qa_manual_run
 - $qa_api_contract_tests
+- $qa_browser_testing
 - $qa_security_smoke_tests
 - $qa_ui_a11y_smoke
 - $qa_e2e_playwright
@@ -105,7 +108,7 @@ Use skills (folders with `SKILL.md`). Full list:
 ---
 
 ## Gates (Pipeline)
-PM(PRD) -> UX(UX Spec) -> ARCH(Architecture/ADR/Contracts) -> DEV(TDD) -> REV(Security/Best) -> TEST(Test plan/report) -> RG(Release Gate)
+PM(PRD) -> UX(UX Spec) -> ARCH(Architecture/ADR/Contracts) -> DEV(TDD) -> REV(Security/Best) -> OPS(Infrastructure/CI-CD) -> TEST(Test plan/report) -> RG(Release Gate)
 
 ---
 

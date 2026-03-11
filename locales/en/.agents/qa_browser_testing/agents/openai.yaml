@@ -1,0 +1,8 @@
+interface:
+  display_name: "Antigravity Browser Testing"
+  short_description: "Visual E2E testing through the built-in Antigravity Browser — Pre-Auth Handoff, browser_subagen…"
+  default_prompt: "Use $qa_browser_testing when the task matches the \"Antigravity Browser Testing\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

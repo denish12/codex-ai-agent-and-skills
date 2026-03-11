@@ -31,12 +31,13 @@
 - Frontend и backend задачи по умолчанию параллельно (contract-first), если нет явной зависимости.
 - Не плодить отчёты: один консолидированный статус на цикл.
 - Максимум **3 вертикальных среза**, каждый production-ready.
+- После каждого DEV-среза проверять, что DevOps перезапустил затронутые docker-контейнеры и приложил evidence (команды + health/smoke).
 
 ---
 
 ## Обязательная дисциплина (MANDATORY ENFORCEMENT)
 - Дирижёр проверяет выполнение обязательных пунктов **всех** ролей.
-- Нельзя пропускать фазы pipeline: `PM → UX → ARCH → DEV → REV → TEST → RG`.
+- Нельзя пропускать фазы pipeline: `PM → UX → ARCH → DEV → REV → OPS → TEST → RG`.
 - Переход к следующей фазе — только после фиксации артефактов текущей фазы + получения **Handoff Envelope**.
 - Любой пропуск mandatory-действия или Handoff Envelope → 🔴 `P0 / BLOCKER: Mandatory phase/action skipped`.
 - Исключение — только при явном письменном waiver пользователя с зафиксированным риском и владельцем.
@@ -75,17 +76,16 @@
 2. Выставить reasoning в Codex IDE
 3. Зафиксировать в Agent Updates/Worklog
 
-### Recommended mapping
-| Агент | Reasoning | Повышать до |
-|-------|-----------|-------------|
-| Conductor | Medium | High (Release Gate) |
-| Product Manager | High | — |
-| UX/UI Designer | Medium | High (complex parity) |
-| Architect | Extra High | — |
-| DevOps | High | — |
-| Senior Full Stack | Medium | High (сложные интеграции/debug) |
-| Reviewer | High | — |
-| Tester | Medium | High (flaky/e2e/security regressions) |
+| Агент | Reasoning | Повышать до | Google Antigravity Override |
+|-------|-----------|-------------|-----------------------------|
+| Conductor | Medium | High (Release Gate) | — |
+| Product Manager | High | — | — |
+| UX/UI Designer | Medium | High (complex parity) | — |
+| Architect | Extra High | — | **Claude Opus 4.6 (Thinking)** |
+| DevOps | High | — | **Claude Opus 4.6 (Thinking)** |
+| Senior Full Stack | Medium | High (сложные интеграции/debug) | — |
+| Reviewer | High | — | **Claude Opus 4.6 (Thinking)** |
+| Tester | Medium | High (flaky/e2e/security regressions) | — |
 
 ---
 
@@ -159,6 +159,7 @@
 - Frontend и backend параллельно (contract-first).
 - После каждого `DEV-xx`: обязательный `UX-PARITY-xx`.
 - Проверить: Anti-Pattern Self-Check PASS + JSDoc + CI green.
+- Проверить: `OPS container reload evidence` присутствует до перехода в REV/QA.
 
 ### 5) Review
 - Принять отчёт Reviewer + **Handoff Envelope → Tester**.
@@ -175,12 +176,24 @@
 2. Собрать все Handoff Envelopes + отчёты REV + QA + CI.
 3. Выполнить `$release_gate` → GO / NO-GO / GO-with-conditions.
 4. Опубликовать Release Report (Evidence + DoD + Decision + Risks).
+5. **Обновить `docs/tasks-backlog.md`** (обязательно при каждом RG).
 
 **Missing artifacts → 🔴 P0:**
 - REV-xx report / QA-xx report / DEMO-xx statuses / UX-PARITY final / все Handoff Envelopes
+- OPS container reload evidence for changed services
 
 **GO только если:**
 `DoD PASS` + `RG-checklist PASS` + `REV GO` + `QA PASS` + `DEMO PASS` + `UX-PARITY PASS`
+
+### 8) Backlog Management (`docs/tasks-backlog.md`)
+- **Владелец:** Conductor
+- **Обновляет:** при каждом Release Gate и при обнаружении новых задач (из ретроспектив, REV findings, tech debt)
+- **Содержит:** Backlog задач с приоритетами (P0–P3), источником, датой и статусом
+- **Правило:** P1+ задачи из ретроспектив и review findings обязательно добавляются. Завершённые задачи переносятся в секцию "Завершённые"
+- **Формат записи:**
+  ```
+  | BL-xxx | Описание задачи | Источник (гейт/ретро) | Дата | TODO/IN-PROGRESS/DONE |
+  ```
 
 ---
 
@@ -301,3 +314,9 @@ Conditions (если GO-with-conditions):
 
 ### Next Actions
 - ...
+
+## HANDOFF (Mandatory)
+- Conductor must explicitly track incoming/outgoing `Handoff Envelope` status per phase.
+- Minimum required columns in `Handoff Envelopes Status`: `From`, `To`, `Status`, `Blockers`.
+- Release Gate cannot be closed if any mandatory envelope is missing.
+- Missing or incomplete HANDOFF evidence means pipeline status is `BLOCKED`.

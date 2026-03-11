@@ -8,6 +8,7 @@
 - agents/product_manager.md
 - agents/ux_ui_designer.md
 - agents/architect.md
+- agents/devops.md
 - agents/senior_full_stack.md
 - agents/reviewer.md
 - agents/tester.md
@@ -41,6 +42,7 @@
 - $design_parity_review
 - $design_systems
 - $ui_a11y_smoke_review
+- $google_stitch_skill
 
 ### Architecture
 - $current_state_analysis
@@ -98,6 +100,7 @@
 - $qa_test_plan
 - $qa_manual_run
 - $qa_api_contract_tests
+- $qa_browser_testing
 - $qa_security_smoke_tests
 - $qa_ui_a11y_smoke
 - $qa_e2e_playwright
