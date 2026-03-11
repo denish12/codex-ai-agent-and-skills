@@ -1,5 +1,3 @@
-<!-- code-ai: target=gpt-codex; asset=skill; normalized_hints=none -->
-<!-- codex: reasoning=high; note="Integration architecture, data flows, security boundaries, and production hardening" -->
 ---
 name: n8n_pinecone_qdrant_supabase
 description: Практический skill для архитектора и разработчика по проектированию и реализации production-сценариев с n8n, Pinecone, Qdrant и Supabase (auth, RLS, data flow, observability, reliability).

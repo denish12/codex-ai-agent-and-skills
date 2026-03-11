@@ -1,5 +1,3 @@
-<!-- code-ai: target=gpt-codex; asset=skill; normalized_hints=none -->
-<!-- codex: reasoning=medium; note="auto-adapted default" -->
 ---
 name: wix_iframe_sdk
 description: Practical skill for legacy Wix iFrame SDK (deprecated): finding methods, events, parameters, SDK/Editor limits, and ready Syntax/Example blocks from a full local knowledge base. Use when you need to answer, develop, or migrate code for Wix iFrame SDK, Wix Hive, and deprecated HTTP API.
