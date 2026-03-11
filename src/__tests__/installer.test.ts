@@ -1,4 +1,4 @@
-﻿import os from "node:os";
+import os from "node:os";
 import path from "node:path";
 import fs from "fs-extra";
 import { afterEach, describe, expect, it } from "vitest";
@@ -7,7 +7,7 @@ import { runInstall, runUninstall } from "../installer.js";
 const tempRoots: string[] = [];
 
 /**
- * Creates isolated fixture project with one agent and one skill.
+ * Creates isolated fixture project with one agent, one skill, and sidecar metadata.
  * @returns Absolute fixture root path.
  */
 async function createFixtureProject(): Promise<string> {
@@ -15,12 +15,33 @@ async function createFixtureProject(): Promise<string> {
   tempRoots.push(root);
 
   await fs.outputFile(path.join(root, "AGENTS.md"), "# orchestrator\n", "utf8");
+  await fs.outputFile(path.join(root, "AGENTS.yaml"), 'name: "orchestrator"\n', "utf8");
   await fs.outputFile(
     path.join(root, "agents", "reviewer.md"),
-    "<!-- codex: reasoning=high; note=\"strict review\" -->\n# reviewer\n",
+    '<!-- codex: reasoning=high; note="strict review" -->\n# reviewer\n',
     "utf8",
   );
+  await fs.outputFile(
+    path.join(root, "agents", "orchestrator.openai.yaml"),
+    'interface:\n  display_name: "Orchestrator"\n',
+    "utf8",
+  );
+  await fs.outputJson(path.join(root, "agents", "orchestrator.claude.json"), { name: "orchestrator" }, { spaces: 2 });
+  await fs.outputJson(path.join(root, "agents", "orchestrator.gemini.json"), { name: "orchestrator" }, { spaces: 2 });
+  await fs.outputJson(path.join(root, "agents", "orchestrator.copilot.json"), { name: "orchestrator" }, { spaces: 2 });
+  await fs.outputJson(path.join(root, "agents", "orchestrator.qwen.json"), { name: "orchestrator" }, { spaces: 2 });
+
   await fs.outputFile(path.join(root, ".agents", "skills", "board", "SKILL.md"), "# board\n", "utf8");
+  await fs.outputFile(path.join(root, ".agents", "skills", "board", "agents", "skill.yaml"), 'name: "board"\n', "utf8");
+  await fs.outputFile(
+    path.join(root, ".agents", "skills", "board", "agents", "openai.yaml"),
+    'interface:\n  display_name: "Board"\n',
+    "utf8",
+  );
+  await fs.outputJson(path.join(root, ".agents", "skills", "board", "agents", "claude.json"), { name: "board" }, { spaces: 2 });
+  await fs.outputJson(path.join(root, ".agents", "skills", "board", "agents", "gemini.json"), { name: "board" }, { spaces: 2 });
+  await fs.outputJson(path.join(root, ".agents", "skills", "board", "agents", "copilot.json"), { name: "board" }, { spaces: 2 });
+  await fs.outputJson(path.join(root, ".agents", "skills", "board", "agents", "qwen.json"), { name: "board" }, { spaces: 2 });
 
   return root;
 }
@@ -95,6 +116,27 @@ describe("installer", () => {
     expect(installedAgent.includes("<!-- claude: thinking=high; note=\"strict review\" -->")).toBe(true);
   });
 
+  it("installs skill and orchestrator metadata sidecars for claude", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "claude",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(path.join(destinationDir, "AGENTS.yaml"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".claude", "orchestrator.claude.json"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".claude", "skills", "board", "agents", "skill.yaml"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".claude", "skills", "board", "agents", "claude.json"))).toBe(true);
+  });
+
   it("auto-adapts in strict-hints mode when native hint is missing", async () => {
     const projectDir = await createFixtureProject();
     const destinationDir = path.join(projectDir, "out");
@@ -151,6 +193,9 @@ describe("installer", () => {
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "agents", "reviewer", "config.json"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board.md"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board.py"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".gemini", "orchestrator.gemini.json"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board", "agents", "skill.yaml"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board", "agents", "gemini.json"))).toBe(true);
   });
 
   it("creates .qwen/settings.json for qwen target", async () => {
@@ -170,6 +215,8 @@ describe("installer", () => {
 
     const settingsPath = path.join(destinationDir, ".qwen", "settings.json");
     expect(await fs.pathExists(settingsPath)).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".qwen", "orchestrator.qwen.json"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".qwen", "skills", "board", "agents", "qwen.json"))).toBe(true);
 
     const settings = JSON.parse(await fs.readFile(settingsPath, "utf8")) as {
       model: { name: string };
