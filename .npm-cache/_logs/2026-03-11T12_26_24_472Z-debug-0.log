@@ -1,0 +1,30 @@
+0 verbose cli C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\node.exe C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.3
+2 info using node@v22.19.0
+3 silly config load:file:C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\node_modules\npm\npmrc
+4 silly config load:file:E:\Light-Tech\Web\codex-ai-agents-and-skills\.npmrc
+5 silly config load:file:C:\Users\denis\.npmrc
+6 silly config load:file:C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\etc\npmrc
+7 verbose title npm whoami
+8 verbose argv "whoami"
+9 verbose logfile logs-max:10 dir:E:\Light-Tech\Web\codex-ai-agents-and-skills\.npm-cache\_logs\2026-03-11T12_26_24_472Z-
+10 verbose logfile E:\Light-Tech\Web\codex-ai-agents-and-skills\.npm-cache\_logs\2026-03-11T12_26_24_472Z-debug-0.log
+11 silly logfile done cleaning log files
+12 http fetch GET 401 https://registry.npmjs.org/-/whoami 322ms (cache skip)
+13 verbose stack HttpErrorGeneral: 401 Unauthorized - GET https://registry.npmjs.org/-/whoami
+13 verbose stack     at C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\node_modules\npm\node_modules\npm-registry-fetch\lib\check-response.js:103:15
+13 verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+13 verbose stack     at async module.exports (C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\node_modules\npm\lib\utils\get-identity.js:14:26)
+13 verbose stack     at async Whoami.exec (C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\node_modules\npm\lib\commands\whoami.js:11:22)
+13 verbose stack     at async Npm.exec (C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\node_modules\npm\lib\npm.js:207:9)
+13 verbose stack     at async module.exports (C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\node_modules\npm\lib\cli\entry.js:74:5)
+14 verbose statusCode 401
+15 error code E401
+16 error 401 Unauthorized - GET https://registry.npmjs.org/-/whoami
+17 verbose cwd E:\Light-Tech\Web\codex-ai-agents-and-skills
+18 verbose os Windows_NT 10.0.19045
+19 verbose node v22.19.0
+20 verbose npm  v10.9.3
+21 verbose exit 1
+22 verbose code 1
+23 error A complete log of this run can be found in: E:\Light-Tech\Web\codex-ai-agents-and-skills\.npm-cache\_logs\2026-03-11T12_26_24_472Z-debug-0.log

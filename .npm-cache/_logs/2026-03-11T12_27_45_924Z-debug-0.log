@@ -1,0 +1,18 @@
+0 verbose cli C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\node.exe C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.3
+2 info using node@v22.19.0
+3 silly config load:file:C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\node_modules\npm\npmrc
+4 silly config load:file:E:\Light-Tech\Web\codex-ai-agents-and-skills\.npmrc
+5 silly config load:file:C:\Users\denis\.npmrc
+6 silly config load:file:C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VisualStudio\NodeJs\etc\npmrc
+7 verbose title npm run build
+8 verbose argv "run" "build"
+9 verbose logfile logs-max:10 dir:E:\Light-Tech\Web\codex-ai-agents-and-skills\.npm-cache\_logs\2026-03-11T12_27_45_924Z-
+10 verbose logfile E:\Light-Tech\Web\codex-ai-agents-and-skills\.npm-cache\_logs\2026-03-11T12_27_45_924Z-debug-0.log
+11 silly logfile done cleaning log files
+12 verbose cwd E:\Light-Tech\Web\codex-ai-agents-and-skills
+13 verbose os Windows_NT 10.0.19045
+14 verbose node v22.19.0
+15 verbose npm  v10.9.3
+16 verbose exit 0
+17 info ok
