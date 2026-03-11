@@ -1,0 +1,16 @@
+{
+  "name": "observability_plan",
+  "display_name": "Observability plan",
+  "description": "Observability plan: what logs/metrics/traces to collect, query correlation, log levels, alerts. No leakage of PII/secrets.",
+  "default_prompt": "Use $observability_plan when the task matches the \"Observability plan\" skill.",
+  "triggers": [
+    "observability_plan",
+    "observability plan"
+  ],
+  "capabilities": [
+    "observability",
+    "plan"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

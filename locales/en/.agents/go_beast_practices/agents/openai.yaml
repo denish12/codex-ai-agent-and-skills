@@ -1,0 +1,8 @@
+interface:
+  display_name: "Go best practices"
+  short_description: "Go best practices: simplicity, errors as values, interfaces, context, concurrency, project stru…"
+  default_prompt: "Use $go_beast_practices when the task matches the \"Go best practices\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

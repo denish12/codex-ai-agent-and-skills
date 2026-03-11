@@ -1,0 +1,20 @@
+{
+  "name": "qa_ui_a11y_smoke",
+  "display_name": "QA: UI и a11y smoke",
+  "description": "UI/a11y smoke: клавиатура/фокус, labels/aria, контраст базово, состояния форм и списков, соответствие UX Spec.",
+  "default_prompt": "Используй $qa_ui_a11y_smoke, когда задача относится к навыку \"QA: UI и a11y smoke\".",
+  "triggers": [
+    "qa_ui_a11y_smoke",
+    "qa ui a11y smoke",
+    "QA: UI и a11y smoke",
+    "UI/a11y smoke"
+  ],
+  "capabilities": [
+    "qa",
+    "ui",
+    "a11y",
+    "smoke"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

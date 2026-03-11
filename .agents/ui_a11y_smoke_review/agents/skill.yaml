@@ -1,0 +1,24 @@
+version: 1
+name: "ui_a11y_smoke_review"
+display_name: "UI и a11y smoke-ревью"
+description: "Быстрый UI/a11y smoke review: состояния loading/empty/error, фокус, клавиатура, aria/labels по a11y baseline и UX Spec."
+default_prompt: "Используй $ui_a11y_smoke_review, когда задача относится к навыку \"UI и a11y smoke-ревью\"."
+triggers:
+  - "ui_a11y_smoke_review"
+  - "ui a11y smoke review"
+  - "UI и a11y smoke-ревью"
+  - "Быстрый UI/a11y smoke review"
+capabilities:
+  - "ui"
+  - "a11y"
+  - "smoke"
+  - "review"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

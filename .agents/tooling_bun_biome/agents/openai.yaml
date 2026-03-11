@@ -1,0 +1,8 @@
+interface:
+  display_name: "Инструменты Bun и Biome"
+  short_description: "Tooling: biomejs (lint/format) и bunjs (runtime/package manager) — настройка скриптов, единый с…"
+  default_prompt: "Используй $tooling_bun_biome, когда задача относится к навыку \"Инструменты Bun и Biome\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

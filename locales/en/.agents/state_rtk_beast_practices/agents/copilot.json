@@ -1,0 +1,20 @@
+{
+  "name": "state_rtk_beast_practices",
+  "display_name": "RTK Beast Practices",
+  "description": "Redux Toolkit: predictable state for complex applications, slices, async thunks, normalization, selectors, testability.",
+  "default_prompt": "Use $state_rtk_beast_practices when the task matches the \"RTK Beast Practices\" skill.",
+  "triggers": [
+    "state_rtk_beast_practices",
+    "state rtk beast practices",
+    "RTK Beast Practices",
+    "Redux Toolkit"
+  ],
+  "capabilities": [
+    "state",
+    "rtk",
+    "beast",
+    "practices"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

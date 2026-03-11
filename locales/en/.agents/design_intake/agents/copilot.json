@@ -1,0 +1,18 @@
+{
+  "name": "design_intake",
+  "display_name": "Design Intake (collection of design sources)",
+  "description": "Find and analyze provided design materials (files/links), determine the “source of truth” for the UI and extract verifiable rules (screens, components, tokens, states).",
+  "default_prompt": "Use $design_intake when the task matches the \"Design Intake (collection of design sources)\" skill.",
+  "triggers": [
+    "design_intake",
+    "design intake",
+    "Design Intake (collection of design sources)",
+    "Find and analyze provided design materials (files/links), determine the “source of truth” for the UI and extract verifiable rules (screens, components, tokens, states)"
+  ],
+  "capabilities": [
+    "design",
+    "intake"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

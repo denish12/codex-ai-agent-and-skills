@@ -1,0 +1,16 @@
+{
+  "name": "handoff",
+  "display_name": "Передача контекста агентам",
+  "description": "Формирование Context Pack и постановка задачи агенту: цели, ограничения, артефакты, решения, вопросы, Definition of Done. Требует стандартного формата ответа.",
+  "default_prompt": "Используй $handoff, когда задача относится к навыку \"Передача контекста агентам\".",
+  "triggers": [
+    "handoff",
+    "Передача контекста агентам",
+    "Формирование Context Pack и постановка задачи агенту"
+  ],
+  "capabilities": [
+    "handoff"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

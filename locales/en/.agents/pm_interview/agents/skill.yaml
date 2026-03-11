@@ -1,0 +1,21 @@
+version: 1
+name: "pm_interview"
+display_name: "Structured interview/documentation analysis"
+description: "Structured interview/documentation analysis: collect goals, audience, MVP, limitations, integrations and success criteria so that you can write a PRD."
+default_prompt: "Use $pm_interview when the task matches the \"Structured interview/documentation analysis\" skill."
+triggers:
+  - "pm_interview"
+  - "pm interview"
+  - "Structured interview/documentation analysis"
+capabilities:
+  - "pm"
+  - "interview"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

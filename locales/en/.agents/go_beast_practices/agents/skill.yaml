@@ -1,0 +1,22 @@
+version: 1
+name: "go_beast_practices"
+display_name: "Go best practices"
+description: "Go best practices: simplicity, errors as values, interfaces, context, concurrency, project structure, linters and testing (TDD)."
+default_prompt: "Use $go_beast_practices when the task matches the \"Go best practices\" skill."
+triggers:
+  - "go_beast_practices"
+  - "go beast practices"
+  - "Go best practices"
+capabilities:
+  - "go"
+  - "beast"
+  - "practices"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

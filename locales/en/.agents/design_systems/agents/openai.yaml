@@ -1,0 +1,8 @@
+interface:
+  display_name: "Design Systems Integration"
+  short_description: "Integration of design systems: shadcn/ui, mantine, Wix Design System; compliance with UI invent…"
+  default_prompt: "Use $design_systems when the task matches the \"Design Systems Integration\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

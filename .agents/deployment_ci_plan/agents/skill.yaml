@@ -1,0 +1,22 @@
+version: 1
+name: "deployment_ci_plan"
+display_name: "План деплоя и CI"
+description: "План деплоя и CI: окружения, конфиги, секреты, миграции, проверки в CI (tests/lint/security), стратегия релизов и откатов."
+default_prompt: "Используй $deployment_ci_plan, когда задача относится к навыку \"План деплоя и CI\"."
+triggers:
+  - "deployment_ci_plan"
+  - "deployment ci plan"
+  - "План деплоя и CI"
+capabilities:
+  - "deployment"
+  - "ci"
+  - "plan"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

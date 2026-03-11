@@ -1,0 +1,23 @@
+version: 1
+name: "go_beast_practices"
+display_name: "Практики Go"
+description: "Go best practices: простота, ошибки как значения, интерфейсы, контекст, конкурентность, структура проекта, линтеры и тестирование (TDD)."
+default_prompt: "Используй $go_beast_practices, когда задача относится к навыку \"Практики Go\"."
+triggers:
+  - "go_beast_practices"
+  - "go beast practices"
+  - "Практики Go"
+  - "Go best practices"
+capabilities:
+  - "go"
+  - "beast"
+  - "practices"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

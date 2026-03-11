@@ -1,0 +1,18 @@
+{
+  "name": "pm_prd",
+  "display_name": "PRD (Product Requirements Document)",
+  "description": "Create a PRD: Vision, MVP, out-of-scope, user stories, acceptance criteria, NFR, risks and open questions. The result must be verifiable.",
+  "default_prompt": "Use $pm_prd when the task matches the \"PRD (Product Requirements Document)\" skill.",
+  "triggers": [
+    "pm_prd",
+    "pm prd",
+    "PRD (Product Requirements Document)",
+    "Create a PRD"
+  ],
+  "capabilities": [
+    "pm",
+    "prd"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

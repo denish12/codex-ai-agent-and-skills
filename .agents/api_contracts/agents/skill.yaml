@@ -1,0 +1,22 @@
+version: 1
+name: "api_contracts"
+display_name: "API-контракты"
+description: "API контракты по UX flows: эндпоинты, схемы, ошибки, валидация, авторизация, perf/scalability соображения, идемпотентность и интеграционные паттерны."
+default_prompt: "Используй $api_contracts, когда задача относится к навыку \"API-контракты\"."
+triggers:
+  - "api_contracts"
+  - "api contracts"
+  - "API-контракты"
+  - "API контракты по UX flows"
+capabilities:
+  - "api"
+  - "contracts"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

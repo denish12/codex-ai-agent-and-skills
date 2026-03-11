@@ -1,0 +1,23 @@
+version: 1
+name: "security_baseline_dev"
+display_name: "Security Baseline (Dev)"
+description: "Basic security in implementation: validation at boundaries, authz, safe errors, prohibiting secrets in code/logs, dependency hygiene."
+default_prompt: "Use $security_baseline_dev when the task matches the \"Security Baseline (Dev)\" skill."
+triggers:
+  - "security_baseline_dev"
+  - "security baseline dev"
+  - "Security Baseline (Dev)"
+  - "Basic security in implementation"
+capabilities:
+  - "security"
+  - "baseline"
+  - "dev"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,0 +1,15 @@
+{
+  "name": "memory",
+  "display_name": "Managing project context through a vector database/MCP",
+  "description": "Managing project context through a vector database/MCP: what to save, how to retrieve, how to avoid decision conflicts and loss of context.",
+  "default_prompt": "Use $memory when the task matches the \"Managing project context through a vector database/MCP\" skill.",
+  "triggers": [
+    "memory",
+    "Managing project context through a vector database/MCP"
+  ],
+  "capabilities": [
+    "memory"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

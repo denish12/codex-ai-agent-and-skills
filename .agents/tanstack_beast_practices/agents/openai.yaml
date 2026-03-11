@@ -1,0 +1,8 @@
+interface:
+  display_name: "Практики TanStack"
+  short_description: "TanStack (Query/Table/Virtual): предсказуемая работа с данными, кэширование, пагинация, виртуал…"
+  default_prompt: "Используй $tanstack_beast_practices, когда задача относится к навыку \"Практики TanStack\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

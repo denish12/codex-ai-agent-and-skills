@@ -1,0 +1,20 @@
+version: 1
+name: "gates"
+display_name: "Гейты и критерии готовности"
+description: "Контроль гейтов процесса и Definition of Done: не пропускать этапы, проверять наличие артефактов и критериев проверки, организовывать циклы возврата (Dev↔Reviewer↔Tester)."
+default_prompt: "Используй $gates, когда задача относится к навыку \"Гейты и критерии готовности\"."
+triggers:
+  - "gates"
+  - "Гейты и критерии готовности"
+  - "Контроль гейтов процесса и Definition of Done"
+capabilities:
+  - "gates"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,0 +1,17 @@
+{
+  "name": "api_contracts",
+  "display_name": "API Contracts",
+  "description": "API contracts for UX flows: endpoints, schemas, errors, validation, authorization, perf/scalability considerations, idempotency and integration patterns.",
+  "default_prompt": "Use $api_contracts when the task matches the \"API Contracts\" skill.",
+  "triggers": [
+    "api_contracts",
+    "api contracts",
+    "API contracts for UX flows"
+  ],
+  "capabilities": [
+    "api",
+    "contracts"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

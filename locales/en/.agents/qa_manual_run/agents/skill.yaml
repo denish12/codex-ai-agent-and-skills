@@ -1,0 +1,22 @@
+version: 1
+name: "qa_manual_run"
+display_name: "QA Manual Run"
+description: "Manual running of critical scenarios and regression: happy/edge/error paths according to UX Spec; fixing bugs with steps and evidence."
+default_prompt: "Use $qa_manual_run when the task matches the \"QA Manual Run\" skill."
+triggers:
+  - "qa_manual_run"
+  - "qa manual run"
+  - "Manual running of critical scenarios and regression"
+capabilities:
+  - "qa"
+  - "manual"
+  - "run"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

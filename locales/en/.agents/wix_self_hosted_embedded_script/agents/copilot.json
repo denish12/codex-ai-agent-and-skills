@@ -1,0 +1,21 @@
+{
+  "name": "wix_self_hosted_embedded_script",
+  "display_name": "Wix Self-Hosted Embedded Script",
+  "description": "Practical runbook for Wix Self-Hosted Embedded Script: HTTPS locally, install webhook, embed script, resolve appInstanceId, DB-driven widget config, common errors and DEMO-ready check.",
+  "default_prompt": "Use $wix_self_hosted_embedded_script when the task matches the \"Wix Self-Hosted Embedded Script\" skill.",
+  "triggers": [
+    "wix_self_hosted_embedded_script",
+    "wix self hosted embedded script",
+    "Wix Self-Hosted Embedded Script",
+    "Practical runbook for Wix Self-Hosted Embedded Script"
+  ],
+  "capabilities": [
+    "wix",
+    "self",
+    "hosted",
+    "embedded",
+    "script"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

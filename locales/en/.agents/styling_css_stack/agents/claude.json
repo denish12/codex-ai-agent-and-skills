@@ -1,0 +1,19 @@
+{
+  "name": "styling_css_stack",
+  "display_name": "Styling (CSS/Less/Sass/Tailwind)",
+  "description": "CSS practices: pure CSS + preprocessors (Less/Sass) + Tailwind; agreements, availability, predictability and maintainability.",
+  "default_prompt": "Use $styling_css_stack when the task matches the \"Styling (CSS/Less/Sass/Tailwind)\" skill.",
+  "triggers": [
+    "styling_css_stack",
+    "styling css stack",
+    "Styling (CSS/Less/Sass/Tailwind)",
+    "CSS practices"
+  ],
+  "capabilities": [
+    "styling",
+    "css",
+    "stack"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

@@ -1,0 +1,8 @@
+interface:
+  display_name: "React best practices"
+  short_description: "React best practices: composition, container/presenter, hooks, context, performance (memo/useMe…"
+  default_prompt: "Use $react_beast_practices when the task matches the \"React best practices\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

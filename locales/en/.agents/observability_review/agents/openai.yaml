@@ -1,0 +1,8 @@
+interface:
+  display_name: "Observability review"
+  short_description: "Observability review: structured logs, request_id/trace_id, log levels, prohibition of PII/secr…"
+  default_prompt: "Use $observability_review when the task matches the \"Observability review\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

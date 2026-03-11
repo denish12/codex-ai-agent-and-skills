@@ -1,0 +1,23 @@
+version: 1
+name: "tests_quality_review"
+display_name: "Проверка качества тестов"
+description: "Ревью качества unit/integration тестов: покрытие сценариев, границы, устойчивость, отсутствие флейков и тестовой “магии”."
+default_prompt: "Используй $tests_quality_review, когда задача относится к навыку \"Проверка качества тестов\"."
+triggers:
+  - "tests_quality_review"
+  - "tests quality review"
+  - "Проверка качества тестов"
+  - "Ревью качества unit/integration тестов"
+capabilities:
+  - "tests"
+  - "quality"
+  - "review"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

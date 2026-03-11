@@ -1,0 +1,20 @@
+{
+  "name": "state_rtk_beast_practices",
+  "display_name": "Практики RTK",
+  "description": "Redux Toolkit: предсказуемый state для сложных приложений, slices, async thunks, нормализация, селекторы, тестируемость.",
+  "default_prompt": "Используй $state_rtk_beast_practices, когда задача относится к навыку \"Практики RTK\".",
+  "triggers": [
+    "state_rtk_beast_practices",
+    "state rtk beast practices",
+    "Практики RTK",
+    "Redux Toolkit"
+  ],
+  "capabilities": [
+    "state",
+    "rtk",
+    "beast",
+    "practices"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Архитектурная документация"
+  short_description: "Архитектурный документ по PRD+UX: модули, потоки, данные, интеграции, ошибки, тестируемость, уз…"
+  default_prompt: "Используй $architecture_doc, когда задача относится к навыку \"Архитектурная документация\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

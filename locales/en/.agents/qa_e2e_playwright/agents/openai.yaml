@@ -1,0 +1,8 @@
+interface:
+  display_name: "QA E2E Playwright"
+  short_description: "E2E testing with Playwright for critical user journeys: happy path, edge cases, network failure…"
+  default_prompt: "Use $qa_e2e_playwright when the task matches the \"QA E2E Playwright\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

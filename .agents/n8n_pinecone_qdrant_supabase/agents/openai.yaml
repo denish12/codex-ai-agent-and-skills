@@ -1,0 +1,8 @@
+interface:
+  display_name: "Связка n8n, Pinecone/Qdrant и Supabase"
+  short_description: "Практический skill для архитектора и разработчика по проектированию и реализации production-сце…"
+  default_prompt: "Используй $n8n_pinecone_qdrant_supabase, когда задача относится к навыку \"Связка n8n, Pinecone/Qdrant и Supabase\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

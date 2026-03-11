@@ -1,0 +1,8 @@
+interface:
+  display_name: "Security Review (AppSec)"
+  short_description: "AppSec review for endpoints/authorization/input/secrets/sensitive features. Checklist + pattern…"
+  default_prompt: "Use $security_review when the task matches the \"Security Review (AppSec)\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

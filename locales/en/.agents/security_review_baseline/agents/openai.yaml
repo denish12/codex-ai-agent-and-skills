@@ -1,0 +1,8 @@
+interface:
+  display_name: "Security Review Baseline"
+  short_description: "Security review based on baseline: OWASP risks, authz, validation, SSRF/XSS/CSRF, secrets, secu…"
+  default_prompt: "Use $security_review_baseline when the task matches the \"Security Review Baseline\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

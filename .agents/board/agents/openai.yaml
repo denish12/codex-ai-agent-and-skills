@@ -1,0 +1,8 @@
+interface:
+  display_name: "Проектная доска"
+  short_description: "Управление Project Board: создание задач с ID, статусы ☐/⏳/☑/⚠️, обновления после каждого шага,…"
+  default_prompt: "Используй $board, когда задача относится к навыку \"Проектная доска\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

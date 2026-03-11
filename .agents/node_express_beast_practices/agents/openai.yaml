@@ -1,0 +1,8 @@
+interface:
+  display_name: "Практики Node и Express"
+  short_description: "Node.js + Express: REST API, middleware, сервисный слой, репозитории, централизованная обработк…"
+  default_prompt: "Используй $node_express_beast_practices, когда задача относится к навыку \"Практики Node и Express\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Самохостируемый встроенный скрипт для Wix"
+  short_description: "Практический runbook для Wix Self-Hosted Embedded Script: HTTPS локально, install webhook, embe…"
+  default_prompt: "Используй $wix_self_hosted_embedded_script, когда задача относится к навыку \"Самохостируемый встроенный скрипт для Wix\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

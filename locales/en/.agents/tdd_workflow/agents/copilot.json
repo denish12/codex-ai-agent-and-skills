@@ -1,0 +1,17 @@
+{
+  "name": "tdd_workflow",
+  "display_name": "TDD Workflow",
+  "description": "Development strictly according to TDD (RED-GREEN-REFACTOR) with unit+integration tests and target coverage; e2e for critical flows as needed.",
+  "default_prompt": "Use $tdd_workflow when the task matches the \"TDD Workflow\" skill.",
+  "triggers": [
+    "tdd_workflow",
+    "tdd workflow",
+    "Development strictly according to TDD (RED-GREEN-REFACTOR) with unit+integration tests and target coverage"
+  ],
+  "capabilities": [
+    "tdd",
+    "workflow"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

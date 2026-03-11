@@ -1,0 +1,8 @@
+interface:
+  display_name: "UI и a11y smoke-ревью"
+  short_description: "Быстрый UI/a11y smoke review: состояния loading/empty/error, фокус, клавиатура, aria/labels по…"
+  default_prompt: "Используй $ui_a11y_smoke_review, когда задача относится к навыку \"UI и a11y smoke-ревью\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,22 @@
+version: 1
+name: "design_systems"
+display_name: "Design Systems Integration"
+description: "Integration of design systems: shadcn/ui, mantine, Wix Design System; compliance with UI inventory/UX spec and common components."
+default_prompt: "Use $design_systems when the task matches the \"Design Systems Integration\" skill."
+triggers:
+  - "design_systems"
+  - "design systems"
+  - "Design Systems Integration"
+  - "Integration of design systems"
+capabilities:
+  - "design"
+  - "systems"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

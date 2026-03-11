@@ -1,0 +1,19 @@
+{
+  "name": "tooling_bun_biome",
+  "display_name": "Инструменты Bun и Biome",
+  "description": "Tooling: biomejs (lint/format) и bunjs (runtime/package manager) — настройка скриптов, единый стиль, ускорение dev-loop.",
+  "default_prompt": "Используй $tooling_bun_biome, когда задача относится к навыку \"Инструменты Bun и Biome\".",
+  "triggers": [
+    "tooling_bun_biome",
+    "tooling bun biome",
+    "Инструменты Bun и Biome",
+    "Tooling"
+  ],
+  "capabilities": [
+    "tooling",
+    "bun",
+    "biome"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

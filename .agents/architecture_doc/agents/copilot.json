@@ -1,0 +1,18 @@
+{
+  "name": "architecture_doc",
+  "display_name": "Архитектурная документация",
+  "description": "Архитектурный документ по PRD+UX: модули, потоки, данные, интеграции, ошибки, тестируемость, узкие места, план роста и план реализации.",
+  "default_prompt": "Используй $architecture_doc, когда задача относится к навыку \"Архитектурная документация\".",
+  "triggers": [
+    "architecture_doc",
+    "architecture doc",
+    "Архитектурная документация",
+    "Архитектурный документ по PRD+UX"
+  ],
+  "capabilities": [
+    "architecture",
+    "doc"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

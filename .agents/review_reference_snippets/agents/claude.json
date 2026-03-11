@@ -1,0 +1,19 @@
+{
+  "name": "review_reference_snippets",
+  "display_name": "Референсы для ревью",
+  "description": "Единый набор примеров (do/don’t) и шаблонов комментариев ревью: AppSec, Cloud/CI, контракты API, тесты, observability.",
+  "default_prompt": "Используй $review_reference_snippets, когда задача относится к навыку \"Референсы для ревью\".",
+  "triggers": [
+    "review_reference_snippets",
+    "review reference snippets",
+    "Референсы для ревью",
+    "Единый набор примеров (do/don’t) и шаблонов комментариев ревью"
+  ],
+  "capabilities": [
+    "review",
+    "reference",
+    "snippets"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

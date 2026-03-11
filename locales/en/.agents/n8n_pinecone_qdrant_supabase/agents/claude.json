@@ -1,0 +1,20 @@
+{
+  "name": "n8n_pinecone_qdrant_supabase",
+  "display_name": "n8n + Pinecone/Qdrant + Supabase",
+  "description": "Practical skill for architect and developer to design and implement production scenarios with n8n, Pinecone, Qdrant, and Supabase (auth, RLS, data flow, observability, reliability).",
+  "default_prompt": "Use $n8n_pinecone_qdrant_supabase when the task matches the \"n8n + Pinecone/Qdrant + Supabase\" skill.",
+  "triggers": [
+    "n8n_pinecone_qdrant_supabase",
+    "n8n pinecone qdrant supabase",
+    "n8n + Pinecone/Qdrant + Supabase",
+    "Practical skill for architect and developer to design and implement production scenarios with n8n, Pinecone, Qdrant, and Supabase (auth, RLS, data flow, observability, reliability)"
+  ],
+  "capabilities": [
+    "n8n",
+    "pinecone",
+    "qdrant",
+    "supabase"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

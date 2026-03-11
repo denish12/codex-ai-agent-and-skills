@@ -1,0 +1,17 @@
+{
+  "name": "observability_logging",
+  "display_name": "Implementation of observability at the code level",
+  "description": "Implementation of observability at the code level: structured logs, request_id/trace_id, log levels, prohibition of PII/secrets leakage, basic metrics/alerts according to plan.",
+  "default_prompt": "Use $observability_logging when the task matches the \"Implementation of observability at the code level\" skill.",
+  "triggers": [
+    "observability_logging",
+    "observability logging",
+    "Implementation of observability at the code level"
+  ],
+  "capabilities": [
+    "observability",
+    "logging"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

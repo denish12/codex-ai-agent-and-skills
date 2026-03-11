@@ -1,0 +1,8 @@
+interface:
+  display_name: "Deployment & CI Plan"
+  short_description: "Deployment and CI plan: environments, configs, secrets, migrations, CI checks (tests/lint/secur…"
+  default_prompt: "Use $deployment_ci_plan when the task matches the \"Deployment & CI Plan\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

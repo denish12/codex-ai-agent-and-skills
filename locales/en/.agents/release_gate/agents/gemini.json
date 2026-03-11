@@ -1,0 +1,17 @@
+{
+  "name": "release_gate",
+  "display_name": "Final release gate",
+  "description": "Final release gate: collect Reviewer+Tester+CI reports, check DoD, classify risks, make a GO/NO-GO decision and form a closure plan.",
+  "default_prompt": "Use $release_gate when the task matches the \"Final release gate\" skill.",
+  "triggers": [
+    "release_gate",
+    "release gate",
+    "Final release gate"
+  ],
+  "capabilities": [
+    "release",
+    "gate"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

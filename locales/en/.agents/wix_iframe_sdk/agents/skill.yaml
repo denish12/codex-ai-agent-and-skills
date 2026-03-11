@@ -1,0 +1,23 @@
+version: 1
+name: "wix_iframe_sdk"
+display_name: "Wix-iFrame-SDK"
+description: "Practical skill for legacy Wix iFrame SDK (deprecated): finding methods, events, parameters, SDK/Editor limits, and ready Syntax/Example blocks from a full local knowledge base. Use when you need to answer, develop, or migrate code for Wix iFrame SDK, Wix Hive, and deprecated HTTP API."
+default_prompt: "Use $wix_iframe_sdk when the task matches the \"Wix-iFrame-SDK\" skill."
+triggers:
+  - "wix_iframe_sdk"
+  - "wix iframe sdk"
+  - "Wix-iFrame-SDK"
+  - "Practical skill for legacy Wix iFrame SDK (deprecated)"
+capabilities:
+  - "wix"
+  - "iframe"
+  - "sdk"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

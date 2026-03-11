@@ -1,0 +1,8 @@
+interface:
+  display_name: "План деплоя и CI"
+  short_description: "План деплоя и CI: окружения, конфиги, секреты, миграции, проверки в CI (tests/lint/security), с…"
+  default_prompt: "Используй $deployment_ci_plan, когда задача относится к навыку \"План деплоя и CI\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

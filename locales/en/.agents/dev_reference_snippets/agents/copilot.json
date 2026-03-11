@@ -1,0 +1,19 @@
+{
+  "name": "dev_reference_snippets",
+  "display_name": "Dev Reference Snippets (Do/Don't)",
+  "description": "A single file with snippets and anti-examples (do/don’t) for Senior Full Stack: TDD, API, validation, errors, logging, React, state (Zustand/RTK), security, legacy React 15.3 (Wix), DoD scripts.",
+  "default_prompt": "Use $dev_reference_snippets when the task matches the \"Dev Reference Snippets (Do/Don't)\" skill.",
+  "triggers": [
+    "dev_reference_snippets",
+    "dev reference snippets",
+    "Dev Reference Snippets (Do/Don't)",
+    "A single file with snippets and anti-examples (do/don’t) for Senior Full Stack"
+  ],
+  "capabilities": [
+    "dev",
+    "reference",
+    "snippets"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

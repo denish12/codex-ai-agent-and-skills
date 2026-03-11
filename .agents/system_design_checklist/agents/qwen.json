@@ -1,0 +1,18 @@
+{
+  "name": "system_design_checklist",
+  "display_name": "Чек-лист системного дизайна",
+  "description": "Чек-лист системного дизайна: функциональные/нефункциональные требования, техдизайн, операции (деплой/мониторинг/backup/rollback), чтобы ничего не забыть.",
+  "default_prompt": "Используй $system_design_checklist, когда задача относится к навыку \"Чек-лист системного дизайна\".",
+  "triggers": [
+    "system_design_checklist",
+    "system design checklist",
+    "Чек-лист системного дизайна"
+  ],
+  "capabilities": [
+    "system",
+    "design",
+    "checklist"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

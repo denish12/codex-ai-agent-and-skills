@@ -1,0 +1,18 @@
+{
+  "name": "typescript_beast_practices",
+  "display_name": "TypeScript Beast Practices",
+  "description": "TypeScript practices: strong typing, type-safe contracts, validation schemes (zod/pydantic-analog on the stack), safe DTOs and minification of any.",
+  "default_prompt": "Use $typescript_beast_practices when the task matches the \"TypeScript Beast Practices\" skill.",
+  "triggers": [
+    "typescript_beast_practices",
+    "typescript beast practices",
+    "TypeScript practices"
+  ],
+  "capabilities": [
+    "typescript",
+    "beast",
+    "practices"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

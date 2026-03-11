@@ -1,0 +1,8 @@
+interface:
+  display_name: "Project Board (conductor's checklist)"
+  short_description: "Project Board management: creating tasks with ID, statuses ☐/⏳/☑/⚠️, updates after each step, v…"
+  default_prompt: "Use $board when the task matches the \"Project Board (conductor's checklist)\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

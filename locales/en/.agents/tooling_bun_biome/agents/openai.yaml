@@ -1,0 +1,8 @@
+interface:
+  display_name: "Tooling (Bun + Biome)"
+  short_description: "Tooling: biomejs (lint/format) and bunjs (runtime/package manager) - setting up scripts, unifor…"
+  default_prompt: "Use $tooling_bun_biome when the task matches the \"Tooling (Bun + Biome)\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

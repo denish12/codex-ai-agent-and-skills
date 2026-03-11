@@ -1,0 +1,8 @@
+interface:
+  display_name: "Стайлинг и CSS-стек"
+  short_description: "CSS практики: чистый CSS + препроцессоры (Less/Sass) + Tailwind; соглашения, доступность, предс…"
+  default_prompt: "Используй $styling_css_stack, когда задача относится к навыку \"Стайлинг и CSS-стек\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

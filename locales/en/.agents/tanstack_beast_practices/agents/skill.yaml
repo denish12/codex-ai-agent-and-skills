@@ -1,0 +1,22 @@
+version: 1
+name: "tanstack_beast_practices"
+display_name: "TanStack Beast Practices"
+description: "TanStack (Query/Table/Virtual): predictable data handling, caching, pagination, virtualization and UI performance."
+default_prompt: "Use $tanstack_beast_practices when the task matches the \"TanStack Beast Practices\" skill."
+triggers:
+  - "tanstack_beast_practices"
+  - "tanstack beast practices"
+  - "TanStack (Query/Table/Virtual)"
+capabilities:
+  - "tanstack"
+  - "beast"
+  - "practices"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

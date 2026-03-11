@@ -1,0 +1,8 @@
+interface:
+  display_name: "Практики ES2025"
+  short_description: "Писать современный JavaScript (ES2025) с упором на читаемость, предсказуемость, безопасную рабо…"
+  default_prompt: "Используй $es2025_beast_practices, когда задача относится к навыку \"Практики ES2025\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

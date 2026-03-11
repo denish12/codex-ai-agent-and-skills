@@ -1,0 +1,8 @@
+interface:
+  display_name: "Чек-лист код-ревью"
+  short_description: "Универсальный чек-лист ревью: качество кода, читаемость, тестируемость, безопасность, контракты…"
+  default_prompt: "Используй $code_review_checklist, когда задача относится к навыку \"Чек-лист код-ревью\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

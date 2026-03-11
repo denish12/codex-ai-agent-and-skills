@@ -1,0 +1,24 @@
+version: 1
+name: "state_zustand_beast_practices"
+display_name: "Zustand Beast Practices"
+description: "Zustand: simple global state without prop drilling, store modularity, selectors, avoiding unnecessary rerenders."
+default_prompt: "Use $state_zustand_beast_practices when the task matches the \"Zustand Beast Practices\" skill."
+triggers:
+  - "state_zustand_beast_practices"
+  - "state zustand beast practices"
+  - "Zustand Beast Practices"
+  - "Zustand"
+capabilities:
+  - "state"
+  - "zustand"
+  - "beast"
+  - "practices"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

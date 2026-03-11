@@ -1,0 +1,8 @@
+interface:
+  display_name: "Containerization and Kubernetes architecture"
+  short_description: "Containerization and Kubernetes architecture: Dockerfile best practices, k8s manifests, securit…"
+  default_prompt: "Use $docker_kubernetes_architecture when the task matches the \"Containerization and Kubernetes architecture\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

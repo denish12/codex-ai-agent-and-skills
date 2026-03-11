@@ -1,0 +1,18 @@
+{
+  "name": "pm_prd",
+  "display_name": "PRD",
+  "description": "Сформировать PRD: Vision, MVP, out-of-scope, user stories, acceptance criteria, NFR, риски и открытые вопросы. Результат должен быть проверяемым.",
+  "default_prompt": "Используй $pm_prd, когда задача относится к навыку \"PRD\".",
+  "triggers": [
+    "pm_prd",
+    "pm prd",
+    "PRD",
+    "Сформировать PRD"
+  ],
+  "capabilities": [
+    "pm",
+    "prd"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

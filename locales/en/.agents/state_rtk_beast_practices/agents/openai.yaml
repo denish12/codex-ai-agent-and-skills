@@ -1,0 +1,8 @@
+interface:
+  display_name: "RTK Beast Practices"
+  short_description: "Redux Toolkit: predictable state for complex applications, slices, async thunks, normalization,…"
+  default_prompt: "Use $state_rtk_beast_practices when the task matches the \"RTK Beast Practices\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

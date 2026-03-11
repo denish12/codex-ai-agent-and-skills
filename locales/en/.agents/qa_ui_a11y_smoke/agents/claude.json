@@ -1,0 +1,19 @@
+{
+  "name": "qa_ui_a11y_smoke",
+  "display_name": "UI/a11y smoke",
+  "description": "UI/a11y smoke: keyboard/focus, labels/aria, basic contrast, states of forms and lists, compliance with UX Spec.",
+  "default_prompt": "Use $qa_ui_a11y_smoke when the task matches the \"UI/a11y smoke\" skill.",
+  "triggers": [
+    "qa_ui_a11y_smoke",
+    "qa ui a11y smoke",
+    "UI/a11y smoke"
+  ],
+  "capabilities": [
+    "qa",
+    "ui",
+    "a11y",
+    "smoke"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

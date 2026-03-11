@@ -1,0 +1,19 @@
+{
+  "name": "current_state_analysis",
+  "display_name": "Анализ текущего состояния",
+  "description": "Анализ текущей архитектуры репозитория: конвенции, паттерны, техдолг, узкие места масштабирования, риски безопасности и консистентность.",
+  "default_prompt": "Используй $current_state_analysis, когда задача относится к навыку \"Анализ текущего состояния\".",
+  "triggers": [
+    "current_state_analysis",
+    "current state analysis",
+    "Анализ текущего состояния",
+    "Анализ текущей архитектуры репозитория"
+  ],
+  "capabilities": [
+    "current",
+    "state",
+    "analysis"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

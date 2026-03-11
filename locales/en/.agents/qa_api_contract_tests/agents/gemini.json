@@ -1,0 +1,19 @@
+{
+  "name": "qa_api_contract_tests",
+  "display_name": "QA API Contract Tests",
+  "description": "Check the API for compliance with contracts: schemes, codes, errors, validation, pagination; smoke via Postman/curl/scripts.",
+  "default_prompt": "Use $qa_api_contract_tests when the task matches the \"QA API Contract Tests\" skill.",
+  "triggers": [
+    "qa_api_contract_tests",
+    "qa api contract tests",
+    "Check the API for compliance with contracts"
+  ],
+  "capabilities": [
+    "qa",
+    "api",
+    "contract",
+    "tests"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

@@ -1,0 +1,20 @@
+{
+  "name": "state_zustand_beast_practices",
+  "display_name": "Практики Zustand",
+  "description": "Zustand: простой глобальный state без prop drilling, модульность стора, селекторы, избегание лишних ререндеров.",
+  "default_prompt": "Используй $state_zustand_beast_practices, когда задача относится к навыку \"Практики Zustand\".",
+  "triggers": [
+    "state_zustand_beast_practices",
+    "state zustand beast practices",
+    "Практики Zustand",
+    "Zustand"
+  ],
+  "capabilities": [
+    "state",
+    "zustand",
+    "beast",
+    "practices"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

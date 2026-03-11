@@ -1,0 +1,22 @@
+version: 1
+name: "qa_e2e_playwright"
+display_name: "QA E2E Playwright"
+description: "E2E testing with Playwright for critical user journeys: happy path, edge cases, network failures, selector stability, test data, and run artifacts. Use when end-to-end UI flow coverage must be designed, implemented, or verified."
+default_prompt: "Use $qa_e2e_playwright when the task matches the \"QA E2E Playwright\" skill."
+triggers:
+  - "qa_e2e_playwright"
+  - "qa e2e playwright"
+  - "E2E testing with Playwright for critical user journeys"
+capabilities:
+  - "qa"
+  - "e2e"
+  - "playwright"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

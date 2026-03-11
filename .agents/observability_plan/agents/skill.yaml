@@ -1,0 +1,21 @@
+version: 1
+name: "observability_plan"
+display_name: "План наблюдаемости"
+description: "План наблюдаемости: какие логи/метрики/трейсы собирать, корреляция запросов, уровни логов, алерты. Без утечки PII/секретов."
+default_prompt: "Используй $observability_plan, когда задача относится к навыку \"План наблюдаемости\"."
+triggers:
+  - "observability_plan"
+  - "observability plan"
+  - "План наблюдаемости"
+capabilities:
+  - "observability"
+  - "plan"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

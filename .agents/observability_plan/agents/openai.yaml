@@ -1,0 +1,8 @@
+interface:
+  display_name: "План наблюдаемости"
+  short_description: "План наблюдаемости: какие логи/метрики/трейсы собирать, корреляция запросов, уровни логов, алер…"
+  default_prompt: "Используй $observability_plan, когда задача относится к навыку \"План наблюдаемости\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

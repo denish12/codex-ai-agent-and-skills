@@ -1,0 +1,8 @@
+interface:
+  display_name: "Базовая доступность UI"
+  short_description: "Минимальный baseline доступности для веб UI: клавиатурная навигация, focus management, лейблы ф…"
+  default_prompt: "Используй $a11y_baseline, когда задача относится к навыку \"Базовая доступность UI\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

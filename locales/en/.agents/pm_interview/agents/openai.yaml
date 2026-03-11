@@ -1,0 +1,8 @@
+interface:
+  display_name: "Structured interview/documentation analysis"
+  short_description: "Structured interview/documentation analysis: collect goals, audience, MVP, limitations, integra…"
+  default_prompt: "Use $pm_interview when the task matches the \"Structured interview/documentation analysis\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

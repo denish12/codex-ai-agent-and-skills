@@ -1,0 +1,8 @@
+interface:
+  display_name: "Write modern JavaScript (ES2025) with an emphasis on readability, predictability, safe work with async, typical patterns and performance hygiene"
+  short_description: "Write modern JavaScript (ES2025) with an emphasis on readability, predictability, safe work wit…"
+  default_prompt: "Use $es2025_beast_practices when the task matches the \"Write modern JavaScript (ES2025) with an emphasis on readability, predictability, safe work with async, typical patterns and performance hygiene\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

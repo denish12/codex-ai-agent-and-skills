@@ -1,0 +1,8 @@
+interface:
+  display_name: "9) Examples (what to do / what not to do)"
+  short_description: "Best practices for MongoDB + Mongoose: schemas, indexes, validation, transactions, migrations,…"
+  default_prompt: "Use $mongodb_mongoose_best_practices when the task matches the \"9) Examples (what to do / what not to do)\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

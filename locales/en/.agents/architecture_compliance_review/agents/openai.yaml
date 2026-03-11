@@ -1,0 +1,8 @@
+interface:
+  display_name: "Checking code compliance with architecture/ADR"
+  short_description: "Checking code compliance with architecture/ADR: module boundaries, layers, dependencies, conven…"
+  default_prompt: "Use $architecture_compliance_review when the task matches the \"Checking code compliance with architecture/ADR\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

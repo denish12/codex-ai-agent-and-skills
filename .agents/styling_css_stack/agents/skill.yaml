@@ -1,0 +1,23 @@
+version: 1
+name: "styling_css_stack"
+display_name: "Стайлинг и CSS-стек"
+description: "CSS практики: чистый CSS + препроцессоры (Less/Sass) + Tailwind; соглашения, доступность, предсказуемость и поддерживаемость."
+default_prompt: "Используй $styling_css_stack, когда задача относится к навыку \"Стайлинг и CSS-стек\"."
+triggers:
+  - "styling_css_stack"
+  - "styling css stack"
+  - "Стайлинг и CSS-стек"
+  - "CSS практики"
+capabilities:
+  - "styling"
+  - "css"
+  - "stack"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

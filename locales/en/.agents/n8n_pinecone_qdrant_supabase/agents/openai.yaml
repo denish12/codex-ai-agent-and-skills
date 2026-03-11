@@ -1,0 +1,8 @@
+interface:
+  display_name: "n8n + Pinecone/Qdrant + Supabase"
+  short_description: "Practical skill for architect and developer to design and implement production scenarios with n…"
+  default_prompt: "Use $n8n_pinecone_qdrant_supabase when the task matches the \"n8n + Pinecone/Qdrant + Supabase\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

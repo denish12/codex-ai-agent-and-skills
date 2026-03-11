@@ -1,0 +1,19 @@
+{
+  "name": "testing_strategy_js",
+  "display_name": "Testing Strategy (JS/TS)",
+  "description": "Testing strategy for JS/TS projects: unit (vitest/jest), integration (API/DB), e2e (playwright) + organization of files and mocks of external services.",
+  "default_prompt": "Use $testing_strategy_js when the task matches the \"Testing Strategy (JS/TS)\" skill.",
+  "triggers": [
+    "testing_strategy_js",
+    "testing strategy js",
+    "Testing Strategy (JS/TS)",
+    "Testing strategy for JS/TS projects"
+  ],
+  "capabilities": [
+    "testing",
+    "strategy",
+    "js"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

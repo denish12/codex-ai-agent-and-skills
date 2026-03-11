@@ -1,0 +1,8 @@
+interface:
+  display_name: "Implementation of observability at the code level"
+  short_description: "Implementation of observability at the code level: structured logs, request_id/trace_id, log le…"
+  default_prompt: "Use $observability_logging when the task matches the \"Implementation of observability at the code level\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

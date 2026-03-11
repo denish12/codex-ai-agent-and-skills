@@ -1,0 +1,25 @@
+version: 1
+name: "react_15_3_wix_iframe"
+display_name: "React 15.3 и Wix iFrame"
+description: "Legacy режим для Wix iFrame приложений: React 15.3 (класс-компоненты), lifecycle, PropTypes/defaultProps, ограничения без hooks; работа через Wix iFrame SDK."
+default_prompt: "Используй $react_15_3_wix_iframe, когда задача относится к навыку \"React 15.3 и Wix iFrame\"."
+triggers:
+  - "react_15_3_wix_iframe"
+  - "react 15 3 wix iframe"
+  - "React 15.3 и Wix iFrame"
+  - "Legacy режим для Wix iFrame приложений"
+capabilities:
+  - "react"
+  - "15"
+  - "3"
+  - "wix"
+  - "iframe"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

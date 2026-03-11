@@ -1,0 +1,20 @@
+version: 1
+name: "handoff"
+display_name: "Context Pack Handoff (transferring tasks to agents)"
+description: "Formation of the Context Pack and setting the task for the agent: goals, restrictions, artifacts, solutions, questions, Definition of Done. Requires a standard response format."
+default_prompt: "Use $handoff when the task matches the \"Context Pack Handoff (transferring tasks to agents)\" skill."
+triggers:
+  - "handoff"
+  - "Context Pack Handoff (transferring tasks to agents)"
+  - "Formation of the Context Pack and setting the task for the agent"
+capabilities:
+  - "handoff"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

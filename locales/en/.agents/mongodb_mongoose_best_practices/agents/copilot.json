@@ -1,0 +1,20 @@
+{
+  "name": "mongodb_mongoose_best_practices",
+  "display_name": "9) Examples (what to do / what not to do)",
+  "description": "Best practices for MongoDB + Mongoose: schemas, indexes, validation, transactions, migrations, performance, security, testing, anti-patterns and examples.",
+  "default_prompt": "Use $mongodb_mongoose_best_practices when the task matches the \"9) Examples (what to do / what not to do)\" skill.",
+  "triggers": [
+    "mongodb_mongoose_best_practices",
+    "mongodb mongoose best practices",
+    "9) Examples (what to do / what not to do)",
+    "Best practices for MongoDB + Mongoose"
+  ],
+  "capabilities": [
+    "mongodb",
+    "mongoose",
+    "best",
+    "practices"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

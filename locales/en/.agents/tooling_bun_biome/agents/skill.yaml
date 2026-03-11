@@ -1,0 +1,23 @@
+version: 1
+name: "tooling_bun_biome"
+display_name: "Tooling (Bun + Biome)"
+description: "Tooling: biomejs (lint/format) and bunjs (runtime/package manager) - setting up scripts, uniform style, dev-loop acceleration."
+default_prompt: "Use $tooling_bun_biome when the task matches the \"Tooling (Bun + Biome)\" skill."
+triggers:
+  - "tooling_bun_biome"
+  - "tooling bun biome"
+  - "Tooling (Bun + Biome)"
+  - "Tooling"
+capabilities:
+  - "tooling"
+  - "bun"
+  - "biome"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

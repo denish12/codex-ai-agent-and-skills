@@ -1,0 +1,8 @@
+interface:
+  display_name: "Референсы и сниппеты для разработки"
+  short_description: "Единый файл со сниппетами и анти-примерами (do/don’t) для Senior Full Stack: TDD, API, валидаци…"
+  default_prompt: "Используй $dev_reference_snippets, когда задача относится к навыку \"Референсы и сниппеты для разработки\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Проверка соответствия API-контрактам"
+  short_description: "Проверка соответствия реализации API контрактам: схемы, коды ошибок, валидация, авторизация, ид…"
+  default_prompt: "Используй $api_contract_compliance_review, когда задача относится к навыку \"Проверка соответствия API-контрактам\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

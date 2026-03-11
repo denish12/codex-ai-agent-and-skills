@@ -1,0 +1,8 @@
+interface:
+  display_name: "Гейты и критерии готовности"
+  short_description: "Контроль гейтов процесса и Definition of Done: не пропускать этапы, проверять наличие артефакто…"
+  default_prompt: "Используй $gates, когда задача относится к навыку \"Гейты и критерии готовности\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

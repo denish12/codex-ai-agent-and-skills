@@ -1,0 +1,24 @@
+version: 1
+name: "dependency_supply_chain_review"
+display_name: "Проверка зависимостей и цепочки поставок"
+description: "Ревью зависимостей: минимизация, обновления, аудит уязвимостей, лицензии, запрет небезопасных пакетов."
+default_prompt: "Используй $dependency_supply_chain_review, когда задача относится к навыку \"Проверка зависимостей и цепочки поставок\"."
+triggers:
+  - "dependency_supply_chain_review"
+  - "dependency supply chain review"
+  - "Проверка зависимостей и цепочки поставок"
+  - "Ревью зависимостей"
+capabilities:
+  - "dependency"
+  - "supply"
+  - "chain"
+  - "review"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

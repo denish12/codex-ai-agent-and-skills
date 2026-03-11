@@ -1,0 +1,22 @@
+version: 1
+name: "design_systems"
+display_name: "Интеграция дизайн-системы"
+description: "Интеграция дизайн-систем: shadcn/ui, mantine, Wix Design System; соблюдение UI inventory/UX spec и единых компонентов."
+default_prompt: "Используй $design_systems, когда задача относится к навыку \"Интеграция дизайн-системы\"."
+triggers:
+  - "design_systems"
+  - "design systems"
+  - "Интеграция дизайн-системы"
+  - "Интеграция дизайн-систем"
+capabilities:
+  - "design"
+  - "systems"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

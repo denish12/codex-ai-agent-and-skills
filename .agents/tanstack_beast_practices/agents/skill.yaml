@@ -1,0 +1,23 @@
+version: 1
+name: "tanstack_beast_practices"
+display_name: "Практики TanStack"
+description: "TanStack (Query/Table/Virtual): предсказуемая работа с данными, кэширование, пагинация, виртуализация и производительность UI."
+default_prompt: "Используй $tanstack_beast_practices, когда задача относится к навыку \"Практики TanStack\"."
+triggers:
+  - "tanstack_beast_practices"
+  - "tanstack beast practices"
+  - "Практики TanStack"
+  - "TanStack (Query/Table/Virtual)"
+capabilities:
+  - "tanstack"
+  - "beast"
+  - "practices"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

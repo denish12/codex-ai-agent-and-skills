@@ -1,0 +1,16 @@
+{
+  "name": "board",
+  "display_name": "Project Board (conductor's checklist)",
+  "description": "Project Board management: creating tasks with ID, statuses ☐/⏳/☑/⚠️, updates after each step, visible checklist in every message from the conductor.",
+  "default_prompt": "Use $board when the task matches the \"Project Board (conductor's checklist)\" skill.",
+  "triggers": [
+    "board",
+    "Project Board (conductor's checklist)",
+    "Project Board management"
+  ],
+  "capabilities": [
+    "board"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

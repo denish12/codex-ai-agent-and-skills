@@ -1,0 +1,19 @@
+{
+  "name": "dev_reference_snippets",
+  "display_name": "Референсы и сниппеты для разработки",
+  "description": "Единый файл со сниппетами и анти-примерами (do/don’t) для Senior Full Stack: TDD, API, валидация, ошибки, логирование, React, state (Zustand/RTK), безопасность, legacy React 15.3 (Wix), DoD-скрипты.",
+  "default_prompt": "Используй $dev_reference_snippets, когда задача относится к навыку \"Референсы и сниппеты для разработки\".",
+  "triggers": [
+    "dev_reference_snippets",
+    "dev reference snippets",
+    "Референсы и сниппеты для разработки",
+    "Единый файл со сниппетами и анти-примерами (do/don’t) для Senior Full Stack"
+  ],
+  "capabilities": [
+    "dev",
+    "reference",
+    "snippets"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

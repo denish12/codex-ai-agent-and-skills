@@ -1,0 +1,8 @@
+interface:
+  display_name: "Практики React"
+  short_description: "React best practices: композиция, контейнер/презентер, хуки, контекст, производительность (memo…"
+  default_prompt: "Используй $react_beast_practices, когда задача относится к навыку \"Практики React\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

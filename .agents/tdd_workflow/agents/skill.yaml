@@ -1,0 +1,22 @@
+version: 1
+name: "tdd_workflow"
+display_name: "TDD-процесс"
+description: "Разработка строго по TDD (RED-GREEN-REFACTOR) с unit+integration тестами и целевым покрытием; e2e для критичных потоков по необходимости."
+default_prompt: "Используй $tdd_workflow, когда задача относится к навыку \"TDD-процесс\"."
+triggers:
+  - "tdd_workflow"
+  - "tdd workflow"
+  - "TDD-процесс"
+  - "Разработка строго по TDD (RED-GREEN-REFACTOR) с unit+integration тестами и целевым покрытием"
+capabilities:
+  - "tdd"
+  - "workflow"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

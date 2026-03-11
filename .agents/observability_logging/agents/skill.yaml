@@ -1,0 +1,22 @@
+version: 1
+name: "observability_logging"
+display_name: "Логирование и наблюдаемость"
+description: "Реализация наблюдаемости на уровне кода: структурированные логи, request_id/trace_id, уровни логов, запрет утечки PII/секретов, базовые метрики/алерты по плану."
+default_prompt: "Используй $observability_logging, когда задача относится к навыку \"Логирование и наблюдаемость\"."
+triggers:
+  - "observability_logging"
+  - "observability logging"
+  - "Логирование и наблюдаемость"
+  - "Реализация наблюдаемости на уровне кода"
+capabilities:
+  - "observability"
+  - "logging"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Design Intake (collection of design sources)"
+  short_description: "Find and analyze provided design materials (files/links), determine the “source of truth” for t…"
+  default_prompt: "Use $design_intake when the task matches the \"Design Intake (collection of design sources)\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

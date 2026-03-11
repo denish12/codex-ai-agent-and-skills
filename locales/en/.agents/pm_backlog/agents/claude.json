@@ -1,0 +1,18 @@
+{
+  "name": "pm_backlog",
+  "display_name": "Backlog (epics/features/tasks)",
+  "description": "Decomposition of PRD into the primary backlog: epics, features and tasks with priorities, dependencies and iteration proposal (MVP → v1).",
+  "default_prompt": "Use $pm_backlog when the task matches the \"Backlog (epics/features/tasks)\" skill.",
+  "triggers": [
+    "pm_backlog",
+    "pm backlog",
+    "Backlog (epics/features/tasks)",
+    "Decomposition of PRD into the primary backlog"
+  ],
+  "capabilities": [
+    "pm",
+    "backlog"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Конвенции Kubernetes-манифестов"
+  short_description: "Конвенции Kubernetes манифестов: структура репо, Helm/Kustomize, overlays per env, naming/label…"
+  default_prompt: "Используй $k8s_manifests_conventions, когда задача относится к навыку \"Конвенции Kubernetes-манифестов\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

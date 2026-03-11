@@ -1,0 +1,18 @@
+{
+  "name": "es2025_beast_practices",
+  "display_name": "Write modern JavaScript (ES2025) with an emphasis on readability, predictability, safe work with async, typical patterns and performance hygiene",
+  "description": "Write modern JavaScript (ES2025) with an emphasis on readability, predictability, safe work with async, typical patterns and performance hygiene.",
+  "default_prompt": "Use $es2025_beast_practices when the task matches the \"Write modern JavaScript (ES2025) with an emphasis on readability, predictability, safe work with async, typical patterns and performance hygiene\" skill.",
+  "triggers": [
+    "es2025_beast_practices",
+    "es2025 beast practices",
+    "Write modern JavaScript (ES2025) with an emphasis on readability, predictability, safe work with async, typical patterns and performance hygiene"
+  ],
+  "capabilities": [
+    "es2025",
+    "beast",
+    "practices"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

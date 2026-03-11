@@ -1,0 +1,18 @@
+{
+  "name": "adr_log",
+  "display_name": "Журнал ADR",
+  "description": "Зафиксировать ключевые архитектурные решения (ADR) с trade-offs: Pros/Cons/Alternatives/Decision, статусом и датой.",
+  "default_prompt": "Используй $adr_log, когда задача относится к навыку \"Журнал ADR\".",
+  "triggers": [
+    "adr_log",
+    "adr log",
+    "Журнал ADR",
+    "Зафиксировать ключевые архитектурные решения (ADR) с trade-offs"
+  ],
+  "capabilities": [
+    "adr",
+    "log"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

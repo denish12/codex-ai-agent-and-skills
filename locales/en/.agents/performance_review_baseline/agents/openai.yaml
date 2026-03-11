@@ -1,0 +1,8 @@
+interface:
+  display_name: "Basic perf review"
+  short_description: "Basic perf review: N+1, pagination, batches, extra requests, architectural cache, heavy operati…"
+  default_prompt: "Use $performance_review_baseline when the task matches the \"Basic perf review\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

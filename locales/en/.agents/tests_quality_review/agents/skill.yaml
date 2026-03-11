@@ -1,0 +1,22 @@
+version: 1
+name: "tests_quality_review"
+display_name: "Tests Quality Review"
+description: "Review of the quality of unit/integration tests: scenario coverage, boundaries, stability, absence of flakes and test “magic”."
+default_prompt: "Use $tests_quality_review when the task matches the \"Tests Quality Review\" skill."
+triggers:
+  - "tests_quality_review"
+  - "tests quality review"
+  - "Review of the quality of unit/integration tests"
+capabilities:
+  - "tests"
+  - "quality"
+  - "review"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

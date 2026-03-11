@@ -1,0 +1,8 @@
+interface:
+  display_name: "PM-бэклог"
+  short_description: "Декомпозиция PRD в первичный backlog: эпики, фичи и задачи с приоритетами, зависимостями и пред…"
+  default_prompt: "Используй $pm_backlog, когда задача относится к навыку \"PM-бэклог\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

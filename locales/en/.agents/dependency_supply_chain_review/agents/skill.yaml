@@ -1,0 +1,23 @@
+version: 1
+name: "dependency_supply_chain_review"
+display_name: "Dependency review"
+description: "Dependency review: minimization, updates, vulnerability audit, licenses, banning of unsafe packages."
+default_prompt: "Use $dependency_supply_chain_review when the task matches the \"Dependency review\" skill."
+triggers:
+  - "dependency_supply_chain_review"
+  - "dependency supply chain review"
+  - "Dependency review"
+capabilities:
+  - "dependency"
+  - "supply"
+  - "chain"
+  - "review"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

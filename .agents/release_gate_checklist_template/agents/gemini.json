@@ -1,0 +1,20 @@
+{
+  "name": "release_gate_checklist_template",
+  "display_name": "Шаблон чек-листа релизного гейта",
+  "description": "Генерирует перед релизом видимый чек-лист RG-01…RG-xx (Evidence/DoD/Security/Ops/Post-deploy/Rollback) и правила статусов.",
+  "default_prompt": "Используй $release_gate_checklist_template, когда задача относится к навыку \"Шаблон чек-листа релизного гейта\".",
+  "triggers": [
+    "release_gate_checklist_template",
+    "release gate checklist template",
+    "Шаблон чек-листа релизного гейта",
+    "Генерирует перед релизом видимый чек-лист RG-01…RG-xx (Evidence/DoD/Security/Ops/Post-deploy/Rollback) и правила статусов"
+  ],
+  "capabilities": [
+    "release",
+    "gate",
+    "checklist",
+    "template"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

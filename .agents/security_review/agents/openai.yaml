@@ -1,0 +1,8 @@
+interface:
+  display_name: "Проверка безопасности приложения"
+  short_description: "AppSec ревью для эндпоинтов/авторизации/ввода/секретов/чувствительных фич. Чек-лист + паттерны…"
+  default_prompt: "Используй $security_review, когда задача относится к навыку \"Проверка безопасности приложения\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

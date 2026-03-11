@@ -1,0 +1,8 @@
+interface:
+  display_name: "Dev Reference Snippets (Do/Don't)"
+  short_description: "A single file with snippets and anti-examples (do/don’t) for Senior Full Stack: TDD, API, valid…"
+  default_prompt: "Use $dev_reference_snippets when the task matches the \"Dev Reference Snippets (Do/Don't)\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

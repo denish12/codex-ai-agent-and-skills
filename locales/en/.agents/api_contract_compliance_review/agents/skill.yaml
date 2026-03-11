@@ -1,0 +1,23 @@
+version: 1
+name: "api_contract_compliance_review"
+display_name: "API Contract Compliance Review"
+description: "Checking the compliance of the API implementation with contracts: schemes, error codes, validation, authorization, idempotency, pagination."
+default_prompt: "Use $api_contract_compliance_review when the task matches the \"API Contract Compliance Review\" skill."
+triggers:
+  - "api_contract_compliance_review"
+  - "api contract compliance review"
+  - "Checking the compliance of the API implementation with contracts"
+capabilities:
+  - "api"
+  - "contract"
+  - "compliance"
+  - "review"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

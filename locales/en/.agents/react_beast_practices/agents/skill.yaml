@@ -1,0 +1,22 @@
+version: 1
+name: "react_beast_practices"
+display_name: "React best practices"
+description: "React best practices: composition, container/presenter, hooks, context, performance (memo/useMemo/useCallback), code splitting, error boundaries, a11y."
+default_prompt: "Use $react_beast_practices when the task matches the \"React best practices\" skill."
+triggers:
+  - "react_beast_practices"
+  - "react beast practices"
+  - "React best practices"
+capabilities:
+  - "react"
+  - "beast"
+  - "practices"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"
