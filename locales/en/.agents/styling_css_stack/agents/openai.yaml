@@ -1,7 +1,7 @@
 interface:
-  display_name: "Styling (CSS/Less/Sass/Tailwind)"
-  short_description: "CSS practices: pure CSS + preprocessors (Less/Sass) + Tailwind; agreements, availability, predi…"
-  default_prompt: "Use $styling_css_stack when the task matches the \"Styling (CSS/Less/Sass/Tailwind)\" skill."
+  display_name: "Styling (CSS Stack) Beast Practices"
+  short_description: "CSS practices — custom properties (design tokens), naming (BEM / CSS Modules), responsive, tran…"
+  default_prompt: "Use $styling_css_stack when the task matches the \"Styling (CSS Stack) Beast Practices\" skill."
 dependencies:
   tools: []
 policy:

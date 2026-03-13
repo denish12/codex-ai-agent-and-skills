@@ -1,13 +1,13 @@
 version: 1
 name: "performance_review_baseline"
 display_name: "Базовая проверка производительности"
-description: "Базовый perf-ревью: N+1, пагинация, батчи, лишние запросы, кеш по архитектуре, тяжелые операции в request-path."
+description: "Базовый perf-ревью — N+1, пагинация, батчи, лишние запросы, кеш по архитектуре, тяжелые операции в request-path."
 default_prompt: "Используй $performance_review_baseline, когда задача относится к навыку \"Базовая проверка производительности\"."
 triggers:
   - "performance_review_baseline"
   - "performance review baseline"
   - "Базовая проверка производительности"
-  - "Базовый perf-ревью"
+  - "Базовый perf-ревью — N+1, пагинация, батчи, лишние запросы, кеш по архитектуре, тяжелые операции в request-path"
 capabilities:
   - "performance"
   - "review"

@@ -1,6 +1,6 @@
 interface:
   display_name: "Практики Zustand"
-  short_description: "Zustand: простой глобальный state без prop drilling, модульность стора, селекторы, избегание ли…"
+  short_description: "Zustand — простой глобальный state без prop drilling, модульность стора, селекторы, избегание л…"
   default_prompt: "Используй $state_zustand_beast_practices, когда задача относится к навыку \"Практики Zustand\"."
 dependencies:
   tools: []

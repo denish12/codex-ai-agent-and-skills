@@ -1,13 +1,13 @@
 version: 1
 name: "styling_css_stack"
-display_name: "Styling (CSS/Less/Sass/Tailwind)"
-description: "CSS practices: pure CSS + preprocessors (Less/Sass) + Tailwind; agreements, availability, predictability and maintainability."
-default_prompt: "Use $styling_css_stack when the task matches the \"Styling (CSS/Less/Sass/Tailwind)\" skill."
+display_name: "Styling (CSS Stack) Beast Practices"
+description: "CSS practices — custom properties (design tokens), naming (BEM / CSS Modules), responsive, transitions, z-index scale, dark mode, a11y (focus-visible, prefers-reduced-motion, forced-colors). DO/DON'T examples. Activate with writing or review CSS/Less/Sass, with refactoring styles, or with questions «how correctly style X»."
+default_prompt: "Use $styling_css_stack when the task matches the \"Styling (CSS Stack) Beast Practices\" skill."
 triggers:
   - "styling_css_stack"
   - "styling css stack"
-  - "Styling (CSS/Less/Sass/Tailwind)"
-  - "CSS practices"
+  - "Styling (CSS Stack) Beast Practices"
+  - "CSS practices — custom properties (design tokens), naming (BEM / CSS Modules), responsive, transitions, z-index scale, dark mode, a11y (focus-visible, prefers-reduced-motion, forced-colors)"
 capabilities:
   - "styling"
   - "css"

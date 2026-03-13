@@ -1,12 +1,12 @@
 {
   "name": "observability_logging",
-  "display_name": "Implementation of observability at the code level",
-  "description": "Implementation of observability at the code level: structured logs, request_id/trace_id, log levels, prohibition of PII/secrets leakage, basic metrics/alerts according to plan.",
-  "default_prompt": "Use $observability_logging when the task matches the \"Implementation of observability at the code level\" skill.",
+  "display_name": "Implementation observability on levelnot code — structured logs (pino), request_id/trace_id correlation, levels logs, ban leaks PII/secrets, basic metrics, health checks",
+  "description": "Implementation observability on levelnot code — structured logs (pino), request_id/trace_id correlation, levels logs, ban leaks PII/secrets, basic metrics, health checks. DO/DON'T examples. Activate with setup logging, add metrics, or with questions «how correctly log».",
+  "default_prompt": "Use $observability_logging when the task matches the \"Implementation observability on levelnot code — structured logs (pino), request_id/trace_id correlation, levels logs, ban leaks PII/secrets, basic metrics, health checks\" skill.",
   "triggers": [
     "observability_logging",
     "observability logging",
-    "Implementation of observability at the code level"
+    "Implementation observability on levelnot code — structured logs (pino), request_id/trace_id correlation, levels logs, ban leaks PII/secrets, basic metrics, health checks"
   ],
   "capabilities": [
     "observability",

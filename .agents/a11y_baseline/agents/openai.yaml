@@ -1,6 +1,6 @@
 interface:
   display_name: "Базовая доступность UI"
-  short_description: "Минимальный baseline доступности для веб UI: клавиатурная навигация, focus management, лейблы ф…"
+  short_description: "Минимальный baseline доступности для веб UI — клавиатурная навигация, focus management, лейблы…"
   default_prompt: "Используй $a11y_baseline, когда задача относится к навыку \"Базовая доступность UI\"."
 dependencies:
   tools: []

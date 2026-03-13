@@ -1,6 +1,6 @@
 interface:
   display_name: "QA: UI и a11y smoke"
-  short_description: "UI/a11y smoke: клавиатура/фокус, labels/aria, контраст базово, состояния форм и списков, соотве…"
+  short_description: "UI/a11y smoke — клавиатура/фокус, labels/aria, контраст базово, состояния форм и списков, соотв…"
   default_prompt: "Используй $qa_ui_a11y_smoke, когда задача относится к навыку \"QA: UI и a11y smoke\"."
 dependencies:
   tools: []

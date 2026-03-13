@@ -1,6 +1,6 @@
 interface:
   display_name: "Архитектура Docker и Kubernetes"
-  short_description: "Архитектура контейнеризации и Kubernetes: Dockerfile best practices, k8s manifests, security, s…"
+  short_description: "Архитектура контейнеризации и Kubernetes — Dockerfile best practices, k8s manifests, security,…"
   default_prompt: "Используй $docker_kubernetes_architecture, когда задача относится к навыку \"Архитектура Docker и Kubernetes\"."
 dependencies:
   tools: []

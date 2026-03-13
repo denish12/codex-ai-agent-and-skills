@@ -1,6 +1,6 @@
 interface:
   display_name: "Релизный гейт"
-  short_description: "Финальный релиз-гейт: собрать отчёты Reviewer+Tester+CI, проверить DoD, классифицировать риски,…"
+  short_description: "Финальный релиз-гейт — собрать отчёты Reviewer+Tester+CI, проверить DoD, классифицировать риски…"
   default_prompt: "Используй $release_gate, когда задача относится к навыку \"Релизный гейт\"."
 dependencies:
   tools: []

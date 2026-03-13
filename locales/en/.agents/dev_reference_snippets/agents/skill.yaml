@@ -1,13 +1,13 @@
 version: 1
 name: "dev_reference_snippets"
 display_name: "Dev Reference Snippets (Do/Don't)"
-description: "A single file with snippets and anti-examples (do/don’t) for Senior Full Stack: TDD, API, validation, errors, logging, React, state (Zustand/RTK), security, legacy React 15.3 (Wix), DoD scripts."
+description: "Reference snippets and DO/DON'T patterns for Senior Full Stack: TDD (Vitest), Express API (Route?Controller?Service?Repo), validation (Zod), centralized errors, structured logging, React + TanStack Query, Zustand, RTK (EntityAdapter), server-side authorization, legacy React 15.3 (Wix). Use this skill when writing any production code in Node.js/TypeScript/React ? as a source of copy-paste reference patterns and a checklist for code. Also use it for questions like \"how to do X correctly\" for any of the listed patterns."
 default_prompt: "Use $dev_reference_snippets when the task matches the \"Dev Reference Snippets (Do/Don't)\" skill."
 triggers:
   - "dev_reference_snippets"
   - "dev reference snippets"
   - "Dev Reference Snippets (Do/Don't)"
-  - "A single file with snippets and anti-examples (do/don’t) for Senior Full Stack"
+  - "Reference snippets and DO/DON'T patterns for Senior Full Stack"
 capabilities:
   - "dev"
   - "reference"

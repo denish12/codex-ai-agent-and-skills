@@ -134,6 +134,37 @@ lint → typecheck → unit tests → integration tests → build → deploy (st
 
 ---
 
+## Incident Response & Disaster Recovery
+
+### Incident Response Protocol
+При инциденте в prod:
+1. **Detect** — alert (PagerDuty / Slack / manual) → определить severity (SEV1–SEV3)
+2. **Triage** — назначить on-call, собрать контекст (логи/метрики/traces)
+3. **Mitigate** — rollback / hotfix / feature flag disable
+4. **Communicate** — уведомить stakeholders (Conductor, PM)
+5. **Resolve** — корневая причина устранена, подтверждена smoke-тестами
+6. **Postmortem** — зафиксировать timeline, root cause, action items (≤48ч после инцидента)
+
+| Severity | Время реакции | Эскалация | Пример |
+|----------|--------------|-----------|--------|
+| SEV1 | ≤15 мин | Conductor + PM + Architect | Данные потеряны / сервис полностью down |
+| SEV2 | ≤1 час | Conductor | Ключевой flow сломан, workaround есть |
+| SEV3 | ≤4 часа | — | Деградация производительности, некритичный UI баг |
+
+### Disaster Recovery (DR)
+- **Backup strategy:** автоматический бэкап БД ≥ 1 раз/сутки, retention ≥ 7 дней
+- **Recovery Point Objective (RPO):** максимально допустимая потеря данных (по умолчанию ≤ 24ч для MVP)
+- **Recovery Time Objective (RTO):** максимальное время восстановления (по умолчанию ≤ 1ч для MVP)
+- **DR test:** проверять восстановление из бэкапа ≥ 1 раз/квартал
+- **Multi-region:** определить необходимость (по compliance/SLA)
+
+🔴 P0 если:
+- нет бэкапов БД в prod
+- нет задокументированного плана восстановления
+- RPO/RTO не определены для критичных данных
+
+---
+
 ## Anti-Patterns (что запрещено)
 - Секреты в коде, .env файлах в репо, git history
 - HTTP в prod (только HTTPS)
@@ -254,7 +285,6 @@ INFRASTRUCTURE STATUS: Approved ✅ / Pending ⏳
 
 ## HANDOFF (Mandatory)
 - Every DevOps output must end with a completed `Handoff Envelope`.
-- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR DEV`, `HTTPS STATUS`, `SECRETS STATUS`, `INFRASTRUCTURE STATUS`.
 - Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR DEV`, `HTTPS STATUS`, `SECRETS STATUS`, `CONTAINER RELOAD STATUS`, `INFRASTRUCTURE STATUS`.
 - If `OPEN ITEMS` is not empty, include owner and due date per item.
 - Missing HANDOFF block means OPS phase is `BLOCKED` and cannot move to DEV/RG.

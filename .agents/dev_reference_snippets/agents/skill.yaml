@@ -1,13 +1,13 @@
 version: 1
 name: "dev_reference_snippets"
 display_name: "Референсы и сниппеты для разработки"
-description: "Единый файл со сниппетами и анти-примерами (do/don’t) для Senior Full Stack: TDD, API, валидация, ошибки, логирование, React, state (Zustand/RTK), безопасность, legacy React 15.3 (Wix), DoD-скрипты."
+description: "Эталонные сниппеты и DO/DON'T для Senior Full Stack: TDD (Vitest), Express API (Route→Controller→Service→Repo), валидация (Zod), централизованные ошибки, структурированное логирование, React + TanStack Query, Zustand, RTK (EntityAdapter), авторизация на сервере, legacy React 15.3 (Wix). Используй этот скилл при написании любого production-кода на Node.js/TypeScript/React — как источник копипаст-эталонов и чеклист для код-ревью. Также используй при вопросах «как правильно сделать X» для любого из перечисленных паттернов."
 default_prompt: "Используй $dev_reference_snippets, когда задача относится к навыку \"Референсы и сниппеты для разработки\"."
 triggers:
   - "dev_reference_snippets"
   - "dev reference snippets"
   - "Референсы и сниппеты для разработки"
-  - "Единый файл со сниппетами и анти-примерами (do/don’t) для Senior Full Stack"
+  - "Эталонные сниппеты и DO/DON'T для Senior Full Stack"
 capabilities:
   - "dev"
   - "reference"

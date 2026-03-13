@@ -113,6 +113,122 @@ await db.query("SELECT * FROM users WHERE email=$1", [email]);
 
 ---
 
+## E2) NoSQL Injection — MongoDB (P0)
+
+### ❌ DON'T: pass req.query/req.body directly in Mongoose
+```ts
+// Attack: ?email[$gt]= → object { $gt: "" } → matches ALL documents
+const user = await User.findOne({ email: req.query.email });
+
+// Attack: body = { "role": { "$ne": null } } → bypasses filter
+const users = await User.find(req.body);
+```
+
+### ✅ DO: bring to type + safe filter builder + strictQuery
+```ts
+// Force string — strip operator injection
+const email = String(req.query.email);
+const user = await User.findOne({ email });
+
+// Or Zod validation at boundary (best)
+const { email } = emailSchema.parse(req.query);
+
+// Global Mongoose defense
+mongoose.set('strictQuery', true);
+```
+
+### ✅ Comment
+- **P0:** NoSQL injection risk. User input is passed directly into a Mongoose query. Bring to type / Zod validation + `strictQuery: true`.
+
+---
+
+## E3) N+1 Query (P0)
+
+### ❌ DON'T: DB request in cycle
+```ts
+const orders = await Order.find({ userId });
+for (const order of orders) {
+  order.items = await Item.find({ orderId: order._id }); // N queries!
+}
+```
+
+### ✅ DO: batch query with $in or $lookup
+```ts
+const orders = await Order.find({ userId });
+const orderIds = orders.map(o => o._id);
+const items = await Item.find({ orderId: { $in: orderIds } }); // 1 query
+// Map items to orders in memory
+```
+
+### ✅ Comment
+- **P0:** N+1 request (DB call in cycle). Replace on batch `$in` or `$lookup` in aggregation.
+
+---
+
+## E4) React Performance (P1)
+
+### ❌ DON'T: new object/function on each render
+```tsx
+function Parent() {
+  return (
+    <Child
+      style={{ color: 'red' }}       // new object every render
+      onClick={() => doSomething()}   // new function every render
+      data={items.filter(x => x.active)} // new array every render
+    />
+  );
+}
+```
+
+### ✅ DO: stable links via useMemo/useCallback
+```tsx
+function Parent() {
+  const style = useMemo(() => ({ color: 'red' }), []);
+  const handleClick = useCallback(() => doSomething(), []);
+  const activeItems = useMemo(() => items.filter(x => x.active), [items]);
+
+  return <Child style={style} onClick={handleClick} data={activeItems} />;
+}
+```
+
+### ✅ Comment
+- **P1:** Inline object/function in JSX props calls extra re-renders. Use `useMemo`/`useCallback` for stable references.
+
+---
+
+## E5) Layer Boundary Violation (P0/P1)
+
+### ❌ DON'T: DB call in route/controller
+```ts
+// routes/coupons.js — route layer has direct DB access
+router.get('/coupons', async (req, res) => {
+  const coupons = await Coupon.find({ appInstanceId: req.appInstanceId }); // P0!
+  res.json(coupons);
+});
+```
+
+### ✅ DO: route → controller → service → repository
+```ts
+// routes/coupons.js
+router.get('/coupons', auth, couponController.list);
+
+// controllers/coupon.js
+async list(req, res) {
+  const coupons = await couponService.list(req.appInstanceId);
+  res.json({ data: coupons });
+}
+
+// services/coupon.js
+async list(appInstanceId) {
+  return couponRepo.findByAppInstanceId(appInstanceId);
+}
+```
+
+### ✅ Comment
+- **P0/P1:** Layering violation — direct DB call in route/controller. Extract in service → repository.
+
+---
+
 ## F) Command/Path Injection (P0)
 
 ### ❌ DON'T: shell exec with user input
@@ -123,7 +239,7 @@ exec(`convert ${userPath} -resize 200x200 out.png`);
 
 ### ✅ DO: avoid shell, use secure APIs/libraries
 ```ts
-// предпочтительно библиотека с безопасными аргументами, без shell
+// preferably a library with safe arguments, without shell
 await imageLib.resize({ inputPath: safePath, width: 200, height: 200 });
 ```
 
@@ -157,12 +273,12 @@ if (resource.ownerId !== ctx.user.id) throw new AppError(403, "FORBIDDEN", "Not 
 
 ### ❌ DON'T: cookie auth without CSRF protection
 ```txt
-Cookie session + POST/PUT/DELETE без CSRF защиты
+Cookie session + POST/PUT/DELETE without CSRF protection
 ```
 
 ### ✅ DO: SameSite + CSRF token (if required)
 ```txt
-SameSite=Strict/Lax + CSRF token (double-submit или synchronizer token)
+SameSite=Strict/Lax + CSRF token (double-submit or synchronizer token)
 ```
 
 ### ✅ Comment
@@ -199,7 +315,7 @@ await fetch(req.body.url);
 ```ts
 const url = new URL(req.body.url);
 if (!ALLOWED_HOSTS.has(url.hostname)) throw new AppError(400, "BAD_URL", "Host not allowed");
-// + защита от private ranges / metadata endpoints
+// + protection from private ranges / metadata endpoints
 ```
 
 ### ✅ Comment
@@ -216,64 +332,65 @@ app.use("/api/auth/login", strictLimiter);
 app.use("/api/search", searchLimiter);
 ```
 
-### ✅ Comment- **P1/P0:** No rate limiting. For public/expensive endpoints - a must.
+### ✅ Comment
+- **P1/P0:** No rate limiting. For public/expensive endpoints — mandatory.
 
 ---
 
 ## L) Idempotency (P1)
 
-### ❌ DON'T: Repeated POST results in double actions
 ```txt
-Повтор запроса создаёт 2 заказа/2 списания
+```txt
+```
 ```
 
-### ✅ DO: idempotency key for risky operations
 ```txt
-Idempotency-Key header + хранение результата/статуса по ключу на TTL
+```txt
+```
 ```
 
 ### ✅ Comment
-- **P1:** Create/charge operations require idempotency (especially during retries/network failures).
+- **P1:** For create/charge operations needed idempotency (especially with retries/network failures).
 
 ---
 
 ## M) API contract mismatches (P1/P0)
 
-### ✅ DO: single error format + status codes
+```json
 ```json
 { "error_code": "VALIDATION_ERROR", "message": "Invalid input", "details": { "field": "email" } }
 ```
 
-### ❌ DON'T: different error formats on different pens
+```json
 ```json
 { "error": "bad" }
 ```
 
 ### ✅ Comment
-- **P1/P0:** The error contract must be uniform across the project, otherwise the client/tests will break.
+- **P1/P0:** Contract errors must be consistent across the project, otherwise breaks client/tests.
 
 ---
 
 ## N) Observability: request_id/trace_id (P1)
 
-### ❌ DON'T: logs without correlation
+```ts
 ```ts
 logger.info("created user");
 ```
 
-### ✅ DO: structured logs + request_id + key fields
+```ts
 ```ts
 logger.info({ request_id: req.requestId, user_id: user.id }, "user_created");
 ```
 
 ### ✅ Comment
-- **P1:** We need correlation of requests (request_id/trace_id) according to the Observability Plan.
+- **P1:** Needed correlation requests (request_id/trace_id) by Observability Plan.
 
 ---
 
 ## O) Audit logging for critical operations (P1 → P0 if compliance/finance)
 
-### ✅ DO: audit events (without PII/secrets)
+```ts
 ```ts
 logger.info(
   { audit: true, action: "ORDER_REFUND", actor_id: ctx.user.id, order_id: order.id, request_id: req.requestId },
@@ -282,30 +399,30 @@ logger.info(
 ```
 
 ### ✅ Comment
-- **P1/P0:** For critical actions you need an audit trail (who/what/when).
+- **P1/P0:** For critical actions needed audit trail (who/what/when).
 
 ---
 
 ## P) Dependency & supply chain (P1)
 
-### ❌ DON'T: add questionable/extra packages without justification
 ```txt
-Добавлен пакет с низкой репутацией / дублирующий функциональность
+```txt
+```
 ```
 
-### ✅ DO: minification + audit + lockfile
 ```txt
-Обосновать зависимость, проверить аудит, обновить lockfile, включить CI проверки.
+```txt
+```
 ```
 
 ### ✅ Comment
-- **P1:** Check the need for dependency, audit results, and the absence of known vulnerabilities.
+- **P1:** Check need dependencies, results audit, and absence known vulnerabilities.
 
 ---
 
 ## Q) CI/CD security (P1)
 
-### ✅ DO: OIDC instead of long-lived tokens + secret scanning + audit
+```yaml
 ```yaml
 permissions:
   contents: read
@@ -319,26 +436,26 @@ steps:
       aws-region: eu-central-1
 ```
 
-### ❌ DON'T: store permanent keys in CI variables without rotation/restrictions
 ```txt
-AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY долгоживущие и с широкими правами
+```txt
+```
 ```
 
 ### ✅ Comment
-- **P1:** Transition to OIDC, minimal permissions, secret scanning, dependency audit.
+- **P1:** Transition on OIDC, minimal permissions, secret scanning, dependency audit.
 
 ---
 
 ## R) IAM least privilege (P0)
 
-### ❌ DON'T: wildcard access
+```yaml
 ```yaml
 iam_role:
   permissions: ["s3:*"]
   resources: ["*"]
 ```
 
-### ✅ DO: precise actions + resources
+```yaml
 ```yaml
 iam_role:
   permissions:
@@ -350,30 +467,30 @@ iam_role:
 ```
 
 ### ✅ Comment
-- **P0:** IAM rights are too broad. We need least privilege (specific actions + resources).
+- **P0:** IAM too overly broad permissions. Needed least privilege (concrete actions + resources).
 
 ---
 
 ## S) Network security (P0/P1)
 
-### ✅ DO: DB is not public + limited security groups
 ```txt
-DB private subnet, inbound только от app subnet/SG, no 0.0.0.0/0
+```txt
+```
 ```
 
-### ❌ DON'T: open the database on the Internet
 ```txt
-Inbound 0.0.0.0/0 на 5432
+```txt
+```
 ```
 
 ### ✅ Comment
-- **P0:** Public database is a critical vulnerability. Close access, leave only private networks/SG.
+- **P0:** Public DB — critical vulnerability. close access, keep only private network/security groups.
 
 ---
 
 ## T) CDN/WAF/Security headers (P1)
 
-### ✅ DO: security headers on edge + WAF rules
+```ts
 ```ts
 headers.set("X-Frame-Options", "DENY");
 headers.set("X-Content-Type-Options", "nosniff");
@@ -381,7 +498,7 @@ headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
 ```
 
 ### ✅ Comment
-- **P1:** No security headers/WAF. For production - enable managed rules + basic headers.
+- **P1:** No security headers/WAF. For production — enable managed rules + basic headers.
 
 ---
 
@@ -394,13 +511,13 @@ deletion_protection     = true
 ```
 
 ### ✅ Comment
-- **P1:** We need backups/retention/rollback. Minimum: retention, (optional) PITR, recovery test, runbook.
+- **P1:** Needed backups/retention/rollback. Minimum: retention, (optional) PITR, test recovery, runbook.
 
 ---
 
-## V) Security Tests (P1)
+## V) Tests security (P1)
 
-### ✅ DO: tests for auth/authz/validation/rate limit
+```ts
 ```ts
 expect(resp.status).toBe(401);
 expect(resp.status).toBe(403);
@@ -409,20 +526,20 @@ expect(resp.status).toBe(429);
 ```
 
 ### ✅ Comment
-- **P1:** Add security tests (auth/authz/validation/rate limiting) for critical handles.
+- **P1:** Add tests security (auth/authz/validation/rate limiting) for critical endpoints.
 
 ---
 
-## W) Final review template (briefly)
+## W) Template final review (short)
 
 ### ✅ Summary Template
 ```txt
 Summary:
-- PASS: <что ок>
-- MISSING: <что нужно добавить>
+- MISSING: <what need add>
+- MISSING: <what needed add>
 
 P0 (Blockers):
-- [ ] <что / где / почему блокер / как исправить>
+- [ ] <what / where / why blocker / how fix>
 
 P1 (Important):
 - [ ] ...

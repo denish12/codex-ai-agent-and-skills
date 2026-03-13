@@ -1,6 +1,6 @@
 interface:
   display_name: "Threat Model Baseline"
-  short_description: "Threat baseline for MVP: assets, attack vectors, measures. Considers OWASP risks and roles/perm…"
+  short_description: "Baseline threat model (threat baseline) for MVP — assets, attack vectors, mitigations. Includes…"
   default_prompt: "Use $threat_model_baseline when the task matches the \"Threat Model Baseline\" skill."
 dependencies:
   tools: []

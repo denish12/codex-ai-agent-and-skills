@@ -1,6 +1,6 @@
 interface:
   display_name: "Security Baseline (Dev)"
-  short_description: "Basic security in implementation: validation at boundaries, authz, safe errors, prohibiting sec…"
+  short_description: "Baseline security in implementation ? validation of input data (Zod), secrets management, safe…"
   default_prompt: "Use $security_baseline_dev when the task matches the \"Security Baseline (Dev)\" skill."
 dependencies:
   tools: []

@@ -1,12 +1,12 @@
 {
   "name": "tanstack_beast_practices",
   "display_name": "TanStack Beast Practices",
-  "description": "TanStack (Query/Table/Virtual): predictable data handling, caching, pagination, virtualization and UI performance.",
+  "description": "TanStack (Query v5, Table v8, Virtual v3): caching, invalidation, pagination, infinite scroll, server filters/sorting, virtualization for large lists. Use this skill with any work involving TanStack Query, TanStack Table, or TanStack Virtual ? writing the fetcher layer, setting up cache, building a table with server pagination, virtual lists, and questions like \"how to do X correctly with TanStack\".",
   "default_prompt": "Use $tanstack_beast_practices when the task matches the \"TanStack Beast Practices\" skill.",
   "triggers": [
     "tanstack_beast_practices",
     "tanstack beast practices",
-    "TanStack (Query/Table/Virtual)"
+    "TanStack (Query v5, Table v8, Virtual v3)"
   ],
   "capabilities": [
     "tanstack",

@@ -1,13 +1,13 @@
 version: 1
 name: "react_beast_practices"
 display_name: "Практики React"
-description: "React best practices: композиция, контейнер/презентер, хуки, контекст, производительность (memo/useMemo/useCallback), code splitting, error boundaries, a11y."
+description: "React best practices для Senior-уровня: composition, container/presenter, custom hooks, context, производительность (memo/useMemo/useCallback), code splitting, error boundaries, a11y. Используй этот скилл всегда, когда задача касается архитектуры React-компонентов, оптимизации ре-рендеров, работы с формами, тестирования компонентов или выбора паттерна для переиспользуемой логики."
 default_prompt: "Используй $react_beast_practices, когда задача относится к навыку \"Практики React\"."
 triggers:
   - "react_beast_practices"
   - "react beast practices"
   - "Практики React"
-  - "React best practices"
+  - "React best practices для Senior-уровня"
 capabilities:
   - "react"
   - "beast"

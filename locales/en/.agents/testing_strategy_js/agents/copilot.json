@@ -1,13 +1,13 @@
 {
   "name": "testing_strategy_js",
   "display_name": "Testing Strategy (JS/TS)",
-  "description": "Testing strategy for JS/TS projects: unit (vitest/jest), integration (API/DB), e2e (playwright) + organization of files and mocks of external services.",
+  "description": "Strategy testing for JS/TS projects — unit (Vitest), integration (API/DB), e2e (Playwright). AAA-pattern, Vitest config, React Testing Library, mocks external services, coverage thresholds, naming conventions, CI pipeline. Activate with writing new tests, refactoring existing, or with questions «how correctly test X».",
   "default_prompt": "Use $testing_strategy_js when the task matches the \"Testing Strategy (JS/TS)\" skill.",
   "triggers": [
     "testing_strategy_js",
     "testing strategy js",
     "Testing Strategy (JS/TS)",
-    "Testing strategy for JS/TS projects"
+    "Strategy testing for JS/TS projects — unit (Vitest), integration (API/DB), e2e (Playwright)"
   ],
   "capabilities": [
     "testing",

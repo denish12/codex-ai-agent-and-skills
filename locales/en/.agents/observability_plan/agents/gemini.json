@@ -1,11 +1,13 @@
 {
   "name": "observability_plan",
-  "display_name": "Observability plan",
-  "description": "Observability plan: what logs/metrics/traces to collect, query correlation, log levels, alerts. No leakage of PII/secrets.",
-  "default_prompt": "Use $observability_plan when the task matches the \"Observability plan\" skill.",
+  "display_name": "Find all logs for a specific request:",
+  "description": "Plan observability — which logs/metrics/traces collect, correlation requests, levels logs, alerts. Without leaks PII/secrets.",
+  "default_prompt": "Use $observability_plan when the task matches the \"Find all logs for a specific request:\" skill.",
   "triggers": [
     "observability_plan",
-    "observability plan"
+    "observability plan",
+    "Find all logs for a specific request:",
+    "Plan observability — which logs/metrics/traces collect, correlation requests, levels logs, alerts"
   ],
   "capabilities": [
     "observability",

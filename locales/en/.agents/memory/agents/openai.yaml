@@ -1,7 +1,7 @@
 interface:
-  display_name: "Managing project context through a vector database/MCP"
-  short_description: "Managing project context through a vector database/MCP: what to save, how to retrieve, how to a…"
-  default_prompt: "Use $memory when the task matches the \"Managing project context through a vector database/MCP\" skill."
+  display_name: "Memory (context between sessions)"
+  short_description: "Project context management — what save, how extract, how avoid conflict decisions and loss of c…"
+  default_prompt: "Use $memory when the task matches the \"Memory (context between sessions)\" skill."
 dependencies:
   tools: []
 policy:

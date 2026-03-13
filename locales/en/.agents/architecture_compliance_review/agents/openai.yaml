@@ -1,7 +1,7 @@
 interface:
-  display_name: "Checking code compliance with architecture/ADR"
-  short_description: "Checking code compliance with architecture/ADR: module boundaries, layers, dependencies, conven…"
-  default_prompt: "Use $architecture_compliance_review when the task matches the \"Checking code compliance with architecture/ADR\" skill."
+  display_name: "🔴 P0: DB in routes/controllers"
+  short_description: "Check compliance code architecture/ADR — boundaries modules, layers, dependencies, conventions,…"
+  default_prompt: "Use $architecture_compliance_review when the task matches the \"🔴 P0: DB in routes/controllers\" skill."
 dependencies:
   tools: []
 policy:

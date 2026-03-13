@@ -1,7 +1,7 @@
 interface:
-  display_name: "Security review of cloud/infra/CI/CD"
-  short_description: "Security review of cloud/infra/CI/CD: IAM, secrets manager, network, logging/monitoring, supply…"
-  default_prompt: "Use $cloud_infrastructure_security when the task matches the \"Security review of cloud/infra/CI/CD\" skill."
+  display_name: "Caddy security headers"
+  short_description: "Security review of cloud/infra/CI/CD — IAM, secrets manager, network, logging/monitoring, suppl…"
+  default_prompt: "Use $cloud_infrastructure_security when the task matches the \"Caddy security headers\" skill."
 dependencies:
   tools: []
 policy:

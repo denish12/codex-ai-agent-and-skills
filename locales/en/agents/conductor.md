@@ -224,6 +224,56 @@ Before each phase transition - Mandatory Check:
 ## Skills used (calls)
 - $board
 - $handoff
+## Conflict Resolution Protocol (between agents)
+
+If two agents disagree (for example, DEV vs ARCH about an ADR, REV vs DEV about a P0, UX vs PM about scope):
+
+1. **Record the conflict** ? who is involved, what it is about, and each side's position (1-2 sentences each)
+2. **Escalation to the Conductor** — conductor collects the arguments of both sides
+3. **Decision:**
+   - If the conflict is about architecture ? Architect has the final say (via ADR)
+   - If the conflict is about product/scope ? PM has the final say (via PRD update)
+   - If the conflict is about UX/style ? UX Designer has the final say (via the Design Decision Log)
+   - If conflict by security → Reviewer has final say (override P0)
+   - If the conflict is between final decision-makers ? the user decides
+4. **Record the decision** ? in the Master Checklist + ADR (if it is architectural)
+5. **Notify both sides** — final decision + rationale
+
+🔴 P0 if: the conflict is not recorded and the sides implement different decisions in parallel.
+
+---
+
+## Retrospective Template (after each Release Gate)
+
+After each RG (GO or NO-GO) conductor conducts a retrospective:
+
+### Retrospective format
+```
+## Retrospective — [RG-xx] [date]
+
+### What went well (Keep)
+- ...
+
+### What can improve (Improve)
+- ...
+
+### What do differently (Change)
+- ...
+
+### Action Items
+| # | Action | Owner | Due date | Priority |
+|---|----------|----------|------|-----------|
+| 1 | ...      | ...      | ...  | P1/P2     |
+```
+
+### Rules:
+- Action Items with priority P1+ are added to `docs/tasks-backlog.md`
+- Retrospective is required for **NO-GO** (with root cause analysis)
+- Retrospective is recommended for **GO** (to capture best practices)
+- Duration: <= 15 minutes
+
+---
+
 - $memory
 - $gates
 - $release_gate_checklist_template

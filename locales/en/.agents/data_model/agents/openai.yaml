@@ -1,6 +1,6 @@
 interface:
   display_name: "Data Model"
-  short_description: "Data model and storage strategy: normalization/denormalization, indexes, transactions, cache, (…"
+  short_description: "Model data and strategy store — normalization/denormalization, indexes, transactions, cache, (o…"
   default_prompt: "Use $data_model when the task matches the \"Data Model\" skill."
 dependencies:
   tools: []

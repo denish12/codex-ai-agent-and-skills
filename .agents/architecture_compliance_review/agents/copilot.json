@@ -1,13 +1,13 @@
 {
   "name": "architecture_compliance_review",
   "display_name": "Проверка соответствия архитектуре",
-  "description": "Проверка соответствия кода архитектуре/ADR: границы модулей, слои, зависимости, конвенции, red flags.",
+  "description": "Проверка соответствия кода архитектуре/ADR — границы модулей, слои, зависимости, конвенции, red flags.",
   "default_prompt": "Используй $architecture_compliance_review, когда задача относится к навыку \"Проверка соответствия архитектуре\".",
   "triggers": [
     "architecture_compliance_review",
     "architecture compliance review",
     "Проверка соответствия архитектуре",
-    "Проверка соответствия кода архитектуре/ADR"
+    "Проверка соответствия кода архитектуре/ADR — границы модулей, слои, зависимости, конвенции, red flags"
   ],
   "capabilities": [
     "architecture",

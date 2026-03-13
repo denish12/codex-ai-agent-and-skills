@@ -1,0 +1,23 @@
+version: 1
+name: "qa_regression_baseline"
+display_name: "QA Regression Baseline Skill"
+description: ">"
+default_prompt: "Use $qa_regression_baseline when the task matches the \"QA Regression Baseline Skill\" skill."
+triggers:
+  - "qa_regression_baseline"
+  - "qa regression baseline"
+  - "QA Regression Baseline Skill"
+  - ">"
+capabilities:
+  - "qa"
+  - "regression"
+  - "baseline"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

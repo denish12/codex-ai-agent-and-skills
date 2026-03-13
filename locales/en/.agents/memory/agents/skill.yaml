@@ -1,11 +1,12 @@
 version: 1
 name: "memory"
-display_name: "Managing project context through a vector database/MCP"
-description: "Managing project context through a vector database/MCP: what to save, how to retrieve, how to avoid decision conflicts and loss of context."
-default_prompt: "Use $memory when the task matches the \"Managing project context through a vector database/MCP\" skill."
+display_name: "Memory (context between sessions)"
+description: "Project context management — what save, how extract, how avoid conflict decisions and loss of context between sessions."
+default_prompt: "Use $memory when the task matches the \"Memory (context between sessions)\" skill."
 triggers:
   - "memory"
-  - "Managing project context through a vector database/MCP"
+  - "Memory (context between sessions)"
+  - "Project context management — what save, how extract, how avoid conflict decisions and loss of context between sessions"
 capabilities:
   - "memory"
 tools: []

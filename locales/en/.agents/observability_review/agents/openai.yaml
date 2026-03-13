@@ -1,7 +1,7 @@
 interface:
-  display_name: "Observability review"
-  short_description: "Observability review: structured logs, request_id/trace_id, log levels, prohibition of PII/secr…"
-  default_prompt: "Use $observability_review when the task matches the \"Observability review\" skill."
+  display_name: "🟠 P1: Unstructured logging"
+  short_description: "Review observability — structured logs, request_id/trace_id, levels logs, ban leaks PII/secrets…"
+  default_prompt: "Use $observability_review when the task matches the \"🟠 P1: Unstructured logging\" skill."
 dependencies:
   tools: []
 policy:

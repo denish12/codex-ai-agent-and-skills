@@ -1,6 +1,6 @@
 interface:
   display_name: "TDD Workflow"
-  short_description: "Development strictly according to TDD (RED-GREEN-REFACTOR) with unit+integration tests and targ…"
+  short_description: "Development strictly by TDD (RED→GREEN→REFACTOR): wording test cases via user journey, unit + i…"
   default_prompt: "Use $tdd_workflow when the task matches the \"TDD Workflow\" skill."
 dependencies:
   tools: []

@@ -1,77 +1,213 @@
 ---
 name: release_gate
-description: Final release gate: collect Reviewer+Tester+CI reports, check DoD, classify risks, make a GO/NO-GO decision and form a closure plan.
+description: Final release gate — collect reports Reviewer+Tester+CI, check DoD, classify risks, accept decision GO/NO-GO and form closure plan.
 ---
 
 #Skill: Release Gate
 
-## Goal
-Make a release decision (GO/NO-GO) based on DoD, review/testing reports and CI/CD status.
+Final decision GO / NO-GO / GO-with-conditions.
 
-## Required condition
-Before starting the release gate, the conductor must generate a checklist via: $release_gate_checklist_template
+**Sections:**
+1. [Workflow](#1-workflow)
+2. [Inputs](#2-inputs)
+3. [Decision Matrix](#3-decision)
+4. [NO-GO Criteria](#4-nogo)
+5. [DoD Checklist](#5-dod)
+6. [Post-Release Verification](#6-post)
+7. [Example: Release Report](#7-example)
+8. [Output Template](#8-output)
 
-## Inputs
-- Reviewer report (P0/P1/P2 + suggested fixes)
-- Tester report (PASS/FAIL/BLOCKED + bugs P0/P1/P2 + evidence)
-- CI results (unit/integration, lint/format, security/dependency checks if available)
-- Release notes / list of changes (what is being released)
-- General DoD
-- Release Gate Checklist (RG-01…RG-xx) with statuses
+---
 
-## Release Criteria (strict)
-### NO-GO (release prohibited)
-- There is **P0** from Reviewer or Tester
-- Unit or Integration tests DO NOT pass
-- There is a risk of leaking secrets/PII in code/logs
-- No runbook instructions for changes
-- Critical UX flow is broken or blocked (BLOCKED without bypass)
-- API non-compliance with contracts, breaking the client (P0)
+## 1. Workflow
 
-### GO with conditions (only allowed if agreed upon in advance)
-- There are P1/P2, but:
-  - there are workaround/mitigation measures,
-  - there are established tasks with priority and owner,
-  - the risk is described and accepted.
+```
+1. Prereq: Generate RG checklist ($release_gate_checklist_template)
+2. Collect inputs (section 2)
+3. Fill RG checklist statuses
+4. Run DoD checklist (section 5)
+5. Apply decision matrix (section 3)
+6. Generate Release Report (section 8)
+7. Submit to user for GO / NO-GO sign-off
+8. If GO → post-release verification (section 6)
+```
 
-## DoD Checklist (required)
-- [ ] Unit tests pass
-- [ ] Integration tests pass
-- [ ] Secrets are not included in the code/logs
-- [ ] There are run/check instructions (local/CI)
-- [ ] Basic security: input validation, authorization, dependency hygiene
+---
 
-## Process (steps)
-1) Make sure that the RG checklist ($release_gate_checklist_template) has been created and the statuses have been entered.
-2) Collect input artifacts: Reviewer report, Tester report, CI status.
-3) Combine Findings into a single list: P0/P1/P2, owner, task link, status.
-4) Run the DoD checklist and mark PASS/MISSING.
-5) Make a GO/NO-GO decision (or GO-with-conditions if used).
-6) Generate a Release Report and update RG-22 (Decision).
+## 2. Inputs
 
-## Output: Release Report (template)
-###Release Decision
-- Decision: GO / NO-GO / GO-with-conditions
-- Version/Tag: <if available>
-- Scope: <briefly what we are releasing>
+| Input | Source | Required |
+|-------|--------|:--------:|
+| Reviewer Report | REV gate | ✅ |
+| Tester Report | TEST gate | ✅ |
+| CI Results (tests, lint) | CI pipeline / terminal | ✅ |
+| RG Checklist (filled) | $release_gate_checklist_template | ✅ |
+| Release scope (what's shipping) | Board / backlog | ✅ |
+| Version / tag / commit | Git | ✅ |
+| Rollback plan | OPS gate | ✅ |
 
-### Evidence
-- CI: PASS/FAIL (link/commit)
-- Reviewer: PASS/MISSING + P0/P1/P2 count
-- Tester: PASS/FAIL/BLOCKED + bugs P0/P1/P2 count
+---
 
-###DoD Status
-- Checklist: PASS/MISSING (with missing list)
+## 3. Decision Matrix
 
-### Blocking Issues (if NO-GO)
-- [ ] ID / Description / Owner / How to reproduce / Fix plan
+| Condition | Decision |
+|-----------|----------|
+| All RG checks DONE + 0 P0 + 0 P1 | **✅ GO** |
+| All RG checks DONE + 0 P0 + P1 with tracked tasks | **⚠️ GO with conditions** |
+| Any P0 from Reviewer or Tester | **❌ NO-GO** |
+| CI tests fail | **❌ NO-GO** |
+| Secrets in code/logs | **❌ NO-GO** |
+| Critical UX flow broken | **❌ NO-GO** |
+| No runbook / deploy instructions | **❌ NO-GO** |
+| API contract violation (breaking) | **❌ NO-GO** |
 
-### Accepted Risks (if GO-with-conditions)
-- Risk → impact → mitigation → owner → deadline
+### GO with conditions rules
 
-###Next Actions
-- RG-01...
-- RG-02...
+```markdown
+Allowed ONLY when ALL of:
+1. Zero P0 issues
+2. P1 issues have:
+   - [ ] Workaround documented
+   - [ ] Fix task created with owner + deadline
+   - [ ] Risk accepted by user
+3. No security P1 (security P1 = treat as P0)
+```
+
+---
+
+## 4. NO-GO Criteria (hard stops)
+
+| # | Criterion | How to check |
+|---|----------|-------------|
+| NG-01 | P0 from Reviewer | Review report: P0 count > 0 |
+| NG-02 | P0 from Tester | Test report: P0 bugs open |
+| NG-03 | Unit/Integration tests fail | CI output |
+| NG-04 | Secrets in code | grep: password, apiKey, token in source |
+| NG-05 | Secrets in logs | grep: password, token in log output |
+| NG-06 | No runbook | Missing deploy/verify instructions |
+| NG-07 | Critical flow blocked | TEST: P0 test case BLOCKED |
+| NG-08 | Breaking API change | API contract compliance: P0 mismatch |
+
+---
+
+## 5. DoD Checklist
+
+| # | Check | Source | Status |
+|---|-------|--------|--------|
+| RG-DoD-01 | Unit tests PASS | CI | ☐ |
+| RG-DoD-02 | Integration tests PASS | CI | ☐ |
+| RG-DoD-03 | Lint/format PASS | CI | ☐ |
+| RG-DoD-04 | 0 P0 from Reviewer | REV report | ☐ |
+| RG-DoD-05 | 0 P0 from Tester | TEST report | ☐ |
+| RG-DoD-06 | No secrets in code/logs | Security scan | ☐ |
+| RG-DoD-07 | Runbook exists and is current | docs/ | ☐ |
+| RG-DoD-08 | API matches contracts | API compliance | ☐ |
+| RG-DoD-09 | Containers built + healthy | OPS report | ☐ |
+| RG-DoD-10 | RG checklist complete | RG-01..RG-22 | ☐ |
+
+---
+
+## 6. Post-Release Verification
+
+After GO decision and deploy:
+
+| # | Check | How | Status |
+|---|-------|-----|--------|
+| POST-01 | Service is running | Health endpoint returns 200 | ☐ |
+| POST-02 | P0 flows work end-to-end | Quick manual smoke | ☐ |
+| POST-03 | No error spike in logs | Check last 5min of logs | ☐ |
+| POST-04 | Response times normal | Check latency (< 500ms) | ☐ |
+| POST-05 | Rollback tested (if first deploy) | Know how to roll back | ☐ |
+
+---
+
+## 7. Example: Release Report
+
+```markdown
+# Release Report: Smart Cart Rescue v0.9
+
+## Decision: ⚠️ GO with conditions
+
+**Version:** v0.9.0
+**Commit:** abc1234
+**Date:** 2026-03-13
+**Scope:** Settings CRUD + Coupon CRUD + Glassmorphism Widget
+
+## Evidence
+| Source | Status | Details |
+|--------|:------:|---------|
+| CI: Unit tests | ✅ PASS | 42/42 pass |
+| CI: Integration | ✅ PASS | 8/8 pass |
+| CI: Lint | ✅ PASS | 0 errors |
+| Reviewer | ✅ PASS | 0 P0, 2 P1 |
+| Tester | ✅ PASS | 0 P0, 1 P1 |
+| Security scan | ✅ PASS | No secrets found |
+| API compliance | ✅ PASS | All endpoints match |
+
+## DoD: 10/10 PASS
+
+## P1 Accepted (conditions)
+| # | Finding | Owner | Fix by | Workaround |
+|---|---------|-------|--------|-----------|
+| 1 | Timer NaN for 0 sec | DEV | v0.9.1 | Set min=1 |
+| 2 | Font preview missing | DEV | v0.9.1 | — (cosmetic) |
+| 3 | Empty state no illustration | UX | v0.9.1 | Has text CTA |
+
+## Rollback Plan
+- `docker compose down && git checkout v0.8 && docker compose up -d --build`
+
+## Post-Release
+- [ ] Health check OK
+- [ ] Settings CRUD works
+- [ ] Widget renders
+```
+
+---
+
+## 8. Output Template
+
+```markdown
+# Release Report: <Project> <Version>
+
+## Decision: ✅ GO / ⚠️ GO with conditions / ❌ NO-GO
+
+**Version:** <tag/commit>
+**Date:** YYYY-MM-DD
+**Scope:** <what's shipping>
+
+## Evidence
+| Source | Status | Details |
+|--------|:------:|---------|
+| CI: Unit | ✅/❌ | X/Y pass |
+| CI: Integration | ✅/❌ | X/Y pass |
+| Reviewer | ✅/❌ | P0: X, P1: Y |
+| Tester | ✅/❌ | P0: X, P1: Y |
+| Security | ✅/❌ | ... |
+| API Compliance | ✅/❌ | ... |
+
+## DoD Status
+<section 5 checklist — X/10 PASS>
+
+## Blocking Issues (if NO-GO)
+| # | Issue | Owner | Fix plan |
+|---|-------|-------|---------|
+| 1 | ... | ... | ... |
+
+## Accepted Risks (if GO with conditions)
+| # | Risk | Owner | Fix by | Workaround |
+|---|------|-------|--------|-----------|
+| 1 | ... | ... | ... | ... |
+
+## Rollback Plan
+<commands to rollback>
+
+## Post-Release Verification
+<section 6 checklist>
+```
+
+---
 
 ## See also
-- Checklist template: $release_gate_checklist_template
+- `$release_gate_checklist_template` — RG checklist (generate before this)
+- `$gates` — gate definitions
+- `$board` — project board tracking

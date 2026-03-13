@@ -1,0 +1,8 @@
+interface:
+  display_name: "Tailwind Beast Practices"
+  short_description: "Tailwind CSS best practices для Senior-уровня: организация классов, компонентный подход, кастом…"
+  default_prompt: "Используй $tailwind_beast_practices, когда задача относится к навыку \"Tailwind Beast Practices\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

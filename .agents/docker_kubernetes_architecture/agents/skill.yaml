@@ -1,13 +1,13 @@
 version: 1
 name: "docker_kubernetes_architecture"
 display_name: "Архитектура Docker и Kubernetes"
-description: "Архитектура контейнеризации и Kubernetes: Dockerfile best practices, k8s manifests, security, scaling, rollout, observability, CI/CD."
+description: "Архитектура контейнеризации и Kubernetes — Dockerfile best practices, k8s manifests, security, scaling, rollout, observability, CI/CD."
 default_prompt: "Используй $docker_kubernetes_architecture, когда задача относится к навыку \"Архитектура Docker и Kubernetes\"."
 triggers:
   - "docker_kubernetes_architecture"
   - "docker kubernetes architecture"
   - "Архитектура Docker и Kubernetes"
-  - "Архитектура контейнеризации и Kubernetes"
+  - "Архитектура контейнеризации и Kubernetes — Dockerfile best practices, k8s manifests, security, scaling, rollout, observability, CI/CD"
 capabilities:
   - "docker"
   - "kubernetes"

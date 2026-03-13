@@ -1,5 +1,5 @@
 ---
-name: google_stitch_skill
+name: google_stitch
 description: Генерация UI-экранов через Google Stitch (AI) с прямым доступом через StitchMCP. Rapid ideation после Approved UX Proposal, промпт-инжиниринг, контроль качества. Привязано к UX/UI Designer gate.
 last_verified: 2026-03-11
 version: 3.0

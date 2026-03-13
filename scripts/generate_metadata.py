@@ -102,6 +102,10 @@ RU_DISPLAY_NAME_OVERRIDES = {
     "wix_self_hosted_embedded_script": "\u0421\u0430\u043c\u043e\u0445\u043e\u0441\u0442\u0438\u0440\u0443\u0435\u043c\u044b\u0439 \u0432\u0441\u0442\u0440\u043e\u0435\u043d\u043d\u044b\u0439 \u0441\u043a\u0440\u0438\u043f\u0442 \u0434\u043b\u044f Wix",
 }
 
+EN_DISPLAY_NAME_OVERRIDES = {
+    "a11y_baseline": "Minimum baseline accessibility for web UI",
+}
+
 PIPELINE_STAGES = [
     "PM(PRD)",
     "UX(UX Spec)",
@@ -314,6 +318,8 @@ def build_fallback_description(name: str, locale: str) -> str:
 def resolve_skill_display_name(name: str, skill_text: str, description: str, locale: str) -> str:
     if locale == "ru" and name in RU_DISPLAY_NAME_OVERRIDES:
         return RU_DISPLAY_NAME_OVERRIDES[name]
+    if locale == "en" and name in EN_DISPLAY_NAME_OVERRIDES:
+        return EN_DISPLAY_NAME_OVERRIDES[name]
 
     heading = clean_heading(extract_heading_from_text(skill_text))
     if heading:

@@ -1,35 +1,134 @@
 ---
 name: gates
-description: Контроль гейтов процесса и Definition of Done: не пропускать этапы, проверять наличие артефактов и критериев проверки, организовывать циклы возврата (Dev↔Reviewer↔Tester).
+description: Контроль гейтов процесса и Definition of Done — не пропускать этапы, проверять наличие артефактов и критериев проверки, организовывать циклы возврата (Dev↔Reviewer↔Tester).
 ---
 
 # Skill: Gates & DoD (контроль качества дирижёра)
 
-## Цель
-Не допустить “псевдоготовности”: каждый этап должен завершаться артефактом и проверкой.
+Не допустить «псевдоготовности»: каждый этап → артефакт + проверка.
 
-## Гейты (общая логика)
-- Нельзя двигаться дальше, если предыдущий этап не дал артефакт.
-- Любые P0 замечания = стоп, возврат на доработку.
+**Разделы:**
+1. [Gate Flow](#1-flow)
+2. [Per-Gate Entry/Exit Criteria](#2-criteria)
+3. [Approval Matrix](#3-approval)
+4. [Return Loop](#4-return)
+5. [Universal DoD](#5-dod)
+6. [Bypass Rules](#6-bypass)
 
-## Минимальные артефакты по этапам (шаблон)
-- PM: PRD + acceptance criteria
-- UX: UX Spec (flows/экраны/состояния/a11y/компоненты)
-- ARCH: Architecture + ключевые решения (ADR) + план задач
-- DEV: код + unit+integration tests + инструкции запуска
-- REV: отчёт ревью (P0/P1/P2) + итог approve/changes
-- TEST: тест-план + тест-отчёт + баги
+---
 
-## DoD (универсальная проверка дирижёра)
-Отмечать “☑ готово” можно только если:
-- тесты проходят (unit + integration),
-- нет секретов в коде/логах,
-- есть инструкции запуска/проверки,
-- базовая безопасность соблюдена (валидация, authz, зависимости),
-- UX/UI: реализованы состояния loading/empty/error/success по UX Spec,
-- a11y минимум выполнен (keyboard/focus/labels/ARIA где нужно).
+## 1. Gate Flow
 
-## Алгоритм “возврата”
-1) Reviewer/Test нашли проблему → создать задачу `DEV-xx Fix ...`
-2) Поставить `REV-xx`/`TEST-xx` в `⚠️` до фикса
-3) После фикса: повторить ревью/тест, закрыть гейт
+```
+PM ──→ UX ──→ ARCH ──→ DEV ──→ REV ──→ OPS ──→ TEST ──→ RG
+ │      │       │       │       │       │        │       │
+PRD   UX Spec  Arch   Code    Review  Build   Test    Release
+      +a11y    +ADR   +Tests  Report  +Deploy  Report  Decision
+              +API
+```
+
+### Rule: No gate can start until the previous gate's exit criteria are met.
+
+---
+
+## 2. Per-Gate Entry/Exit Criteria
+
+| Gate | Entry Criteria | Deliverable(s) | Exit Criteria | Approver |
+|------|---------------|----------------|---------------|----------|
+| **PM** | User brief / idea | PRD + Backlog | PRD approved by user, AC verifiable | User |
+| **UX** | Approved PRD | UX Spec + UI Inventory + A11y Baseline | All PRD flows covered, states defined, handoff complete | User |
+| **ARCH** | Approved UX Spec | Architecture Doc + ADR + API Contracts + Data Model | System design reviewed, API contracts finalized | User |
+| **DEV** | Approved Architecture | Code + Unit/Integration Tests + Runbook | Tests pass, no P0 bugs in self-review, code committed | Self + CI |
+| **REV** | DEV deliverables complete | Review Report (P0/P1/P2) | 0 P0 findings, P1 tracked | Reviewer Agent |
+| **OPS** | Code reviewed + approved | Docker build + Deploy + Health check | Build success, services healthy, containers restarted | DevOps Agent |
+| **TEST** | Deployed + healthy | Test Plan + Test Report + Bug List | All P0 tests pass, 0 open P0 bugs | Tester Agent |
+| **RG** | All gates complete | Release Gate Checklist + Release Report | GO decision from user | User |
+
+---
+
+## 3. Approval Matrix
+
+| Gate | Who Creates | Who Reviews | Who Approves (sign-off) |
+|------|-----------|-----------|----------------------|
+| PM | PM Agent | Conductor | **User** |
+| UX | UX Agent | Conductor | **User** |
+| ARCH | Architect Agent | Conductor | **User** |
+| DEV | Dev Agent | Conductor | **Conductor** (self-check) |
+| REV | Reviewer Agent | Conductor | **Reviewer Agent** (verdict) |
+| OPS | DevOps Agent | Conductor | **DevOps Agent** (health proof) |
+| TEST | Tester Agent | Conductor | **Tester Agent** (test report) |
+| RG | Conductor | — | **User** |
+
+---
+
+## 4. Return Loop
+
+### When Reviewer/Tester finds issues
+
+```
+Reviewer finds P0 → REV gate = ⚠️
+  └── Conductor creates DEV-xx Fix task
+      └── DEV fixes → self-tests
+          └── REV re-reviews
+              └── If P0=0 → REV gate = ☑
+
+Tester finds P0 → TEST gate = ⚠️
+  └── Conductor creates DEV-xx Fix task
+      └── DEV fixes → REV re-reviews (if needed)
+          └── OPS restarts containers
+              └── TEST re-tests
+                  └── If P0=0 → TEST gate = ☑
+```
+
+### Loop limits
+
+| Loop | Max iterations | If exceeded |
+|------|:-------------:|------------|
+| DEV ↔ REV | 3 | Escalate to user: architecture issue? |
+| DEV ↔ TEST | 3 | Escalate to user: scope issue? |
+| REV ↔ TEST | 2 | Re-review approach with Architect |
+
+---
+
+## 5. Universal DoD
+
+Check before marking any gate `☑`:
+
+| # | Check | Status |
+|---|-------|--------|
+| DoD-01 | Deliverable artifact exists (not empty, not placeholder) | ☐ |
+| DoD-02 | Deliverable follows skill template/format | ☐ |
+| DoD-03 | No P0 issues open for this gate | ☐ |
+| DoD-04 | Entry criteria of next gate are now satisfiable | ☐ |
+| DoD-05 | Board updated (task status = ☑) | ☐ |
+| DoD-06 | HANDOFF envelope created ($handoff) | ☐ |
+
+### Gate-specific DoD additions
+
+| Gate | Additional DoD |
+|------|---------------|
+| DEV | Tests pass (unit + integration), no secrets in code/logs |
+| REV | 0 P0, P1 tracked with tasks |
+| OPS | Containers built + healthy, services responding |
+| TEST | All P0 test cases PASS, 0 open P0 bugs |
+| RG | Release checklist complete, GO decision |
+
+---
+
+## 6. Bypass Rules
+
+| Situation | Can bypass? | Rule |
+|-----------|:-----------:|------|
+| Bugfix / hotfix (< 5 files) | Partial | Skip PM + UX, do DEV → REV → OPS → TEST → RG |
+| Config-only change (.env, Docker) | Partial | Skip PM + UX + ARCH, do OPS → TEST → RG |
+| Documentation-only | Yes | No gates needed |
+| User explicitly says "skip gate X" | Yes | Log decision as ASSUMPTION, proceed |
+| Agent says "this gate is unnecessary" | **No** | Only user can authorize gate skip |
+
+---
+
+## См. также
+- `$handoff` — context pack for gate transitions
+- `$board` — project board tracking
+- `$release_gate` — final release decision
+- `$release_gate_checklist_template` — RG checklist

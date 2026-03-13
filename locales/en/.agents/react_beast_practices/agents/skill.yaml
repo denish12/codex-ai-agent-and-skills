@@ -1,12 +1,12 @@
 version: 1
 name: "react_beast_practices"
-display_name: "React best practices"
-description: "React best practices: composition, container/presenter, hooks, context, performance (memo/useMemo/useCallback), code splitting, error boundaries, a11y."
-default_prompt: "Use $react_beast_practices when the task matches the \"React best practices\" skill."
+display_name: "React best practices for Senior-level"
+description: "React best practices for Senior-level: composition, container/presenter, custom hooks, context, performance (memo/useMemo/useCallback), code splitting, error boundaries, a11y. Use this skill always, when task concerns architecture React-components, optimizations re-renders, work with form, testing components or choosing a pattern for reusable logic."
+default_prompt: "Use $react_beast_practices when the task matches the \"React best practices for Senior-level\" skill."
 triggers:
   - "react_beast_practices"
   - "react beast practices"
-  - "React best practices"
+  - "React best practices for Senior-level"
 capabilities:
   - "react"
   - "beast"

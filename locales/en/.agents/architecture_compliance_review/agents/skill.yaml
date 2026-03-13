@@ -1,12 +1,13 @@
 version: 1
 name: "architecture_compliance_review"
-display_name: "Checking code compliance with architecture/ADR"
-description: "Checking code compliance with architecture/ADR: module boundaries, layers, dependencies, conventions, red flags."
-default_prompt: "Use $architecture_compliance_review when the task matches the \"Checking code compliance with architecture/ADR\" skill."
+display_name: "🔴 P0: DB in routes/controllers"
+description: "Check compliance code architecture/ADR — boundaries modules, layers, dependencies, conventions, red flags."
+default_prompt: "Use $architecture_compliance_review when the task matches the \"🔴 P0: DB in routes/controllers\" skill."
 triggers:
   - "architecture_compliance_review"
   - "architecture compliance review"
-  - "Checking code compliance with architecture/ADR"
+  - "🔴 P0: DB in routes/controllers"
+  - "Check compliance code architecture/ADR — boundaries modules, layers, dependencies, conventions, red flags"
 capabilities:
   - "architecture"
   - "compliance"

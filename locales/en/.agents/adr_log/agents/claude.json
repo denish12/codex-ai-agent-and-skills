@@ -1,13 +1,13 @@
 {
   "name": "adr_log",
-  "display_name": "ADR-XXX: <Name>",
-  "description": "Record key architectural decisions (ADR) with trade-offs: Pros/Cons/Alternatives/Decision, status and date.",
-  "default_prompt": "Use $adr_log when the task matches the \"ADR-XXX: <Name>\" skill.",
+  "display_name": "ADR-XXX: <Short decision title>",
+  "description": "Record key architectural decisions (ADR) with trade-offs — Pros/Cons/Alternatives/Decision, status and date.",
+  "default_prompt": "Use $adr_log when the task matches the \"ADR-XXX: <Short decision title>\" skill.",
   "triggers": [
     "adr_log",
     "adr log",
-    "ADR-XXX: <Name>",
-    "Record key architectural decisions (ADR) with trade-offs"
+    "ADR-XXX: <Short decision title>",
+    "Record key architectural decisions (ADR) with trade-offs — Pros/Cons/Alternatives/Decision, status and date"
   ],
   "capabilities": [
     "adr",

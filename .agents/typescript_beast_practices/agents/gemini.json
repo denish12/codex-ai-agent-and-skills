@@ -1,13 +1,13 @@
 {
   "name": "typescript_beast_practices",
   "display_name": "Практики TypeScript",
-  "description": "TypeScript практики: строгая типизация, типобезопасные контракты, схемы валидации (zod/pydantic-analog по стеку), безопасные DTO и минимизация any.",
+  "description": "TypeScript практики Senior-уровня: strict-режим, utility types, discriminated unions, type guards, branded types, типобезопасные API-контракты с Zod, безопасные DTO, минимизация any/as. Используй этот скилл при написании или ревью любого TypeScript кода — особенно при типизации API-ответов, моделировании доменных состояний, работе с generics и при вопросах «как правильно типизировать X».",
   "default_prompt": "Используй $typescript_beast_practices, когда задача относится к навыку \"Практики TypeScript\".",
   "triggers": [
     "typescript_beast_practices",
     "typescript beast practices",
     "Практики TypeScript",
-    "TypeScript практики"
+    "TypeScript практики Senior-уровня"
   ],
   "capabilities": [
     "typescript",

@@ -1,7 +1,7 @@
 interface:
-  display_name: "ADR-XXX: <Name>"
-  short_description: "Record key architectural decisions (ADR) with trade-offs: Pros/Cons/Alternatives/Decision, stat…"
-  default_prompt: "Use $adr_log when the task matches the \"ADR-XXX: <Name>\" skill."
+  display_name: "ADR-XXX: <Short decision title>"
+  short_description: "Record key architectural decisions (ADR) with trade-offs — Pros/Cons/Alternatives/Decision, sta…"
+  default_prompt: "Use $adr_log when the task matches the \"ADR-XXX: <Short decision title>\" skill."
 dependencies:
   tools: []
 policy:

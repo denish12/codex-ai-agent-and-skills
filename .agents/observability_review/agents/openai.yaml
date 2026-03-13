@@ -1,6 +1,6 @@
 interface:
   display_name: "Проверка наблюдаемости"
-  short_description: "Ревью наблюдаемости: структурированные логи, request_id/trace_id, уровни логов, запрет утечек P…"
+  short_description: "Ревью наблюдаемости — структурированные логи, request_id/trace_id, уровни логов, запрет утечек…"
   default_prompt: "Используй $observability_review, когда задача относится к навыку \"Проверка наблюдаемости\"."
 dependencies:
   tools: []

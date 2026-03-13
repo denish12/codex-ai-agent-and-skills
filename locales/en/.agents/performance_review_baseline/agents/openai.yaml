@@ -1,7 +1,7 @@
 interface:
-  display_name: "Basic perf review"
-  short_description: "Basic perf review: N+1, pagination, batches, extra requests, architectural cache, heavy operati…"
-  default_prompt: "Use $performance_review_baseline when the task matches the \"Basic perf review\" skill."
+  display_name: "N+1 indicators"
+  short_description: "Baseline perf-review — N+1, pagination, batches, extra requests, cache by architecture, heavy o…"
+  default_prompt: "Use $performance_review_baseline when the task matches the \"N+1 indicators\" skill."
 dependencies:
   tools: []
 policy:

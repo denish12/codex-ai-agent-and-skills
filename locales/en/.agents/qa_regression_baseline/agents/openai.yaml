@@ -1,0 +1,8 @@
+interface:
+  display_name: "QA Regression Baseline Skill"
+  short_description: ">"
+  default_prompt: "Use $qa_regression_baseline when the task matches the \"QA Regression Baseline Skill\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

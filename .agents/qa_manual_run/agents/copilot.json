@@ -1,13 +1,13 @@
 {
   "name": "qa_manual_run",
   "display_name": "QA: ручной прогон",
-  "description": "Ручной прогон критичных сценариев и регресса: happy/edge/error paths по UX Spec; фиксация багов с шагами и доказательствами.",
+  "description": "Ручной прогон критичных сценариев и регресса — happy/edge/error paths по UX Spec; фиксация багов с шагами и доказательствами.",
   "default_prompt": "Используй $qa_manual_run, когда задача относится к навыку \"QA: ручной прогон\".",
   "triggers": [
     "qa_manual_run",
     "qa manual run",
     "QA: ручной прогон",
-    "Ручной прогон критичных сценариев и регресса"
+    "Ручной прогон критичных сценариев и регресса — happy/edge/error paths по UX Spec"
   ],
   "capabilities": [
     "qa",

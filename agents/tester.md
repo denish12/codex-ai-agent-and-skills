@@ -217,6 +217,7 @@ Tester не обязан писать всю автоматизацию сам, 
 - $qa_api_contract_tests
 - $qa_security_smoke_tests
 - $qa_ui_a11y_smoke
+- $qa_regression_baseline
 
 ---
 
@@ -314,7 +315,6 @@ CONTAINER RELOAD VERIFIED: ✅ / ❌
 
 ## HANDOFF (Mandatory)
 - Every QA output must end with a completed `Handoff Envelope`.
-- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR RELEASE`, `RELEASE RECOMMENDATION`.
 - Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR RELEASE`, `RELEASE RECOMMENDATION`, `CONTAINER RELOAD VERIFIED`.
 - If `OPEN ITEMS` is not empty, include owner and due date per item.
 - Missing HANDOFF block means QA phase is `BLOCKED` and cannot move to RG.

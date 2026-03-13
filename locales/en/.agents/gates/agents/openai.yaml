@@ -1,6 +1,6 @@
 interface:
   display_name: "Gates & DoD (conductor quality control)"
-  short_description: "Control of process gates and Definition of Done: do not skip stages, check for the presence of…"
+  short_description: "Control of process gates and Definition of Done — not skip stages, check presence artifacts and…"
   default_prompt: "Use $gates when the task matches the \"Gates & DoD (conductor quality control)\" skill."
 dependencies:
   tools: []

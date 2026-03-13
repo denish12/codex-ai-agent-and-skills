@@ -1,6 +1,6 @@
 interface:
   display_name: "Практики TypeScript"
-  short_description: "TypeScript практики: строгая типизация, типобезопасные контракты, схемы валидации (zod/pydantic…"
+  short_description: "TypeScript практики Senior-уровня: strict-режим, utility types, discriminated unions, type guar…"
   default_prompt: "Используй $typescript_beast_practices, когда задача относится к навыку \"Практики TypeScript\"."
 dependencies:
   tools: []

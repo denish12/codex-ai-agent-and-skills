@@ -1,6 +1,6 @@
 interface:
   display_name: "Стайлинг и CSS-стек"
-  short_description: "CSS практики: чистый CSS + препроцессоры (Less/Sass) + Tailwind; соглашения, доступность, предс…"
+  short_description: "CSS практики — custom properties (design tokens), naming (BEM / CSS Modules), responsive, trans…"
   default_prompt: "Используй $styling_css_stack, когда задача относится к навыку \"Стайлинг и CSS-стек\"."
 dependencies:
   tools: []

@@ -1,13 +1,13 @@
 {
   "name": "qa_security_smoke_tests",
   "display_name": "QA: базовые проверки безопасности",
-  "description": "Базовые security smoke тесты: auth/authz, валидация, утечки в ошибках/логах, rate limiting (если включен), SSRF/XSS где релевантно.",
+  "description": "Базовые security smoke тесты — auth/authz, валидация, утечки в ошибках/логах, rate limiting (если включен), SSRF/XSS где релевантно.",
   "default_prompt": "Используй $qa_security_smoke_tests, когда задача относится к навыку \"QA: базовые проверки безопасности\".",
   "triggers": [
     "qa_security_smoke_tests",
     "qa security smoke tests",
     "QA: базовые проверки безопасности",
-    "Базовые security smoke тесты"
+    "Базовые security smoke тесты — auth/authz, валидация, утечки в ошибках/логах, rate limiting (если включен), SSRF/XSS где релевантно"
   ],
   "capabilities": [
     "qa",

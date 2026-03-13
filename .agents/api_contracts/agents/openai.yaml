@@ -1,6 +1,6 @@
 interface:
   display_name: "API-контракты"
-  short_description: "API контракты по UX flows: эндпоинты, схемы, ошибки, валидация, авторизация, perf/scalability с…"
+  short_description: "API контракты по UX flows — эндпоинты, схемы, ошибки, валидация, авторизация, perf/scalability…"
   default_prompt: "Используй $api_contracts, когда задача относится к навыку \"API-контракты\"."
 dependencies:
   tools: []

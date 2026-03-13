@@ -1,56 +1,197 @@
 ---
 name: pm_interview
-description: Структурированное интервью/разбор документации: собрать цели, аудиторию, MVP, ограничения, интеграции и критерии успеха, чтобы можно было написать PRD.
+description: Структурированное интервью/разбор документации — собрать цели, аудиторию, MVP, ограничения, интеграции и критерии успеха, чтобы можно было написать PRD.
 ---
 
 # Skill: PM Interview / Discovery
 
-## Цель
-Быстро выяснить минимально достаточную информацию для PRD и последующей разработки.
+Собрать минимально достаточную информацию для PRD.
 
-## Когда использовать
-- В начале проекта
-- Когда пользователь даёт разрозненные вводные
-- Когда меняется направление/приоритеты
+**Разделы:**
+1. [Workflow](#1-workflow)
+2. [Question Bank](#2-questions)
+3. [Priority & Assumptions](#3-priority)
+4. [Пример: Smart Cart Rescue](#4-пример)
+5. [Output Template](#5-output)
 
-## Выход
-- Сводка вводных (bullet points)
-- Список вопросов (3–12), отсортированных по важности
-- Явные допущения (если делались)
+---
 
-## Скелет интервью (задавай только релевантное)
+## 1. Workflow
+
+```
+1. Прочитай то, что уже есть:
+   ├── User brief / описание идеи
+   ├── Существующий код / README
+   └── Предыдущие документы (если есть)
+
+2. Извлеки факты (что уже известно)
+
+3. Определи пробелы (что нужно уточнить)
+   └── Используй Question Bank (section 2)
+
+4. Приоритизируй вопросы:
+   ├── 🔴 Blocking — без ответа нельзя писать PRD
+   ├── 🟠 Important — влияет на PRD, но можно допустить
+   └── 🟡 Nice-to-know — можно отложить
+
+5. Задай вопросы (только blocking + important)
+   └── Остальное → допущения с пометкой ASSUMPTION
+
+6. Сформируй Interview Summary (section 5)
+   └── Передай в → $pm_prd
+```
+
+### Когда НЕ нужен interview
+
+| Ситуация | Действие |
+|----------|---------|
+| User дал детальный brief с ответами на всё | Пропустить → сразу $pm_prd |
+| Итерация над существующим PRD | Минимальный interview (только новые вопросы) |
+| Bugfix / patch | Не нужен |
+
+---
+
+## 2. Question Bank
+
 ### A) Продукт и пользователи
-- Кто целевые пользователи?
-- Какая главная боль/задача?
-- Как пользователь решает это сейчас?
-- Какие роли пользователей и различия в правах?
+
+| # | Вопрос | Зачем | Priority |
+|---|--------|-------|:--------:|
+| Q-01 | Кто целевые пользователи? | Определяет user stories и UX | 🔴 |
+| Q-02 | Какая главная боль/задача? | Core value proposition | 🔴 |
+| Q-03 | Как пользователь решает это сейчас? | Competitive context | 🟠 |
+| Q-04 | Какие роли и различия в правах? | Auth/ACL scope | 🔴 |
 
 ### B) MVP и границы
-- Что обязательно в MVP (3–7 пунктов)?
-- Что точно НЕ входит (out-of-scope)?
-- Какие сценарии самые частые/критичные?
+
+| # | Вопрос | Зачем | Priority |
+|---|--------|-------|:--------:|
+| Q-05 | Что обязательно в MVP (3-7 пунктов)? | Scope control | 🔴 |
+| Q-06 | Что точно НЕ входит (out-of-scope)? | Prevent scope creep | 🔴 |
+| Q-07 | Какие сценарии самые частые/критичные? | Priority of user flows | 🟠 |
 
 ### C) Успех и метрики
-- Как поймём, что продукт успешен? (метрики/OKR)
-- Есть ли KPI по скорости, конверсии, retention?
+
+| # | Вопрос | Зачем | Priority |
+|---|--------|-------|:--------:|
+| Q-08 | Как поймём что продукт успешен? | Success criteria | 🟠 |
+| Q-09 | Есть ли KPI (скорость, конверсия, retention)? | Measurable goals | 🟡 |
 
 ### D) Данные и интеграции
-- Какие данные храним? (профиль, контент, транзакции)
-- Нужны ли интеграции (платежи, email/SMS, CRM, SSO, аналитика)?
-- Есть ли внешние API и ограничения?
 
-### E) Нефункциональные требования (NFR)
-- Безопасность/комплаенс (PII, GDPR, SOC2 и т.п.)?
-- Производительность (ожидаемая нагрузка)?
-- Доступность (SLA)?
-- Локализация/языки?
+| # | Вопрос | Зачем | Priority |
+|---|--------|-------|:--------:|
+| Q-10 | Какие данные храним? | Data model scope | 🔴 |
+| Q-11 | Нужны ли внешние интеграции? | Architecture dependencies | 🔴 |
+| Q-12 | Есть ли внешние API и ограничения? | API constraints | 🟠 |
+
+### E) NFR (нефункциональные)
+
+| # | Вопрос | Зачем | Priority |
+|---|--------|-------|:--------:|
+| Q-13 | Есть ли требования по безопасности/compliance? | Security scope | 🟠 |
+| Q-14 | Ожидаемая нагрузка? | Scaling strategy | 🟡 |
+| Q-15 | Локализация / языки? | i18n scope | 🟡 |
 
 ### F) Технологии и деплой
-- Предпочтительный стек? Если нет — предложить варианты.
-- Где деплоим? (Vercel/Docker/AWS/…)
-- Нужна ли админка?
 
-## Правило минимизации вопросов
-- Если можно двигаться дальше с безопасным допущением — делай допущение и отмечай.
-- Если ответ критичен для архитектуры/UX — задавай вопрос.
-- Если вопрос можно отложить до PRD — добавь в раздел открытых вопросов.
+| # | Вопрос | Зачем | Priority |
+|---|--------|-------|:--------:|
+| Q-16 | Предпочтительный стек? | Tech decisions | 🟠 |
+| Q-17 | Где деплоим? | Infrastructure | 🟠 |
+| Q-18 | Нужна ли админка? | Additional scope | 🟡 |
+
+---
+
+## 3. Priority & Assumptions
+
+### Правило минимизации вопросов
+
+| Ситуация | Действие |
+|----------|---------|
+| Ответ критичен для архитектуры/UX | 🔴 Обязательно спросить |
+| Можно двигаться с безопасным допущением | 🟠 Допустить + пометить ASSUMPTION |
+| Можно отложить до PRD review | 🟡 Добавить в Open Questions |
+
+### Assumption format
+
+```markdown
+**ASSUMPTION-XX:** <Statement>
+- Основание: <Why this is safe to assume>
+- Риск: Low / Medium / High
+- Подтвердить до: <milestone>
+```
+
+---
+
+## 4. Пример: Smart Cart Rescue
+
+```markdown
+# Interview Summary: Smart Cart Rescue
+
+## Facts (from user brief)
+- Wix App — аbandoned cart recovery via popup
+- Dashboard for configuring popup widgets
+- Multiple design templates (Glassmorphism, Neo-Brutalism, Minimal)
+- Coupon management (CRUD)
+- Timer countdown for urgency
+
+## Questions Asked
+| # | Question | Answer | Status |
+|---|----------|--------|:------:|
+| Q-01 | Target users? | Wix store owners | ✅ |
+| Q-04 | Roles? | Single role: Site Owner | ✅ |
+| Q-05 | MVP features? | Settings, Coupons, Widget, Install | ✅ |
+| Q-06 | Out of scope? | Analytics, A/B testing, multi-language | ✅ |
+| Q-11 | Integrations? | Wix Platform (OAuth, Webhooks) | ✅ |
+
+## Assumptions
+- ASSUMPTION-01: Desktop-only (Wix Editor = desktop) → Low risk
+- ASSUMPTION-02: English only for MVP → Low risk
+- ASSUMPTION-03: No payment integration (free app) → Low risk
+```
+
+---
+
+## 5. Output Template
+
+```markdown
+# PM Interview Summary
+
+**Date:** YYYY-MM-DD
+**Interviewer:** Product Manager Agent
+**Source:** <user brief / existing docs / conversation>
+
+## Facts (confirmed)
+| # | Fact | Source |
+|---|------|--------|
+| F-01 | ... | User brief |
+| F-02 | ... | README.md |
+
+## Questions & Answers
+| # | Question | Priority | Answer | Status |
+|---|----------|:--------:|--------|:------:|
+| Q-01 | ... | 🔴 | ... | ✅ Answered |
+| Q-05 | ... | 🔴 | ... | ✅ Answered |
+| Q-09 | ... | 🟡 | — | ASSUMED |
+
+## Assumptions
+| ID | Assumption | Risk | Confirm by |
+|----|-----------|:----:|-----------|
+| ASSUMPTION-01 | ... | Low | MVP review |
+
+## Open Questions (deferred)
+| # | Question | Why deferred | Address at |
+|---|----------|-------------|-----------|
+| Q-14 | Expected load? | Not critical for MVP | Pre-launch |
+
+## Next Step
+→ Proceed to $pm_prd
+```
+
+---
+
+## См. также
+- `$pm_prd` — PRD (output of interview)
+- `$pm_backlog` — Backlog decomposition
+- `$ux_discovery` — UX-specific discovery

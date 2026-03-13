@@ -1,6 +1,6 @@
 interface:
   display_name: "UI Components Inventory"
-  short_description: "Compile an inventory of UI components and rules for reuse: basic components, compositional comp…"
+  short_description: "Compose an inventory of UI components and reuse rules — basic components, composite components,…"
   default_prompt: "Use $ui_inventory when the task matches the \"UI Components Inventory\" skill."
 dependencies:
   tools: []

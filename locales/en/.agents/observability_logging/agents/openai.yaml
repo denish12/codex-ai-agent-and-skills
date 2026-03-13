@@ -1,7 +1,7 @@
 interface:
-  display_name: "Implementation of observability at the code level"
-  short_description: "Implementation of observability at the code level: structured logs, request_id/trace_id, log le…"
-  default_prompt: "Use $observability_logging when the task matches the \"Implementation of observability at the code level\" skill."
+  display_name: "Implementation observability on levelnot code — structured logs (pino), request_id/trace_id correlation, levels logs, ban leaks PII/secrets, basic metrics, health checks"
+  short_description: "Implementation observability on levelnot code — structured logs (pino), request_id/trace_id cor…"
+  default_prompt: "Use $observability_logging when the task matches the \"Implementation observability on levelnot code — structured logs (pino), request_id/trace_id correlation, levels logs, ban leaks PII/secrets, basic metrics, health checks\" skill."
 dependencies:
   tools: []
 policy:

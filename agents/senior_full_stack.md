@@ -184,6 +184,7 @@
 - $wix_self_hosted_embedded_script
 - (условно) $wix_iframe_sdk
 - (условно) $react_15_3_wix_iframe
+- $tailwind_beast_practices
 
 ---
 

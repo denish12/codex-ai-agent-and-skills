@@ -1,12 +1,13 @@
 {
   "name": "go_beast_practices",
-  "display_name": "Go best practices",
-  "description": "Go best practices: simplicity, errors as values, interfaces, context, concurrency, project structure, linters and testing (TDD).",
-  "default_prompt": "Use $go_beast_practices when the task matches the \"Go best practices\" skill.",
+  "display_name": ".golangci.yml",
+  "description": "Go best practices ? simplicity, errors as values, interfaces, context, concurrency, project structure, linters, and testing (TDD). Table-driven tests, errgroup, graceful shutdown, HTTP handlers. Activate when writing or reviewing Go code, or with questions like \"how to write X correctly in Go\".",
+  "default_prompt": "Use $go_beast_practices when the task matches the \".golangci.yml\" skill.",
   "triggers": [
     "go_beast_practices",
     "go beast practices",
-    "Go best practices"
+    ".golangci.yml",
+    "Go best practices ? simplicity, errors as values, interfaces, context, concurrency, project structure, linters, and testing (TDD)"
   ],
   "capabilities": [
     "go",

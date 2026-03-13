@@ -1,6 +1,6 @@
 interface:
   display_name: "Zustand Beast Practices"
-  short_description: "Zustand: simple global state without prop drilling, store modularity, selectors, avoiding unnec…"
+  short_description: "Zustand — simple global state without prop drilling, module store, selectors, avoiding extra re…"
   default_prompt: "Use $state_zustand_beast_practices when the task matches the \"Zustand Beast Practices\" skill."
 dependencies:
   tools: []

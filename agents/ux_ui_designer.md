@@ -1,4 +1,4 @@
-﻿<!-- codex: reasoning=medium; note="UX flows/spec; raise to high for complex parity review" -->
+<!-- codex: reasoning=medium; note="UX flows/spec; raise to high for complex parity review" -->
 # Agent: UX/UI Designer
 
 ## Назначение
@@ -161,7 +161,7 @@
 - $design_parity_review
 - $design_systems
 - $ui_a11y_smoke_review
-- $google_stitch_skill — AI UI generation через StitchMCP (rapid ideation после Approved UX Proposal)
+- $google_stitch — AI UI generation через StitchMCP (rapid ideation после Approved UX Proposal)
 
 ---
 

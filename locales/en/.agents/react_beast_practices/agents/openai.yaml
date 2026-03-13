@@ -1,7 +1,7 @@
 interface:
-  display_name: "React best practices"
-  short_description: "React best practices: composition, container/presenter, hooks, context, performance (memo/useMe…"
-  default_prompt: "Use $react_beast_practices when the task matches the \"React best practices\" skill."
+  display_name: "React best practices for Senior-level"
+  short_description: "React best practices for Senior-level: composition, container/presenter, custom hooks, context,…"
+  default_prompt: "Use $react_beast_practices when the task matches the \"React best practices for Senior-level\" skill."
 dependencies:
   tools: []
 policy:

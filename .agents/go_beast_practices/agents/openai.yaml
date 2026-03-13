@@ -1,6 +1,6 @@
 interface:
   display_name: "Практики Go"
-  short_description: "Go best practices: простота, ошибки как значения, интерфейсы, контекст, конкурентность, структу…"
+  short_description: "Go best practices — простота, ошибки как значения, интерфейсы, контекст, конкурентность, структ…"
   default_prompt: "Используй $go_beast_practices, когда задача относится к навыку \"Практики Go\"."
 dependencies:
   tools: []

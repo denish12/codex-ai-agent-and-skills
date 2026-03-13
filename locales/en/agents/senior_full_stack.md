@@ -184,6 +184,7 @@ The report for the conductor contains:
 - (conditional) $react_15_3_wix_iframe
 
 ---
+- $tailwind_beast_practices
 
 ## Agent response format (strict)
 
@@ -283,4 +284,3 @@ CI STATUS: GREEN ✅ / RED ❌
 - Every DEV output must end with a completed `Handoff Envelope`.
 - Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR REVIEW`, `ANTI-PATTERN CHECK`, `JSDOC COVERAGE`, `CI STATUS`.
 - If `OPEN ITEMS` is not empty, include owner and due date per item.
-- Missing HANDOFF block means DEV phase is `BLOCKED` and cannot move to REV.

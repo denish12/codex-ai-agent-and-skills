@@ -1,6 +1,6 @@
 interface:
   display_name: "Проверка качества тестов"
-  short_description: "Ревью качества unit/integration тестов: покрытие сценариев, границы, устойчивость, отсутствие ф…"
+  short_description: "Ревью качества unit/integration тестов — покрытие сценариев, границы, устойчивость, отсутствие…"
   default_prompt: "Используй $tests_quality_review, когда задача относится к навыку \"Проверка качества тестов\"."
 dependencies:
   tools: []

@@ -1,7 +1,7 @@
 interface:
-  display_name: "Structured interview/documentation analysis"
-  short_description: "Structured interview/documentation analysis: collect goals, audience, MVP, limitations, integra…"
-  default_prompt: "Use $pm_interview when the task matches the \"Structured interview/documentation analysis\" skill."
+  display_name: "Interview Summary: Smart Cart Rescue"
+  short_description: "Structured interview/documentation review — collect goals, audience, MVP, constraints, integrat…"
+  default_prompt: "Use $pm_interview when the task matches the \"Interview Summary: Smart Cart Rescue\" skill."
 dependencies:
   tools: []
 policy:

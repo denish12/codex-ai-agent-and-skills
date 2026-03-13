@@ -1,4 +1,4 @@
-﻿<!-- codex: reasoning=medium; note="UX flows/spec; raise to high for complex parity review" -->
+<!-- codex: reasoning=medium; note="UX flows/spec; raise to high for complex parity review" -->
 # Agent: UX/UI Designer
 
 ## Purpose
@@ -161,7 +161,7 @@ If the user makes edits (not fully approved):
 - $design_parity_review
 - $design_systems
 - $ui_a11y_smoke_review
-- $google_stitch_skill
+- $google_stitch — AI UI generation via StitchMCP (rapid ideation after Approved UX Proposal)
 
 ---
 
@@ -281,5 +281,3 @@ DESIGN SOURCE OF TRUTH: Stitch / Figma / HTML-ref
 ## HANDOFF (Mandatory)
 - Every UX output must end with a completed `Handoff Envelope`.
 - Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR NEXT PHASE`, `UX SPEC STATUS`, `PARITY MODE`, `DESIGN SOURCE OF TRUTH`.
-- If `OPEN ITEMS` is not empty, include owner and due date per item.
-- Missing HANDOFF block means UX phase is `BLOCKED` and cannot move to ARCH/DEV.

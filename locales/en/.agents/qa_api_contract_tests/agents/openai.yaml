@@ -1,6 +1,6 @@
 interface:
   display_name: "QA API Contract Tests"
-  short_description: "Check the API for compliance with contracts: schemes, codes, errors, validation, pagination; sm…"
+  short_description: "Check API on compliance contracts — schemas, codes, errors, validation, pagination; smoke via c…"
   default_prompt: "Use $qa_api_contract_tests when the task matches the \"QA API Contract Tests\" skill."
 dependencies:
   tools: []

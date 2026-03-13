@@ -134,6 +134,37 @@ Document "how to launch and operate":
 ## Anti-Patterns (what is prohibited)
 - Secrets in the code, .env files in the repo, git history
 - HTTP in prod (HTTPS only)
+## Incident Response & Disaster Recovery
+
+### Incident Response Protocol
+In case of an incident in production:
+1. **Detect** — alert (PagerDuty / Slack / manual) → determine severity (SEV1–SEV3)
+2. **Triage** — assign on-call, collect context (logs/metrics/traces)
+3. **Mitigate** — rollback / hotfix / feature flag disable
+4. **Communicate** — notify stakeholders (Conductor, PM)
+5. **Resolve** — the root cause is resolved and confirmed by smoke tests
+6. **Postmortem** ? record the timeline, root cause, and action items (<= 48 hours after the incident)
+
+| Severity | Response time | Escalation | Example |
+|----------|--------------|-----------|--------|
+| SEV1 | <= 15 min | Conductor + PM + Architect | Data lost / service completely down |
+| SEV2 | <= 1 hour | Conductor | A key flow is broken, a workaround exists |
+| SEV3 | <= 4 hours | ? | Performance degradation, non-critical UI bug |
+
+### Disaster Recovery (DR)
+- **Backup strategy:** automatic DB backup at least once per day, retention >= 7 days
+- **Recovery Point Objective (RPO):** maximum acceptable data loss (by default <= 24 hours for MVP)
+- **Recovery Time Objective (RTO):** maximum recovery time (by default <= 1 hour for MVP)
+- **DR test:** check recovery from backup at least once per quarter
+- **Multi-region:** determine the need (by compliance/SLA)
+
+### 5) Security (secure by default)
+- no DB backups in production
+- no a documented recovery plan
+- RPO/RTO not defined for critical data
+
+---
+
 - Shared credentials between environments
 - "Manual deployment" without IaC/scripts
 - Wildcard CORS in prod
@@ -251,6 +282,9 @@ INFRASTRUCTURE STATUS: Approved ✅ / Pending ⏳
 
 ## HANDOFF (Mandatory)
 - Every DevOps output must end with a completed `Handoff Envelope`.
+- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR DEV`, `HTTPS STATUS`, `SECRETS STATUS`, `CONTAINER RELOAD STATUS`, `INFRASTRUCTURE STATUS`.
+- If `OPEN ITEMS` is not empty, include owner and due date per item.
+- Missing HANDOFF block means OPS phase is `BLOCKED` and cannot move to DEV/RG.
 - Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR DEV`, `HTTPS STATUS`, `SECRETS STATUS`, `CONTAINER RELOAD STATUS`, `INFRASTRUCTURE STATUS`.
 - If `OPEN ITEMS` is not empty, include owner and due date per item.
 - Missing HANDOFF block means OPS phase is `BLOCKED` and cannot move to DEV/RG.

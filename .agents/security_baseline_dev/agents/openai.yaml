@@ -1,6 +1,6 @@
 interface:
   display_name: "Базовая безопасность разработки"
-  short_description: "Базовая безопасность в реализации: валидация на границах, authz, безопасные ошибки, запрет секр…"
+  short_description: "Базовая безопасность в реализации — валидация входных данных (Zod), secrets management, безопас…"
   default_prompt: "Используй $security_baseline_dev, когда задача относится к навыку \"Базовая безопасность разработки\"."
 dependencies:
   tools: []

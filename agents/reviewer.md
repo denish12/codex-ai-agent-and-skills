@@ -248,7 +248,6 @@ CONTAINER RELOAD VERIFIED: ✅ / ❌
 
 ## HANDOFF (Mandatory)
 - Every REV output must end with a completed `Handoff Envelope`.
-- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR NEXT PHASE`, `MERGE STATUS`.
 - Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR NEXT PHASE`, `MERGE STATUS`, `CONTAINER RELOAD VERIFIED`.
 - If `OPEN ITEMS` is not empty, include owner and due date per item.
 - Missing HANDOFF block means REV phase is `BLOCKED` and cannot move to QA/RG.

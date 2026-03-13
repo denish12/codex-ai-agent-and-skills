@@ -1,13 +1,13 @@
 version: 1
 name: "ui_a11y_smoke_review"
-display_name: "UI & A11y Smoke Review"
-description: "Quick UI/a11y smoke review: states loading/empty/error, focus, keyboard, aria/labels by a11y baseline and UX Spec."
-default_prompt: "Use $ui_a11y_smoke_review when the task matches the \"UI & A11y Smoke Review\" skill."
+display_name: "UI & A11y Smoke Review (Designer-Level)"
+description: "Quick UI/a11y smoke review design — states loading/empty/error, focus, keyboard, aria/labels, compliance UX Spec. Execution To transfer in QA."
+default_prompt: "Use $ui_a11y_smoke_review when the task matches the \"UI & A11y Smoke Review (Designer-Level)\" skill."
 triggers:
   - "ui_a11y_smoke_review"
   - "ui a11y smoke review"
-  - "UI & A11y Smoke Review"
-  - "Quick UI/a11y smoke review"
+  - "UI & A11y Smoke Review (Designer-Level)"
+  - "Quick UI/a11y smoke review design — states loading/empty/error, focus, keyboard, aria/labels, compliance UX Spec"
 capabilities:
   - "ui"
   - "a11y"

@@ -113,6 +113,122 @@ await db.query("SELECT * FROM users WHERE email=$1", [email]);
 
 ---
 
+## E2) NoSQL Injection — MongoDB (P0)
+
+### ❌ DON'T: передавать req.query/req.body напрямую в Mongoose
+```ts
+// Атака: ?email[$gt]= → объект { $gt: "" } → matches ALL documents
+const user = await User.findOne({ email: req.query.email });
+
+// Атака: body = { "role": { "$ne": null } } → обходит фильтр
+const users = await User.find(req.body);
+```
+
+### ✅ DO: привести к типу + safe filter builder + strictQuery
+```ts
+// Force string — strip operator injection
+const email = String(req.query.email);
+const user = await User.findOne({ email });
+
+// Or Zod validation at boundary (best)
+const { email } = emailSchema.parse(req.query);
+
+// Global Mongoose defense
+mongoose.set('strictQuery', true);
+```
+
+### ✅ Комментарий
+- **P0:** NoSQL injection риск. Пользовательский ввод передаётся напрямую в Mongoose query. Привести к типу / Zod validation + `strictQuery: true`.
+
+---
+
+## E3) N+1 Query (P0)
+
+### ❌ DON'T: DB запрос в цикле
+```ts
+const orders = await Order.find({ userId });
+for (const order of orders) {
+  order.items = await Item.find({ orderId: order._id }); // N queries!
+}
+```
+
+### ✅ DO: batch query с $in или $lookup
+```ts
+const orders = await Order.find({ userId });
+const orderIds = orders.map(o => o._id);
+const items = await Item.find({ orderId: { $in: orderIds } }); // 1 query
+// Map items to orders in memory
+```
+
+### ✅ Комментарий
+- **P0:** N+1 запрос (DB call в цикле). Заменить на batch `$in` или `$lookup` в aggregation.
+
+---
+
+## E4) React Performance (P1)
+
+### ❌ DON'T: новый объект/функция на каждый render
+```tsx
+function Parent() {
+  return (
+    <Child
+      style={{ color: 'red' }}       // new object every render
+      onClick={() => doSomething()}   // new function every render
+      data={items.filter(x => x.active)} // new array every render
+    />
+  );
+}
+```
+
+### ✅ DO: стабильные ссылки через useMemo/useCallback
+```tsx
+function Parent() {
+  const style = useMemo(() => ({ color: 'red' }), []);
+  const handleClick = useCallback(() => doSomething(), []);
+  const activeItems = useMemo(() => items.filter(x => x.active), [items]);
+
+  return <Child style={style} onClick={handleClick} data={activeItems} />;
+}
+```
+
+### ✅ Комментарий
+- **P1:** Инлайн объект/функция в JSX props вызывает лишние ре-рендеры. Использовать `useMemo`/`useCallback` для стабильных ссылок.
+
+---
+
+## E5) Layer Boundary Violation (P0/P1)
+
+### ❌ DON'T: DB вызов в route/controller
+```ts
+// routes/coupons.js — route layer has direct DB access
+router.get('/coupons', async (req, res) => {
+  const coupons = await Coupon.find({ appInstanceId: req.appInstanceId }); // P0!
+  res.json(coupons);
+});
+```
+
+### ✅ DO: route → controller → service → repository
+```ts
+// routes/coupons.js
+router.get('/coupons', auth, couponController.list);
+
+// controllers/coupon.js
+async list(req, res) {
+  const coupons = await couponService.list(req.appInstanceId);
+  res.json({ data: coupons });
+}
+
+// services/coupon.js
+async list(appInstanceId) {
+  return couponRepo.findByAppInstanceId(appInstanceId);
+}
+```
+
+### ✅ Комментарий
+- **P0/P1:** Нарушение слоёв — прямой DB вызов в route/controller. Вынести в service → repository.
+
+---
+
 ## F) Command/Path Injection (P0)
 
 ### ❌ DON'T: shell exec с пользовательским вводом

@@ -1,51 +1,410 @@
 ---
 name: deployment_ci_plan
-description: Deployment and CI plan: environments, configs, secrets, migrations, CI checks (tests/lint/security), release and rollback strategy.
+description: Deployment and CI plan — environments, configs, secrets, migrations, checks in CI (tests/lint/security), release and rollback strategy.
 ---
 
 # Skill: Deployment & CI Plan
 
-## Goal
-Make a reproducible build/test/deploy process.
+Reproducibility build → test → deploy process.
 
-## Add (Operations)
-- Monitoring/alerting (minimum)
-- Backup & recovery (if there is a database)
-- Rollback plan (required)
+**Sections:**
+1. [Environments](#1-environments)
+2. [Config & Secrets](#2-config--secrets)
+3. [Docker Setup](#3-docker)
+4. [CI Pipeline](#4-ci-pipeline)
+5. [DB Migrations](#5-migrations)
+6. [Release Strategy](#6-release)
+7. [Rollback Plan](#7-rollback)
+8. [Smoke Tests](#8-smoke)
+9. [Example: Smart Cart Rescue](#9-example)
+10. [Output Template](#10-output)
 
-## Inputs
-- Deployment restrictions (Vercel/Docker/AWS/etc)
-- Stack
-- Security requirements (secrets)
+---
 
-## Output (structure)
-## 1) Environments
--local
-- staging (if any)
-- production
+## 1. Environments
 
-## 2) Config & Secrets
-- env vars list
-- where we store secrets (secret storage)
-- log policy (do not print secrets)
+| Env | Purpose | URL | Deploy trigger | Infra |
+|-----|---------|-----|---------------|-------|
+| **local** | Development | `https://localhost:5173` | Manual (`docker compose up`) | Docker Compose |
+| **staging** | Pre-release testing | `https://staging.example.com` | Push to `staging` branch | Docker Compose / K8s |
+| **production** | Live users | `https://app.example.com` | Tag `v*` or manual approval | Docker Compose / K8s |
 
-## 3) CI pipeline (minimum)
-- install
-- lint/format (if available)
-- unit tests
-- integration tests
-- (optional) dependency audit
+### Environment parity rule
 
-## 4) DB migrations (if there is a database)
-- when and how migrations are applied
-- rollback strategy (if needed)
+> Dev, staging, and production use **the same Docker images**. Only env vars differ.
 
-## 5) Release strategy
-- versioning
-- feature flags (if needed)
--rollback plan
+---
 
-## DoD link
-- release is not allowed without green CI
-- migrations applied and tested
-- smoke test passed after deployment
+## 2. Config & Secrets
+
+### Env vars registry
+
+| Variable | Required | Default | Env | Description |
+|----------|:--------:|---------|-----|-------------|
+| `NODE_ENV` | ✅ | — | all | `development` / `production` |
+| `PORT` | ⬜ | 3000 | all | API server port |
+| `MONGODB_URI` | ✅ | — | all | MongoDB connection string |
+| `VITE_API_URL` | ✅ | — | FE | API base URL for frontend |
+| `WIX_APP_ID` | ✅ | — | all | Wix App ID |
+| `WIX_APP_SECRET` | ✅ | — | BE | Wix App Secret (sensitive!) |
+| `WIX_REFRESH_TOKEN` | ✅ | — | BE | Wix OAuth refresh token |
+| `LOG_LEVEL` | ⬜ | info | BE | pino log level |
+
+### Secrets policy
+
+| Rule | How |
+|------|-----|
+| **Storage** | `.env` local, Docker secrets / K8s secrets / Vault for prod |
+| **Never in code** | grep check in CI |
+| **Never in logs** | pino redact config |
+| **Never in Docker image** | ARG for build, ENV for runtime only |
+| **Rotation** | Document rotation procedure per secret |
+| **.env.example** | Committed, no real values, all vars listed |
+
+---
+
+## 3. Docker Setup
+
+### Dockerfile (multi-stage, Node.js)
+
+```dockerfile
+# ── Build stage ──
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci --ignore-scripts
+COPY . .
+RUN npm run build
+
+# ── Runtime stage ──
+FROM node:20-alpine AS runtime
+WORKDIR /app
+ENV NODE_ENV=production
+RUN addgroup -g 1001 appgroup && \
+    adduser -u 1001 -G appgroup -s /bin/sh -D appuser
+COPY --from=builder --chown=appuser:appgroup /app/dist ./dist
+COPY --from=builder --chown=appuser:appgroup /app/node_modules ./node_modules
+COPY --from=builder --chown=appuser:appgroup /app/package.json ./
+USER appuser
+EXPOSE 3000
+HEALTHCHECK --interval=30s --timeout=3s CMD wget -qO- http://localhost:3000/health/live || exit 1
+CMD ["node", "dist/server.js"]
+```
+
+### Docker Compose (development)
+
+```yaml
+version: "3.9"
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file: ./api/.env
+    depends_on:
+      mongo:
+        condition: service_healthy
+    restart: unless-stopped
+
+  dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    env_file: ./dashboard/.env
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: mongosh --eval "db.adminCommand('ping')"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  gateway:
+    image: caddy:2-alpine
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    depends_on:
+      - api
+      - dashboard
+
+volumes:
+  mongo_data:
+```
+
+### Docker rules
+
+| Rule | Description |
+|------|-------------|
+| **Multi-stage** | Builder → Runtime (smaller image, no dev deps) |
+| **Non-root** | `USER appuser` (never root in runtime) |
+| **Lockfile** | `npm ci` (deterministic installs) |
+| **HEALTHCHECK** | Built into Dockerfile or docker-compose |
+| **Cache-friendly** | Copy `package*.json` before source code |
+| **No secrets** | Never `COPY .env`, use `env_file` in compose |
+| **.dockerignore** | `node_modules`, `.env`, `.git`, `*.log` |
+
+---
+
+## 4. CI Pipeline
+
+### GitHub Actions example
+
+```yaml
+name: CI
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npx biome check .
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    services:
+      mongo:
+        image: mongo:7
+        ports: ["27017:27017"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npm test
+        env:
+          MONGODB_URI: mongodb://localhost:27017/test
+
+  security:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npm audit --audit-level=high
+      - run: npx secretlint "**/*"
+
+  build:
+    runs-on: ubuntu-latest
+    needs: [test, security]
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t app-api ./api
+      - run: docker build -t app-dashboard ./dashboard
+```
+
+### Pipeline stages
+
+```
+┌────────┐    ┌──────┐    ┌──────────┐    ┌───────┐    ┌────────┐
+│  Lint  │───▸│ Test │───▸│ Security │───▸│ Build │───▸│ Deploy │
+└────────┘    └──────┘    └──────────┘    └───────┘    └────────┘
+ biome check   vitest      npm audit        docker      compose
+                           secretlint       build       up -d
+```
+
+### CI rules
+
+| Rule | Description |
+|------|-------------|
+| **Block merge** | Failed CI = no merge |
+| **Parallelism** | lint ∥ security, then test, then build |
+| **Secrets** | GitHub Secrets / CI vars (never hardcoded) |
+| **Deps cache** | `actions/cache` for node_modules |
+| **Coverage** | Fail if < threshold (e.g. 70%) |
+
+---
+
+## 5. Migrations
+
+### Strategy (MongoDB + migrate-mongo)
+
+```bash
+# Create migration
+npx migrate-mongo create add-templateId-to-settings
+
+# Apply pending migrations
+npx migrate-mongo up
+
+# Rollback last migration
+npx migrate-mongo down
+
+# Check status
+npx migrate-mongo status
+```
+
+### Rules
+
+| Rule | Description |
+|------|-------------|
+| **Run before deploy** | Migrations applied before new code starts |
+| **Forward-compatible** | New code must work with old schema during rolling update |
+| **Reversible** | Every `up()` has matching `down()` |
+| **Tested** | Run against test DB in CI |
+| **Idempotent** | Safe to run multiple times |
+
+---
+
+## 6. Release Strategy
+
+### Versioning
+
+```
+SemVer: MAJOR.MINOR.PATCH
+- MAJOR: breaking API changes
+- MINOR: new features (backward compatible)
+- PATCH: bug fixes
+
+Git tags: v1.0.0, v1.1.0, v1.1.1
+Docker tags: app-api:v1.0.0, app-api:latest
+```
+
+### Release flow
+
+```
+feature branch → PR → main (CI green) → tag vX.Y.Z → deploy
+```
+
+### Feature flags (if needed)
+
+| Flag | Purpose | Default | How to toggle |
+|------|---------|---------|---------------|
+| `ENABLE_NEW_TEMPLATE` | Show new popup template | false | Env var |
+| `ENABLE_ANALYTICS` | Send analytics events | false | Env var |
+
+---
+
+## 7. Rollback Plan
+
+### Procedure
+
+```markdown
+## Rollback Checklist
+
+1. ☐ **Identify issue** — what broke? Check logs, alerts, user reports
+2. ☐ **Communicate** — inform team that rollback is starting
+3. ☐ **Rollback code:**
+   - Docker: `docker compose up -d --build` with previous image tag
+   - K8s: `kubectl rollout undo deployment/<name>`
+4. ☐ **Rollback DB (if migration applied):**
+   - `npx migrate-mongo down`
+   - Verify data integrity
+5. ☐ **Verify** — run smoke tests, check health endpoints
+6. ☐ **Post-mortem** — document what went wrong
+```
+
+### Time targets
+
+| Action | Target |
+|--------|--------|
+| Detection | < 5 min (alerts) |
+| Decision to rollback | < 10 min |
+| Rollback execution | < 5 min |
+| Verification | < 5 min |
+| **Total MTTR** | **< 25 min** |
+
+---
+
+## 8. Smoke Tests
+
+### Post-deploy smoke test checklist
+
+| # | Test | How | Expected |
+|---|------|-----|----------|
+| 1 | Health check | `GET /health/live` | 200 OK |
+| 2 | Ready check | `GET /health/ready` | 200 OK (DB connected) |
+| 3 | Widget endpoint | `GET /api/v1/widget/<testId>` | 200 + valid payload |
+| 4 | Dashboard loads | Open dashboard URL | Page renders |
+| 5 | Settings CRUD | PUT, then GET settings | Values persisted |
+| 6 | Wix embed | Check embedded script on test site | Script active |
+
+---
+
+## 9. Example: Smart Cart Rescue
+
+```markdown
+# Deployment & CI Plan: Smart Cart Rescue
+
+## Environments
+- local: Docker Compose + Caddy (https://localhost:5173)
+- production: Docker Compose + Cloudflare Tunnel
+
+## CI: GitHub Actions (lint → test → security → build)
+## Migrations: migrate-mongo (run before deploy)
+## Release: SemVer tags, manual production deploy
+## Rollback: Previous Docker image + migrate-mongo down
+```
+
+---
+
+## 10. Output Template
+
+```markdown
+# Deployment & CI Plan: <project-name>
+
+**Date:** YYYY-MM-DD
+
+## Environments
+<section 1 table>
+
+## Config & Secrets
+<section 2 registry + policy>
+
+## Docker Setup
+<Dockerfile + docker-compose.yml>
+
+## CI Pipeline
+<pipeline stages + YAML config>
+
+## Migrations
+<strategy + commands>
+
+## Release Strategy
+<versioning + flow>
+
+## Rollback Plan
+<procedure + time targets>
+
+## Smoke Tests
+<post-deploy checklist>
+```
+
+---
+
+## DoD (Definition of Done)
+
+- ☐ CI is green (all stages pass)
+- ☐ Migrations applied and tested
+- ☐ Smoke tests passed after deploy
+- ☐ Rollback procedure documented and executable
+- ☐ No secrets in code/images/logs
+
+---
+
+## See also
+- `$docker_kubernetes_architecture` — detailed Docker/K8s architecture
+- `$k8s_manifests_conventions` — K8s manifest standards
+- `$observability_plan` — logging/metrics/alerts
+- `$security_baseline_dev` — secrets management

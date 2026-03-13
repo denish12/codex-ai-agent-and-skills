@@ -1,12 +1,13 @@
 version: 1
 name: "current_state_analysis"
-display_name: "Analysis of the current repository architecture"
-description: "Analysis of the current repository architecture: conventions, patterns, technical debt, scaling bottlenecks, security risks and consistency."
-default_prompt: "Use $current_state_analysis when the task matches the \"Analysis of the current repository architecture\" skill."
+display_name: "Current State Analysis: <project-name>"
+description: "Analysis of the current repository architecture ? conventions, patterns, tech debt, scaling bottlenecks, security risks, and consistency."
+default_prompt: "Use $current_state_analysis when the task matches the \"Current State Analysis: <project-name>\" skill."
 triggers:
   - "current_state_analysis"
   - "current state analysis"
-  - "Analysis of the current repository architecture"
+  - "Current State Analysis: <project-name>"
+  - "Analysis of the current repository architecture ? conventions, patterns, tech debt, scaling bottlenecks, security risks, and consistency"
 capabilities:
   - "current"
   - "state"

@@ -1,13 +1,13 @@
 version: 1
 name: "threat_model_baseline"
 display_name: "Базовая модель угроз"
-description: "Базовая модель угроз (threat baseline) для MVP: активы, векторы атак, меры. Учитывает OWASP-риски и роли/права."
+description: "Базовая модель угроз (threat baseline) для MVP — активы, векторы атак, меры. Учитывает OWASP-риски и роли/права."
 default_prompt: "Используй $threat_model_baseline, когда задача относится к навыку \"Базовая модель угроз\"."
 triggers:
   - "threat_model_baseline"
   - "threat model baseline"
   - "Базовая модель угроз"
-  - "Базовая модель угроз (threat baseline) для MVP"
+  - "Базовая модель угроз (threat baseline) для MVP — активы, векторы атак, меры"
 capabilities:
   - "threat"
   - "model"

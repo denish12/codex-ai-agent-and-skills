@@ -1,6 +1,6 @@
 interface:
   display_name: "Testing Strategy (JS/TS)"
-  short_description: "Testing strategy for JS/TS projects: unit (vitest/jest), integration (API/DB), e2e (playwright)…"
+  short_description: "Strategy testing for JS/TS projects — unit (Vitest), integration (API/DB), e2e (Playwright). AA…"
   default_prompt: "Use $testing_strategy_js when the task matches the \"Testing Strategy (JS/TS)\" skill."
 dependencies:
   tools: []

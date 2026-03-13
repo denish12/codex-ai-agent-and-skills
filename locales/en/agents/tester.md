@@ -217,15 +217,56 @@ What to do: ...
 ### DEMO Results
 | DEMO-xx | Steps | Expected | Actual | Status |
 |---------|-------|----------|--------|--------|
+- $qa_regression_baseline
+
+---
+
+| UX-PARITY-xx | Screen | Findings | Status |
+
+### Summary
+- What tested:
+### Anti-Patterns / Testability Scan
+- Container reload evidence checked: ✅ / ❌
+- Overall status: ✅ PASS / ❌ FAIL / 🚫 BLOCKED
+
+Owner: ...
+```
+What to do: ...
+  Flow/screen: ...
+  Reproduction steps: ...
+  Expected: ...
+  Actual: ...
+  Impact: ...
+  What to do: ...
+```
+
+### Findings (P1)
+- 🟠 ...
+
+### Findings (P2)
+- 🟡 ...
+| Tight Coupling       | PASS / FAIL  | ...      |
+
+### Test Plan Coverage
+### Evidence / Commands
+|------|-----------|------------|------------|-----------|--------|
+| ...  | ✅/❌     | ✅/❌      | ✅/❌      | ✅/❌     | PASS/FAIL |
+
+- Logs/CI results:
+- Required data/accounts:
+
+### DEMO Results
+| DEMO-xx | Steps | Expected | Actual | Status |
+|---------|-------|----------|--------|--------|
 | ...     | ...   | ...      | ...    | PASS/FAIL |
 
-### UX Parity Results (if applicable)
+- ✅ GO / ❌ NO-GO / 🚫 BLOCKED + reasons
 | UX-PARITY-xx | Screen | Findings | Status |
 |--------------|--------|----------|--------|
 | ...          | ...    | ...      | PASS/FAIL |
 
 ### Anti-Patterns / Testability Scan
-| Anti-Pattern | Status | Evidence |
+REQUIRED INPUTS FULFILLED: PRD ✅ | UX Spec ✅ | DEMO-xx ✅ | API Contracts ✅
 |--------------------|-------------|----------|
 | Big Ball of Mud    | PASS / FAIL | ...      |
 | Tight Coupling     | PASS / FAIL | ...      |
@@ -237,9 +278,9 @@ What to do: ...
 | Analysis Paralysis | PASS / FAIL | ...      |
 
 ### Regression Baseline
-- Previous cuts: PASS / FAIL / NOT RUN
-- New test cases added to regression suite: ✅ / ❌
-- Flaky tests: [list / none]
+- If `OPEN ITEMS` is not empty, include owner and due date per item.
+- Missing HANDOFF block means QA phase is `BLOCKED` and cannot move to RG.
+- Flaky tests: [list / no]
 
 ### Security Smoke Notes
 - XSS check: ...
@@ -259,20 +300,18 @@ What to do: ...
 - Reviewer/Architect/UX/PM (if needed):
 
 ### Release Recommendation
-- ✅ GO / ❌ NO-GO / 🚫 BLOCKED + reasons
+- ✅ GO / NO-GO / BLOCKED + reasons
 
 ### Handoff Envelope → Conductor
 ```
 HANDOFF TO: Conductor
 ARTIFACTS PRODUCED: QA-xx report, UX-PARITY-xx
 REQUIRED INPUTS FULFILLED: PRD ✅ | UX Spec ✅ | DEMO-xx ✅ | API Contracts ✅
-OPEN ITEMS: [P1/P2 list for tracking]
-BLOCKERS FOR RELEASE: [P0 list, if available]
+OPEN ITEMS: [list P1/P2 for tracking]
+BLOCKERS FOR RELEASE: [list P0, if there is]
 RELEASE RECOMMENDATION: GO ✅ / NO-GO ❌
+CONTAINER RELOAD VERIFIED: ✅ / ❌
 ```
-
-
-
 
 ## HANDOFF (Mandatory)
 - Every QA output must end with a completed `Handoff Envelope`.

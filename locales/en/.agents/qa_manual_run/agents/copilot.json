@@ -1,12 +1,12 @@
 {
   "name": "qa_manual_run",
   "display_name": "QA Manual Run",
-  "description": "Manual running of critical scenarios and regression: happy/edge/error paths according to UX Spec; fixing bugs with steps and evidence.",
+  "description": "Manually run critical scenarios and regression ? happy/edge/error paths from the UX Spec; record bugs with steps and evidence.",
   "default_prompt": "Use $qa_manual_run when the task matches the \"QA Manual Run\" skill.",
   "triggers": [
     "qa_manual_run",
     "qa manual run",
-    "Manual running of critical scenarios and regression"
+    "Manually run critical scenarios and regression ? happy/edge/error paths from the UX Spec"
   ],
   "capabilities": [
     "qa",

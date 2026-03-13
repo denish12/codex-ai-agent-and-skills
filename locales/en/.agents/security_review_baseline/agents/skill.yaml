@@ -1,12 +1,12 @@
 version: 1
 name: "security_review_baseline"
 display_name: "Security Review Baseline"
-description: "Security review based on baseline: OWASP risks, authz, validation, SSRF/XSS/CSRF, secrets, secure logs/errors, least privilege."
+description: "Security review by baseline — OWASP-risks, authz, validation, SSRF/XSS/CSRF, secrets, safe logs/errors, least privilege."
 default_prompt: "Use $security_review_baseline when the task matches the \"Security Review Baseline\" skill."
 triggers:
   - "security_review_baseline"
   - "security review baseline"
-  - "Security review based on baseline"
+  - "Security review by baseline — OWASP-risks, authz, validation, SSRF/XSS/CSRF, secrets, safe logs/errors, least privilege"
 capabilities:
   - "security"
   - "review"

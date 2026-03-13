@@ -1,6 +1,6 @@
 interface:
   display_name: "Референсы и сниппеты для разработки"
-  short_description: "Единый файл со сниппетами и анти-примерами (do/don’t) для Senior Full Stack: TDD, API, валидаци…"
+  short_description: "Эталонные сниппеты и DO/DON'T для Senior Full Stack: TDD (Vitest), Express API (Route→Controlle…"
   default_prompt: "Используй $dev_reference_snippets, когда задача относится к навыку \"Референсы и сниппеты для разработки\"."
 dependencies:
   tools: []

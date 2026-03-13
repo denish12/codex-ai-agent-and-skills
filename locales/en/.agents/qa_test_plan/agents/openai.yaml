@@ -1,6 +1,6 @@
 interface:
   display_name: "QA Test Plan"
-  short_description: "Create a test plan and coverage matrix for PRD/UX: roles, critical user flows, UI states, negat…"
+  short_description: "Compose test plan and coverage matrix by PRD/UX — roles, critical user flows, states UI, negati…"
   default_prompt: "Use $qa_test_plan when the task matches the \"QA Test Plan\" skill."
 dependencies:
   tools: []

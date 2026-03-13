@@ -1,6 +1,6 @@
 interface:
   display_name: "TDD-процесс"
-  short_description: "Разработка строго по TDD (RED-GREEN-REFACTOR) с unit+integration тестами и целевым покрытием; e…"
+  short_description: "Разработка строго по TDD (RED→GREEN→REFACTOR): формулировка тест-кейсов через user journey, uni…"
   default_prompt: "Используй $tdd_workflow, когда задача относится к навыку \"TDD-процесс\"."
 dependencies:
   tools: []

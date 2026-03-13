@@ -1,7 +1,7 @@
 interface:
-  display_name: "Tooling (Bun + Biome)"
-  short_description: "Tooling: biomejs (lint/format) and bunjs (runtime/package manager) - setting up scripts, unifor…"
-  default_prompt: "Use $tooling_bun_biome when the task matches the \"Tooling (Bun + Biome)\" skill."
+  display_name: "Tooling (Bun + Biome) Beast Practices"
+  short_description: "Tooling — Biome (lint/format) and Bun (runtime/package manager). biome.json config, key rules,…"
+  default_prompt: "Use $tooling_bun_biome when the task matches the \"Tooling (Bun + Biome) Beast Practices\" skill."
 dependencies:
   tools: []
 policy:

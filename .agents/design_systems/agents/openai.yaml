@@ -1,6 +1,6 @@
 interface:
   display_name: "Интеграция дизайн-системы"
-  short_description: "Интеграция дизайн-систем: shadcn/ui, mantine, Wix Design System; соблюдение UI inventory/UX spe…"
+  short_description: "Интеграция дизайн-систем — shadcn/ui, Mantine, Wix Design System. Установка, кастомизация темы,…"
   default_prompt: "Используй $design_systems, когда задача относится к навыку \"Интеграция дизайн-системы\"."
 dependencies:
   tools: []

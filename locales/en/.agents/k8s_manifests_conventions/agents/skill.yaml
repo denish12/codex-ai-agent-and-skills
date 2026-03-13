@@ -1,12 +1,12 @@
 version: 1
 name: "k8s_manifests_conventions"
 display_name: "K8s Manifests Conventions"
-description: "Kubernetes manifest conventions: repo structure, Helm/Kustomize, overlays per env, naming/labels, secrets/config, policy, validation, GitOps."
+description: "Conventions for Kubernetes manifests — repository structure, Helm/Kustomize, overlays per env, naming/labels, secrets/config, policy, validation, GitOps."
 default_prompt: "Use $k8s_manifests_conventions when the task matches the \"K8s Manifests Conventions\" skill."
 triggers:
   - "k8s_manifests_conventions"
   - "k8s manifests conventions"
-  - "Kubernetes manifest conventions"
+  - "Conventions for Kubernetes manifests — repository structure, Helm/Kustomize, overlays per env, naming/labels, secrets/config, policy, validation, GitOps"
 capabilities:
   - "k8s"
   - "manifests"

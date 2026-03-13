@@ -1,6 +1,6 @@
 interface:
   display_name: "QA Manual Run"
-  short_description: "Manual running of critical scenarios and regression: happy/edge/error paths according to UX Spe…"
+  short_description: "Manually run critical scenarios and regression ? happy/edge/error paths from the UX Spec; recor…"
   default_prompt: "Use $qa_manual_run when the task matches the \"QA Manual Run\" skill."
 dependencies:
   tools: []

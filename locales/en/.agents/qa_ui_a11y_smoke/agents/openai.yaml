@@ -1,7 +1,7 @@
 interface:
-  display_name: "UI/a11y smoke"
-  short_description: "UI/a11y smoke: keyboard/focus, labels/aria, basic contrast, states of forms and lists, complian…"
-  default_prompt: "Use $qa_ui_a11y_smoke when the task matches the \"UI/a11y smoke\" skill."
+  display_name: "Missing alt on images"
+  short_description: "UI/a11y smoke — keyboard/focus, labels/aria, basic contrast, states forms and lists, compliance…"
+  default_prompt: "Use $qa_ui_a11y_smoke when the task matches the \"Missing alt on images\" skill."
 dependencies:
   tools: []
 policy:

@@ -1,13 +1,13 @@
 version: 1
 name: "security_baseline_dev"
 display_name: "Security Baseline (Dev)"
-description: "Basic security in implementation: validation at boundaries, authz, safe errors, prohibiting secrets in code/logs, dependency hygiene."
+description: "Baseline security in implementation ? validation of input data (Zod), secrets management, safe errors, auth/authz patterns, XSS/injection prevention, dependency audit, secure headers. DO/DON'T examples. Activate when writing any code working with user input, auth, secrets, or questions like \"how to do X safely\"."
 default_prompt: "Use $security_baseline_dev when the task matches the \"Security Baseline (Dev)\" skill."
 triggers:
   - "security_baseline_dev"
   - "security baseline dev"
   - "Security Baseline (Dev)"
-  - "Basic security in implementation"
+  - "Baseline security in implementation ? validation of input data (Zod), secrets management, safe errors, auth/authz patterns, XSS/injection prevention, dependency audit, secure headers"
 capabilities:
   - "security"
   - "baseline"

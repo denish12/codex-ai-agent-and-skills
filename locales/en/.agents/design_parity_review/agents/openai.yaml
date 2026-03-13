@@ -1,7 +1,7 @@
 interface:
-  display_name: "Design Parity Review (design verification)"
+  display_name: "Design Parity Review"
   short_description: "Compare design artifacts with the UX Spec or with the implemented UI. Produce a Design Parity R…"
-  default_prompt: "Use $design_parity_review when the task matches the \"Design Parity Review (design verification)\" skill."
+  default_prompt: "Use $design_parity_review when the task matches the \"Design Parity Review\" skill."
 dependencies:
   tools: []
 policy:

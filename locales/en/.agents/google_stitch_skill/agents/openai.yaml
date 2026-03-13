@@ -1,7 +1,7 @@
 interface:
   display_name: "Google Stitch — AI UI Generation (MCP-Integrated)"
   short_description: "Generate UI screens with Google Stitch (AI) through direct StitchMCP access. Rapid ideation aft…"
-  default_prompt: "Use $google_stitch_skill when the task matches the \"Google Stitch — AI UI Generation (MCP-Integrated)\" skill."
+  default_prompt: "Use $google_stitch when the task matches the \"Google Stitch — AI UI Generation (MCP-Integrated)\" skill."
 dependencies:
   tools: []
 policy:

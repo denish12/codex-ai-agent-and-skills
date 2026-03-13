@@ -1,6 +1,6 @@
 interface:
   display_name: "PRD"
-  short_description: "Сформировать PRD: Vision, MVP, out-of-scope, user stories, acceptance criteria, NFR, риски и от…"
+  short_description: "Сформировать PRD — Vision, MVP, out-of-scope, user stories, acceptance criteria, NFR, риски и о…"
   default_prompt: "Используй $pm_prd, когда задача относится к навыку \"PRD\"."
 dependencies:
   tools: []

@@ -1,6 +1,6 @@
 interface:
   display_name: "React 15.3 + Wix iFrame"
-  short_description: "Legacy mode for Wix iFrame applications: React 15.3 (component classes), lifecycle, PropTypes/d…"
+  short_description: "Legacy development for Wix iFrame applications on React 15.3: class components, lifecycle metho…"
   default_prompt: "Use $react_15_3_wix_iframe when the task matches the \"React 15.3 + Wix iFrame\" skill."
 dependencies:
   tools: []

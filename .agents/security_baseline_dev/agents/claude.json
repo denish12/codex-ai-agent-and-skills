@@ -1,13 +1,13 @@
 {
   "name": "security_baseline_dev",
   "display_name": "Базовая безопасность разработки",
-  "description": "Базовая безопасность в реализации: валидация на границах, authz, безопасные ошибки, запрет секретов в коде/логах, гигиена зависимостей.",
+  "description": "Базовая безопасность в реализации — валидация входных данных (Zod), secrets management, безопасные ошибки, auth/authz patterns, XSS/injection prevention, dependency audit, secure headers. DO/DON'T примеры. Активируй при написании любого кода, работающего с пользовательским вводом, auth, секретами, или при вопросах «как сделать безопасно».",
   "default_prompt": "Используй $security_baseline_dev, когда задача относится к навыку \"Базовая безопасность разработки\".",
   "triggers": [
     "security_baseline_dev",
     "security baseline dev",
     "Базовая безопасность разработки",
-    "Базовая безопасность в реализации"
+    "Базовая безопасность в реализации — валидация входных данных (Zod), secrets management, безопасные ошибки, auth/authz patterns, XSS/injection prevention, dependency audit, secure headers"
   ],
   "capabilities": [
     "security",

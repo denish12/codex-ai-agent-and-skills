@@ -1,12 +1,13 @@
 version: 1
 name: "docker_kubernetes_architecture"
-display_name: "Containerization and Kubernetes architecture"
-description: "Containerization and Kubernetes architecture: Dockerfile best practices, k8s manifests, security, scaling, rollout, observability, CI/CD."
-default_prompt: "Use $docker_kubernetes_architecture when the task matches the \"Containerization and Kubernetes architecture\" skill."
+display_name: "── Build ──"
+description: "Containerization and Kubernetes architecture — Dockerfile best practices, k8s manifests, security, scaling, rollout, observability, CI/CD."
+default_prompt: "Use $docker_kubernetes_architecture when the task matches the \"── Build ──\" skill."
 triggers:
   - "docker_kubernetes_architecture"
   - "docker kubernetes architecture"
-  - "Containerization and Kubernetes architecture"
+  - "── Build ──"
+  - "Containerization and Kubernetes architecture — Dockerfile best practices, k8s manifests, security, scaling, rollout, observability, CI/CD"
 capabilities:
   - "docker"
   - "kubernetes"

@@ -1,11 +1,13 @@
 version: 1
 name: "observability_review"
-display_name: "Observability review"
-description: "Observability review: structured logs, request_id/trace_id, log levels, prohibition of PII/secrets leaks, compliance with the Observability Plan."
-default_prompt: "Use $observability_review when the task matches the \"Observability review\" skill."
+display_name: "🟠 P1: Unstructured logging"
+description: "Review observability — structured logs, request_id/trace_id, levels logs, ban leaks PII/secrets, compliance Observability Plan."
+default_prompt: "Use $observability_review when the task matches the \"🟠 P1: Unstructured logging\" skill."
 triggers:
   - "observability_review"
   - "observability review"
+  - "🟠 P1: Unstructured logging"
+  - "Review observability — structured logs, request_id/trace_id, levels logs, ban leaks PII/secrets, compliance Observability Plan"
 capabilities:
   - "observability"
   - "review"

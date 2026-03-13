@@ -1,13 +1,13 @@
 version: 1
 name: "mongodb_mongoose_best_practices"
 display_name: "Практики MongoDB и Mongoose"
-description: "Best practices для MongoDB + Mongoose: схемы, индексы, валидация, транзакции, миграции, производительность, безопасность, тестирование, anti-patterns и примеры."
+description: "Best practices для MongoDB + Mongoose — схемы, индексы, валидация, транзакции, миграции, производительность, безопасность, тестирование, anti-patterns и примеры."
 default_prompt: "Используй $mongodb_mongoose_best_practices, когда задача относится к навыку \"Практики MongoDB и Mongoose\"."
 triggers:
   - "mongodb_mongoose_best_practices"
   - "mongodb mongoose best practices"
   - "Практики MongoDB и Mongoose"
-  - "Best practices для MongoDB + Mongoose"
+  - "Best practices для MongoDB + Mongoose — схемы, индексы, валидация, транзакции, миграции, производительность, безопасность, тестирование, anti-patterns и примеры"
 capabilities:
   - "mongodb"
   - "mongoose"
