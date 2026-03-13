@@ -1,5 +1,5 @@
----
-name: google_stitch
+﻿---
+name: google_stitch_skill
 description: Генерация UI-экранов через Google Stitch (AI) с прямым доступом через StitchMCP. Rapid ideation после Approved UX Proposal, промпт-инжиниринг, контроль качества. Привязано к UX/UI Designer gate.
 last_verified: 2026-03-11
 version: 3.0
@@ -551,3 +551,4 @@ Figma-материал считается готовым к Handoff, когда:
 - **SCR промпты:** `examples/scr_prompts.md`
 - **Бюджет генераций:** `resources/budget_planner.md`
 - **Связанные skills:** `$design_intake`, `$design_parity_review`
+

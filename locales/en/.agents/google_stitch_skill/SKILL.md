@@ -1,5 +1,5 @@
 ﻿---
-name: google_stitch
+name: google_stitch_skill
 description: Generate UI screens with Google Stitch (AI) through direct StitchMCP access. Rapid ideation after an Approved UX Proposal, prompt engineering, and output quality control. Mapped to the UX/UI Designer gate.
 last_verified: 2026-03-11
 version: 3.0
@@ -551,3 +551,5 @@ Unresolved questions about layout/style.
 - **SCR prompts:** `examples/scr_prompts.md`
 - **Generation budget:** `resources/budget_planner.md`
 - **Related skills:** `$design_intake`, `$design_parity_review`
+
+

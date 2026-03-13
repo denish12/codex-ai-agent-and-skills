@@ -1,4 +1,4 @@
----
+﻿---
 name: ux_spec
 description: Form UX Spec — user flows, IA, list screens, specification each screen (actions/sections/validation/states), criteria UX quality for development and testing.
 ---
@@ -279,4 +279,5 @@ Two-column: Config Panel (left, 60%) + Live Preview (right, 40%)
 - `$ui_inventory` — component inventory
 - `$a11y_baseline` — accessibility requirements
 - `$design_intake` — analyze design materials
-- `$google_stitch` — generate UI screens from spec
+- `$google_stitch_skill` — generate UI screens from spec
+

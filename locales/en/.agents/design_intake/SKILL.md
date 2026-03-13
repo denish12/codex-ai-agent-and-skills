@@ -1,4 +1,4 @@
----
+﻿---
 name: design_intake
 description: Find and analyze the provided designs (files/links), determine "source truth" by UI and extract verifiable rules (screens, components, tokens, states).
 ---
@@ -222,4 +222,6 @@ For each Source of Truth, extract:
 - `$ux_spec` — UX Spec (uses intake output)
 - `$design_parity_review` — compare design with implementation
 - `$ui_inventory` — component inventory
-- `$google_stitch` — generate screens from text
+- `$google_stitch_skill` — generate screens from text
+
+
