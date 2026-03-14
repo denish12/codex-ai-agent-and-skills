@@ -1,35 +1,43 @@
-﻿# NPM Publish Checklist
+# NPM Publish Checklist
 
-## Current Status (2026-02-18)
-- Package name: `code-ai-installer`
-- Version: `1.0.0`
-- Registry lookup: package not found (`npm view code-ai-installer version` -> 404)
-- Publish dry-run: passed
-- Auth status: not logged in (`npm whoami` -> ENEEDAUTH)
+## Package Info
+- **Name:** `code-ai-installer`
+- **Registry:** [npmjs.com/package/code-ai-installer](https://www.npmjs.com/package/code-ai-installer)
+- **Binary:** `code-ai`
 
 ## Pre-publish checks
-1. `npm run lint`
-2. `npm test`
-3. `npm run build`
-4. `npm publish --dry-run`
+```bash
+npm run lint          # tsc --noEmit
+npm test              # vitest run (53+ tests must pass)
+npm run build         # clean compile
+npm publish --dry-run # verify tarball contents and size
+```
 
 ## Auth and account
-1. `npm adduser`
-2. `npm whoami`
-3. (If 2FA enabled for publish) ensure OTP device is available.
+```bash
+npm adduser           # or npm login
+npm whoami            # verify logged in
+# If 2FA enabled for publish — ensure OTP device is available
+```
 
 ## Release command
-1. `npm version patch` (or `minor` / `major`)
-2. `git push --follow-tags`
-3. `npm publish --access public`
+```bash
+npm version patch     # or minor / major — updates package.json + git tag
+git push --follow-tags
+npm publish --access public
+```
 
 ## Post-publish verification
-1. `npm view code-ai-installer version`
-2. `npm i -g code-ai-installer`
-3. `code-ai --help`
-4. `code-ai targets`
+```bash
+npm view code-ai-installer version   # confirm new version
+npm i -g code-ai-installer           # install globally
+code-ai --help                       # verify binary
+code-ai targets                      # verify targets list
+code-ai doctor . --target claude     # verify doctor
+```
 
 ## Rollback / deprecate (if needed)
-- Deprecate specific version:
-  - `npm deprecate code-ai-installer@<version> "message"`
-- Unpublish is restricted by npm policy; prefer deprecation.
+```bash
+npm deprecate code-ai-installer@<version> "message"
+# Unpublish is restricted by npm policy; prefer deprecation.
+```
