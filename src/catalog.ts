@@ -1,4 +1,4 @@
-﻿import path from "node:path";
+import path from "node:path";
 import fs from "fs-extra";
 import { z } from "zod";
 import type { SourceCatalog } from "./types.js";
@@ -8,13 +8,14 @@ const fileNameSchema = z.string().min(1);
 /**
  * Builds source catalog from repository folders and validates required paths.
  * @param projectDir Absolute path to repository root.
- * @returns Source catalog including orchestrator, agents, and skills.
+ * @returns Source catalog including orchestrator, agents, skills, and workflows.
  */
 export async function loadSourceCatalog(projectDir: string): Promise<SourceCatalog> {
   const orchestratorPath = path.join(projectDir, "AGENTS.md");
   const agentsDir = path.join(projectDir, "agents");
-  const legacySkillsDir = path.join(projectDir, ".agents", "skills");
-  const flatSkillsDir = path.join(projectDir, ".agents");
+  const dotAgentsDir = path.join(projectDir, ".agents");
+  const nestedSkillsDir = path.join(dotAgentsDir, "skills");
+  const workflowsDir = path.join(dotAgentsDir, "workflows");
 
   if (!(await fs.pathExists(orchestratorPath))) {
     throw new Error(`Missing AGENTS.md at ${orchestratorPath}`);
@@ -22,28 +23,33 @@ export async function loadSourceCatalog(projectDir: string): Promise<SourceCatal
   if (!(await fs.pathExists(agentsDir))) {
     throw new Error(`Missing agents directory at ${agentsDir}`);
   }
-  const hasLegacySkillsDir = await fs.pathExists(legacySkillsDir);
-  const hasFlatSkillsDir = await fs.pathExists(flatSkillsDir);
-  if (!hasLegacySkillsDir && !hasFlatSkillsDir) {
-    throw new Error(
-      `Missing skills directory. Checked ${legacySkillsDir} and ${flatSkillsDir}`,
-    );
+  if (!(await fs.pathExists(dotAgentsDir))) {
+    throw new Error(`Missing .agents directory at ${dotAgentsDir}`);
   }
 
   const agentFiles = await mapAgentFiles(agentsDir);
   const skillFiles: Record<string, string> = {};
-  if (hasLegacySkillsDir) {
-    Object.assign(skillFiles, await mapSkillFilesFromNestedRoot(legacySkillsDir));
+
+  if (await fs.pathExists(nestedSkillsDir)) {
+    Object.assign(skillFiles, await mapSkillFilesFromNestedRoot(nestedSkillsDir));
   }
-  if (hasFlatSkillsDir) {
-    Object.assign(skillFiles, await mapSkillFilesFromFlatRoot(flatSkillsDir));
+
+  Object.assign(skillFiles, await mapSkillFilesFromFlatRoot(dotAgentsDir));
+
+  if (Object.keys(skillFiles).length === 0) {
+    throw new Error(
+      `Missing skills directory. Checked ${nestedSkillsDir} and legacy flat skill folders inside ${dotAgentsDir}`,
+    );
   }
+
+  const workflowFiles = await mapWorkflowFiles(workflowsDir);
 
   return {
     rootDir: projectDir,
     orchestratorPath,
     agentFiles,
     skillFiles,
+    workflowFiles,
   };
 }
 
@@ -133,7 +139,7 @@ async function mapSkillFilesFromNestedRoot(skillsDir: string): Promise<Record<st
 }
 
 /**
- * Maps skills from nested .agents folders that contain SKILL.md.
+ * Maps skills from legacy flat .agents folders that contain SKILL.md.
  * @param agentsRoot Absolute .agents directory path.
  * @returns Skill name to SKILL.md path mapping.
  */
@@ -143,7 +149,7 @@ async function mapSkillFilesFromFlatRoot(agentsRoot: string): Promise<Record<str
 
   for (const entry of entries) {
     fileNameSchema.parse(entry);
-    if (entry === "skills") {
+    if (entry === "skills" || entry === "workflows") {
       continue;
     }
     const skillFile = path.join(agentsRoot, entry, "SKILL.md");
@@ -151,6 +157,30 @@ async function mapSkillFilesFromFlatRoot(agentsRoot: string): Promise<Record<str
       continue;
     }
     result[entry] = skillFile;
+  }
+
+  return result;
+}
+
+/**
+ * Maps workflow markdown files from .agents/workflows.
+ * @param workflowsDir Absolute workflow directory path.
+ * @returns Workflow file name to absolute path mapping.
+ */
+async function mapWorkflowFiles(workflowsDir: string): Promise<Record<string, string>> {
+  if (!(await fs.pathExists(workflowsDir))) {
+    return {};
+  }
+
+  const entries = await fs.readdir(workflowsDir);
+  const result: Record<string, string> = {};
+
+  for (const entry of entries) {
+    fileNameSchema.parse(entry);
+    if (!entry.endsWith(".md")) {
+      continue;
+    }
+    result[entry] = path.join(workflowsDir, entry);
   }
 
   return result;

@@ -1,8 +1,0 @@
-interface:
-  display_name: "UX Spec (Flows + Screens + States)"
-  short_description: "Form UX Spec — user flows, IA, list screens, specification each screen (actions/sections/valida…"
-  default_prompt: "Use $ux_spec when the task matches the \"UX Spec (Flows + Screens + States)\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

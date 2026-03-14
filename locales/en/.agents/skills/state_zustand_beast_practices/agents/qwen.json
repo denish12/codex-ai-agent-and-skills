@@ -1,0 +1,20 @@
+{
+  "name": "state_zustand_beast_practices",
+  "display_name": "Zustand Best Practices",
+  "description": "Apply Zustand best practices - simple global state, modular stores, selectors, rerender control, middleware, TypeScript typing, and testing.",
+  "default_prompt": "Use $state_zustand_beast_practices when the task matches the \"Zustand Best Practices\" skill.",
+  "triggers": [
+    "state_zustand_beast_practices",
+    "state zustand beast practices",
+    "Zustand Best Practices",
+    "Apply Zustand best practices - simple global state, modular stores, selectors, rerender control, middleware, TypeScript typing, and testing"
+  ],
+  "capabilities": [
+    "state",
+    "zustand",
+    "beast",
+    "practices"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

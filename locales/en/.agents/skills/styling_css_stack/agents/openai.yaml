@@ -1,0 +1,8 @@
+interface:
+  display_name: "Styling & CSS Stack"
+  short_description: "Apply CSS practices - custom properties, naming conventions, responsive rules, transitions, z-i…"
+  default_prompt: "Use $styling_css_stack when the task matches the \"Styling & CSS Stack\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

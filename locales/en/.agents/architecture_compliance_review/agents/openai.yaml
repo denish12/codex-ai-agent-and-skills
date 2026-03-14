@@ -1,8 +1,0 @@
-interface:
-  display_name: "🔴 P0: DB in routes/controllers"
-  short_description: "Check compliance code architecture/ADR — boundaries modules, layers, dependencies, conventions,…"
-  default_prompt: "Use $architecture_compliance_review when the task matches the \"🔴 P0: DB in routes/controllers\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

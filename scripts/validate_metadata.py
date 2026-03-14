@@ -145,14 +145,21 @@ def compare_equal(payload: dict[str, Any], source: dict[str, Any], path: Path, e
 
 
 def iter_skill_dirs(root: Path):
+    nested_root = root / ".agents" / "skills"
+    if nested_root.exists():
+        for child in sorted(nested_root.iterdir()):
+            if child.is_dir() and (child / "SKILL.md").exists():
+                yield child
+
     flat_root = root / ".agents"
     if not flat_root.exists():
         return
     for child in sorted(flat_root.iterdir()):
-        if child.name == "skills" or not child.is_dir():
+        if child.name in {"skills", "workflows"} or not child.is_dir():
             continue
         if (child / "SKILL.md").exists():
             yield child
+
 
 
 def parse_frontmatter(text: str) -> dict[str, str]:

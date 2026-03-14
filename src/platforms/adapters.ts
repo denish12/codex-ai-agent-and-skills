@@ -7,6 +7,7 @@ interface PlatformLayout {
   orchestratorMirrorFile: string;
   agentsDir: string;
   skillsDir: string;
+  workflowsDir?: string;
   notes: string;
 }
 
@@ -43,8 +44,9 @@ const targetLayouts: Record<TargetId, PlatformLayout> = {
     instructionFile: "CODEX.md",
     orchestratorMirrorFile: "AGENTS.md",
     agentsDir: "agents",
-    skillsDir: ".agents",
-    notes: "Uses AGENTS.md/agents/.agents layout compatible with Codex agent and skills discovery.",
+    skillsDir: ".agents/skills",
+    workflowsDir: ".agents/workflows",
+    notes: "Uses AGENTS.md/agents/.agents layout compatible with Codex agent discovery, nested skills, and workflow files.",
   },
 };
 
@@ -203,6 +205,16 @@ function planForLayout(
       skillName,
       target,
     });
+  }
+
+  if (layout.workflowsDir) {
+    for (const workflowPath of Object.values(catalog.workflowFiles)) {
+      operations.push({
+        sourcePath: workflowPath,
+        destinationPath: path.join(destinationDir, layout.workflowsDir, path.basename(workflowPath)),
+        generated: false,
+      });
+    }
   }
 
   return operations;

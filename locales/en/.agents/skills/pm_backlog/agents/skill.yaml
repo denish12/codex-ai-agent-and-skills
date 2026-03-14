@@ -1,0 +1,21 @@
+version: 1
+name: "pm_backlog"
+display_name: "PM Backlog"
+description: "Decompose the PRD into an initial backlog - epics, features, tasks, priorities, dependencies, and suggested iterations from MVP to v1."
+default_prompt: "Use $pm_backlog when the task matches the \"PM Backlog\" skill."
+triggers:
+  - "pm_backlog"
+  - "pm backlog"
+  - "Decompose the PRD into an initial backlog - epics, features, tasks, priorities, dependencies, and suggested iterations from MVP to v1"
+capabilities:
+  - "pm"
+  - "backlog"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

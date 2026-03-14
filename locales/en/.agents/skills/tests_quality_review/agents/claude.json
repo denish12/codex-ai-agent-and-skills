@@ -1,0 +1,18 @@
+{
+  "name": "tests_quality_review",
+  "display_name": "Tests Quality Review",
+  "description": "Review the quality of unit and integration tests - coverage, boundaries, resilience, flake risks, and checklist-based findings.",
+  "default_prompt": "Use $tests_quality_review when the task matches the \"Tests Quality Review\" skill.",
+  "triggers": [
+    "tests_quality_review",
+    "tests quality review",
+    "Review the quality of unit and integration tests - coverage, boundaries, resilience, flake risks, and checklist-based findings"
+  ],
+  "capabilities": [
+    "tests",
+    "quality",
+    "review"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

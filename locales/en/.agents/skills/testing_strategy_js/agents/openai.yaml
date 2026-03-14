@@ -1,0 +1,8 @@
+interface:
+  display_name: "JS/TS Testing Strategy"
+  short_description: "Define a testing strategy for JS and TS projects - unit tests, integration tests, E2E tests, AA…"
+  default_prompt: "Use $testing_strategy_js when the task matches the \"JS/TS Testing Strategy\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,6 +1,6 @@
-﻿# code-ai installer
+# code-ai installer
 
-CLI for installing your `agents/` and `.agents/skills/` assets into AI-specific layouts.
+CLI for installing your `agents/`, `.agents/skills/`, and `.agents/workflows/` assets into AI-specific layouts.
 The global package contains bundled templates, so `code-ai` works from any directory.
 
 ## Supported targets
@@ -83,7 +83,7 @@ code-ai uninstall --target claude --apply
   - Google Antugravity: `AGENTS.md` (`GEMINI.md` is also installed for compatibility)
 - Agent files copied to target-specific agents directory.
 - Skill files copied to target-specific skills directory.
-- For `gpt-codex`, assets are installed to `agents/` and `.agents/` for native Codex discovery.
+- For `gpt-codex`, assets are installed to `agents/`, `.agents/skills/`, and `.agents/workflows/` for native Codex discovery.
 - For `google-antugravity`, root instructions are provided via `AGENTS.md`, and a mirrored `GEMINI.md` is installed for backward compatibility. Assets are installed in antugravity-friendly structure:
   - agents: `.gemini/agents/<agent>/prompt.md` and `.gemini/agents/<agent>/config.json`
   - skills: `.gemini/skills/<skill>.md` and `.gemini/skills/<skill>.py`
@@ -103,3 +103,4 @@ code-ai uninstall --target claude --apply
 - If your AI tool requires a custom location, pass `--destination <path>`.
 - Source templates are resolved automatically: current directory first, bundled package templates second.
 - Template language is selectable via `--lang ru|en` (default: `ru`).
+

@@ -1,8 +1,0 @@
-interface:
-  display_name: "Release Report: Smart Cart Rescue v0.9"
-  short_description: "Final release gate — collect reports Reviewer+Tester+CI, check DoD, classify risks, accept deci…"
-  default_prompt: "Use $release_gate when the task matches the \"Release Report: Smart Cart Rescue v0.9\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

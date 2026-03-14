@@ -1,8 +1,0 @@
-interface:
-  display_name: "Design Intake"
-  short_description: "Find and analyze the provided designs (files/links), determine \"source truth\" by UI and extract…"
-  default_prompt: "Use $design_intake when the task matches the \"Design Intake\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

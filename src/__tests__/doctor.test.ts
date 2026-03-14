@@ -58,7 +58,7 @@ async function createFixtureProject(options: FixtureOptions = {}): Promise<strin
   }
 
   await fs.outputFile(
-    path.join(root, ".agents", "board", "SKILL.md"),
+    path.join(root, ".agents", "skills", "board", "SKILL.md"),
     [
       '---',
       'name: board',
@@ -72,15 +72,15 @@ async function createFixtureProject(options: FixtureOptions = {}): Promise<strin
 
   if (!options.omitPortableSkill) {
     const portableText = options.mismatchPortableSkillName ? skillPortable.replace('name: "board"', 'name: "wrong_board"') : skillPortable;
-    await fs.outputFile(path.join(root, ".agents", "board", "agents", "skill.yaml"), portableText, "utf8");
+    await fs.outputFile(path.join(root, ".agents", "skills", "board", "agents", "skill.yaml"), portableText, "utf8");
   }
 
   if (!options.omitVendorSkill) {
     if (options.invalidVendorSkillJson) {
-      await fs.outputFile(path.join(root, ".agents", "board", "agents", "claude.json"), "{bad json", "utf8");
+      await fs.outputFile(path.join(root, ".agents", "skills", "board", "agents", "claude.json"), "{bad json", "utf8");
     } else {
       await fs.outputJson(
-        path.join(root, ".agents", "board", "agents", "claude.json"),
+        path.join(root, ".agents", "skills", "board", "agents", "claude.json"),
         {
           name: "board",
           display_name: "\u041f\u0440\u043e\u0435\u043a\u0442\u043d\u0430\u044f \u0434\u043e\u0441\u043a\u0430",

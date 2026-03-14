@@ -1,8 +1,0 @@
-interface:
-  display_name: "Best practices for MongoDB + Mongoose — schemas, indexes, validation, transactions, migrations, performance, security, testing, anti-patterns and examples"
-  short_description: "Best practices for MongoDB + Mongoose — schemas, indexes, validation, transactions, migrations,…"
-  default_prompt: "Use $mongodb_mongoose_best_practices when the task matches the \"Best practices for MongoDB + Mongoose — schemas, indexes, validation, transactions, migrations, performance, security, testing, anti-patterns and examples\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Project Board"
+  short_description: "Manage the Project Board - create task IDs, maintain statuses, update progress after each step,…"
+  default_prompt: "Use $board when the task matches the \"Project Board\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

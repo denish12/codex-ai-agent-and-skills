@@ -42,6 +42,7 @@ async function createFixtureProject(): Promise<string> {
   await fs.outputJson(path.join(root, ".agents", "skills", "board", "agents", "gemini.json"), { name: "board" }, { spaces: 2 });
   await fs.outputJson(path.join(root, ".agents", "skills", "board", "agents", "copilot.json"), { name: "board" }, { spaces: 2 });
   await fs.outputJson(path.join(root, ".agents", "skills", "board", "agents", "qwen.json"), { name: "board" }, { spaces: 2 });
+  await fs.outputFile(path.join(root, ".agents", "workflows", "start-task.md"), "# start-task\n", "utf8");
 
   return root;
 }
@@ -113,7 +114,7 @@ describe("installer", () => {
     expect(installedAgent.includes("<!-- codex: reasoning=high -->")).toBe(false);
     expect(installedAgent.includes("target=claude")).toBe(true);
     expect(installedAgent.includes("normalized_hints=codex")).toBe(true);
-    expect(installedAgent.includes("<!-- claude: thinking=high; note=\"strict review\" -->")).toBe(true);
+    expect(installedAgent.includes('<!-- claude: thinking=high; note="strict review" -->')).toBe(true);
   });
 
   it("installs skill and orchestrator metadata sidecars for claude", async () => {
@@ -153,7 +154,7 @@ describe("installer", () => {
     });
 
     const installedAgent = await fs.readFile(path.join(destinationDir, ".claude", "agents", "reviewer.md"), "utf8");
-    expect(installedAgent.includes("<!-- claude: thinking=high; note=\"strict review\" -->")).toBe(true);
+    expect(installedAgent.includes('<!-- claude: thinking=high; note="strict review" -->')).toBe(true);
   });
 
   it("does not fail in strict-hints mode during dry-run", async () => {
@@ -202,6 +203,28 @@ describe("installer", () => {
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "orchestrator.gemini.json"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board", "agents", "skill.yaml"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board", "agents", "gemini.json"))).toBe(true);
+  });
+
+  it("installs codex skills into .agents/skills and copies workflows", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "gpt-codex",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(path.join(destinationDir, "CODEX.md"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, "agents", "reviewer.md"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".agents", "skills", "board", "SKILL.md"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".agents", "skills", "board", "agents", "skill.yaml"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".agents", "workflows", "start-task.md"))).toBe(true);
   });
 
   it("creates .qwen/settings.json for qwen target", async () => {

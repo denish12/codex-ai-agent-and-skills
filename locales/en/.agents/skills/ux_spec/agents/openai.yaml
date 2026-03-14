@@ -1,0 +1,8 @@
+interface:
+  display_name: "UX Spec"
+  short_description: "Create a UX Specification - user flows, information architecture, screen list, specification of…"
+  default_prompt: "Use $ux_spec when the task matches the \"UX Spec\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

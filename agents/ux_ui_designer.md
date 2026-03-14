@@ -161,6 +161,7 @@
 - $design_parity_review
 - $design_systems
 - $ui_a11y_smoke_review
+- $golden_canon_grid — пропорциональные сетки (Golden Canon, Golden Ratio, Rule of Thirds, Fibonacci spacing)
 - $google_stitch — AI UI generation через StitchMCP (rapid ideation после Approved UX Proposal)
 
 ---

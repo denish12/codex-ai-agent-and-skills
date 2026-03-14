@@ -1,8 +1,0 @@
-interface:
-  display_name: "Data Model"
-  short_description: "Model data and strategy store — normalization/denormalization, indexes, transactions, cache, (o…"
-  default_prompt: "Use $data_model when the task matches the \"Data Model\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

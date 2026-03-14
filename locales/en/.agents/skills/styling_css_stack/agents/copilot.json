@@ -1,0 +1,19 @@
+{
+  "name": "styling_css_stack",
+  "display_name": "Styling & CSS Stack",
+  "description": "Apply CSS practices - custom properties, naming conventions, responsive rules, transitions, z-index scale, dark mode, and accessibility.",
+  "default_prompt": "Use $styling_css_stack when the task matches the \"Styling & CSS Stack\" skill.",
+  "triggers": [
+    "styling_css_stack",
+    "styling css stack",
+    "Styling & CSS Stack",
+    "Apply CSS practices - custom properties, naming conventions, responsive rules, transitions, z-index scale, dark mode, and accessibility"
+  ],
+  "capabilities": [
+    "styling",
+    "css",
+    "stack"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

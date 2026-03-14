@@ -1,0 +1,8 @@
+interface:
+  display_name: "Release Gate Checklist Template"
+  short_description: "Generate a visible pre-release checklist RG-01...RG-xx covering evidence, DoD, security, operat…"
+  default_prompt: "Use $release_gate_checklist_template when the task matches the \"Release Gate Checklist Template\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

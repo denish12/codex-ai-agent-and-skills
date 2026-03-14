@@ -1,0 +1,8 @@
+interface:
+  display_name: "Release Gate"
+  short_description: "Run the final release gate - collect reviewer, tester, and CI reports, verify Definition of Don…"
+  default_prompt: "Use $release_gate when the task matches the \"Release Gate\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

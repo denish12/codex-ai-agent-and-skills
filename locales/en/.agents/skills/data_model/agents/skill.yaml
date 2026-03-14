@@ -1,0 +1,21 @@
+version: 1
+name: "data_model"
+display_name: "Data Model"
+description: "Design the data model and storage strategy - normalization, denormalization, indexes, transactions, cache, and optional event-sourcing or eventual-consistency trade-offs."
+default_prompt: "Use $data_model when the task matches the \"Data Model\" skill."
+triggers:
+  - "data_model"
+  - "data model"
+  - "Design the data model and storage strategy - normalization, denormalization, indexes, transactions, cache, and optional event-sourcing or eventual-consistency trade-offs"
+capabilities:
+  - "data"
+  - "model"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

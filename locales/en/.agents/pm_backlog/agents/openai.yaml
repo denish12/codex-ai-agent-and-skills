@@ -1,8 +1,0 @@
-interface:
-  display_name: "Backlog (epics/features/tasks)"
-  short_description: "Decomposition of the PRD into an initial backlog ? epics, features, and tasks with priorities,…"
-  default_prompt: "Use $pm_backlog when the task matches the \"Backlog (epics/features/tasks)\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

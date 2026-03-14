@@ -1,0 +1,23 @@
+version: 1
+name: "release_gate_checklist_template"
+display_name: "Release Gate Checklist Template"
+description: "Generate a visible pre-release checklist RG-01...RG-xx covering evidence, DoD, security, operations, post-deploy checks, rollback, and status rules."
+default_prompt: "Use $release_gate_checklist_template when the task matches the \"Release Gate Checklist Template\" skill."
+triggers:
+  - "release_gate_checklist_template"
+  - "release gate checklist template"
+  - "Generate a visible pre-release checklist RG-01"
+capabilities:
+  - "release"
+  - "gate"
+  - "checklist"
+  - "template"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

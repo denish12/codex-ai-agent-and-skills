@@ -1,0 +1,8 @@
+interface:
+  display_name: "Data Model"
+  short_description: "Design the data model and storage strategy - normalization, denormalization, indexes, transacti…"
+  default_prompt: "Use $data_model when the task matches the \"Data Model\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

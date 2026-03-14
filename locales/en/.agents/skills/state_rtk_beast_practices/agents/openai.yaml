@@ -1,0 +1,8 @@
+interface:
+  display_name: "Redux Toolkit Best Practices"
+  short_description: "Apply Redux Toolkit best practices - slices, async flows, entity adapters, selectors, RTK Query…"
+  default_prompt: "Use $state_rtk_beast_practices when the task matches the \"Redux Toolkit Best Practices\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,22 @@
+version: 1
+name: "threat_model_baseline"
+display_name: "Threat Model Baseline"
+description: "Create a baseline threat model for an MVP - assets, attack vectors, mitigations, OWASP risks, and role-based access considerations."
+default_prompt: "Use $threat_model_baseline when the task matches the \"Threat Model Baseline\" skill."
+triggers:
+  - "threat_model_baseline"
+  - "threat model baseline"
+  - "Create a baseline threat model for an MVP - assets, attack vectors, mitigations, OWASP risks, and role-based access considerations"
+capabilities:
+  - "threat"
+  - "model"
+  - "baseline"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

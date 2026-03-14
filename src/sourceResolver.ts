@@ -1,4 +1,4 @@
-﻿import path from "node:path";
+import path from "node:path";
 import fs from "fs-extra";
 import type { TemplateLanguage } from "./types.js";
 
@@ -18,7 +18,9 @@ export async function resolveSourceRoot(args: {
     if (await isValidSourceRoot(explicitPath)) {
       return explicitPath;
     }
-    throw new Error(`Invalid --project-dir: ${explicitPath}. Required: AGENTS.md, agents/, and .agents/.`);
+    throw new Error(
+      `Invalid --project-dir: ${explicitPath}. Required: AGENTS.md, agents/, and .agents/ with .agents/skills/, .agents/workflows/, or a legacy flat skill layout.`,
+    );
   }
 
   const bundledPath = getBundledPath(args.packageRoot, args.language);
@@ -55,7 +57,25 @@ async function isValidSourceRoot(rootDir: string): Promise<boolean> {
   const agentsDir = path.join(rootDir, "agents");
   const dotAgentsDir = path.join(rootDir, ".agents");
 
-  return (await fs.pathExists(orchestratorPath)) && (await fs.pathExists(agentsDir)) && (await fs.pathExists(dotAgentsDir));
+  if (!(await fs.pathExists(orchestratorPath)) || !(await fs.pathExists(agentsDir)) || !(await fs.pathExists(dotAgentsDir))) {
+    return false;
+  }
+
+  const nestedSkillsDir = path.join(dotAgentsDir, "skills");
+  const workflowsDir = path.join(dotAgentsDir, "workflows");
+  if ((await fs.pathExists(nestedSkillsDir)) || (await fs.pathExists(workflowsDir))) {
+    return true;
+  }
+
+  const entries = await fs.readdir(dotAgentsDir);
+  for (const entry of entries) {
+    const legacySkillFile = path.join(dotAgentsDir, entry, "SKILL.md");
+    if (await fs.pathExists(legacySkillFile)) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 /**

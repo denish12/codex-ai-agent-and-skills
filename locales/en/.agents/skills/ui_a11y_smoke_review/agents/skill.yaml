@@ -1,0 +1,24 @@
+version: 1
+name: "ui_a11y_smoke_review"
+display_name: "UI & Accessibility Smoke Review"
+description: "Run a quick UI and accessibility smoke review - loading, empty and error states, focus, keyboard support, aria or labels, and UX Spec compliance."
+default_prompt: "Use $ui_a11y_smoke_review when the task matches the \"UI & Accessibility Smoke Review\" skill."
+triggers:
+  - "ui_a11y_smoke_review"
+  - "ui a11y smoke review"
+  - "UI & Accessibility Smoke Review"
+  - "Run a quick UI and accessibility smoke review - loading, empty and error states, focus, keyboard support, aria or labels, and UX Spec compliance"
+capabilities:
+  - "ui"
+  - "a11y"
+  - "smoke"
+  - "review"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

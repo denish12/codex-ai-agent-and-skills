@@ -1,0 +1,18 @@
+{
+  "name": "architecture_compliance_review",
+  "display_name": "Architecture Compliance Review",
+  "description": "Check whether code complies with the architecture and ADRs - module boundaries, layers, dependencies, conventions, and red flags.",
+  "default_prompt": "Use $architecture_compliance_review when the task matches the \"Architecture Compliance Review\" skill.",
+  "triggers": [
+    "architecture_compliance_review",
+    "architecture compliance review",
+    "Check whether code complies with the architecture and ADRs - module boundaries, layers, dependencies, conventions, and red flags"
+  ],
+  "capabilities": [
+    "architecture",
+    "compliance",
+    "review"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

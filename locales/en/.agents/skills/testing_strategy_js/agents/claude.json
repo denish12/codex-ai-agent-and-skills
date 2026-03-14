@@ -1,0 +1,19 @@
+{
+  "name": "testing_strategy_js",
+  "display_name": "JS/TS Testing Strategy",
+  "description": "Define a testing strategy for JS and TS projects - unit tests, integration tests, E2E tests, AAA structure, tooling, mocks, coverage thresholds, and CI integration.",
+  "default_prompt": "Use $testing_strategy_js when the task matches the \"JS/TS Testing Strategy\" skill.",
+  "triggers": [
+    "testing_strategy_js",
+    "testing strategy js",
+    "JS/TS Testing Strategy",
+    "Define a testing strategy for JS and TS projects - unit tests, integration tests, E2E tests, AAA structure, tooling, mocks, coverage thresholds, and CI integration"
+  ],
+  "capabilities": [
+    "testing",
+    "strategy",
+    "js"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

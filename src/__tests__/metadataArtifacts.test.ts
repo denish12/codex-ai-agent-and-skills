@@ -6,9 +6,9 @@ const root = path.resolve(__dirname, "..", "..");
 
 describe("generated metadata artifacts", () => {
   it("keeps Russian skill metadata human-facing fields localized", async () => {
-    const skillYaml = await fs.readFile(path.join(root, ".agents", "a11y_baseline", "agents", "skill.yaml"), "utf8");
+    const skillYaml = await fs.readFile(path.join(root, ".agents", "skills", "a11y_baseline", "agents", "skill.yaml"), "utf8");
     const openaiYaml = await fs.readFile(
-      path.join(root, ".agents", "api_contract_compliance_review", "agents", "openai.yaml"),
+      path.join(root, ".agents", "skills", "api_contract_compliance_review", "agents", "openai.yaml"),
       "utf8",
     );
 
@@ -18,7 +18,7 @@ describe("generated metadata artifacts", () => {
   });
 
   it("keeps English metadata localized to English", async () => {
-    const skillYaml = await fs.readFile(path.join(root, "locales", "en", ".agents", "a11y_baseline", "agents", "skill.yaml"), "utf8");
+    const skillYaml = await fs.readFile(path.join(root, "locales", "en", ".agents", "skills", "a11y_baseline", "agents", "skill.yaml"), "utf8");
 
     expect(skillYaml).toContain('display_name: "Minimum baseline accessibility for web UI"');
     expect(skillYaml).toContain('default_prompt: "Use $a11y_baseline when the task matches the \\"Minimum baseline accessibility for web UI\\" skill."');

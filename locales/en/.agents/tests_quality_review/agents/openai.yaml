@@ -1,8 +1,0 @@
-interface:
-  display_name: "Tests Quality Review"
-  short_description: "Review the quality of unit/integration tests ? scenario coverage, boundaries, stability, absenc…"
-  default_prompt: "Use $tests_quality_review when the task matches the \"Tests Quality Review\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

@@ -1,0 +1,17 @@
+{
+  "name": "release_gate",
+  "display_name": "Release Gate",
+  "description": "Run the final release gate - collect reviewer, tester, and CI reports, verify Definition of Done, classify risks, decide GO or NO-GO, and define a closure plan.",
+  "default_prompt": "Use $release_gate when the task matches the \"Release Gate\" skill.",
+  "triggers": [
+    "release_gate",
+    "release gate",
+    "Run the final release gate - collect reviewer, tester, and CI reports, verify Definition of Done, classify risks, decide GO or NO-GO, and define a closure plan"
+  ],
+  "capabilities": [
+    "release",
+    "gate"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

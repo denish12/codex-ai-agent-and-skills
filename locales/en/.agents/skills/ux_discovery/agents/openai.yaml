@@ -1,0 +1,8 @@
+interface:
+  display_name: "UX Discovery"
+  short_description: "Clarify UX inputs from the PRD - roles, key flows, navigation, platforms, brand references, loc…"
+  default_prompt: "Use $ux_discovery when the task matches the \"UX Discovery\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -27,6 +27,7 @@ export interface SourceCatalog {
   orchestratorPath: string;
   agentFiles: Record<string, string>;
   skillFiles: Record<string, string>;
+  workflowFiles: Record<string, string>;
 }
 
 /**

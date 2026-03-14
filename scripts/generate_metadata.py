@@ -104,6 +104,37 @@ RU_DISPLAY_NAME_OVERRIDES = {
 
 EN_DISPLAY_NAME_OVERRIDES = {
     "a11y_baseline": "Minimum baseline accessibility for web UI",
+    "adr_log": "ADR Log",
+    "api_contracts": "API Contracts",
+    "architecture_compliance_review": "Architecture Compliance Review",
+    "architecture_doc": "Architecture Document",
+    "board": "Project Board",
+    "current_state_analysis": "Current State Analysis",
+    "data_model": "Data Model",
+    "deployment_ci_plan": "Deployment & CI Plan",
+    "design_intake": "Design Intake",
+    "google_stitch_skill": "Google Stitch",
+    "handoff": "Handoff Envelope",
+    "mongodb_mongoose_best_practices": "MongoDB + Mongoose Best Practices",
+    "observability_plan": "Observability Plan",
+    "pm_backlog": "PM Backlog",
+    "pm_interview": "PM Interview / Discovery",
+    "qa_test_plan": "QA Test Plan",
+    "release_gate": "Release Gate",
+    "release_gate_checklist_template": "Release Gate Checklist Template",
+    "state_rtk_beast_practices": "Redux Toolkit Best Practices",
+    "state_zustand_beast_practices": "Zustand Best Practices",
+    "styling_css_stack": "Styling & CSS Stack",
+    "system_design_checklist": "System Design Checklist",
+    "testing_strategy_js": "JS/TS Testing Strategy",
+    "tests_quality_review": "Tests Quality Review",
+    "threat_model_baseline": "Threat Model Baseline",
+    "ui_a11y_smoke_review": "UI & Accessibility Smoke Review",
+    "ui_inventory": "UI Inventory",
+    "ux_discovery": "UX Discovery",
+    "ux_spec": "UX Spec",
+    "wix_iframe_sdk": "Wix iFrame SDK",
+    "wix_self_hosted_embedded_script": "Wix Self-Hosted Embedded Script",
 }
 
 PIPELINE_STAGES = [
@@ -139,14 +170,21 @@ def generate_for_root(root: Path, locale: str) -> None:
 
 
 def iter_skill_dirs(root: Path):
+    nested_root = root / ".agents" / "skills"
+    if nested_root.exists():
+        for child in sorted(nested_root.iterdir()):
+            if child.is_dir() and (child / "SKILL.md").exists():
+                yield child
+
     flat_root = root / ".agents"
     if not flat_root.exists():
         return
     for child in sorted(flat_root.iterdir()):
-        if child.name == "skills" or not child.is_dir():
+        if child.name in {"skills", "workflows"} or not child.is_dir():
             continue
         if (child / "SKILL.md").exists():
             yield child
+
 
 
 def list_skill_names(root: Path) -> list[str]:
@@ -162,7 +200,7 @@ def list_role_names(root: Path) -> list[str]:
 
 def parse_frontmatter(text: str) -> dict[str, str]:
     normalized = text.replace("\r\n", "\n")
-    match = re.match(r"^\ufeff?---\n(.*?)\n---\n?", normalized, re.DOTALL)
+    match = re.match(r"^\ufeff?---\n(.*?)\n---\n", normalized, re.DOTALL)
     if not match:
         raise ValueError("Missing YAML frontmatter")
     metadata: dict[str, str] = {}
@@ -434,10 +472,17 @@ def extract_first_role_line(text: str) -> str:
 
 def counterpart_exists(skill_dir: Path, locale: str) -> bool:
     if locale == "ru":
-        counterpart = ROOT / "locales" / "en" / ".agents" / skill_dir.name / "SKILL.md"
+        candidates = [
+            ROOT / "locales" / "en" / ".agents" / skill_dir.name / "SKILL.md",
+            ROOT / "locales" / "en" / ".agents" / "skills" / skill_dir.name / "SKILL.md",
+        ]
     else:
-        counterpart = ROOT / ".agents" / skill_dir.name / "SKILL.md"
-    return counterpart.exists()
+        candidates = [
+            ROOT / ".agents" / "skills" / skill_dir.name / "SKILL.md",
+            ROOT / ".agents" / skill_dir.name / "SKILL.md",
+        ]
+    return any(candidate.exists() for candidate in candidates)
+
 
 
 def dedupe(values: list[str]) -> list[str]:

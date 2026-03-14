@@ -1,8 +1,0 @@
-interface:
-  display_name: "Find all logs for a specific request:"
-  short_description: "Plan observability — which logs/metrics/traces collect, correlation requests, levels logs, aler…"
-  default_prompt: "Use $observability_plan when the task matches the \"Find all logs for a specific request:\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

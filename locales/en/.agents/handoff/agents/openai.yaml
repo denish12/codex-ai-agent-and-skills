@@ -1,8 +1,0 @@
-interface:
-  display_name: "Context Pack Handoff"
-  short_description: "Formation Context Pack and task setup for the agent — goals, constraints, artifacts, decisions,…"
-  default_prompt: "Use $handoff when the task matches the \"Context Pack Handoff\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Current State Analysis"
+  short_description: "Analyze the current repository architecture - conventions, patterns, tech debt, scaling bottlen…"
+  default_prompt: "Use $current_state_analysis when the task matches the \"Current State Analysis\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

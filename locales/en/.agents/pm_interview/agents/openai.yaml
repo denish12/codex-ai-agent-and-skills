@@ -1,8 +1,0 @@
-interface:
-  display_name: "Interview Summary: Smart Cart Rescue"
-  short_description: "Structured interview/documentation review — collect goals, audience, MVP, constraints, integrat…"
-  default_prompt: "Use $pm_interview when the task matches the \"Interview Summary: Smart Cart Rescue\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

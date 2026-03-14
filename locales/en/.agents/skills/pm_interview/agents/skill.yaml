@@ -1,0 +1,22 @@
+version: 1
+name: "pm_interview"
+display_name: "PM Interview / Discovery"
+description: "Structured interview/documentation review - gather goals, audience, MVP, constraints, integrations, and success criteria so that a PRD can be written."
+default_prompt: "Use $pm_interview when the task matches the \"PM Interview / Discovery\" skill."
+triggers:
+  - "pm_interview"
+  - "pm interview"
+  - "PM Interview / Discovery"
+  - "Structured interview/documentation review - gather goals, audience, MVP, constraints, integrations, and success criteria so that a PRD can be written"
+capabilities:
+  - "pm"
+  - "interview"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

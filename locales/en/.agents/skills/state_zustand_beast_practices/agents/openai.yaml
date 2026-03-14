@@ -1,0 +1,8 @@
+interface:
+  display_name: "Zustand Best Practices"
+  short_description: "Apply Zustand best practices - simple global state, modular stores, selectors, rerender control…"
+  default_prompt: "Use $state_zustand_beast_practices when the task matches the \"Zustand Best Practices\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

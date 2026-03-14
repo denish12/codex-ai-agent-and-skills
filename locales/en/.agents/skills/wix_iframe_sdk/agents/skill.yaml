@@ -1,0 +1,22 @@
+version: 1
+name: "wix_iframe_sdk"
+display_name: "Wix iFrame SDK"
+description: "Use the practical knowledge base for the legacy Wix iFrame SDK - methods, events, parameters, constraints, examples, and migration guidance."
+default_prompt: "Use $wix_iframe_sdk when the task matches the \"Wix iFrame SDK\" skill."
+triggers:
+  - "wix_iframe_sdk"
+  - "wix iframe sdk"
+  - "Use the practical knowledge base for the legacy Wix iFrame SDK - methods, events, parameters, constraints, examples, and migration guidance"
+capabilities:
+  - "wix"
+  - "iframe"
+  - "sdk"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

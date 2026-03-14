@@ -1,0 +1,20 @@
+{
+  "name": "mongodb_mongoose_best_practices",
+  "display_name": "MongoDB + Mongoose Best Practices",
+  "description": "Apply MongoDB and Mongoose best practices - schemas, indexes, validation, transactions, migrations, performance, security, testing, and anti-patterns.",
+  "default_prompt": "Use $mongodb_mongoose_best_practices when the task matches the \"MongoDB + Mongoose Best Practices\" skill.",
+  "triggers": [
+    "mongodb_mongoose_best_practices",
+    "mongodb mongoose best practices",
+    "MongoDB + Mongoose Best Practices",
+    "Apply MongoDB and Mongoose best practices - schemas, indexes, validation, transactions, migrations, performance, security, testing, and anti-patterns"
+  ],
+  "capabilities": [
+    "mongodb",
+    "mongoose",
+    "best",
+    "practices"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

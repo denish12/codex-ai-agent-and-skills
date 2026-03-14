@@ -1,0 +1,8 @@
+interface:
+  display_name: "Google Stitch"
+  short_description: "Generation of user interface screens through Google Stitch (artificial intelligence) with direc…"
+  default_prompt: "Use $google_stitch_skill when the task matches the \"Google Stitch\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true
