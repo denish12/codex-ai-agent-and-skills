@@ -1,4 +1,5 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
+import { createRequire } from "node:module";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import prompts from "prompts";
@@ -14,6 +15,8 @@ import { printBanner } from "./banner.js";
 
 const program = new Command();
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const requireJson = createRequire(import.meta.url);
+const pkg = requireJson("../package.json") as { version: string };
 
 interface WizardText {
   cancelled: string;
@@ -88,7 +91,7 @@ const WIZARD_TEXT: Record<TemplateLanguage, WizardText> = {
 program
   .name("code-ai")
   .description("Install code-ai agents and skills for AI coding assistants")
-  .version("1.0.0");
+  .version(pkg.version);
 
 program
   .command("targets")
@@ -510,11 +513,11 @@ function normalizeLanguage(rawLanguage: string): TemplateLanguage {
 if (process.argv.length <= 2) {
   runInteractiveWizard().catch((err) => {
     error((err as Error).message);
-    process.exit(1);
+    process.exitCode = 1;
   });
 } else {
   program.parseAsync(process.argv).catch((err) => {
     error((err as Error).message);
-    process.exit(1);
+    process.exitCode = 1;
   });
 }

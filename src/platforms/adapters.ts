@@ -50,6 +50,9 @@ const targetLayouts: Record<TargetId, PlatformLayout> = {
   },
 };
 
+/** Module-level adapter cache to avoid re-building adapters on every lookup. */
+const adapterCache = new Map<TargetId, PlatformAdapter>();
+
 /**
  * Returns all supported platform adapters.
  * @returns Array of platform adapters.
@@ -65,15 +68,20 @@ export function getPlatformAdapters(): PlatformAdapter[] {
 }
 
 /**
- * Returns a single platform adapter by identifier.
+ * Returns a single platform adapter by identifier, using a module-level cache.
  * @param target Target id.
  * @returns Platform adapter.
  */
 export function getPlatformAdapter(target: TargetId): PlatformAdapter {
+  const cached = adapterCache.get(target);
+  if (cached) {
+    return cached;
+  }
   const found = getPlatformAdapters().find((adapter) => adapter.id === target);
   if (!found) {
     throw new Error(`Unsupported target: ${target}`);
   }
+  adapterCache.set(target, found);
   return found;
 }
 
@@ -380,7 +388,16 @@ function renderGeminiAgentConfig(agentName: string): string {
  * @returns Python source code.
  */
 function renderGeminiSkillStub(skillName: string): string {
-  return `\"\"\"Auto-generated skill stub for ${skillName}.\\nSee ${skillName}.md for behavior details.\"\"\"\\n\\n\\ndef run(input_text: str) -> str:\\n    \"\"\"Execute ${skillName} skill logic.\"\"\"\\n    return f\"${skillName}: {input_text}\"\\n`;
+  return [
+    `"""Auto-generated skill stub for ${skillName}.`,
+    `See ${skillName}.md for behavior details."""`,
+    "",
+    "",
+    "def run(input_text: str) -> str:",
+    `    """Execute ${skillName} skill logic."""`,
+    `    return f"${skillName}: {input_text}"`,
+    "",
+  ].join("\n");
 }
 
 /**

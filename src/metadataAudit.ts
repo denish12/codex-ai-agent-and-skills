@@ -1,4 +1,5 @@
 import fs from "fs-extra";
+import { parse as parseYaml } from "yaml";
 import { getOrchestratorPortableSourcePath, getOrchestratorVendorSourcePath, getSkillPortableSourcePath, getSkillVendorSourcePath } from "./platforms/metadataSidecars.js";
 import type { SourceCatalog, TargetId } from "./types.js";
 
@@ -8,11 +9,7 @@ interface MetadataAuditResult {
   info: string[];
 }
 
-type YamlScalar = string | number | boolean | null;
-type YamlValue = YamlScalar | YamlObject | YamlValue[];
-interface YamlObject {
-  [key: string]: YamlValue;
-}
+
 
 /**
  * Audits portable and vendor metadata sidecars for orchestrator and skills.
@@ -72,7 +69,7 @@ async function auditOrchestrator(
     }
     ensureRequired(interfaceSection, ["display_name", "short_description", "default_prompt"], vendorPath, errors, portableLabel, "interface.");
     if (portable) {
-      compareYamlValues(interfaceSection, portable, ["display_name", "default_prompt"], vendorPath, portablePath, errors, portableLabel);
+      compareValues(interfaceSection, portable, ["display_name", "default_prompt"], vendorPath, portablePath, errors, portableLabel);
     }
     return;
   }
@@ -84,7 +81,7 @@ async function auditOrchestrator(
   ensureValue(payload, "name", "web_development_orchestra", vendorPath, errors, portableLabel);
   ensureRequired(payload, ["display_name", "description", "default_prompt"], vendorPath, errors, portableLabel);
   if (portable) {
-    compareJsonValues(payload, portable, ["display_name", "description", "default_prompt"], vendorPath, portablePath, errors, portableLabel);
+    compareValues(payload, portable, ["display_name", "description", "default_prompt"], vendorPath, portablePath, errors, portableLabel);
   }
 }
 
@@ -137,7 +134,7 @@ async function auditSkills(
       }
       ensureRequired(interfaceSection, ["display_name", "short_description", "default_prompt"], vendorPath, errors, label, "interface.");
       if (portable) {
-        compareYamlValues(interfaceSection, portable, ["display_name", "default_prompt"], vendorPath, portablePath, errors, label);
+        compareValues(interfaceSection, portable, ["display_name", "default_prompt"], vendorPath, portablePath, errors, label);
       }
       continue;
     }
@@ -149,17 +146,25 @@ async function auditSkills(
     ensureValue(payload, "name", skillName, vendorPath, errors, label);
     ensureRequired(payload, ["display_name", "description", "default_prompt"], vendorPath, errors, label);
     if (portable) {
-      compareJsonValues(payload, portable, ["display_name", "description", "default_prompt"], vendorPath, portablePath, errors, label);
+      compareValues(payload, portable, ["display_name", "description", "default_prompt"], vendorPath, portablePath, errors, label);
     }
   }
 }
 
+/**
+ * Reads and parses a YAML sidecar file, collecting errors and warnings.
+ * @param filePath Absolute path to the YAML sidecar file.
+ * @param label Label prefix for audit messages.
+ * @param warnings Mutable warnings array.
+ * @param errors Mutable errors array.
+ * @returns Parsed YAML object or null.
+ */
 async function readYamlSidecar(
   filePath: string,
   label: string,
   warnings: string[],
   errors: string[],
-): Promise<YamlObject | null> {
+): Promise<Record<string, unknown> | null> {
   if (!(await fs.pathExists(filePath))) {
     warnings.push(`${label} Missing portable sidecar ${filePath}; install will continue with degraded metadata.`);
     return null;
@@ -167,12 +172,12 @@ async function readYamlSidecar(
 
   try {
     const text = await fs.readFile(filePath, "utf8");
-    const parsed = parseSimpleYaml(text);
+    const parsed: unknown = parseYaml(text);
     if (!isObject(parsed)) {
       errors.push(`${label} Expected YAML mapping in ${filePath}.`);
       return null;
     }
-    return parsed;
+    return parsed as Record<string, unknown>;
   } catch (error) {
     errors.push(`${label} Invalid YAML in ${filePath}: ${(error as Error).message}`);
     return null;
@@ -247,7 +252,17 @@ function ensureValue(
   }
 }
 
-function compareJsonValues(
+/**
+ * Compares values between vendor and portable sidecars for specified keys.
+ * @param payload Vendor sidecar data.
+ * @param source Portable sidecar data.
+ * @param keys Keys to compare.
+ * @param vendorPath Vendor file path (for error messages).
+ * @param portablePath Portable file path (for error messages).
+ * @param errors Mutable errors array.
+ * @param label Label prefix for audit messages.
+ */
+function compareValues(
   payload: Record<string, unknown>,
   source: Record<string, unknown>,
   keys: string[],
@@ -263,111 +278,7 @@ function compareJsonValues(
   }
 }
 
-function compareYamlValues(
-  payload: Record<string, unknown>,
-  source: Record<string, unknown>,
-  keys: string[],
-  vendorPath: string,
-  portablePath: string,
-  errors: string[],
-  label: string,
-): void {
-  for (const key of keys) {
-    if (payload[key] !== source[key]) {
-      errors.push(`${label} ${key} mismatch between ${portablePath} and ${vendorPath}.`);
-    }
-  }
-}
 
-function parseSimpleYaml(text: string): YamlObject {
-  const lines = text
-    .split(/\r?\n/)
-    .map((line) => line.replace(/\s+$/, ""))
-    .filter((line) => line.trim().length > 0);
-
-  const root: YamlObject = {};
-  const stack: Array<{ indent: number; value: YamlValue }> = [{ indent: -1, value: root }];
-
-  for (let index = 0; index < lines.length; index += 1) {
-    const line = lines[index] ?? "";
-    const indent = line.length - line.trimStart().length;
-    const stripped = line.trim();
-
-    while (stack.length > 1 && indent <= stack[stack.length - 1]!.indent) {
-      stack.pop();
-    }
-
-    const container = stack[stack.length - 1]!.value;
-
-    if (stripped.startsWith("- ")) {
-      if (!Array.isArray(container)) {
-        throw new Error(`Unexpected list item: ${line}`);
-      }
-      container.push(parseYamlScalar(stripped.slice(2).trim()));
-      continue;
-    }
-
-    const separatorIndex = stripped.indexOf(":");
-    if (separatorIndex < 0) {
-      throw new Error(`Invalid mapping line: ${line}`);
-    }
-
-    const key = stripped.slice(0, separatorIndex).trim();
-    const rawValue = stripped.slice(separatorIndex + 1).trim();
-    if (!isObject(container)) {
-      throw new Error(`Unexpected mapping in list context: ${line}`);
-    }
-
-    if (rawValue.length === 0) {
-      const nextLine = findNextNonEmpty(lines, index + 1);
-      const nextIndent = nextLine ? nextLine.length - nextLine.trimStart().length : -1;
-      const nestedValue: YamlValue = nextLine && nextIndent > indent && nextLine.trim().startsWith("- ") ? [] : {};
-      container[key] = nestedValue;
-      stack.push({ indent, value: nestedValue });
-      continue;
-    }
-
-    container[key] = parseYamlScalar(rawValue);
-  }
-
-  return root;
-}
-
-function findNextNonEmpty(lines: string[], start: number): string | null {
-  for (let index = start; index < lines.length; index += 1) {
-    const line = lines[index];
-    if (line && line.trim().length > 0) {
-      return line;
-    }
-  }
-  return null;
-}
-
-function parseYamlScalar(rawValue: string): YamlValue {
-  if (rawValue === "[]") {
-    return [];
-  }
-  if (rawValue === "true") {
-    return true;
-  }
-  if (rawValue === "false") {
-    return false;
-  }
-  if (rawValue === "null") {
-    return null;
-  }
-  if (rawValue.startsWith('"') && rawValue.endsWith('"')) {
-    return JSON.parse(rawValue) as string;
-  }
-  if (rawValue.startsWith("'") && rawValue.endsWith("'")) {
-    return rawValue.slice(1, -1);
-  }
-  const numeric = Number(rawValue);
-  if (!Number.isNaN(numeric) && rawValue.trim() !== "") {
-    return numeric;
-  }
-  return rawValue;
-}
 
 function asObject(value: unknown): Record<string, unknown> | null {
   return isObject(value) ? (value as Record<string, unknown>) : null;

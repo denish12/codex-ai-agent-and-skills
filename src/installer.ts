@@ -148,8 +148,6 @@ async function applyOperations(args: {
         continue;
       }
 
-      let sourceContentForTransform: string | undefined;
-
       if (!args.dryRun && exists && backupDir) {
         const rel = path.relative(args.destinationDir, destination);
         const backupPath = path.join(backupDir, rel);
@@ -163,7 +161,7 @@ async function applyOperations(args: {
         if (operation.generated) {
           await fs.writeFile(destination, operation.content ?? "", "utf8");
         } else if (operation.transform) {
-          const sourceContent = sourceContentForTransform ?? (await fs.readFile(operation.sourcePath, "utf8"));
+          const sourceContent = await fs.readFile(operation.sourcePath, "utf8");
           const transformed = transformContentForTarget(
             sourceContent,
             operation.transform.target,
