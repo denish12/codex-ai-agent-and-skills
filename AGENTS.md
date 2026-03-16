@@ -49,6 +49,7 @@
 - $system_design_checklist
 - $architecture_doc
 - $architecture_compliance_review
+- $design_patterns_reference
 - $adr_log
 - $api_contracts
 - $data_model

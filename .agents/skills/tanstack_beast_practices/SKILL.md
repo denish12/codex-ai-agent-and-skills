@@ -7,6 +7,9 @@ description: TanStack (Query v5, Table v8, Virtual v3): кэширование, 
 
 Копипаст-паттерны для предсказуемой работы с данными, таблицами и виртуализацией.
 
+> [!IMPORTANT]
+> **MCP-приоритет:** Если доступен MCP-сервер `tanstack-docs`, **всегда используй его инструменты** (`tanstack_doc`, `tanstack_search_docs`, `listTanStackAddOns`, `getAddOnDetails`, `createTanStackApplication`) **первыми** — они дают актуальную документацию прямо из официальных источников TanStack. Используй паттерны этого скилла как fallback или как дополнительный контекст по архитектуре (fetcher/adapter/hook, queryKey factory, оптимистичные обновления, виртуализация), когда MCP недоступен или не содержит нужной информации.
+
 **Разделы:**
 1. [Query: архитектура fetcher/adapter](#1-query-архитектура)
 2. [Query: кэширование и staleTime](#2-query-кэш)

@@ -7,6 +7,9 @@ description: TanStack (Query v5, Table v8, Virtual v3): caching, invalidation, p
 
 Copy-paste patterns for predictable work with data, tables, and virtualization.
 
+> [!IMPORTANT]
+> **MCP priority:** If the `tanstack-docs` MCP server is available, **always use its tools first** (`tanstack_doc`, `tanstack_search_docs`, `listTanStackAddOns`, `getAddOnDetails`, `createTanStackApplication`) — they provide up-to-date documentation directly from official TanStack sources. Use the patterns in this skill as a fallback or as additional architectural context (fetcher/adapter/hook, queryKey factory, optimistic updates, virtualization) when the MCP is unavailable or does not contain the required information.
+
 **Sections:**
 1. [Query: fetcher/adapter architecture](#1-query-architecture)
 2. [Query: caching and staleTime](#2-query-cache)

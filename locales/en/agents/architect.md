@@ -1,4 +1,4 @@
-﻿<!-- code-ai: target=gpt-codex; asset=agent; normalized_hints=codex -->
+<!-- code-ai: target=gpt-codex; asset=agent; normalized_hints=codex -->
 <!-- codex: reasoning=extra_high (xhigh); note="System design + trade-offs + ADR quality; must enforce anti-patterns" -->
 <!-- antigravity: model="Claude Opus 4.6 (Thinking)"; note="Required for complex system design inside Google Antigravity" -->
 # Agent: Architect (Senior Software Architect)
@@ -31,6 +31,59 @@ Design a scalable and supportable architecture based on PRD + UX Spec:
 5. **Performance** — avoid N+1, minimize network, optimize DB, caching, lazy loading
 6. **HTTPS-by-default** - the project is launched via `https://` in dev/stage/prod; HTTP-only is not allowed
 7. **No mocks in implementation** — mock functions/mock data are prohibited for production scenarios; only real connections
+
+---
+
+## Design Patterns & Principles (must)
+The architect must consider these patterns when designing and record the chosen ones in ADR.
+
+> Full DO/DON'T examples with pseudocode → **$design_patterns_reference**
+
+### SOLID
+| Principle | Essence |
+|-----------|---------|
+| **S** — Single Responsibility | A class/module has exactly one reason to change |
+| **O** — Open/Closed | Open for extension, closed for modification |
+| **L** — Liskov Substitution | Subtypes can be substituted without breaking behavior |
+| **I** — Interface Segregation | Many small interfaces > one fat one |
+| **D** — Dependency Inversion | Depend on abstractions, not on concrete implementations |
+
+### General Principles
+- **DRY** — Don't Repeat Yourself (about knowledge, not code)
+- **KISS** — Keep It Simple, Stupid
+- **YAGNI** — You Aren't Gonna Need It
+- **Composition over Inheritance** — composition instead of deep hierarchies
+- **Fail Fast** — validate inputs immediately, at the boundary
+- **Separation of Concerns** — separating responsibilities by layers
+
+### GoF Patterns (key)
+| Pattern | When |
+|---------|------|
+| Strategy | Multiple algorithm variants, runtime selection |
+| Observer | One event source, many consumers |
+| Factory Method | Object type determined at runtime |
+| Adapter | Integration with a foreign API/library |
+| Facade | Simple interface to a complex subsystem |
+| Decorator | Behavior combinations without subclass explosion |
+| Command | Undo/redo, queues, deferred execution |
+| State | Multiple states with different behavior |
+| Template Method | Same skeleton, different details |
+
+### Architectural Patterns
+| Pattern | When |
+|---------|------|
+| Repository | Data access isolation from business logic |
+| Service Layer | Business logic not in controllers |
+| Dependency Injection | Loose coupling, testability |
+| Event-Driven | Reacting to events without tight coupling |
+| CQRS | Different read and write models |
+
+### Microservices Patterns
+| Pattern | When |
+|---------|------|
+| Saga | Distributed transactions via compensations |
+| Circuit Breaker | Protection against cascading failures of external services |
+| Mediator | Central coordinator for interactions |
 
 ---
 
@@ -220,6 +273,8 @@ When changing the solution: add a new ADR + mark the old one:
 - $current_state_analysis
 - $system_design_checklist
 - $architecture_doc
+- $architecture_compliance_review
+- $design_patterns_reference
 - $adr_log
 - $api_contracts
 - $data_model

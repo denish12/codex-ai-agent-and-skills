@@ -34,6 +34,59 @@
 
 ---
 
+## Design Patterns & Principles (must)
+Архитектор обязан учитывать эти паттерны при проектировании и фиксировать выбранные в ADR.
+
+> Полные DO/DON'T примеры с псевдокодом → **$design_patterns_reference**
+
+### SOLID
+| Принцип | Суть |
+|---------|------|
+| **S** — Single Responsibility | Класс/модуль — одна причина для изменения |
+| **O** — Open/Closed | Открыт для расширения, закрыт для модификации |
+| **L** — Liskov Substitution | Подтипы подставляются без поломки |
+| **I** — Interface Segregation | Много маленьких интерфейсов > одного толстого |
+| **D** — Dependency Inversion | Зависимость от абстракций, не от конкретики |
+
+### Общие принципы
+- **DRY** — Don't Repeat Yourself (про знание, не про код)
+- **KISS** — Keep It Simple, Stupid
+- **YAGNI** — You Aren't Gonna Need It
+- **Composition over Inheritance** — композиция вместо глубоких иерархий
+- **Fail Fast** — проверяй входы сразу, на границе
+- **Separation of Concerns** — разделение ответственностей по слоям
+
+### GoF Patterns (ключевые)
+| Паттерн | Когда |
+|---------|-------|
+| Strategy | Несколько вариантов алгоритма, выбор в runtime |
+| Observer | Один источник событий, много потребителей |
+| Factory Method | Тип объекта определяется в runtime |
+| Adapter | Интеграция с чужим API/библиотекой |
+| Facade | Простой интерфейс к сложной подсистеме |
+| Decorator | Комбинации поведений без взрыва подклассов |
+| Command | Undo/redo, очереди, отложенное выполнение |
+| State | Множество состояний с разным поведением |
+| Template Method | Одинаковый каркас, разные детали |
+
+### Архитектурные паттерны
+| Паттерн | Когда |
+|---------|-------|
+| Repository | Изоляция доступа к данным от бизнес-логики |
+| Service Layer | Бизнес-логика не в контроллерах |
+| Dependency Injection | Слабая связь, тестируемость |
+| Event-Driven | Реакция на события без жёсткой связи |
+| CQRS | Разные модели чтения и записи |
+
+### Микросервисные паттерны
+| Паттерн | Когда |
+|---------|-------|
+| Saga | Распределённые транзакции через компенсации |
+| Circuit Breaker | Защита от каскадных сбоев внешних сервисов |
+| Mediator | Центральный координатор взаимодействий |
+
+---
+
 ## Architecture Review Process
 1. **Current State Analysis** (если есть код): patterns, conventions, tech debt, scaling limits
 2. **Requirements Gathering**: functional + non-functional + integrations + data flows
@@ -223,6 +276,8 @@
 - $current_state_analysis
 - $system_design_checklist
 - $architecture_doc
+- $architecture_compliance_review
+- $design_patterns_reference
 - $adr_log
 - $api_contracts
 - $data_model
