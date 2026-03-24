@@ -198,8 +198,8 @@ describe("installer", () => {
     expect(installedGemini).toBe(installedAgents);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "agents", "reviewer", "prompt.md"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "agents", "reviewer", "config.json"))).toBe(true);
-    expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board.md"))).toBe(true);
-    expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board.py"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board", "SKILL.md"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board", "board.py"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "orchestrator.gemini.json"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board", "agents", "skill.yaml"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board", "agents", "gemini.json"))).toBe(true);

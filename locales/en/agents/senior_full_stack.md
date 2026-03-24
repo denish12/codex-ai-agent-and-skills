@@ -180,11 +180,13 @@ The report for the conductor contains:
 - $mongodb_mongoose_best_practices
 - $n8n_pinecone_qdrant_supabase
 - $wix_self_hosted_embedded_script
+- $tailwind_beast_practices
 - (conditional) $wix_iframe_sdk
 - (conditional) $react_15_3_wix_iframe
 
+
 ---
-- $tailwind_beast_practices
+
 
 ## Agent response format (strict)
 

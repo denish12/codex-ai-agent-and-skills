@@ -306,7 +306,7 @@ function planForGeminiLayout(
 
     operations.push({
       sourcePath,
-      destinationPath: path.join(destinationDir, layout.skillsDir, `${skillName}.md`),
+      destinationPath: path.join(destinationDir, layout.skillsDir, skillName, "SKILL.md"),
       generated: false,
       transform: {
         target,
@@ -316,7 +316,7 @@ function planForGeminiLayout(
 
     operations.push({
       sourcePath: "<generated>",
-      destinationPath: path.join(destinationDir, layout.skillsDir, `${skillName}.py`),
+      destinationPath: path.join(destinationDir, layout.skillsDir, skillName, `${skillName}.py`),
       generated: true,
       content: renderGeminiSkillStub(skillName),
     });
@@ -390,7 +390,7 @@ function renderGeminiAgentConfig(agentName: string): string {
 function renderGeminiSkillStub(skillName: string): string {
   return [
     `"""Auto-generated skill stub for ${skillName}.`,
-    `See ${skillName}.md for behavior details."""`,
+    `See SKILL.md for behavior details."""`,
     "",
     "",
     "def run(input_text: str) -> str:",

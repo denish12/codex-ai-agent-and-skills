@@ -74,6 +74,7 @@
 - $state_zustand_beast_practices
 - $state_rtk_beast_practices
 - $styling_css_stack
+- $tailwind_beast_practices
 - $tooling_bun_biome
 - $node_express_beast_practices
 - $go_beast_practices

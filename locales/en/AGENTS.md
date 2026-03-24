@@ -84,6 +84,7 @@ Use skills (folders with `SKILL.md`). Full list:
 - $n8n_pinecone_qdrant_supabase
 - $wix_self_hosted_embedded_script
 - $wix_iframe_sdk
+- $tailwind_beast_practices
 - $react_15_3_wix_iframe (conditional, only for Wix iFrame / React 15.3)
 
 ### Review (Best Practices + Security)
