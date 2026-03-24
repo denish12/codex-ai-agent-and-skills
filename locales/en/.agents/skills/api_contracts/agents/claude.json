@@ -1,12 +1,12 @@
 {
   "name": "api_contracts",
   "display_name": "API Contracts",
-  "description": "Define API contracts from UX flows - endpoints, schemas, errors, validation, authorization, performance considerations, idempotency, and integration patterns.",
+  "description": "API contracts for UX flows — endpoints, schemas, errors, validation, authorization, perf/scalability considerations, idempotency, and integration patterns.",
   "default_prompt": "Use $api_contracts when the task matches the \"API Contracts\" skill.",
   "triggers": [
     "api_contracts",
     "api contracts",
-    "Define API contracts from UX flows - endpoints, schemas, errors, validation, authorization, performance considerations, idempotency, and integration patterns"
+    "API contracts for UX flows — endpoints, schemas, errors, validation, authorization, perf/scalability considerations, idempotency, and integration patterns"
   ],
   "capabilities": [
     "api",

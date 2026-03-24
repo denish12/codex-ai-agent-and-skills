@@ -1,6 +1,6 @@
 interface:
   display_name: "UI & Accessibility Smoke Review"
-  short_description: "Run a quick UI and accessibility smoke review - loading, empty and error states, focus, keyboar…"
+  short_description: "Quick UI/a11y smoke review by a designer — loading/empty/error states, focus, keyboard, aria/la…"
   default_prompt: "Use $ui_a11y_smoke_review when the task matches the \"UI & Accessibility Smoke Review\" skill."
 dependencies:
   tools: []

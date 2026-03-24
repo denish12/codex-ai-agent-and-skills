@@ -1,6 +1,6 @@
 interface:
   display_name: "Project Board"
-  short_description: "Manage the Project Board - create task IDs, maintain statuses, update progress after each step,…"
+  short_description: "Project Board Management — creation of tasks with IDs, statuses ☐/⏳/☑/⚠️, updates after each st…"
   default_prompt: "Use $board when the task matches the \"Project Board\" skill."
 dependencies:
   tools: []

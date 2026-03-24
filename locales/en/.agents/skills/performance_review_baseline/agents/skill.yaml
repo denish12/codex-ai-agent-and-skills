@@ -1,13 +1,12 @@
 version: 1
 name: "performance_review_baseline"
-display_name: "N+1 indicators"
-description: "Baseline perf-review — N+1, pagination, batches, extra requests, cache by architecture, heavy operations in the request path."
-default_prompt: "Use $performance_review_baseline when the task matches the \"N+1 indicators\" skill."
+display_name: "Performance Review Baseline"
+description: "Basic perf review — N+1, pagination, batches, redundant queries, cache by architecture, heavy operations in the request path."
+default_prompt: "Use $performance_review_baseline when the task matches the \"Performance Review Baseline\" skill."
 triggers:
   - "performance_review_baseline"
   - "performance review baseline"
-  - "N+1 indicators"
-  - "Baseline perf-review — N+1, pagination, batches, extra requests, cache by architecture, heavy operations in the request path"
+  - "Basic perf review — N+1, pagination, batches, redundant queries, cache by architecture, heavy operations in the request path"
 capabilities:
   - "performance"
   - "review"

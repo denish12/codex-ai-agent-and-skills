@@ -1,7 +1,7 @@
 version: 1
 name: "typescript_beast_practices"
 display_name: "TypeScript Beast Practices"
-description: "Senior-level TypeScript practices: strict mode, utility types, discriminated unions, type guards, branded types, typed API contracts with Zod, safe DTOs, minimizing any/as. Use this skill when writing or reviewing any TypeScript code ? especially typing API responses, modeling domain states, working with generics, and questions like \"how to type X correctly\"."
+description: "Senior-level TypeScript practices: strict mode, utility types, discriminated unions, type guards, branded types, type-safe API contracts with Zod, safe DTOs, minimizing any/as. Use this skill when writing or reviewing any TypeScript code — especially when typing API responses, modeling domain states, working with generics, and for questions \"how to properly type X\"."
 default_prompt: "Use $typescript_beast_practices when the task matches the \"TypeScript Beast Practices\" skill."
 triggers:
   - "typescript_beast_practices"

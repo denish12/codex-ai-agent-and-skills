@@ -1,13 +1,13 @@
 {
   "name": "state_rtk_beast_practices",
   "display_name": "Redux Toolkit Best Practices",
-  "description": "Apply Redux Toolkit best practices - slices, async flows, entity adapters, selectors, RTK Query, middleware, TypeScript typing, and testing.",
+  "description": "Redux Toolkit — predictable state for complex applications. createSlice, createAsyncThunk, createEntityAdapter, createSelector, RTK Query, middleware, TypeScript typing, testing. Activate when creating a new slice, refactoring Redux, or for questions \"how to properly organize RTK\".",
   "default_prompt": "Use $state_rtk_beast_practices when the task matches the \"Redux Toolkit Best Practices\" skill.",
   "triggers": [
     "state_rtk_beast_practices",
     "state rtk beast practices",
     "Redux Toolkit Best Practices",
-    "Apply Redux Toolkit best practices - slices, async flows, entity adapters, selectors, RTK Query, middleware, TypeScript typing, and testing"
+    "Redux Toolkit — predictable state for complex applications"
   ],
   "capabilities": [
     "state",

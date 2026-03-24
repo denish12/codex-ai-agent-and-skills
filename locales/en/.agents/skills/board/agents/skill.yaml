@@ -1,12 +1,12 @@
 version: 1
 name: "board"
 display_name: "Project Board"
-description: "Manage the Project Board - create task IDs, maintain statuses, update progress after each step, and keep a visible checklist in every conductor message."
+description: "Project Board Management — creation of tasks with IDs, statuses ☐/⏳/☑/⚠️, updates after each step, visible checklist in every Conductor's message."
 default_prompt: "Use $board when the task matches the \"Project Board\" skill."
 triggers:
   - "board"
   - "Project Board"
-  - "Manage the Project Board - create task IDs, maintain statuses, update progress after each step, and keep a visible checklist in every conductor message"
+  - "Project Board Management — creation of tasks with IDs, statuses ☐/⏳/☑/⚠️, updates after each step, visible checklist in every Conductor's message"
 capabilities:
   - "board"
 tools: []

@@ -1,6 +1,6 @@
 interface:
   display_name: "API Contract Compliance Review"
-  short_description: "Check compliance implementation API contracts — schemas, codes errors, validation, authorizatio…"
+  short_description: "API implementation contract compliance review — schemas, error codes, validation, authorization…"
   default_prompt: "Use $api_contract_compliance_review when the task matches the \"API Contract Compliance Review\" skill."
 dependencies:
   tools: []

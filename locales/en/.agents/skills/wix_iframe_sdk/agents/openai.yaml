@@ -1,6 +1,6 @@
 interface:
   display_name: "Wix iFrame SDK"
-  short_description: "Use the practical knowledge base for the legacy Wix iFrame SDK - methods, events, parameters, c…"
+  short_description: "Practical skill on legacy Wix iFrame SDK (deprecated) — search for methods, events, parameters,…"
   default_prompt: "Use $wix_iframe_sdk when the task matches the \"Wix iFrame SDK\" skill."
 dependencies:
   tools: []

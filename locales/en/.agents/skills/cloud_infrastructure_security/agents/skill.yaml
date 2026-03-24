@@ -1,13 +1,13 @@
 version: 1
 name: "cloud_infrastructure_security"
-display_name: "Caddy security headers"
-description: "Security review of cloud/infra/CI/CD — IAM, secrets manager, network, logging/monitoring, supply chain, CDN/WAF, backup/DR."
-default_prompt: "Use $cloud_infrastructure_security when the task matches the \"Caddy security headers\" skill."
+display_name: "Cloud Infrastructure Security Review"
+description: "Cloud/Infra/CI/CD Security Review — IAM, secrets manager, network, logging/monitoring, supply chain, CDN/WAF, backup/DR."
+default_prompt: "Use $cloud_infrastructure_security when the task matches the \"Cloud Infrastructure Security Review\" skill."
 triggers:
   - "cloud_infrastructure_security"
   - "cloud infrastructure security"
-  - "Caddy security headers"
-  - "Security review of cloud/infra/CI/CD — IAM, secrets manager, network, logging/monitoring, supply chain, CDN/WAF, backup/DR"
+  - "Cloud Infrastructure Security Review"
+  - "Cloud/Infra/CI/CD Security Review — IAM, secrets manager, network, logging/monitoring, supply chain, CDN/WAF, backup/DR"
 capabilities:
   - "cloud"
   - "infrastructure"

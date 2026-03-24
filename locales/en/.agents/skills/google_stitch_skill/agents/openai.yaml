@@ -1,6 +1,6 @@
 interface:
   display_name: "Google Stitch"
-  short_description: "Generation of user interface screens through Google Stitch (artificial intelligence) with direc…"
+  short_description: "Generating UI screens via Google Stitch (AI) with direct access via StitchMCP. Rapid ideation a…"
   default_prompt: "Use $google_stitch_skill when the task matches the \"Google Stitch\" skill."
 dependencies:
   tools: []

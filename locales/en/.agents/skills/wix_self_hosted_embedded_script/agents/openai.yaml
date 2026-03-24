@@ -1,6 +1,6 @@
 interface:
   display_name: "Wix Self-Hosted Embedded Script"
-  short_description: "Use the practical runbook for Wix Self-Hosted Embedded Script - local HTTPS, install webhook, e…"
+  short_description: "Practical runbook for Wix Self-Hosted Embedded Script — HTTPS locally, install webhook, embed s…"
   default_prompt: "Use $wix_self_hosted_embedded_script when the task matches the \"Wix Self-Hosted Embedded Script\" skill."
 dependencies:
   tools: []

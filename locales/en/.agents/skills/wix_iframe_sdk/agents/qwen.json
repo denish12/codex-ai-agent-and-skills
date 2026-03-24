@@ -1,12 +1,12 @@
 {
   "name": "wix_iframe_sdk",
   "display_name": "Wix iFrame SDK",
-  "description": "Use the practical knowledge base for the legacy Wix iFrame SDK - methods, events, parameters, constraints, examples, and migration guidance.",
+  "description": "Practical skill on legacy Wix iFrame SDK (deprecated) — search for methods, events, parameters, SDK/Editor limitations, and ready-made Syntax/Example blocks from the complete local database. Use when you need to answer/develop/migrate code for Wix iFrame SDK, Wix Hive, and deprecated HTTP API.",
   "default_prompt": "Use $wix_iframe_sdk when the task matches the \"Wix iFrame SDK\" skill.",
   "triggers": [
     "wix_iframe_sdk",
     "wix iframe sdk",
-    "Use the practical knowledge base for the legacy Wix iFrame SDK - methods, events, parameters, constraints, examples, and migration guidance"
+    "Practical skill on legacy Wix iFrame SDK (deprecated) — search for methods, events, parameters, SDK/Editor limitations, and ready-made Syntax/Example blocks from the complete local database"
   ],
   "capabilities": [
     "wix",

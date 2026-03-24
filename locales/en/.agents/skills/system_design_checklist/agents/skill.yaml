@@ -1,12 +1,12 @@
 version: 1
 name: "system_design_checklist"
 display_name: "System Design Checklist"
-description: "Use a system design checklist - functional and non-functional requirements, technical design, and operational concerns such as deploy, monitoring, backup, and rollback."
+description: "System design checklist — functional/non-functional requirements, technical design, operations (deploy/monitoring/backup/rollback), to ensure nothing is forgotten."
 default_prompt: "Use $system_design_checklist when the task matches the \"System Design Checklist\" skill."
 triggers:
   - "system_design_checklist"
   - "system design checklist"
-  - "Use a system design checklist - functional and non-functional requirements, technical design, and operational concerns such as deploy, monitoring, backup, and rollback"
+  - "System design checklist — functional/non-functional requirements, technical design, operations (deploy/monitoring/backup/rollback), to ensure nothing is forgotten"
 capabilities:
   - "system"
   - "design"

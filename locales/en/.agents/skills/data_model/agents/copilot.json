@@ -1,12 +1,12 @@
 {
   "name": "data_model",
   "display_name": "Data Model",
-  "description": "Design the data model and storage strategy - normalization, denormalization, indexes, transactions, cache, and optional event-sourcing or eventual-consistency trade-offs.",
+  "description": "Data model and storage strategy — normalization/denormalization, indexes, transactions, cache, (opt.) event sourcing/eventual consistency — with trade-offs and linked to UX flows.",
   "default_prompt": "Use $data_model when the task matches the \"Data Model\" skill.",
   "triggers": [
     "data_model",
     "data model",
-    "Design the data model and storage strategy - normalization, denormalization, indexes, transactions, cache, and optional event-sourcing or eventual-consistency trade-offs"
+    "Data model and storage strategy — normalization/denormalization, indexes, transactions, cache, (opt"
   ],
   "capabilities": [
     "data",

@@ -1,13 +1,13 @@
 {
   "name": "dependency_supply_chain_review",
-  "display_name": "Vulnerability audit (fail on high/critical)",
-  "description": "Review dependencies — minimization, updates, audit vulnerability, licenses, ban unsafe packages.",
-  "default_prompt": "Use $dependency_supply_chain_review when the task matches the \"Vulnerability audit (fail on high/critical)\" skill.",
+  "display_name": "Dependency & Supply Chain Review",
+  "description": "Dependency review — minimization, updates, vulnerability audit, licenses, prohibition of unsafe packages.",
+  "default_prompt": "Use $dependency_supply_chain_review when the task matches the \"Dependency & Supply Chain Review\" skill.",
   "triggers": [
     "dependency_supply_chain_review",
     "dependency supply chain review",
-    "Vulnerability audit (fail on high/critical)",
-    "Review dependencies — minimization, updates, audit vulnerability, licenses, ban unsafe packages"
+    "Dependency & Supply Chain Review",
+    "Dependency review — minimization, updates, vulnerability audit, licenses, prohibition of unsafe packages"
   ],
   "capabilities": [
     "dependency",

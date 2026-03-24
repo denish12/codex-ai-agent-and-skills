@@ -1,6 +1,6 @@
 interface:
   display_name: "Design Systems Integration"
-  short_description: "Design system integration ? shadcn/ui, Mantine, Wix Design System. Setup, theme customization,…"
+  short_description: "Design systems integration — shadcn/ui, Mantine, Wix Design System. Installation, theme customi…"
   default_prompt: "Use $design_systems when the task matches the \"Design Systems Integration\" skill."
 dependencies:
   tools: []

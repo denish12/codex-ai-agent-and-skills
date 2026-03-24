@@ -1,12 +1,12 @@
 {
   "name": "current_state_analysis",
   "display_name": "Current State Analysis",
-  "description": "Analyze the current repository architecture - conventions, patterns, tech debt, scaling bottlenecks, security risks, and consistency.",
+  "description": "Analysis of the current repository architecture — conventions, patterns, tech debt, scaling bottlenecks, security risks, and consistency.",
   "default_prompt": "Use $current_state_analysis when the task matches the \"Current State Analysis\" skill.",
   "triggers": [
     "current_state_analysis",
     "current state analysis",
-    "Analyze the current repository architecture - conventions, patterns, tech debt, scaling bottlenecks, security risks, and consistency"
+    "Analysis of the current repository architecture — conventions, patterns, tech debt, scaling bottlenecks, security risks, and consistency"
   ],
   "capabilities": [
     "current",

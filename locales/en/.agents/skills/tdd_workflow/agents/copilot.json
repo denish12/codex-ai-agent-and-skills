@@ -1,12 +1,12 @@
 {
   "name": "tdd_workflow",
   "display_name": "TDD Workflow",
-  "description": "Development strictly by TDD (RED→GREEN→REFACTOR): wording test cases via user journey, unit + integration tests with Vitest and Testing Library, e2e with Playwright for critical flows. Use this skill Always when needed write tests, develop a feature via TDD, review tests or explain why a test is fragile. Activate with questions «how test X», «why test breaks with refactoring», «what a good test is».",
+  "description": "Development strictly according to TDD (RED→GREEN→REFACTOR): formulating test cases via user journey, unit + integration tests with Vitest and Testing Library, e2e with Playwright for critical flows. Use this skill ALWAYS when you need to write tests, develop a feature via TDD, conduct a review of tests, or explain why a test is fragile. Activate upon questions \"how to test X\", \"why the test breaks during refactoring\", \"what is a good test\".",
   "default_prompt": "Use $tdd_workflow when the task matches the \"TDD Workflow\" skill.",
   "triggers": [
     "tdd_workflow",
     "tdd workflow",
-    "Development strictly by TDD (RED→GREEN→REFACTOR)"
+    "Development strictly according to TDD (RED→GREEN→REFACTOR)"
   ],
   "capabilities": [
     "tdd",

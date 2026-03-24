@@ -1,7 +1,7 @@
 version: 1
 name: "tanstack_beast_practices"
 display_name: "TanStack Beast Practices"
-description: "TanStack (Query v5, Table v8, Virtual v3): caching, invalidation, pagination, infinite scroll, server filters/sorting, virtualization for large lists. Use this skill with any work involving TanStack Query, TanStack Table, or TanStack Virtual ? writing the fetcher layer, setting up cache, building a table with server pagination, virtual lists, and questions like \"how to do X correctly with TanStack\"."
+description: "TanStack (Query v5, Table v8, Virtual v3): caching, invalidation, pagination, infinite scroll, server-side filters/sorting, virtualization of large lists. Use this skill for any work with TanStack Query, TanStack Table or TanStack Virtual — when writing the fetcher layer, configuring the cache, building tables with server-side pagination, virtual lists, and when asked \"how to do X correctly with TanStack\"."
 default_prompt: "Use $tanstack_beast_practices when the task matches the \"TanStack Beast Practices\" skill."
 triggers:
   - "tanstack_beast_practices"

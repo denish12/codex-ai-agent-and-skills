@@ -1,13 +1,13 @@
 {
   "name": "design_systems",
   "display_name": "Design Systems Integration",
-  "description": "Design system integration ? shadcn/ui, Mantine, Wix Design System. Setup, theme customization, component composition, wrapper pattern, UI inventory, state mapping (loading/error/empty/disabled), responsive behavior, a11y. Activate when connecting a design system, creating new components, or with questions like \"how to integrate X\".",
+  "description": "Design systems integration — shadcn/ui, Mantine, Wix Design System. Installation, theme customization, component composition, wrapper pattern, UI inventory, states mapping (loading/error/empty/disabled), responsive, a11y. Activate when connecting a design system, creating new components, or for questions \"how to integrate X\".",
   "default_prompt": "Use $design_systems when the task matches the \"Design Systems Integration\" skill.",
   "triggers": [
     "design_systems",
     "design systems",
     "Design Systems Integration",
-    "Design system integration ? shadcn/ui, Mantine, Wix Design System"
+    "Design systems integration — shadcn/ui, Mantine, Wix Design System"
   ],
   "capabilities": [
     "design",

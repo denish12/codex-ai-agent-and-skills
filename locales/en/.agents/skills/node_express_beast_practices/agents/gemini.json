@@ -1,7 +1,7 @@
 {
   "name": "node_express_beast_practices",
   "display_name": "Node/Express Beast Practices",
-  "description": "Node.js + Express — REST API, middleware pipeline, service layer, repositories, centralized handling errors, validation (Zod), graceful shutdown, health checks, security headers. Activate with writing API, refactoring Express-applications, or with questions «how correctly organize backend on Express».",
+  "description": "Node.js + Express — REST API, middleware pipeline, service layer, repositories, centralized error handling, validation (Zod), graceful shutdown, health checks, security headers. Activate when writing an API, refactoring Express applications, or for questions on \"how to properly organize a backend on Express\".",
   "default_prompt": "Use $node_express_beast_practices when the task matches the \"Node/Express Beast Practices\" skill.",
   "triggers": [
     "node_express_beast_practices",

@@ -1,12 +1,12 @@
 version: 1
 name: "ux_spec"
 display_name: "UX Spec"
-description: "Create a UX Specification - user flows, information architecture, screen list, specification of each screen (actions/sections/validation/states), and UX quality criteria for development and testing."
+description: "Generate UX Spec — user flows, IA, list of screens, specification of each screen (actions/sections/validations/states), UX quality criteria for development and testing."
 default_prompt: "Use $ux_spec when the task matches the \"UX Spec\" skill."
 triggers:
   - "ux_spec"
   - "ux spec"
-  - "Create a UX Specification - user flows, information architecture, screen list, specification of each screen (actions/sections/validation/states), and UX quality criteria for development and testing"
+  - "Generate UX Spec — user flows, IA, list of screens, specification of each screen (actions/sections/validations/states), UX quality criteria for development and testing"
 capabilities:
   - "ux"
   - "spec"

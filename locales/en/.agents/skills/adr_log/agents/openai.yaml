@@ -1,6 +1,6 @@
 interface:
   display_name: "ADR Log"
-  short_description: "Capture key architectural decisions (ADR) with trade-offs - pros, cons, alternatives, decision,…"
+  short_description: "Record key Architectural Decision Records (ADR) with trade-offs — Pros/Cons/Alternatives/Decisi…"
   default_prompt: "Use $adr_log when the task matches the \"ADR Log\" skill."
 dependencies:
   tools: []

@@ -1,6 +1,6 @@
 interface:
   display_name: "n8n + Pinecone + Qdrant + Supabase"
-  short_description: "Integration patterns for n8n (automation workflows) with vector DBs Pinecone and Qdrant, and wi…"
+  short_description: "Integration patterns for n8n (workflow automation) with Vector DBs Pinecone and Qdrant and with…"
   default_prompt: "Use $n8n_pinecone_qdrant_supabase when the task matches the \"n8n + Pinecone + Qdrant + Supabase\" skill."
 dependencies:
   tools: []

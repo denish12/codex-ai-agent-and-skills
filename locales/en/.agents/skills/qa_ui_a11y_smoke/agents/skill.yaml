@@ -1,13 +1,13 @@
 version: 1
 name: "qa_ui_a11y_smoke"
-display_name: "Missing alt on images"
-description: "UI/a11y smoke — keyboard/focus, labels/aria, basic contrast, states forms and lists, compliance UX Spec."
-default_prompt: "Use $qa_ui_a11y_smoke when the task matches the \"Missing alt on images\" skill."
+display_name: "QA UI & A11y Smoke"
+description: "UI/a11y smoke — keyboard/focus, labels/aria, basic contrast, form and list states, match with UX Spec."
+default_prompt: "Use $qa_ui_a11y_smoke when the task matches the \"QA UI & A11y Smoke\" skill."
 triggers:
   - "qa_ui_a11y_smoke"
   - "qa ui a11y smoke"
-  - "Missing alt on images"
-  - "UI/a11y smoke — keyboard/focus, labels/aria, basic contrast, states forms and lists, compliance UX Spec"
+  - "QA UI & A11y Smoke"
+  - "UI/a11y smoke — keyboard/focus, labels/aria, basic contrast, form and list states, match with UX Spec"
 capabilities:
   - "qa"
   - "ui"

@@ -1,12 +1,12 @@
 version: 1
 name: "memory"
 display_name: "Memory (context between sessions)"
-description: "Project context management — what save, how extract, how avoid conflict decisions and loss of context between sessions."
+description: "Project context management — what to store, how to retrieve it, how to avoid decision conflicts and context loss between sessions."
 default_prompt: "Use $memory when the task matches the \"Memory (context between sessions)\" skill."
 triggers:
   - "memory"
   - "Memory (context between sessions)"
-  - "Project context management — what save, how extract, how avoid conflict decisions and loss of context between sessions"
+  - "Project context management — what to store, how to retrieve it, how to avoid decision conflicts and context loss between sessions"
 capabilities:
   - "memory"
 tools: []

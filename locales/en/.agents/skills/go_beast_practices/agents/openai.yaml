@@ -1,7 +1,7 @@
 interface:
-  display_name: ".golangci.yml"
-  short_description: "Go best practices ? simplicity, errors as values, interfaces, context, concurrency, project str…"
-  default_prompt: "Use $go_beast_practices when the task matches the \".golangci.yml\" skill."
+  display_name: "Go Beast Practices"
+  short_description: "Go best practices — simplicity, errors as values, interfaces, context, concurrency, project str…"
+  default_prompt: "Use $go_beast_practices when the task matches the \"Go Beast Practices\" skill."
 dependencies:
   tools: []
 policy:

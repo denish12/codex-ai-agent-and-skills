@@ -1,12 +1,12 @@
 version: 1
 name: "gates"
-display_name: "Gates & DoD (conductor quality control)"
-description: "Control of process gates and Definition of Done — not skip stages, check presence artifacts and criteria checks, organize return loops (Dev↔Reviewer↔Tester)."
-default_prompt: "Use $gates when the task matches the \"Gates & DoD (conductor quality control)\" skill."
+display_name: "Gates & DoD (conductor's quality control)"
+description: "Process gates control and Definition of Done — do not skip stages, verify the presence of artifacts and verification criteria, organize return loops (Dev↔Reviewer↔Tester)."
+default_prompt: "Use $gates when the task matches the \"Gates & DoD (conductor's quality control)\" skill."
 triggers:
   - "gates"
-  - "Gates & DoD (conductor quality control)"
-  - "Control of process gates and Definition of Done — not skip stages, check presence artifacts and criteria checks, organize return loops (Dev↔Reviewer↔Tester)"
+  - "Gates & DoD (conductor's quality control)"
+  - "Process gates control and Definition of Done — do not skip stages, verify the presence of artifacts and verification criteria, organize return loops (Dev↔Reviewer↔Tester)"
 capabilities:
   - "gates"
 tools: []

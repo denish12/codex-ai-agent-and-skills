@@ -1,6 +1,6 @@
 interface:
   display_name: "MongoDB + Mongoose Best Practices"
-  short_description: "Apply MongoDB and Mongoose best practices - schemas, indexes, validation, transactions, migrati…"
+  short_description: "Best practices for MongoDB + Mongoose — schemas, indexes, validation, transactions, migrations,…"
   default_prompt: "Use $mongodb_mongoose_best_practices when the task matches the \"MongoDB + Mongoose Best Practices\" skill."
 dependencies:
   tools: []

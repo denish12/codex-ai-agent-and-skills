@@ -1,12 +1,12 @@
 version: 1
 name: "ux_discovery"
 display_name: "UX Discovery"
-description: "Clarify UX inputs from the PRD - roles, key flows, navigation, platforms, brand references, localization, and edge cases."
+description: "Clarify UX inputs based on PRD — roles, main flows, navigation, platforms (responsive), brand/references, localization, edge cases."
 default_prompt: "Use $ux_discovery when the task matches the \"UX Discovery\" skill."
 triggers:
   - "ux_discovery"
   - "ux discovery"
-  - "Clarify UX inputs from the PRD - roles, key flows, navigation, platforms, brand references, localization, and edge cases"
+  - "Clarify UX inputs based on PRD — roles, main flows, navigation, platforms (responsive), brand/references, localization, edge cases"
 capabilities:
   - "ux"
   - "discovery"

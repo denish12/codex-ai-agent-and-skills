@@ -19,3 +19,4 @@ localization:
   default_locale: "ru"
   available_locales:
     - "ru"
+    - "en"

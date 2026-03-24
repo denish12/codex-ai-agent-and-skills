@@ -1,7 +1,7 @@
 interface:
-  display_name: "Code Review Checklist"
-  short_description: "Universal review checklist — code quality, readability, testability, security, contracts, DoD."
-  default_prompt: "Use $code_review_checklist when the task matches the \"Code Review Checklist\" skill."
+  display_name: "Universal Code Review Checklist"
+  short_description: "Universal review checklist — code quality, readability, testability, security, contracts, Defin…"
+  default_prompt: "Use $code_review_checklist when the task matches the \"Universal Code Review Checklist\" skill."
 dependencies:
   tools: []
 policy:

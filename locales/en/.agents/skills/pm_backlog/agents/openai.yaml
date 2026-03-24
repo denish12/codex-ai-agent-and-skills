@@ -1,6 +1,6 @@
 interface:
   display_name: "PM Backlog"
-  short_description: "Decompose the PRD into an initial backlog - epics, features, tasks, priorities, dependencies, a…"
+  short_description: "Decomposition of PRD into an initial backlog — epics, features, and tasks with priorities, depe…"
   default_prompt: "Use $pm_backlog when the task matches the \"PM Backlog\" skill."
 dependencies:
   tools: []

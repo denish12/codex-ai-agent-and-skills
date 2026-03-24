@@ -1,6 +1,6 @@
 interface:
   display_name: "Dev Reference Snippets (Do/Don't)"
-  short_description: "Reference snippets and DO/DON'T patterns for Senior Full Stack: TDD (Vitest), Express API (Rout…"
+  short_description: "Reference snippets and DO/DON'T for Senior Full Stack: TDD (Vitest), Express API (Route→Control…"
   default_prompt: "Use $dev_reference_snippets when the task matches the \"Dev Reference Snippets (Do/Don't)\" skill."
 dependencies:
   tools: []

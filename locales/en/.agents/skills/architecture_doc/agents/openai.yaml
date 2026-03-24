@@ -1,6 +1,6 @@
 interface:
   display_name: "Architecture Document"
-  short_description: "Architecture document from PRD and UX - modules, flows, data, integrations, errors, testability…"
+  short_description: "Architectural document based on PRD+UX — modules, flows, data, integrations, errors, testabilit…"
   default_prompt: "Use $architecture_doc when the task matches the \"Architecture Document\" skill."
 dependencies:
   tools: []

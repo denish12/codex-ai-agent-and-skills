@@ -1,7 +1,7 @@
 interface:
-  display_name: "Modern JavaScript (ES2025) with an emphasis on readability, predictability, and security"
-  short_description: "Modern JavaScript (ES2025) with an emphasis on readability, predictability, and security. Use t…"
-  default_prompt: "Use $es2025_beast_practices when the task matches the \"Modern JavaScript (ES2025) with an emphasis on readability, predictability, and security\" skill."
+  display_name: "ES2025 Beast Practices"
+  short_description: "Modern JavaScript (ES2025) with a focus on readability, predictability, and safety. Use this sk…"
+  default_prompt: "Use $es2025_beast_practices when the task matches the \"ES2025 Beast Practices\" skill."
 dependencies:
   tools: []
 policy:

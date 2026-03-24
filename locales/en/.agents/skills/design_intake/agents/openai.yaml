@@ -1,6 +1,6 @@
 interface:
   display_name: "Design Intake"
-  short_description: "Find and analyze the provided design materials (files/links), determine the \"source of truth\" f…"
+  short_description: "Find and analyze provided design materials (files/links), determine the \"source of truth\" for U…"
   default_prompt: "Use $design_intake when the task matches the \"Design Intake\" skill."
 dependencies:
   tools: []

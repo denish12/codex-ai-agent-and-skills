@@ -1,13 +1,13 @@
 {
   "name": "a11y_baseline",
   "display_name": "Minimum baseline accessibility for web UI",
-  "description": "Minimum baseline accessibility for web UI — keyboard navigation, focus management, form labels, ARIA for interactive components, error messages.",
+  "description": "Minimum accessibility baseline for web UI — keyboard navigation, focus management, form labels, ARIA for interactive components, error messages.",
   "default_prompt": "Use $a11y_baseline when the task matches the \"Minimum baseline accessibility for web UI\" skill.",
   "triggers": [
     "a11y_baseline",
     "a11y baseline",
     "Minimum baseline accessibility for web UI",
-    "Minimum baseline accessibility for web UI — keyboard navigation, focus management, form labels, ARIA for interactive components, error messages"
+    "Minimum accessibility baseline for web UI — keyboard navigation, focus management, form labels, ARIA for interactive components, error messages"
   ],
   "capabilities": [
     "a11y",

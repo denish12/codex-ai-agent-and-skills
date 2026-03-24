@@ -1,12 +1,12 @@
 {
   "name": "ui_inventory",
   "display_name": "UI Inventory",
-  "description": "Create a UI component inventory and reuse rules - base components, composed components, patterns, and minimal design tokens.",
+  "description": "Compile an inventory of UI components and reuse rules — base components, composition components, patterns (forms, tables, dialogs), design tokens (minimum).",
   "default_prompt": "Use $ui_inventory when the task matches the \"UI Inventory\" skill.",
   "triggers": [
     "ui_inventory",
     "ui inventory",
-    "Create a UI component inventory and reuse rules - base components, composed components, patterns, and minimal design tokens"
+    "Compile an inventory of UI components and reuse rules — base components, composition components, patterns (forms, tables, dialogs), design tokens (minimum)"
   ],
   "capabilities": [
     "ui",

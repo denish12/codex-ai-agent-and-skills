@@ -1,12 +1,12 @@
 version: 1
 name: "design_parity_review"
 display_name: "Design Parity Review"
-description: "Compare design artifacts with the UX Spec or with the implemented UI. Produce a Design Parity Report with P0/P1/P2 priorities and specific recommendations."
+description: "Compare design artifacts with UX Spec or implemented UI. Issue a discrepancy report (Design Parity Report) with P0/P1/P2 priorities and specific recommendations."
 default_prompt: "Use $design_parity_review when the task matches the \"Design Parity Review\" skill."
 triggers:
   - "design_parity_review"
   - "design parity review"
-  - "Compare design artifacts with the UX Spec or with the implemented UI"
+  - "Compare design artifacts with UX Spec or implemented UI"
 capabilities:
   - "design"
   - "parity"

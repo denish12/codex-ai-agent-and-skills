@@ -1,12 +1,12 @@
 {
   "name": "qa_test_plan",
   "display_name": "QA Test Plan",
-  "description": "Create a QA test plan and coverage matrix from PRD and UX - roles, critical flows, UI states, negative cases, and acceptance criteria.",
+  "description": "Create a test plan and coverage matrix based on PRD/UX — roles, critical user flows, UI states, negative cases, acceptance criteria.",
   "default_prompt": "Use $qa_test_plan when the task matches the \"QA Test Plan\" skill.",
   "triggers": [
     "qa_test_plan",
     "qa test plan",
-    "Create a QA test plan and coverage matrix from PRD and UX - roles, critical flows, UI states, negative cases, and acceptance criteria"
+    "Create a test plan and coverage matrix based on PRD/UX — roles, critical user flows, UI states, negative cases, acceptance criteria"
   ],
   "capabilities": [
     "qa",
