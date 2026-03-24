@@ -43,6 +43,7 @@ export async function loadSourceCatalog(projectDir: string): Promise<SourceCatal
   }
 
   const workflowFiles = await mapWorkflowFiles(workflowsDir);
+  const extraFiles = await mapExtraFiles(projectDir);
 
   return {
     rootDir: projectDir,
@@ -50,6 +51,7 @@ export async function loadSourceCatalog(projectDir: string): Promise<SourceCatal
     agentFiles,
     skillFiles,
     workflowFiles,
+    extraFiles,
   };
 }
 
@@ -185,3 +187,27 @@ async function mapWorkflowFiles(workflowsDir: string): Promise<Record<string, st
 
   return result;
 }
+
+/**
+ * Known root-level extra files to include in install.
+ */
+const EXTRA_FILE_NAMES = ["prompt-examples.md"];
+
+/**
+ * Maps optional root-level extra files for installation.
+ * @param projectDir Absolute project root path.
+ * @returns Extra file name to absolute path mapping.
+ */
+async function mapExtraFiles(projectDir: string): Promise<Record<string, string>> {
+  const result: Record<string, string> = {};
+
+  for (const fileName of EXTRA_FILE_NAMES) {
+    const filePath = path.join(projectDir, fileName);
+    if (await fs.pathExists(filePath)) {
+      result[fileName] = filePath;
+    }
+  }
+
+  return result;
+}
+

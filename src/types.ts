@@ -28,6 +28,7 @@ export interface SourceCatalog {
   agentFiles: Record<string, string>;
   skillFiles: Record<string, string>;
   workflowFiles: Record<string, string>;
+  extraFiles: Record<string, string>;
 }
 
 /**

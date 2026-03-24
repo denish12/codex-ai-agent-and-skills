@@ -225,6 +225,8 @@ function planForLayout(
     }
   }
 
+  appendExtraFileOperations(operations, catalog, destinationDir);
+
   return operations;
 }
 
@@ -330,7 +332,30 @@ function planForGeminiLayout(
     });
   }
 
+  appendExtraFileOperations(operations, catalog, destinationDir);
+
   return operations;
+}
+
+/**
+ * Appends copy operations for extra root-level files (e.g. prompt-examples.md).
+ * @param operations Mutable operations list.
+ * @param catalog Source catalog with extraFiles.
+ * @param destinationDir Destination root.
+ */
+function appendExtraFileOperations(
+  operations: InstallOperation[],
+  catalog: SourceCatalog,
+  destinationDir: string,
+): void {
+  for (const [fileName, sourcePath] of Object.entries(catalog.extraFiles ?? {})) {
+    operations.push({
+      sourcePath,
+      destinationPath: path.join(destinationDir, fileName),
+      generated: false,
+      optional: true,
+    });
+  }
 }
 
 /**
