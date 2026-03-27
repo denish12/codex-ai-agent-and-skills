@@ -43,6 +43,7 @@ async function createFixtureProject(): Promise<string> {
   await fs.outputJson(path.join(root, ".agents", "skills", "board", "agents", "copilot.json"), { name: "board" }, { spaces: 2 });
   await fs.outputJson(path.join(root, ".agents", "skills", "board", "agents", "qwen.json"), { name: "board" }, { spaces: 2 });
   await fs.outputFile(path.join(root, ".agents", "workflows", "start-task.md"), "# start-task\n", "utf8");
+  await fs.outputFile(path.join(root, "CONTEXT.md"), "# \ud83c\udfaf \u041e\u0431\u0437\u043e\u0440 \u043f\u0440\u043e\u0435\u043a\u0442\u0430\n", "utf8");
 
   return root;
 }
@@ -325,5 +326,61 @@ describe("installer", () => {
     });
 
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "workflows", "start-task.md"))).toBe(true);
+  });
+
+  it("installs CONTEXT.md extra file for gpt-codex target", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "gpt-codex",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(path.join(destinationDir, "CONTEXT.md"))).toBe(true);
+    const content = await fs.readFile(path.join(destinationDir, "CONTEXT.md"), "utf8");
+    expect(content).toContain("\ud83c\udfaf");
+  });
+
+  it("installs CONTEXT.md extra file for claude target", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "claude",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(path.join(destinationDir, "CONTEXT.md"))).toBe(true);
+  });
+
+  it("installs CONTEXT.md extra file for google-antugravity target", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "google-antugravity",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(path.join(destinationDir, "CONTEXT.md"))).toBe(true);
   });
 });

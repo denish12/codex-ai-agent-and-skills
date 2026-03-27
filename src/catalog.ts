@@ -191,7 +191,7 @@ async function mapWorkflowFiles(workflowsDir: string): Promise<Record<string, st
 /**
  * Known root-level extra files to include in install.
  */
-const EXTRA_FILE_NAMES = ["prompt-examples.md"];
+const EXTRA_FILE_NAMES = ["prompt-examples.md", "CONTEXT.md"];
 
 /**
  * Maps optional root-level extra files for installation.
