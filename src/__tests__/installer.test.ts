@@ -254,4 +254,76 @@ describe("installer", () => {
     expect(settings.model.name).toBe("qwen3-coder-plus");
     expect(settings.context.fileName).toEqual(["QWEN.md", "AGENTS.md"]);
   });
+
+  it("copies workflows for vscode-copilot target", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "vscode-copilot",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(path.join(destinationDir, ".github", "workflows", "start-task.md"))).toBe(true);
+  });
+
+  it("copies workflows for claude target", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "claude",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(path.join(destinationDir, ".claude", "workflows", "start-task.md"))).toBe(true);
+  });
+
+  it("copies workflows for qwen-3.5 target", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "qwen-3.5",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(path.join(destinationDir, ".qwen", "workflows", "start-task.md"))).toBe(true);
+  });
+
+  it("copies workflows for google-antugravity target", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "google-antugravity",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(path.join(destinationDir, ".gemini", "workflows", "start-task.md"))).toBe(true);
+  });
 });

@@ -17,6 +17,7 @@ const targetLayouts: Record<TargetId, PlatformLayout> = {
     orchestratorMirrorFile: "AGENTS.md",
     agentsDir: ".github/agents",
     skillsDir: ".github/skills",
+    workflowsDir: ".github/workflows",
     notes: "Uses copilot-instructions.md and stores role/skill docs in .github.",
   },
   claude: {
@@ -24,6 +25,7 @@ const targetLayouts: Record<TargetId, PlatformLayout> = {
     orchestratorMirrorFile: "AGENTS.md",
     agentsDir: ".claude/agents",
     skillsDir: ".claude/skills",
+    workflowsDir: ".claude/workflows",
     notes: "Uses CLAUDE.md and local .claude folder for role/skill docs.",
   },
   "qwen-3.5": {
@@ -31,6 +33,7 @@ const targetLayouts: Record<TargetId, PlatformLayout> = {
     orchestratorMirrorFile: "AGENTS.md",
     agentsDir: ".qwen/agents",
     skillsDir: ".qwen/skills",
+    workflowsDir: ".qwen/workflows",
     notes: "Uses QWEN.md convention and .qwen folder for role/skill docs.",
   },
   "google-antugravity": {
@@ -38,6 +41,7 @@ const targetLayouts: Record<TargetId, PlatformLayout> = {
     orchestratorMirrorFile: "AGENTS.md",
     agentsDir: ".gemini/agents",
     skillsDir: ".gemini/skills",
+    workflowsDir: ".gemini/workflows",
     notes: "Uses AGENTS.md with GEMINI.md compatibility alias and antugravity-style layout with per-agent folders and script-oriented skills.",
   },
   "gpt-codex": {
@@ -330,6 +334,16 @@ function planForGeminiLayout(
       skillName,
       target,
     });
+  }
+
+  if (layout.workflowsDir) {
+    for (const workflowPath of Object.values(catalog.workflowFiles)) {
+      operations.push({
+        sourcePath: workflowPath,
+        destinationPath: path.join(destinationDir, layout.workflowsDir, path.basename(workflowPath)),
+        generated: false,
+      });
+    }
   }
 
   appendExtraFileOperations(operations, catalog, destinationDir);

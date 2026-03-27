@@ -1,6 +1,6 @@
 {
   "name": "code-ai-installer",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "Production-ready CLI to install code-ai agents and skills for multiple AI coding assistants.",
   "license": "MIT",
   "author": "Denis Harchenko",
