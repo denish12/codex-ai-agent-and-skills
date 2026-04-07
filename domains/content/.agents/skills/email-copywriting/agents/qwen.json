@@ -1,0 +1,10 @@
+{
+  "name": "email-copywriting",
+  "display_name": "Email-копирайтинг",
+  "description": "Структура и копирайтинг для email-рассылок с высоким open rate и CTR",
+  "default_prompt": "Используй $email-copywriting, когда задача относится к навыку \"Email-копирайтинг\".",
+  "triggers": ["email-copywriting", "Email-копирайтинг", "Структура и копирайтинг для email-рассылок с высоким open rate и CTR"],
+  "capabilities": ["email-copywriting"],
+  "tools": [],
+  "implicit_invocation": true
+}

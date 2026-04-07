@@ -1,0 +1,8 @@
+interface:
+  display_name: "Практики RTK"
+  short_description: "Redux Toolkit — предсказуемый state для сложных приложений. createSlice, createAsyncThunk, crea…"
+  default_prompt: "Используй $state-rtk-beast-practices, когда задача относится к навыку \"Практики RTK\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

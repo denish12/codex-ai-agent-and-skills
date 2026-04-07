@@ -1,0 +1,8 @@
+interface:
+  display_name: "Google Stitch — AI UI Generation (MCP-Integrated)"
+  short_description: "Генерация UI-экранов через Google Stitch (AI) с прямым доступом через StitchMCP. Rapid ideation…"
+  default_prompt: "Используй $google-stitch-skill, когда задача относится к навыку \"Google Stitch — AI UI Generation (MCP-Integrated)\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,8 +1,0 @@
-interface:
-  display_name: "QA Security Smoke Tests"
-  short_description: "Basic security smoke tests — auth/authz, validation, leaks in errors/logs, rate limiting (if en…"
-  default_prompt: "Use $qa_security_smoke_tests when the task matches the \"QA Security Smoke Tests\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

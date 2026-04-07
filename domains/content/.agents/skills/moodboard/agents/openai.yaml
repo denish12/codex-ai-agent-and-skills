@@ -1,0 +1,8 @@
+interface:
+  display_name: "Мудборд"
+  short_description: "Мудборд — сборка визуальных референсов, стиля, палитры и типографики"
+  default_prompt: "Используй $moodboard, когда задача относится к навыку \"Мудборд\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

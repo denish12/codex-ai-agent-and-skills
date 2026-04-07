@@ -1,0 +1,20 @@
+version: 1
+name: "board"
+display_name: "Project Board"
+description: "Project Board Management — creation of tasks with IDs, statuses ☐/⏳/☑/⚠️, updates after each step, visible checklist in every Conductor's message."
+default_prompt: "Use $board when the task matches the \"Project Board\" skill."
+triggers:
+  - "board"
+  - "Project Board"
+  - "Project Board Management — creation of tasks with IDs, statuses ☐/⏳/☑/⚠️, updates after each step, visible checklist in every Conductor's message"
+capabilities:
+  - "board"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

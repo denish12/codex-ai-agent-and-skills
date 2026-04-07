@@ -1,0 +1,22 @@
+version: 1
+name: "architecture-doc"
+display_name: "Архитектурная документация"
+description: "Архитектурный документ по PRD+UX — модули, потоки, данные, интеграции, ошибки, тестируемость, узкие места, план роста и план реализации."
+default_prompt: "Используй $architecture-doc, когда задача относится к навыку \"Архитектурная документация\"."
+triggers:
+  - "architecture-doc"
+  - "architecture doc"
+  - "Архитектурная документация"
+  - "Архитектурный документ по PRD+UX — модули, потоки, данные, интеграции, ошибки, тестируемость, узкие места, план роста и план реализации"
+capabilities:
+  - "architecture"
+  - "doc"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

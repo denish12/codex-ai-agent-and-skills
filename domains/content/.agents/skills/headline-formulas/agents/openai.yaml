@@ -1,0 +1,8 @@
+interface:
+  display_name: "Формулы заголовков"
+  short_description: "Создание заголовков по proven-формулам для максимального CTR"
+  default_prompt: "Используй $headline-formulas, когда задача относится к навыку \"Формулы заголовков\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

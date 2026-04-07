@@ -1,0 +1,8 @@
+interface:
+  display_name: "Факт-чекинг"
+  short_description: "Верификация фактов, статистики и утверждений в тексте"
+  default_prompt: "Используй $fact-checking, когда задача относится к навыку \"Факт-чекинг\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

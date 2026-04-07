@@ -1,8 +1,0 @@
-interface:
-  display_name: "Cloud Infrastructure Security Review"
-  short_description: "Cloud/Infra/CI/CD Security Review — IAM, secrets manager, network, logging/monitoring, supply c…"
-  default_prompt: "Use $cloud_infrastructure_security when the task matches the \"Cloud Infrastructure Security Review\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

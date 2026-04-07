@@ -1,0 +1,8 @@
+interface:
+  display_name: "Визуальный бриф"
+  short_description: "Создание детального визуального брифа для дизайнера или AI-генерации"
+  default_prompt: "Используй $visual-brief, когда задача относится к навыку \"Визуальный бриф\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

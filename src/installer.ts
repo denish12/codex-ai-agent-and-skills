@@ -1,6 +1,6 @@
 import path from "node:path";
 import fs from "fs-extra";
-import type { InstallOperation, InstallOptions, InstallState } from "./types.js";
+import type { DomainId, InstallOperation, InstallOptions, InstallState } from "./types.js";
 import { getPlatformAdapter } from "./platforms/adapters.js";
 import { loadSourceCatalog } from "./catalog.js";
 import { transformContentForTarget } from "./contentTransformer.js";
@@ -30,6 +30,7 @@ export async function runInstall(options: InstallOptions): Promise<{ state: Inst
 
   const state: InstallState = {
     target: options.target,
+    ...(options.domain ? { domain: options.domain } : {}),
     installedAt: new Date().toISOString(),
     destinationDir: options.destinationDir,
     projectDir: options.projectDir,
@@ -65,10 +66,12 @@ export async function runUninstall(
   destinationDir: string,
   target: InstallState["target"],
   dryRun: boolean,
+  domain?: DomainId,
 ): Promise<{ removed: string[]; missing: string[] }> {
-  const state = await readInstallState(destinationDir, target);
+  const state = await readInstallState(destinationDir, target, domain);
   if (!state) {
-    throw new Error(`No install state found for target ${target}.`);
+    const label = domain ? `target ${target}, domain ${domain}` : `target ${target}`;
+    throw new Error(`No install state found for ${label}.`);
   }
 
   const removed: string[] = [];
@@ -86,7 +89,7 @@ export async function runUninstall(
   }
 
   if (!dryRun) {
-    await deleteInstallState(destinationDir, target);
+    await deleteInstallState(destinationDir, target, domain);
   }
 
   return { removed, missing };
@@ -96,13 +99,15 @@ export async function runUninstall(
  * Reads installation state file for target.
  * @param destinationDir Destination root.
  * @param target Target id.
+ * @param domain Optional domain id for domain-aware state lookup.
  * @returns Install state or null.
  */
 export async function readInstallState(
   destinationDir: string,
   target: InstallState["target"],
+  domain?: DomainId,
 ): Promise<InstallState | null> {
-  const stateFile = getStateFilePath(destinationDir, target);
+  const stateFile = getStateFilePath(destinationDir, target, domain);
   if (!(await fs.pathExists(stateFile))) {
     return null;
   }
@@ -207,7 +212,7 @@ async function rollbackWrites(writtenFiles: string[], backupMap: Map<string, str
  * @param state Install state.
  */
 async function writeInstallState(state: InstallState): Promise<void> {
-  const stateFile = getStateFilePath(state.destinationDir, state.target);
+  const stateFile = getStateFilePath(state.destinationDir, state.target, state.domain);
   await fs.ensureDir(path.dirname(stateFile));
   await fs.writeJson(stateFile, state, { spaces: 2 });
 }
@@ -216,9 +221,10 @@ async function writeInstallState(state: InstallState): Promise<void> {
  * Deletes stored state file for the given target.
  * @param destinationDir Destination root.
  * @param target Target id.
+ * @param domain Optional domain id for domain-aware state lookup.
  */
-async function deleteInstallState(destinationDir: string, target: InstallState["target"]): Promise<void> {
-  const stateFile = getStateFilePath(destinationDir, target);
+async function deleteInstallState(destinationDir: string, target: InstallState["target"], domain?: DomainId): Promise<void> {
+  const stateFile = getStateFilePath(destinationDir, target, domain);
   if (await fs.pathExists(stateFile)) {
     await fs.remove(stateFile);
   }
@@ -228,10 +234,12 @@ async function deleteInstallState(destinationDir: string, target: InstallState["
  * Returns absolute path to state file for the target.
  * @param destinationDir Destination root.
  * @param target Target id.
+ * @param domain Optional domain id for domain-aware state file naming.
  * @returns State file path.
  */
-function getStateFilePath(destinationDir: string, target: InstallState["target"]): string {
-  return path.join(destinationDir, ".code-ai-installer", "state", `${target}.json`);
+function getStateFilePath(destinationDir: string, target: InstallState["target"], domain?: DomainId): string {
+  const fileName = domain ? `${target}--${domain}.json` : `${target}.json`;
+  return path.join(destinationDir, ".code-ai-installer", "state", fileName);
 }
 
 /**

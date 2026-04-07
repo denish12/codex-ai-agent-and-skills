@@ -1,0 +1,19 @@
+{
+  "name": "design-parity-review",
+  "display_name": "Проверка дизайн-паритета",
+  "description": "Сравнить дизайн-артефакты с UX Spec или с реализованным UI. Выдать отчёт о расхождениях (Design Parity Report) с приоритетами P0/P1/P2 и конкретными рекомендациями.",
+  "default_prompt": "Используй $design-parity-review, когда задача относится к навыку \"Проверка дизайн-паритета\".",
+  "triggers": [
+    "design-parity-review",
+    "design parity review",
+    "Проверка дизайн-паритета",
+    "Сравнить дизайн-артефакты с UX Spec или с реализованным UI"
+  ],
+  "capabilities": [
+    "design",
+    "parity",
+    "review"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

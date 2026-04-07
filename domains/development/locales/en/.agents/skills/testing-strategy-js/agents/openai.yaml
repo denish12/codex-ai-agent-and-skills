@@ -1,0 +1,8 @@
+interface:
+  display_name: "JS/TS Testing Strategy"
+  short_description: "Testing strategy for JS/TS projects — unit (Vitest), integration (API/DB), e2e (Playwright). AA…"
+  default_prompt: "Use $testing-strategy-js when the task matches the \"JS/TS Testing Strategy\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

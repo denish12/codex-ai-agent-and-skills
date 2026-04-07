@@ -1,0 +1,8 @@
+interface:
+  display_name: "UI Inventory"
+  short_description: "Compile an inventory of UI components and reuse rules — base components, composition components…"
+  default_prompt: "Use $ui-inventory when the task matches the \"UI Inventory\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

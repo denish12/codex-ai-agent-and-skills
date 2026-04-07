@@ -1,0 +1,22 @@
+version: 1
+name: "observability-logging"
+display_name: "Observability (Implementation)"
+description: "Implementation of observability at the code level — structured logs (pino), request_id/trace_id correlation, log levels, prevention of PII/secrets leaks, basic metrics, health checks. DO/DON'T examples. Activate when configuring logging, adding metrics, or for questions on \"how to log properly\"."
+default_prompt: "Use $observability-logging when the task matches the \"Observability (Implementation)\" skill."
+triggers:
+  - "observability-logging"
+  - "observability logging"
+  - "Observability (Implementation)"
+  - "Implementation of observability at the code level — structured logs (pino), request_id/trace_id correlation, log levels, prevention of PII/secrets leaks, basic metrics, health checks"
+capabilities:
+  - "observability"
+  - "logging"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

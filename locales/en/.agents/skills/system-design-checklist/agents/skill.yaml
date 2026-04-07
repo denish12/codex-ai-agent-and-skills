@@ -1,0 +1,22 @@
+version: 1
+name: "system-design-checklist"
+display_name: "System Design Checklist"
+description: "System design checklist — functional/non-functional requirements, technical design, operations (deploy/monitoring/backup/rollback), to ensure nothing is forgotten."
+default_prompt: "Use $system-design-checklist when the task matches the \"System Design Checklist\" skill."
+triggers:
+  - "system-design-checklist"
+  - "system design checklist"
+  - "System design checklist — functional/non-functional requirements, technical design, operations (deploy/monitoring/backup/rollback), to ensure nothing is forgotten"
+capabilities:
+  - "system"
+  - "design"
+  - "checklist"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

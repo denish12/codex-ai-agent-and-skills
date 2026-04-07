@@ -1,0 +1,8 @@
+interface:
+  display_name: "Оптимизация CTA"
+  short_description: "Оптимизация призывов к действию для максимальной конверсии"
+  default_prompt: "Используй $cta-optimization, когда задача относится к навыку \"Оптимизация CTA\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

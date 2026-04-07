@@ -1,8 +1,0 @@
-interface:
-  display_name: "Tailwind Beast Practices"
-  short_description: "Tailwind CSS best practices for Senior level: organization of classes, component approach, them…"
-  default_prompt: "Use $tailwind_beast_practices when the task matches the \"Tailwind Beast Practices\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

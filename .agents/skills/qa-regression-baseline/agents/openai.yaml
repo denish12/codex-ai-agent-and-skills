@@ -1,0 +1,8 @@
+interface:
+  display_name: "QA Regression Baseline Skill"
+  short_description: ">"
+  default_prompt: "Используй $qa-regression-baseline, когда задача относится к навыку \"QA Regression Baseline Skill\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

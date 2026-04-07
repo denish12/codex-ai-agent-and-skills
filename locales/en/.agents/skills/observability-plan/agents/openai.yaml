@@ -1,0 +1,8 @@
+interface:
+  display_name: "Observability Plan"
+  short_description: "Observability plan — what logs/metrics/traces to collect, request correlation, log levels, aler…"
+  default_prompt: "Use $observability-plan when the task matches the \"Observability Plan\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Гайдлайны бренда"
+  short_description: "Применение и документирование гайдлайнов бренда в контенте"
+  default_prompt: "Используй $brand-guidelines, когда задача относится к навыку \"Гайдлайны бренда\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

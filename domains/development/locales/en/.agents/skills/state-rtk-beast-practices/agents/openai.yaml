@@ -1,0 +1,8 @@
+interface:
+  display_name: "Redux Toolkit Best Practices"
+  short_description: "Redux Toolkit — predictable state for complex applications. createSlice, createAsyncThunk, crea…"
+  default_prompt: "Use $state-rtk-beast-practices when the task matches the \"Redux Toolkit Best Practices\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

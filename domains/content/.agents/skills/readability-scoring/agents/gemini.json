@@ -1,0 +1,10 @@
+{
+  "name": "readability-scoring",
+  "display_name": "Оценка читаемости",
+  "description": "Оценка читаемости текста: структура, длина предложений, ясность изложения",
+  "default_prompt": "Используй $readability-scoring, когда задача относится к навыку \"Оценка читаемости\".",
+  "triggers": ["readability-scoring", "Оценка читаемости", "Оценка читаемости текста: структура, длина предложений, ясность изложения"],
+  "capabilities": ["readability-scoring"],
+  "tools": [],
+  "implicit_invocation": true
+}

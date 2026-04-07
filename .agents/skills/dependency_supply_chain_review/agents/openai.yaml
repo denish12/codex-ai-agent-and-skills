@@ -1,8 +1,0 @@
-interface:
-  display_name: "Проверка зависимостей и цепочки поставок"
-  short_description: "Ревью зависимостей — минимизация, обновления, аудит уязвимостей, лицензии, запрет небезопасных…"
-  default_prompt: "Используй $dependency_supply_chain_review, когда задача относится к навыку \"Проверка зависимостей и цепочки поставок\"."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

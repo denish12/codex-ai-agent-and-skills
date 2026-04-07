@@ -1,0 +1,20 @@
+{
+  "name": "qa-api-contract-tests",
+  "display_name": "QA: API-контрактные тесты",
+  "description": "Проверить API на соответствие контрактам — схемы, коды, ошибки, валидация, пагинация; smoke через curl/скрипты.",
+  "default_prompt": "Используй $qa-api-contract-tests, когда задача относится к навыку \"QA: API-контрактные тесты\".",
+  "triggers": [
+    "qa-api-contract-tests",
+    "qa api contract tests",
+    "QA: API-контрактные тесты",
+    "Проверить API на соответствие контрактам — схемы, коды, ошибки, валидация, пагинация"
+  ],
+  "capabilities": [
+    "qa",
+    "api",
+    "contract",
+    "tests"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

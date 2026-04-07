@@ -1,0 +1,10 @@
+{
+  "name": "source-verification",
+  "display_name": "Верификация источников",
+  "description": "Верификация источников: достоверность, актуальность, авторитетность",
+  "default_prompt": "Используй $source-verification, когда задача относится к навыку \"Верификация источников\".",
+  "triggers": ["source-verification", "Верификация источников", "Верификация источников: достоверность, актуальность, авторитетность"],
+  "capabilities": ["source-verification"],
+  "tools": [],
+  "implicit_invocation": true
+}

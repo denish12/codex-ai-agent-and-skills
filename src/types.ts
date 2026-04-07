@@ -5,6 +5,23 @@ export type TargetId = "vscode-copilot" | "claude" | "qwen-3.5" | "google-antugr
 export type TemplateLanguage = "ru" | "en";
 
 /**
+ * Supported domain identifiers.
+ */
+export type DomainId = "development" | "content";
+
+/**
+ * Domain metadata loaded from domain.json manifest + dynamic counts.
+ */
+export interface DomainDescriptor {
+  id: DomainId;
+  name: string;
+  description: string;
+  rootDir: string;
+  agentCount: number;
+  skillCount: number;
+}
+
+/**
  * Defines one source file and destination path copy action.
  */
 export interface InstallOperation {
@@ -36,6 +53,7 @@ export interface SourceCatalog {
  */
 export interface InstallOptions {
   target: TargetId;
+  domain?: DomainId;
   projectDir: string;
   destinationDir: string;
   selectedAgents: string[];
@@ -50,6 +68,7 @@ export interface InstallOptions {
  */
 export interface InstallState {
   target: TargetId;
+  domain?: DomainId;
   installedAt: string;
   destinationDir: string;
   projectDir: string;

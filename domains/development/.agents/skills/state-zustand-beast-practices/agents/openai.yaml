@@ -1,0 +1,8 @@
+interface:
+  display_name: "Практики Zustand"
+  short_description: "Zustand — простой глобальный state без prop drilling, модульность стора, селекторы, избегание л…"
+  default_prompt: "Используй $state-zustand-beast-practices, когда задача относится к навыку \"Практики Zustand\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

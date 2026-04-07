@@ -1,0 +1,8 @@
+interface:
+  display_name: "Безопасность облака и инфраструктуры"
+  short_description: "Security ревью облака/инфры/CI/CD — IAM, secrets manager, сеть, логирование/мониторинг, supply…"
+  default_prompt: "Используй $cloud-infrastructure-security, когда задача относится к навыку \"Безопасность облака и инфраструктуры\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

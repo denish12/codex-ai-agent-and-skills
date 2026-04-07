@@ -1,0 +1,8 @@
+interface:
+  display_name: "Стратегия тестирования JS/TS"
+  short_description: "Стратегия тестирования для JS/TS проектов — unit (Vitest), integration (API/DB), e2e (Playwrigh…"
+  default_prompt: "Используй $testing-strategy-js, когда задача относится к навыку \"Стратегия тестирования JS/TS\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

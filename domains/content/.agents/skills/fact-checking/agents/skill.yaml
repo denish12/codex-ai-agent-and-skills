@@ -1,0 +1,20 @@
+version: 1
+name: "fact-checking"
+display_name: "Факт-чекинг"
+description: "Верификация фактов, статистики и утверждений в тексте"
+default_prompt: "Используй $fact-checking, когда задача относится к навыку \"Факт-чекинг\"."
+triggers:
+  - "fact-checking"
+  - "Факт-чекинг"
+  - "Верификация фактов, статистики и утверждений в тексте"
+capabilities:
+  - "fact-checking"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,8 +1,0 @@
-interface:
-  display_name: "TypeScript Beast Practices"
-  short_description: "Senior-level TypeScript practices: strict mode, utility types, discriminated unions, type guard…"
-  default_prompt: "Use $typescript_beast_practices when the task matches the \"TypeScript Beast Practices\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

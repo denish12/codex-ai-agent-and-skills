@@ -1,0 +1,22 @@
+version: 1
+name: "security-review"
+display_name: "Security Review (AppSec)"
+description: "AppSec review for endpoints/authorization/input/secrets/sensitive features. Checklist + patterns (OWASP baseline)."
+default_prompt: "Use $security-review when the task matches the \"Security Review (AppSec)\" skill."
+triggers:
+  - "security-review"
+  - "security review"
+  - "Security Review (AppSec)"
+  - "AppSec review for endpoints/authorization/input/secrets/sensitive features"
+capabilities:
+  - "security"
+  - "review"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

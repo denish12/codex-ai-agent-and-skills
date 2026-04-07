@@ -1,0 +1,8 @@
+interface:
+  display_name: "Memory (context between sessions)"
+  short_description: "Project context management — what to store, how to retrieve it, how to avoid decision conflicts…"
+  default_prompt: "Use $memory when the task matches the \"Memory (context between sessions)\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

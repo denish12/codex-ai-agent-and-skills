@@ -1,0 +1,19 @@
+{
+  "name": "cloud-infrastructure-security",
+  "display_name": "Cloud Infrastructure Security Review",
+  "description": "Cloud/Infra/CI/CD Security Review — IAM, secrets manager, network, logging/monitoring, supply chain, CDN/WAF, backup/DR.",
+  "default_prompt": "Use $cloud-infrastructure-security when the task matches the \"Cloud Infrastructure Security Review\" skill.",
+  "triggers": [
+    "cloud-infrastructure-security",
+    "cloud infrastructure security",
+    "Cloud Infrastructure Security Review",
+    "Cloud/Infra/CI/CD Security Review — IAM, secrets manager, network, logging/monitoring, supply chain, CDN/WAF, backup/DR"
+  ],
+  "capabilities": [
+    "cloud",
+    "infrastructure",
+    "security"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

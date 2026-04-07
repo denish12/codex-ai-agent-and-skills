@@ -1,0 +1,8 @@
+interface:
+  display_name: "Design Parity Review"
+  short_description: "Compare design artifacts with UX Spec or implemented UI. Issue a discrepancy report (Design Par…"
+  default_prompt: "Use $design-parity-review when the task matches the \"Design Parity Review\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

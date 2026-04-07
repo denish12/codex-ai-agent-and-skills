@@ -1,0 +1,8 @@
+interface:
+  display_name: "Соответствие платформам"
+  short_description: "Проверка соответствия контента правилам и требованиям платформ"
+  default_prompt: "Используй $platform-compliance, когда задача относится к навыку \"Соответствие платформам\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

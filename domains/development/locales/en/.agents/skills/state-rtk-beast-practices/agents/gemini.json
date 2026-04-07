@@ -1,0 +1,20 @@
+{
+  "name": "state-rtk-beast-practices",
+  "display_name": "Redux Toolkit Best Practices",
+  "description": "Redux Toolkit — predictable state for complex applications. createSlice, createAsyncThunk, createEntityAdapter, createSelector, RTK Query, middleware, TypeScript typing, testing. Activate when creating a new slice, refactoring Redux, or for questions \"how to properly organize RTK\".",
+  "default_prompt": "Use $state-rtk-beast-practices when the task matches the \"Redux Toolkit Best Practices\" skill.",
+  "triggers": [
+    "state-rtk-beast-practices",
+    "state rtk beast practices",
+    "Redux Toolkit Best Practices",
+    "Redux Toolkit — predictable state for complex applications"
+  ],
+  "capabilities": [
+    "state",
+    "rtk",
+    "beast",
+    "practices"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

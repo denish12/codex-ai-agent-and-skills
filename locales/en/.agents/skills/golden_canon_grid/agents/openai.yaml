@@ -1,8 +1,0 @@
-interface:
-  display_name: "Golden Canon Grid"
-  short_description: "Classic proportional systems for UI layouts — Golden Canon (Van de Graaf), Villard de Honnecour…"
-  default_prompt: "Use $golden_canon_grid when the task matches the \"Golden Canon Grid\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

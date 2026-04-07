@@ -40,20 +40,20 @@ async function createFixtureProject(): Promise<string> {
     { spaces: 2 },
   );
 
-  // Skill 2: a11y_baseline — with partial sidecar metadata
+  // Skill 2: a11y-baseline — with partial sidecar metadata
   await fs.outputFile(
-    path.join(root, ".agents", "skills", "a11y_baseline", "SKILL.md"),
-    "# a11y_baseline\n",
+    path.join(root, ".agents", "skills", "a11y-baseline", "SKILL.md"),
+    "# a11y-baseline\n",
     "utf8",
   );
   await fs.outputFile(
-    path.join(root, ".agents", "skills", "a11y_baseline", "agents", "skill.yaml"),
-    'name: "a11y_baseline"\n',
+    path.join(root, ".agents", "skills", "a11y-baseline", "agents", "skill.yaml"),
+    'name: "a11y-baseline"\n',
     "utf8",
   );
   await fs.outputJson(
-    path.join(root, ".agents", "skills", "a11y_baseline", "agents", "gemini.json"),
-    { name: "a11y_baseline" },
+    path.join(root, ".agents", "skills", "a11y-baseline", "agents", "gemini.json"),
+    { name: "a11y-baseline" },
     { spaces: 2 },
   );
 
@@ -150,34 +150,34 @@ describe("planForGeminiLayout — skill path structure", () => {
   });
 
   it("should NOT produce flat {skillName}.md files at skillsDir root", () => {
-    const catalog = buildCatalog(ROOT, ["board", "a11y_baseline"]);
+    const catalog = buildCatalog(ROOT, ["board", "a11y-baseline"]);
 
     const operations = adapter.planOperations({
       catalog,
       destinationDir: DEST,
       selectedAgents: [],
-      selectedSkills: ["board", "a11y_baseline"],
+      selectedSkills: ["board", "a11y-baseline"],
     });
 
     const flatMd = operations.filter(
       (op) =>
         op.destinationPath === path.join(DEST, ".gemini", "skills", "board.md") ||
-        op.destinationPath === path.join(DEST, ".gemini", "skills", "a11y_baseline.md"),
+        op.destinationPath === path.join(DEST, ".gemini", "skills", "a11y-baseline.md"),
     );
     expect(flatMd).toHaveLength(0);
   });
 
   it("should produce consistent nested structure for multiple skills", () => {
-    const catalog = buildCatalog(ROOT, ["board", "a11y_baseline"]);
+    const catalog = buildCatalog(ROOT, ["board", "a11y-baseline"]);
 
     const operations = adapter.planOperations({
       catalog,
       destinationDir: DEST,
       selectedAgents: [],
-      selectedSkills: ["board", "a11y_baseline"],
+      selectedSkills: ["board", "a11y-baseline"],
     });
 
-    for (const skillName of ["board", "a11y_baseline"]) {
+    for (const skillName of ["board", "a11y-baseline"]) {
       const nestedSkillMd = operations.find(
         (op) => op.destinationPath === path.join(DEST, ".gemini", "skills", skillName, "SKILL.md"),
       );
@@ -249,13 +249,13 @@ describe("integration: google-antugravity nested skill install", () => {
       projectDir,
       destinationDir,
       selectedAgents: [],
-      selectedSkills: ["board", "a11y_baseline"],
+      selectedSkills: ["board", "a11y-baseline"],
       dryRun: false,
       overwriteMode: "overwrite",
       strictHints: false,
     });
 
-    for (const skill of ["board", "a11y_baseline"]) {
+    for (const skill of ["board", "a11y-baseline"]) {
       const skillDir = path.join(destinationDir, ".gemini", "skills", skill);
 
       expect(await fs.pathExists(path.join(skillDir, "SKILL.md"))).toBe(true);

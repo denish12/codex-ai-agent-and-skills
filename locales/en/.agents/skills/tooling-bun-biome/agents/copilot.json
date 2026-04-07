@@ -1,0 +1,19 @@
+{
+  "name": "tooling-bun-biome",
+  "display_name": "Tooling (Bun + Biome) Beast Practices",
+  "description": "Tooling — Biome (lint/format) and Bun (runtime/package manager). biome.json config, key rules, Bun scripts, pre-commit hooks, CI pipeline, migration from ESLint+Prettier. Activate when setting up tooling, adding a linter, or for questions \"how to set up Biome/Bun\".",
+  "default_prompt": "Use $tooling-bun-biome when the task matches the \"Tooling (Bun + Biome) Beast Practices\" skill.",
+  "triggers": [
+    "tooling-bun-biome",
+    "tooling bun biome",
+    "Tooling (Bun + Biome) Beast Practices",
+    "Tooling — Biome (lint/format) and Bun (runtime/package manager)"
+  ],
+  "capabilities": [
+    "tooling",
+    "bun",
+    "biome"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

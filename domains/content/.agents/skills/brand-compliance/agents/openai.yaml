@@ -1,0 +1,8 @@
+interface:
+  display_name: "Соответствие бренду"
+  short_description: "Проверка соответствия контента бренду: ToV, visual identity, messaging"
+  default_prompt: "Используй $brand-compliance, когда задача относится к навыку \"Соответствие бренду\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

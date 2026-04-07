@@ -1,0 +1,10 @@
+{
+  "name": "headline-formulas",
+  "display_name": "Формулы заголовков",
+  "description": "Создание заголовков по proven-формулам для максимального CTR",
+  "default_prompt": "Используй $headline-formulas, когда задача относится к навыку \"Формулы заголовков\".",
+  "triggers": ["headline-formulas", "Формулы заголовков", "Создание заголовков по proven-формулам для максимального CTR"],
+  "capabilities": ["headline-formulas"],
+  "tools": [],
+  "implicit_invocation": true
+}

@@ -1,0 +1,23 @@
+version: 1
+name: "es2025-beast-practices"
+display_name: "Практики ES2025"
+description: "Современный JavaScript (ES2025) с упором на читаемость, предсказуемость и безопасность. Используй этот скилл при написании или ревью любого JS/TS кода — особенно при работе с async/await, обработкой ошибок, деструктуризацией, иммутабельностью, новыми API (Promise.withResolvers, Iterator helpers, Object.groupBy, using/Symbol.dispose) и оптимизацией производительности. Активируй при вопросах «как правильно написать X на современном JS» или «что не так с этим кодом»."
+default_prompt: "Используй $es2025-beast-practices, когда задача относится к навыку \"Практики ES2025\"."
+triggers:
+  - "es2025-beast-practices"
+  - "es2025 beast practices"
+  - "Практики ES2025"
+  - "Современный JavaScript (ES2025) с упором на читаемость, предсказуемость и безопасность"
+capabilities:
+  - "es2025"
+  - "beast"
+  - "practices"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

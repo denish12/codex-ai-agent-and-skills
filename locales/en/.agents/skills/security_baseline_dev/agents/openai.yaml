@@ -1,8 +1,0 @@
-interface:
-  display_name: "Security Baseline (Dev)"
-  short_description: ">"
-  default_prompt: "Use $security_baseline_dev when the task matches the \"Security Baseline (Dev)\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

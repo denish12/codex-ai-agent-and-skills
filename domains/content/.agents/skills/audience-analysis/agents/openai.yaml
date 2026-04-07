@@ -1,0 +1,8 @@
+interface:
+  display_name: "Анализ аудитории"
+  short_description: "Анализ целевой аудитории: сегменты, боли, интересы и триггеры"
+  default_prompt: "Используй $audience-analysis, когда задача относится к навыку \"Анализ аудитории\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

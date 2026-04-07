@@ -54,8 +54,8 @@ code-ai doctor --target claude
 code-ai doctor --target claude --lang en
 
 # dry-run install (default)
-code-ai install --target claude --agents conductor,reviewer --skills board,security_review
-code-ai install --target claude --lang en --agents conductor,reviewer --skills board,security_review
+code-ai install --target claude --agents conductor,reviewer --skills board,security-review
+code-ai install --target claude --lang en --agents conductor,reviewer --skills board,security-review
 
 # install into a newly created folder under current directory
 code-ai install --target gpt-codex --create-dir my-new-project --agents all --skills all --apply

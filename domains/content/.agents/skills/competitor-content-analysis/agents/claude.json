@@ -1,0 +1,10 @@
+{
+  "name": "competitor-content-analysis",
+  "display_name": "Анализ контента конкурентов",
+  "description": "Анализ контента конкурентов: что работает, gaps, возможности",
+  "default_prompt": "Используй $competitor-content-analysis, когда задача относится к навыку \"Анализ контента конкурентов\".",
+  "triggers": ["competitor-content-analysis", "Анализ контента конкурентов", "Анализ контента конкурентов: что работает, gaps, возможности"],
+  "capabilities": ["competitor-content-analysis"],
+  "tools": [],
+  "implicit_invocation": true
+}

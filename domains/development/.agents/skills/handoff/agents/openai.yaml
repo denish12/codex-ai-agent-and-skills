@@ -1,0 +1,8 @@
+interface:
+  display_name: "Передача контекста агентам"
+  short_description: "Формирование Context Pack и постановка задачи агенту — цели, ограничения, артефакты, решения, в…"
+  default_prompt: "Используй $handoff, когда задача относится к навыку \"Передача контекста агентам\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

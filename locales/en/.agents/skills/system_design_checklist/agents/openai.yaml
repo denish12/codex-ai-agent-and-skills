@@ -1,8 +1,0 @@
-interface:
-  display_name: "System Design Checklist"
-  short_description: "System design checklist — functional/non-functional requirements, technical design, operations…"
-  default_prompt: "Use $system_design_checklist when the task matches the \"System Design Checklist\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

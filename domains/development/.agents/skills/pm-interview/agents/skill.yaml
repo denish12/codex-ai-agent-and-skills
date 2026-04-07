@@ -1,0 +1,22 @@
+version: 1
+name: "pm-interview"
+display_name: "PM-интервью и дискавери"
+description: "Структурированное интервью/разбор документации — собрать цели, аудиторию, MVP, ограничения, интеграции и критерии успеха, чтобы можно было написать PRD."
+default_prompt: "Используй $pm-interview, когда задача относится к навыку \"PM-интервью и дискавери\"."
+triggers:
+  - "pm-interview"
+  - "pm interview"
+  - "PM-интервью и дискавери"
+  - "Структурированное интервью/разбор документации — собрать цели, аудиторию, MVP, ограничения, интеграции и критерии успеха, чтобы можно было написать PRD"
+capabilities:
+  - "pm"
+  - "interview"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

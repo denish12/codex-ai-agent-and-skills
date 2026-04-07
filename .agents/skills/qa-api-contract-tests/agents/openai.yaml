@@ -1,0 +1,8 @@
+interface:
+  display_name: "QA: API-контрактные тесты"
+  short_description: "Проверить API на соответствие контрактам — схемы, коды, ошибки, валидация, пагинация; smoke чер…"
+  default_prompt: "Используй $qa-api-contract-tests, когда задача относится к навыку \"QA: API-контрактные тесты\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

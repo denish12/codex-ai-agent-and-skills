@@ -1,0 +1,22 @@
+version: 1
+name: "security-review"
+display_name: "Проверка безопасности приложения"
+description: "AppSec ревью для эндпоинтов/авторизации/ввода/секретов/чувствительных фич. Чек-лист + паттерны (OWASP baseline)."
+default_prompt: "Используй $security-review, когда задача относится к навыку \"Проверка безопасности приложения\"."
+triggers:
+  - "security-review"
+  - "security review"
+  - "Проверка безопасности приложения"
+  - "AppSec ревью для эндпоинтов/авторизации/ввода/секретов/чувствительных фич"
+capabilities:
+  - "security"
+  - "review"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,0 +1,8 @@
+interface:
+  display_name: "PM Interview / Discovery"
+  short_description: "Structured interview/documentation review — gather goals, audience, MVP, constraints, integrati…"
+  default_prompt: "Use $pm-interview when the task matches the \"PM Interview / Discovery\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Handoff Envelope"
+  short_description: "Forming a Context Pack and assigning a task to an agent — goals, constraints, artifacts, decisi…"
+  default_prompt: "Use $handoff when the task matches the \"Handoff Envelope\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

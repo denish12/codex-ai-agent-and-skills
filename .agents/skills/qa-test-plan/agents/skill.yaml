@@ -1,0 +1,23 @@
+version: 1
+name: "qa-test-plan"
+display_name: "QA: тест-план"
+description: "Составить тест-план и матрицу покрытия по PRD/UX — роли, критичные user flows, состояния UI, негативные кейсы, критерии приёмки."
+default_prompt: "Используй $qa-test-plan, когда задача относится к навыку \"QA: тест-план\"."
+triggers:
+  - "qa-test-plan"
+  - "qa test plan"
+  - "QA: тест-план"
+  - "Составить тест-план и матрицу покрытия по PRD/UX — роли, критичные user flows, состояния UI, негативные кейсы, критерии приёмки"
+capabilities:
+  - "qa"
+  - "test"
+  - "plan"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

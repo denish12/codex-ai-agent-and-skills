@@ -1,0 +1,21 @@
+version: 1
+name: "ux-discovery"
+display_name: "UX Discovery"
+description: "Clarify UX inputs based on PRD — roles, main flows, navigation, platforms (responsive), brand/references, localization, edge cases."
+default_prompt: "Use $ux-discovery when the task matches the \"UX Discovery\" skill."
+triggers:
+  - "ux-discovery"
+  - "ux discovery"
+  - "Clarify UX inputs based on PRD — roles, main flows, navigation, platforms (responsive), brand/references, localization, edge cases"
+capabilities:
+  - "ux"
+  - "discovery"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

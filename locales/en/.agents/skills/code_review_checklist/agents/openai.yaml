@@ -1,8 +1,0 @@
-interface:
-  display_name: "Universal Code Review Checklist"
-  short_description: "Universal review checklist — code quality, readability, testability, security, contracts, Defin…"
-  default_prompt: "Use $code_review_checklist when the task matches the \"Universal Code Review Checklist\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

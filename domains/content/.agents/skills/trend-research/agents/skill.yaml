@@ -1,0 +1,20 @@
+version: 1
+name: "trend-research"
+display_name: "Исследование трендов"
+description: "Исследование актуальных трендов по теме в целевых платформах"
+default_prompt: "Используй $trend-research, когда задача относится к навыку \"Исследование трендов\"."
+triggers:
+  - "trend-research"
+  - "Исследование трендов"
+  - "Исследование актуальных трендов по теме в целевых платформах"
+capabilities:
+  - "trend-research"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

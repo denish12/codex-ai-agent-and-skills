@@ -1,0 +1,8 @@
+interface:
+  display_name: "Tooling (Bun + Biome) Beast Practices"
+  short_description: "Tooling — Biome (lint/format) and Bun (runtime/package manager). biome.json config, key rules,…"
+  default_prompt: "Use $tooling-bun-biome when the task matches the \"Tooling (Bun + Biome) Beast Practices\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

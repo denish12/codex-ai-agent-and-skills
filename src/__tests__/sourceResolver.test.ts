@@ -106,4 +106,41 @@ describe("sourceResolver", () => {
       }),
     ).rejects.toThrow("Could not find source templates");
   });
+
+  it("should accept domains/ layout as valid source root", async () => {
+    const domainDir = path.join(tmpDir, "domains", "development");
+    await fs.outputJson(
+      path.join(domainDir, "domain.json"),
+      { id: "development", name: "Dev", description: "Dev domain" },
+      { spaces: 2 },
+    );
+
+    const result = await resolveSourceRoot({
+      projectDirOption: tmpDir,
+      cwd: os.tmpdir(),
+      packageRoot: os.tmpdir(),
+      language: "ru",
+    });
+
+    expect(result).toBe(path.resolve(tmpDir));
+  });
+
+  it("should accept coexisting legacy + domains/ layout", async () => {
+    await createValidSourceRoot(tmpDir);
+    const domainDir = path.join(tmpDir, "domains", "content");
+    await fs.outputJson(
+      path.join(domainDir, "domain.json"),
+      { id: "content", name: "Content", description: "Content domain" },
+      { spaces: 2 },
+    );
+
+    const result = await resolveSourceRoot({
+      projectDirOption: tmpDir,
+      cwd: os.tmpdir(),
+      packageRoot: os.tmpdir(),
+      language: "ru",
+    });
+
+    expect(result).toBe(path.resolve(tmpDir));
+  });
 });

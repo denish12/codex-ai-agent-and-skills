@@ -21,10 +21,10 @@ describe("catalog", () => {
     await fs.ensureDir(path.join(tmpDir, "agents"));
     await fs.writeFile(path.join(tmpDir, "agents", "conductor.md"), "# Conductor\n");
     await fs.writeFile(path.join(tmpDir, "agents", "developer.md"), "# Developer\n");
-    await fs.ensureDir(path.join(tmpDir, ".agents", "skills", "tdd_workflow"));
+    await fs.ensureDir(path.join(tmpDir, ".agents", "skills", "tdd-workflow"));
     await fs.writeFile(
-      path.join(tmpDir, ".agents", "skills", "tdd_workflow", "SKILL.md"),
-      "---\nname: tdd_workflow\ndescription: TDD skill\n---\n# TDD\n",
+      path.join(tmpDir, ".agents", "skills", "tdd-workflow", "SKILL.md"),
+      "---\nname: tdd-workflow\ndescription: TDD skill\n---\n# TDD\n",
     );
 
     // Act
@@ -35,7 +35,7 @@ describe("catalog", () => {
     // Assert
     expect(agents).toContain("conductor");
     expect(agents).toContain("developer");
-    expect(skills).toContain("tdd_workflow");
+    expect(skills).toContain("tdd-workflow");
     expect(catalog.orchestratorPath).toBe(path.join(tmpDir, "AGENTS.md"));
   });
 

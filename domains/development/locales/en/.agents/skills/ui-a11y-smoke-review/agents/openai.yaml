@@ -1,0 +1,8 @@
+interface:
+  display_name: "UI & Accessibility Smoke Review"
+  short_description: "Quick UI/a11y smoke review by a designer — loading/empty/error states, focus, keyboard, aria/la…"
+  default_prompt: "Use $ui-a11y-smoke-review when the task matches the \"UI & Accessibility Smoke Review\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

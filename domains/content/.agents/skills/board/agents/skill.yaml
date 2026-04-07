@@ -1,0 +1,20 @@
+version: 1
+name: "board"
+display_name: "Доска задач"
+description: "Управление доской задач контент-пайплайна"
+default_prompt: "Используй $board, когда задача относится к навыку \"Доска задач\"."
+triggers:
+  - "board"
+  - "Доска задач"
+  - "Управление доской задач контент-пайплайна"
+capabilities:
+  - "board"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

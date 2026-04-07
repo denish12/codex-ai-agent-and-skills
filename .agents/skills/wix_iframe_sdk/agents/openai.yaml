@@ -1,8 +1,0 @@
-interface:
-  display_name: "Wix iFrame SDK"
-  short_description: "Практический skill по legacy Wix iFrame SDK (deprecated) — поиск методов, событий, параметров,…"
-  default_prompt: "Используй $wix_iframe_sdk, когда задача относится к навыку \"Wix iFrame SDK\"."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

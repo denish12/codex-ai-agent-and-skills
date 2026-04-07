@@ -1,0 +1,22 @@
+version: 1
+name: "tailwind-beast-practices"
+display_name: "Tailwind Beast Practices"
+description: "Tailwind CSS best practices for Senior level: organization of classes, component approach, theme customization, responsive/dark mode, performance (purge/JIT), typical patterns and DO/DON'T. Use this skill whenever the task concerns styling via Tailwind — writing classes, config structure, working with the design system, avoiding className chaos, or integration with React/Next.js."
+default_prompt: "Use $tailwind-beast-practices when the task matches the \"Tailwind Beast Practices\" skill."
+triggers:
+  - "tailwind-beast-practices"
+  - "tailwind beast practices"
+  - "Tailwind CSS best practices for Senior level"
+capabilities:
+  - "tailwind"
+  - "beast"
+  - "practices"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

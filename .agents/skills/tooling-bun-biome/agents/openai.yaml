@@ -1,0 +1,8 @@
+interface:
+  display_name: "Инструменты Bun и Biome"
+  short_description: "Tooling — Biome (lint/format) и Bun (runtime/package manager). biome.json конфиг, ключевые прав…"
+  default_prompt: "Используй $tooling-bun-biome, когда задача относится к навыку \"Инструменты Bun и Biome\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

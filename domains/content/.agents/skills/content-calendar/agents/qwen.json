@@ -1,0 +1,10 @@
+{
+  "name": "content-calendar",
+  "display_name": "Контент-календарь",
+  "description": "Построение контент-календаря с темами, датами и платформами",
+  "default_prompt": "Используй $content-calendar, когда задача относится к навыку \"Контент-календарь\".",
+  "triggers": ["content-calendar", "Контент-календарь", "Построение контент-календаря с темами, датами и платформами"],
+  "capabilities": ["content-calendar"],
+  "tools": [],
+  "implicit_invocation": true
+}

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Тон голоса бренда"
+  short_description: "Применение и настройка тона голоса бренда к тексту"
+  default_prompt: "Используй $tone-of-voice, когда задача относится к навыку \"Тон голоса бренда\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

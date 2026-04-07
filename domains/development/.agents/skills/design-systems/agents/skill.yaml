@@ -1,0 +1,22 @@
+version: 1
+name: "design-systems"
+display_name: "Интеграция дизайн-системы"
+description: "Интеграция дизайн-систем — shadcn/ui, Mantine, Wix Design System. Установка, кастомизация темы, component composition, wrapper pattern, UI inventory, маппинг состояний (loading/error/empty/disabled), responsive, a11y. Активируй при подключении дизайн-системы, создании новых компонентов, или при вопросах «как интегрировать X»."
+default_prompt: "Используй $design-systems, когда задача относится к навыку \"Интеграция дизайн-системы\"."
+triggers:
+  - "design-systems"
+  - "design systems"
+  - "Интеграция дизайн-системы"
+  - "Интеграция дизайн-систем — shadcn/ui, Mantine, Wix Design System"
+capabilities:
+  - "design"
+  - "systems"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

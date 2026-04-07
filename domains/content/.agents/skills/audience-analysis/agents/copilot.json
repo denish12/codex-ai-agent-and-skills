@@ -1,0 +1,10 @@
+{
+  "name": "audience-analysis",
+  "display_name": "Анализ аудитории",
+  "description": "Анализ целевой аудитории: сегменты, боли, интересы и триггеры",
+  "default_prompt": "Используй $audience-analysis, когда задача относится к навыку \"Анализ аудитории\".",
+  "triggers": ["audience-analysis", "Анализ аудитории", "Анализ целевой аудитории: сегменты, боли, интересы и триггеры"],
+  "capabilities": ["audience-analysis"],
+  "tools": [],
+  "implicit_invocation": true
+}

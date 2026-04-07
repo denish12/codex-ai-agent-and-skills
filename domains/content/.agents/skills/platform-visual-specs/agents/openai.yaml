@@ -1,0 +1,8 @@
+interface:
+  display_name: "Спецификации визуалов"
+  short_description: "Технические спецификации визуалов по платформам: размеры, форматы, ограничения"
+  default_prompt: "Используй $platform-visual-specs, когда задача относится к навыку \"Спецификации визуалов\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

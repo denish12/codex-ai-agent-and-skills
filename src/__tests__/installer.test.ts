@@ -383,4 +383,69 @@ describe("installer", () => {
 
     expect(await fs.pathExists(path.join(destinationDir, "CONTEXT.md"))).toBe(true);
   });
+
+  it("saves domain-aware state file with double-dash separator", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "claude",
+      domain: "content",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    const stateFile = path.join(destinationDir, ".code-ai-installer", "state", "claude--content.json");
+    expect(await fs.pathExists(stateFile)).toBe(true);
+
+    const state = JSON.parse(await fs.readFile(stateFile, "utf8")) as { domain?: string };
+    expect(state.domain).toBe("content");
+  });
+
+  it("saves legacy state file when domain is undefined", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "claude",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    const legacyState = path.join(destinationDir, ".code-ai-installer", "state", "claude.json");
+    expect(await fs.pathExists(legacyState)).toBe(true);
+
+    const domainState = path.join(destinationDir, ".code-ai-installer", "state", "claude--content.json");
+    expect(await fs.pathExists(domainState)).toBe(false);
+  });
+
+  it("uninstalls domain-aware install correctly", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "claude",
+      domain: "development",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    const result = await runUninstall(destinationDir, "claude", false, "development");
+    expect(result.removed.length).toBeGreaterThan(0);
+  });
 });

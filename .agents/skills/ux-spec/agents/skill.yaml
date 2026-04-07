@@ -1,0 +1,22 @@
+version: 1
+name: "ux-spec"
+display_name: "UX-спецификация"
+description: "Сформировать UX Spec — user flows, IA, список экранов, спецификация каждого экрана (действия/секции/валидации/состояния), критерии UX качества для разработки и тестирования."
+default_prompt: "Используй $ux-spec, когда задача относится к навыку \"UX-спецификация\"."
+triggers:
+  - "ux-spec"
+  - "ux spec"
+  - "UX-спецификация"
+  - "Сформировать UX Spec — user flows, IA, список экранов, спецификация каждого экрана (действия/секции/валидации/состояния), критерии UX качества для разработки и тестирования"
+capabilities:
+  - "ux"
+  - "spec"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

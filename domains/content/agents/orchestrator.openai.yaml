@@ -1,0 +1,8 @@
+interface:
+  display_name: "AGENTS.md — Оркестр контент-производства"
+  short_description: "Контракт оркестрации ролей, skills и delivery-gates для производства контента."
+  default_prompt: "Используй AGENTS.md, когда задача требует оркестрации контент-пайплайна."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Minimum baseline accessibility for web UI"
+  short_description: "Minimum accessibility baseline for web UI — keyboard navigation, focus management, form labels,…"
+  default_prompt: "Use $a11y-baseline when the task matches the \"Minimum baseline accessibility for web UI\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

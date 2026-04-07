@@ -1,0 +1,24 @@
+version: 1
+name: "dependency-supply-chain-review"
+display_name: "Dependency & Supply Chain Review"
+description: "Dependency review — minimization, updates, vulnerability audit, licenses, prohibition of unsafe packages."
+default_prompt: "Use $dependency-supply-chain-review when the task matches the \"Dependency & Supply Chain Review\" skill."
+triggers:
+  - "dependency-supply-chain-review"
+  - "dependency supply chain review"
+  - "Dependency & Supply Chain Review"
+  - "Dependency review — minimization, updates, vulnerability audit, licenses, prohibition of unsafe packages"
+capabilities:
+  - "dependency"
+  - "supply"
+  - "chain"
+  - "review"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

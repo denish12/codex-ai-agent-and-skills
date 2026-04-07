@@ -1,0 +1,18 @@
+{
+  "name": "observability-logging",
+  "display_name": "Логирование и наблюдаемость",
+  "description": "Реализация наблюдаемости на уровне кода — структурированные логи (pino), request_id/trace_id корреляция, уровни логов, запрет утечки PII/секретов, базовые метрики, health checks. DO/DON'T примеры. Активируй при настройке логирования, добавлении метрик, или при вопросах «как правильно логировать».",
+  "default_prompt": "Используй $observability-logging, когда задача относится к навыку \"Логирование и наблюдаемость\".",
+  "triggers": [
+    "observability-logging",
+    "observability logging",
+    "Логирование и наблюдаемость",
+    "Реализация наблюдаемости на уровне кода — структурированные логи (pino), request_id/trace_id корреляция, уровни логов, запрет утечки PII/секретов, базовые метрики, health checks"
+  ],
+  "capabilities": [
+    "observability",
+    "logging"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

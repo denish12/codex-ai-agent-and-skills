@@ -1,0 +1,8 @@
+interface:
+  display_name: "Release Gate"
+  short_description: "Final release gate — collect Reviewer+Tester+CI reports, check DoD, classify risks, make GO/NO-…"
+  default_prompt: "Use $release-gate when the task matches the \"Release Gate\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

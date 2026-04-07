@@ -1,0 +1,8 @@
+interface:
+  display_name: "React Beast Practices"
+  short_description: "Senior-level React best practices: composition, container/presenter, custom hooks, context, per…"
+  default_prompt: "Use $react-beast-practices when the task matches the \"React Beast Practices\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

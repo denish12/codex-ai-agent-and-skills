@@ -1,0 +1,8 @@
+interface:
+  display_name: "Чеклист ревью контента"
+  short_description: "Системный чеклист проверки качества текста и визуала перед публикацией"
+  default_prompt: "Используй $content-review-checklist, когда задача относится к навыку \"Чеклист ревью контента\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

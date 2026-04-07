@@ -1,0 +1,8 @@
+interface:
+  display_name: "SEO-копирайтинг"
+  short_description: "SEO-оптимизация текста: ключевые слова, структура, мета-теги"
+  default_prompt: "Используй $seo-copywriting, когда задача относится к навыку \"SEO-копирайтинг\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

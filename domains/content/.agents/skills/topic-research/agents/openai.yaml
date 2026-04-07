@@ -1,0 +1,8 @@
+interface:
+  display_name: "Исследование темы"
+  short_description: "Глубокое исследование темы: факты, статистика, экспертные мнения"
+  default_prompt: "Используй $topic-research, когда задача относится к навыку \"Исследование темы\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

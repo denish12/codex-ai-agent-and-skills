@@ -1,0 +1,22 @@
+version: 1
+name: "security-review-baseline"
+display_name: "Security Review Baseline"
+description: "Security review by baseline — OWASP risks, authz, validation, SSRF/XSS/CSRF, secrets, safe logs/errors, least privilege."
+default_prompt: "Use $security-review-baseline when the task matches the \"Security Review Baseline\" skill."
+triggers:
+  - "security-review-baseline"
+  - "security review baseline"
+  - "Security review by baseline — OWASP risks, authz, validation, SSRF/XSS/CSRF, secrets, safe logs/errors, least privilege"
+capabilities:
+  - "security"
+  - "review"
+  - "baseline"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

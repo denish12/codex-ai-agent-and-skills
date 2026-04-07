@@ -1,0 +1,10 @@
+{
+  "name": "trend-research",
+  "display_name": "Исследование трендов",
+  "description": "Исследование актуальных трендов по теме в целевых платформах",
+  "default_prompt": "Используй $trend-research, когда задача относится к навыку \"Исследование трендов\".",
+  "triggers": ["trend-research", "Исследование трендов", "Исследование актуальных трендов по теме в целевых платформах"],
+  "capabilities": ["trend-research"],
+  "tools": [],
+  "implicit_invocation": true
+}

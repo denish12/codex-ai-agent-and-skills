@@ -1,0 +1,8 @@
+interface:
+  display_name: "Styling & CSS Stack"
+  short_description: "CSS practices — custom properties (design tokens), naming (BEM / CSS Modules), responsive, tran…"
+  default_prompt: "Use $styling-css-stack when the task matches the \"Styling & CSS Stack\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

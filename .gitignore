@@ -2,3 +2,5 @@
 dist/
 .code-ai-installer/
 examples/
+docs/
+CLAUDE.md

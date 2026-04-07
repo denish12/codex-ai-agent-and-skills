@@ -5,12 +5,13 @@ import { fileURLToPath } from "node:url";
 import prompts from "prompts";
 import { Command } from "commander";
 import { loadSourceCatalog, listAgentNames, listSkillNames, resolveSelection } from "./catalog.js";
+import { listDomains, resolveDomainSourceRoot, normalizeDomain, resolveDomainAwareRootWithId } from "./domainResolver.js";
 import { runDoctor } from "./doctor.js";
 import { runInstall, runUninstall } from "./installer.js";
 import { error, info, success, warn } from "./logger.js";
 import { getPlatformAdapters } from "./platforms/adapters.js";
 import { resolveSourceRoot } from "./sourceResolver.js";
-import type { TargetId, TemplateLanguage } from "./types.js";
+import type { DomainId, TargetId, TemplateLanguage } from "./types.js";
 import { printBanner } from "./banner.js";
 
 const program = new Command();
@@ -23,6 +24,9 @@ interface WizardText {
   selectTemplateLanguage: string;
   languageRu: string;
   languageEn: string;
+  selectDomain: string;
+  domainAutoSelected: string;
+  noDomainError: string;
   selectAiTarget: string;
   installWhere: string;
   currentFolder: string;
@@ -47,6 +51,9 @@ const WIZARD_TEXT: Record<TemplateLanguage, WizardText> = {
     selectTemplateLanguage: "Select template language:",
     languageRu: "Russian (ru)",
     languageEn: "English (en)",
+    selectDomain: "Select domain:",
+    domainAutoSelected: "Using domain: %s",
+    noDomainError: "No domains found.",
     selectAiTarget: "Select AI target:",
     installWhere: "Where should files be installed?",
     currentFolder: "Current folder",
@@ -69,6 +76,9 @@ const WIZARD_TEXT: Record<TemplateLanguage, WizardText> = {
     selectTemplateLanguage: "Выбери язык шаблонов:",
     languageRu: "Русский (ru)",
     languageEn: "English (en)",
+    selectDomain: "Выбери домен:",
+    domainAutoSelected: "Домен: %s (единственный)",
+    noDomainError: "Домены не найдены.",
     selectAiTarget: "Выбери AI для установки:",
     installWhere: "Куда устанавливать?",
     currentFolder: "Текущая папка",
@@ -108,16 +118,18 @@ program
   .command("list")
   .description("List available bundled agents and skills")
   .option("--project-dir <path>", "Optional custom source root path")
+  .option("--domain <name>", "Domain name (development | content)")
   .option("--lang <lang>", "Template language: ru | en", "ru")
-  .action(async (options: { projectDir?: string; lang: string }) => {
+  .action(async (options: { projectDir?: string; domain?: string; lang: string }) => {
     try {
       const language = normalizeLanguage(options.lang);
-      const projectDir = await resolveSourceRoot({
+      const pkgRoot = await resolveSourceRoot({
         projectDirOption: options.projectDir,
         cwd: process.cwd(),
         packageRoot,
         language,
       });
+      const { effectiveRoot: projectDir } = await resolveDomainAwareRootWithId(pkgRoot, options.domain, language);
       const catalog = await loadSourceCatalog(projectDir);
       const agents = listAgentNames(catalog);
       const skills = listSkillNames(catalog);
@@ -136,18 +148,20 @@ program
   .description("Check source and destination health before install")
   .requiredOption("--target <id>", "Target AI id")
   .option("--project-dir <path>", "Optional custom source root path")
+  .option("--domain <name>", "Domain name (development | content)")
   .option("--destination <path>", "Destination root (default: current directory)")
   .option("--lang <lang>", "Template language: ru | en", "ru")
-  .action(async (options: { target: string; projectDir?: string; destination?: string; lang: string }) => {
+  .action(async (options: { target: string; projectDir?: string; domain?: string; destination?: string; lang: string }) => {
     try {
       const target = normalizeTarget(options.target);
       const language = normalizeLanguage(options.lang);
-      const projectDir = await resolveSourceRoot({
+      const pkgRoot = await resolveSourceRoot({
         projectDirOption: options.projectDir,
         cwd: process.cwd(),
         packageRoot,
         language,
       });
+      const { effectiveRoot: projectDir } = await resolveDomainAwareRootWithId(pkgRoot, options.domain, language);
       const destinationDir = path.resolve(options.destination ?? process.cwd());
       const report = await runDoctor(projectDir, destinationDir, target);
 
@@ -178,6 +192,7 @@ program
   .description("Install selected agents and skills for target AI")
   .requiredOption("--target <id>", "Target AI id")
   .option("--project-dir <path>", "Optional custom source root path")
+  .option("--domain <name>", "Domain name (development | content)")
   .option("--destination <path>", "Destination root (default: current directory)")
   .option("--create-dir <name>", "Create child folder in current directory and install there")
   .option("--lang <lang>", "Template language: ru | en", "ru")
@@ -190,6 +205,7 @@ program
     async (options: {
       target: string;
       projectDir?: string;
+      domain?: string;
       destination?: string;
       createDir?: string;
       lang: string;
@@ -202,12 +218,13 @@ program
       try {
         const target = normalizeTarget(options.target);
         const language = normalizeLanguage(options.lang);
-        const projectDir = await resolveSourceRoot({
+        const pkgRoot = await resolveSourceRoot({
           projectDirOption: options.projectDir,
           cwd: process.cwd(),
           packageRoot,
           language,
         });
+        const { effectiveRoot: projectDir, domainId } = await resolveDomainAwareRootWithId(pkgRoot, options.domain, language);
         const baseDestination = path.resolve(options.destination ?? process.cwd());
         const destinationDir = options.createDir ? path.join(baseDestination, options.createDir) : baseDestination;
         const catalog = await loadSourceCatalog(projectDir);
@@ -223,6 +240,7 @@ program
 
         const { state, result } = await runInstall({
           target,
+          ...(domainId ? { domain: domainId } : {}),
           projectDir,
           destinationDir,
           selectedAgents,
@@ -262,18 +280,20 @@ program
   .command("uninstall")
   .description("Uninstall previously installed files for target")
   .requiredOption("--target <id>", "Target AI id")
+  .option("--domain <name>", "Domain name (development | content)")
   .option("--destination <path>", "Destination root", process.cwd())
   .option("--apply", "Execute delete operations (default is dry-run)", false)
-  .action(async (options: { target: string; destination: string; apply: boolean }) => {
+  .action(async (options: { target: string; domain?: string; destination: string; apply: boolean }) => {
     try {
       const target = normalizeTarget(options.target);
+      const domainId = options.domain ? normalizeDomain(options.domain) : undefined;
       const destinationDir = path.resolve(options.destination);
       const dryRun = !options.apply;
       if (dryRun) {
         warn("Running in dry-run mode. Use --apply to remove files.");
       }
 
-      const result = await runUninstall(destinationDir, target, dryRun);
+      const result = await runUninstall(destinationDir, target, dryRun, domainId);
       info(`Files removed/planned: ${result.removed.length}`);
       info(`Files missing: ${result.missing.length}`);
       if (dryRun) {
@@ -310,11 +330,40 @@ async function runInteractiveWizard(): Promise<void> {
   }
   const language = normalizeLanguage(languageAnswer.language as string);
   const text = WIZARD_TEXT[language];
-  const sourceRoot = await resolveSourceRoot({
+  const pkgRoot = await resolveSourceRoot({
     cwd: process.cwd(),
     packageRoot,
     language,
   });
+
+  const domains = await listDomains(pkgRoot);
+  let selectedDomainId: DomainId | undefined;
+  let sourceRoot: string;
+
+  if (domains.length === 0) {
+    sourceRoot = pkgRoot;
+  } else if (domains.length === 1) {
+    selectedDomainId = domains[0].id;
+    info(text.domainAutoSelected.replace("%s", domains[0].name));
+    sourceRoot = await resolveDomainSourceRoot({ packageRoot: pkgRoot, domainId: selectedDomainId, language });
+  } else {
+    const domainAnswer = await prompts({
+      type: "select",
+      name: "domain",
+      message: text.selectDomain,
+      choices: domains.map((d) => ({
+        title: `${d.name} — ${d.description} (${d.agentCount} agents, ${d.skillCount} skills)`,
+        value: d.id,
+      })),
+    });
+    if (!domainAnswer.domain) {
+      warn(text.cancelled);
+      return;
+    }
+    selectedDomainId = domainAnswer.domain as DomainId;
+    sourceRoot = await resolveDomainSourceRoot({ packageRoot: pkgRoot, domainId: selectedDomainId, language });
+  }
+
   const catalog = await loadSourceCatalog(sourceRoot);
   const adapters = getPlatformAdapters();
 
@@ -443,6 +492,7 @@ async function runInteractiveWizard(): Promise<void> {
 
   const { state, result } = await runInstall({
     target,
+    ...(selectedDomainId ? { domain: selectedDomainId } : {}),
     projectDir: sourceRoot,
     destinationDir,
     selectedAgents: agentsAnswer.selectedAgents as string[],

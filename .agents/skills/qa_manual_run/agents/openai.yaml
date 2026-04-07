@@ -1,8 +1,0 @@
-interface:
-  display_name: "QA: ручной прогон"
-  short_description: "Ручной прогон критичных сценариев и регресса — happy/edge/error paths по UX Spec; фиксация баго…"
-  default_prompt: "Используй $qa_manual_run, когда задача относится к навыку \"QA: ручной прогон\"."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

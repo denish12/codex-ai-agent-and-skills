@@ -1,0 +1,19 @@
+{
+  "name": "google-stitch-skill",
+  "display_name": "Google Stitch — AI UI Generation (MCP-Integrated)",
+  "description": "Генерация UI-экранов через Google Stitch (AI) с прямым доступом через StitchMCP. Rapid ideation после Approved UX Proposal, промпт-инжиниринг, контроль качества. Привязано к UX/UI Designer gate.",
+  "default_prompt": "Используй $google-stitch-skill, когда задача относится к навыку \"Google Stitch — AI UI Generation (MCP-Integrated)\".",
+  "triggers": [
+    "google-stitch-skill",
+    "google stitch skill",
+    "Google Stitch — AI UI Generation (MCP-Integrated)",
+    "Генерация UI-экранов через Google Stitch (AI) с прямым доступом через StitchMCP"
+  ],
+  "capabilities": [
+    "google",
+    "stitch",
+    "skill"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

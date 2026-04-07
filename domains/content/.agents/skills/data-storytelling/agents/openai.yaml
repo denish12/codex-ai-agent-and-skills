@@ -1,0 +1,8 @@
+interface:
+  display_name: "Data-сторителлинг"
+  short_description: "Превращение данных в compelling нарративы для контента"
+  default_prompt: "Используй $data-storytelling, когда задача относится к навыку \"Data-сторителлинг\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

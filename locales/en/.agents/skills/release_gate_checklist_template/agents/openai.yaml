@@ -1,8 +1,0 @@
-interface:
-  display_name: "Release Gate Checklist Template"
-  short_description: "Generates a visible checklist RG-01…RG-xx (Evidence/DoD/Security/Ops/Post-deploy/Rollback) and…"
-  default_prompt: "Use $release_gate_checklist_template when the task matches the \"Release Gate Checklist Template\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

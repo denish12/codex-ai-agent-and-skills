@@ -1,0 +1,20 @@
+version: 1
+name: "social-media-formats"
+display_name: "Форматы соцсетей"
+description: "Форматы и правила адаптации контента под Instagram, Telegram, LinkedIn, X, Facebook"
+default_prompt: "Используй $social-media-formats, когда задача относится к навыку \"Форматы соцсетей\"."
+triggers:
+  - "social-media-formats"
+  - "Форматы соцсетей"
+  - "Форматы и правила адаптации контента под Instagram, Telegram, LinkedIn, X, Facebook"
+capabilities:
+  - "social-media-formats"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

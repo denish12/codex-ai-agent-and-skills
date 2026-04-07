@@ -1,0 +1,8 @@
+interface:
+  display_name: "UX-спецификация"
+  short_description: "Сформировать UX Spec — user flows, IA, список экранов, спецификация каждого экрана (действия/се…"
+  default_prompt: "Используй $ux-spec, когда задача относится к навыку \"UX-спецификация\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

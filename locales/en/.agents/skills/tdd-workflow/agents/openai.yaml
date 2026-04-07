@@ -1,0 +1,8 @@
+interface:
+  display_name: "TDD Workflow"
+  short_description: "Development strictly according to TDD (RED→GREEN→REFACTOR): formulating test cases via user jou…"
+  default_prompt: "Use $tdd-workflow when the task matches the \"TDD Workflow\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

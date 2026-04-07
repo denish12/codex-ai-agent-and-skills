@@ -1,0 +1,8 @@
+interface:
+  display_name: "Оценка читаемости"
+  short_description: "Оценка читаемости текста: структура, длина предложений, ясность изложения"
+  default_prompt: "Используй $readability-scoring, когда задача относится к навыку \"Оценка читаемости\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Форматы соцсетей"
+  short_description: "Форматы и правила адаптации контента под Instagram, Telegram, LinkedIn, X, Facebook"
+  default_prompt: "Используй $social-media-formats, когда задача относится к навыку \"Форматы соцсетей\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,10 @@
+{
+  "name": "content_production_orchestra",
+  "display_name": "AGENTS.md — Оркестр контент-производства",
+  "description": "Контракт оркестрации ролей, skills и delivery-gates для производства контента.",
+  "default_prompt": "Используй AGENTS.md, когда задача требует оркестрации контент-пайплайна.",
+  "roles": ["conductor", "strategist", "researcher", "copywriter", "visual_concept", "reviewer"],
+  "skills": ["audience-analysis", "board", "brand-compliance", "brand-guidelines", "competitor-content-analysis", "content-brief", "content-calendar", "content-release-gate", "content-review-checklist", "cta-optimization", "data-storytelling", "email-copywriting", "fact-checking", "gates", "handoff", "headline-formulas", "image-prompt-engineering", "moodboard", "platform-compliance", "platform-strategy", "platform-visual-specs", "readability-scoring", "seo-copywriting", "social-media-formats", "source-verification", "storytelling-framework", "tone-of-voice", "topic-research", "trend-research", "visual-brief"],
+  "pipeline": ["CONDUCTOR", "STRATEGIST", "RESEARCHER", "COPYWRITER", "VISUAL_CONCEPT", "REVIEWER", "RELEASE_GATE"],
+  "implicit_invocation": true
+}

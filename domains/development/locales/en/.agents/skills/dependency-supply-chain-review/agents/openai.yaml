@@ -1,0 +1,8 @@
+interface:
+  display_name: "Dependency & Supply Chain Review"
+  short_description: "Dependency review — minimization, updates, vulnerability audit, licenses, prohibition of unsafe…"
+  default_prompt: "Use $dependency-supply-chain-review when the task matches the \"Dependency & Supply Chain Review\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

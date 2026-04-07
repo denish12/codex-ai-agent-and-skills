@@ -1,8 +1,0 @@
-interface:
-  display_name: "QA: базовые проверки безопасности"
-  short_description: "Базовые security smoke тесты — auth/authz, валидация, утечки в ошибках/логах, rate limiting (ес…"
-  default_prompt: "Используй $qa_security_smoke_tests, когда задача относится к навыку \"QA: базовые проверки безопасности\"."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

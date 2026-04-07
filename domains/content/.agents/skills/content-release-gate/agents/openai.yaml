@@ -1,0 +1,8 @@
+interface:
+  display_name: "Финальный гейт публикации"
+  short_description: "Финальный гейт перед публикацией контента"
+  default_prompt: "Используй $content-release-gate, когда задача относится к навыку \"Финальный гейт публикации\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

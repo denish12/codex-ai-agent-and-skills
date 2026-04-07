@@ -1,0 +1,8 @@
+interface:
+  display_name: "Базовая безопасность разработки"
+  short_description: "Базовая безопасность в реализации — валидация входных данных (Zod), secrets management, безопас…"
+  default_prompt: "Используй $security-baseline-dev, когда задача относится к навыку \"Базовая безопасность разработки\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

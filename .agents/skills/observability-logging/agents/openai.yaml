@@ -1,0 +1,8 @@
+interface:
+  display_name: "Логирование и наблюдаемость"
+  short_description: "Реализация наблюдаемости на уровне кода — структурированные логи (pino), request_id/trace_id ко…"
+  default_prompt: "Используй $observability-logging, когда задача относится к навыку \"Логирование и наблюдаемость\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,21 @@
+{
+  "name": "react-15-3-wix-iframe",
+  "display_name": "React 15.3 + Wix iFrame",
+  "description": "Legacy development for Wix iFrame apps on React 15.3: class components, lifecycle methods, PropTypes/defaultProps, patterns without hooks. Communication with Wix via iFrame SDK (postMessage, Wix.addEventListener, resizeWindow). ALWAYS use this skill when Wix iFrame, Wix iFrame SDK are mentioned, or when the codebase explicitly uses React 15.3. Do not apply together with react-beast-practices — they are mutually exclusive.",
+  "default_prompt": "Use $react-15-3-wix-iframe when the task matches the \"React 15.3 + Wix iFrame\" skill.",
+  "triggers": [
+    "react-15-3-wix-iframe",
+    "react 15 3 wix iframe",
+    "React 15.3 + Wix iFrame",
+    "Legacy development for Wix iFrame apps on React 15"
+  ],
+  "capabilities": [
+    "react",
+    "15",
+    "3",
+    "wix",
+    "iframe"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

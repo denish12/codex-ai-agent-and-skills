@@ -1,0 +1,8 @@
+interface:
+  display_name: "Google Stitch"
+  short_description: "Generating UI screens via Google Stitch (AI) with direct access via StitchMCP. Rapid ideation a…"
+  default_prompt: "Use $google-stitch-skill when the task matches the \"Google Stitch\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

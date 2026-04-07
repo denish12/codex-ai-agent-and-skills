@@ -1,0 +1,8 @@
+interface:
+  display_name: "TanStack Beast Practices"
+  short_description: "TanStack (Query v5, Table v8, Virtual v3): caching, invalidation, pagination, infinite scroll,…"
+  default_prompt: "Use $tanstack-beast-practices when the task matches the \"TanStack Beast Practices\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

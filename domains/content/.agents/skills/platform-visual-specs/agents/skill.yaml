@@ -1,0 +1,20 @@
+version: 1
+name: "platform-visual-specs"
+display_name: "Спецификации визуалов"
+description: "Технические спецификации визуалов по платформам: размеры, форматы, ограничения"
+default_prompt: "Используй $platform-visual-specs, когда задача относится к навыку \"Спецификации визуалов\"."
+triggers:
+  - "platform-visual-specs"
+  - "Спецификации визуалов"
+  - "Технические спецификации визуалов по платформам: размеры, форматы, ограничения"
+capabilities:
+  - "platform-visual-specs"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

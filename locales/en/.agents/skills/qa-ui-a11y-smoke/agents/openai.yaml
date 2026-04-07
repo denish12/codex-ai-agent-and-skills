@@ -1,0 +1,8 @@
+interface:
+  display_name: "QA UI & A11y Smoke"
+  short_description: "UI/a11y smoke — keyboard/focus, labels/aria, basic contrast, form and list states, match with U…"
+  default_prompt: "Use $qa-ui-a11y-smoke when the task matches the \"QA UI & A11y Smoke\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,19 @@
+{
+  "name": "review-reference-snippets",
+  "display_name": "Review Reference Snippets (Do/Don't)",
+  "description": "Single set of review comment templates and examples (do/don't): AppSec, Cloud/CI, API contracts, tests, observability.",
+  "default_prompt": "Use $review-reference-snippets when the task matches the \"Review Reference Snippets (Do/Don't)\" skill.",
+  "triggers": [
+    "review-reference-snippets",
+    "review reference snippets",
+    "Review Reference Snippets (Do/Don't)",
+    "Single set of review comment templates and examples (do/don't)"
+  ],
+  "capabilities": [
+    "review",
+    "reference",
+    "snippets"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

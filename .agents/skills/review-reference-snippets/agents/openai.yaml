@@ -1,0 +1,8 @@
+interface:
+  display_name: "Референсы для ревью"
+  short_description: "Единый набор примеров (do/don’t) и шаблонов комментариев ревью: AppSec, Cloud/CI, контракты API…"
+  default_prompt: "Используй $review-reference-snippets, когда задача относится к навыку \"Референсы для ревью\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

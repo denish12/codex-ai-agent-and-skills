@@ -1,0 +1,19 @@
+{
+  "name": "deployment-ci-plan",
+  "display_name": "План деплоя и CI",
+  "description": "План деплоя и CI — окружения, конфиги, секреты, миграции, проверки в CI (tests/lint/security), стратегия релизов и откатов.",
+  "default_prompt": "Используй $deployment-ci-plan, когда задача относится к навыку \"План деплоя и CI\".",
+  "triggers": [
+    "deployment-ci-plan",
+    "deployment ci plan",
+    "План деплоя и CI",
+    "План деплоя и CI — окружения, конфиги, секреты, миграции, проверки в CI (tests/lint/security), стратегия релизов и откатов"
+  ],
+  "capabilities": [
+    "deployment",
+    "ci",
+    "plan"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

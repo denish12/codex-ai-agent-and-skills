@@ -1,8 +1,0 @@
-interface:
-  display_name: "Performance Review Baseline"
-  short_description: "Basic perf review — N+1, pagination, batches, redundant queries, cache by architecture, heavy o…"
-  default_prompt: "Use $performance_review_baseline when the task matches the \"Performance Review Baseline\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

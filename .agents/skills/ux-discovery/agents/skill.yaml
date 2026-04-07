@@ -1,0 +1,21 @@
+version: 1
+name: "ux-discovery"
+display_name: "UX discovery"
+description: "Уточнить UX вводные по PRD — роли, основные потоки, навигация, платформы (responsive), бренд/референсы, локализация, edge cases."
+default_prompt: "Используй $ux-discovery, когда задача относится к навыку \"UX discovery\"."
+triggers:
+  - "ux-discovery"
+  - "ux discovery"
+  - "Уточнить UX вводные по PRD — роли, основные потоки, навигация, платформы (responsive), бренд/референсы, локализация, edge cases"
+capabilities:
+  - "ux"
+  - "discovery"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

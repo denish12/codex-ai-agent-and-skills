@@ -1,8 +1,0 @@
-interface:
-  display_name: "Zustand Best Practices"
-  short_description: "Zustand — simple global state without prop drilling, store modularity, selectors, avoiding unne…"
-  default_prompt: "Use $state_zustand_beast_practices when the task matches the \"Zustand Best Practices\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

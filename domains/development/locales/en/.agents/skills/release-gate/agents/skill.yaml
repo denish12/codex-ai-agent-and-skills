@@ -1,0 +1,21 @@
+version: 1
+name: "release-gate"
+display_name: "Release Gate"
+description: "Final release gate — collect Reviewer+Tester+CI reports, check DoD, classify risks, make GO/NO-GO decision, and form a closure plan."
+default_prompt: "Use $release-gate when the task matches the \"Release Gate\" skill."
+triggers:
+  - "release-gate"
+  - "release gate"
+  - "Final release gate — collect Reviewer+Tester+CI reports, check DoD, classify risks, make GO/NO-GO decision, and form a closure plan"
+capabilities:
+  - "release"
+  - "gate"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,0 +1,20 @@
+version: 1
+name: "cta-optimization"
+display_name: "Оптимизация CTA"
+description: "Оптимизация призывов к действию для максимальной конверсии"
+default_prompt: "Используй $cta-optimization, когда задача относится к навыку \"Оптимизация CTA\"."
+triggers:
+  - "cta-optimization"
+  - "Оптимизация CTA"
+  - "Оптимизация призывов к действию для максимальной конверсии"
+capabilities:
+  - "cta-optimization"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

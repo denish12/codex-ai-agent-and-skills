@@ -1,0 +1,8 @@
+interface:
+  display_name: "Доска задач"
+  short_description: "Управление доской задач контент-пайплайна"
+  default_prompt: "Используй $board, когда задача относится к навыку \"Доска задач\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

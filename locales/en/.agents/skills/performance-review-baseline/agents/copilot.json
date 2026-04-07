@@ -1,0 +1,18 @@
+{
+  "name": "performance-review-baseline",
+  "display_name": "Performance Review Baseline",
+  "description": "Basic perf review — N+1, pagination, batches, redundant queries, cache by architecture, heavy operations in the request path.",
+  "default_prompt": "Use $performance-review-baseline when the task matches the \"Performance Review Baseline\" skill.",
+  "triggers": [
+    "performance-review-baseline",
+    "performance review baseline",
+    "Basic perf review — N+1, pagination, batches, redundant queries, cache by architecture, heavy operations in the request path"
+  ],
+  "capabilities": [
+    "performance",
+    "review",
+    "baseline"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

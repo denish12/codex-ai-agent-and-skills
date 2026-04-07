@@ -1,8 +1,0 @@
-interface:
-  display_name: "Практики MongoDB и Mongoose"
-  short_description: "Best practices для MongoDB + Mongoose — схемы, индексы, валидация, транзакции, миграции, произв…"
-  default_prompt: "Используй $mongodb_mongoose_best_practices, когда задача относится к навыку \"Практики MongoDB и Mongoose\"."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Исследование трендов"
+  short_description: "Исследование актуальных трендов по теме в целевых платформах"
+  default_prompt: "Используй $trend-research, когда задача относится к навыку \"Исследование трендов\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

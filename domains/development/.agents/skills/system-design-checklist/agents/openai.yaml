@@ -1,0 +1,8 @@
+interface:
+  display_name: "Чек-лист системного дизайна"
+  short_description: "Чек-лист системного дизайна — функциональные/нефункциональные требования, техдизайн, операции (…"
+  default_prompt: "Используй $system-design-checklist, когда задача относится к навыку \"Чек-лист системного дизайна\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

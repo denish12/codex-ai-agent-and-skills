@@ -1,0 +1,8 @@
+interface:
+  display_name: "QA API Contract Tests"
+  short_description: "Test API compliance against contracts — schemas, codes, errors, validation, pagination; perform…"
+  default_prompt: "Use $qa-api-contract-tests when the task matches the \"QA API Contract Tests\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

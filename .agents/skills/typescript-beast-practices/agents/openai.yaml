@@ -1,0 +1,8 @@
+interface:
+  display_name: "Практики TypeScript"
+  short_description: "TypeScript практики Senior-уровня: strict-режим, utility types, discriminated unions, type guar…"
+  default_prompt: "Используй $typescript-beast-practices, когда задача относится к навыку \"Практики TypeScript\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

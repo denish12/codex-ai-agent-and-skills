@@ -1,0 +1,8 @@
+interface:
+  display_name: "Design Patterns Reference"
+  short_description: "Design patterns reference with DO/DON'T examples — SOLID, DRY/KISS/YAGNI, GoF (Strategy, Observ…"
+  default_prompt: "Use $design-patterns-reference when the task matches the \"Design Patterns Reference\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -49,10 +49,24 @@ export async function resolveSourceRoot(args: {
 
 /**
  * Checks whether directory contains required source assets.
+ * Accepts legacy root layout (AGENTS.md + agents/ + .agents/) OR
+ * domain layout (domains/ with at least one valid domain.json) OR both.
  * @param rootDir Candidate root directory.
  * @returns True when required assets are present.
  */
 async function isValidSourceRoot(rootDir: string): Promise<boolean> {
+  if (await hasLegacyLayout(rootDir)) {
+    return true;
+  }
+  return hasDomainsLayout(rootDir);
+}
+
+/**
+ * Checks for legacy root layout: AGENTS.md + agents/ + .agents/ with skills.
+ * @param rootDir Candidate root directory.
+ * @returns True when legacy assets are present.
+ */
+async function hasLegacyLayout(rootDir: string): Promise<boolean> {
   const orchestratorPath = path.join(rootDir, "AGENTS.md");
   const agentsDir = path.join(rootDir, "agents");
   const dotAgentsDir = path.join(rootDir, ".agents");
@@ -71,6 +85,28 @@ async function isValidSourceRoot(rootDir: string): Promise<boolean> {
   for (const entry of entries) {
     const legacySkillFile = path.join(dotAgentsDir, entry, "SKILL.md");
     if (await fs.pathExists(legacySkillFile)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+/**
+ * Checks for domain layout: domains/ with at least one valid domain.json.
+ * @param rootDir Candidate root directory.
+ * @returns True when at least one valid domain exists.
+ */
+async function hasDomainsLayout(rootDir: string): Promise<boolean> {
+  const domainsDir = path.join(rootDir, "domains");
+  if (!(await fs.pathExists(domainsDir))) {
+    return false;
+  }
+
+  const entries = await fs.readdir(domainsDir);
+  for (const entry of entries) {
+    const manifestPath = path.join(domainsDir, entry, "domain.json");
+    if (await fs.pathExists(manifestPath)) {
       return true;
     }
   }

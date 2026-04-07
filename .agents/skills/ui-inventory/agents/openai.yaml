@@ -1,0 +1,8 @@
+interface:
+  display_name: "Инвентаризация UI-компонентов"
+  short_description: "Составить инвентарь UI компонентов и правила переиспользования — базовые компоненты, композицио…"
+  default_prompt: "Используй $ui-inventory, когда задача относится к навыку \"Инвентаризация UI-компонентов\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

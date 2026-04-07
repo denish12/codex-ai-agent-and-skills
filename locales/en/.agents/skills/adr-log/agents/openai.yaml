@@ -1,0 +1,8 @@
+interface:
+  display_name: "ADR Log"
+  short_description: "Record key Architectural Decision Records (ADR) with trade-offs — Pros/Cons/Alternatives/Decisi…"
+  default_prompt: "Use $adr-log when the task matches the \"ADR Log\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,8 +1,0 @@
-interface:
-  display_name: "Review Reference Snippets (Do/Don't)"
-  short_description: "Single set of review comment templates and examples (do/don't): AppSec, Cloud/CI, API contracts…"
-  default_prompt: "Use $review_reference_snippets when the task matches the \"Review Reference Snippets (Do/Don't)\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

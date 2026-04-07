@@ -1,0 +1,8 @@
+interface:
+  display_name: "Память и векторная БД"
+  short_description: "Управление контекстом проекта — что сохранять, как извлекать, как избегать конфликтов решений и…"
+  default_prompt: "Используй $memory, когда задача относится к навыку \"Память и векторная БД\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

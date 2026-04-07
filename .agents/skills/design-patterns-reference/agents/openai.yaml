@@ -1,0 +1,8 @@
+interface:
+  display_name: "Design Patterns Reference"
+  short_description: "Справочник паттернов проектирования с DO/DON'T примерами — SOLID, DRY/KISS/YAGNI, GoF (Strategy…"
+  default_prompt: "Используй $design-patterns-reference, когда задача относится к навыку \"Design Patterns Reference\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

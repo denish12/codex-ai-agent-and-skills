@@ -1,0 +1,8 @@
+interface:
+  display_name: "Практики React"
+  short_description: "React best practices для Senior-уровня: composition, container/presenter, custom hooks, context…"
+  default_prompt: "Используй $react-beast-practices, когда задача относится к навыку \"Практики React\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

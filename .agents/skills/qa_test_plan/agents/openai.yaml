@@ -1,8 +1,0 @@
-interface:
-  display_name: "QA: тест-план"
-  short_description: "Составить тест-план и матрицу покрытия по PRD/UX — роли, критичные user flows, состояния UI, не…"
-  default_prompt: "Используй $qa_test_plan, когда задача относится к навыку \"QA: тест-план\"."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

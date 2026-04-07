@@ -1,8 +1,0 @@
-interface:
-  display_name: "Шаблон чек-листа релизного гейта"
-  short_description: "Генерирует перед релизом видимый чек-лист RG-01…RG-xx (Evidence/DoD/Security/Ops/Post-deploy/Ro…"
-  default_prompt: "Используй $release_gate_checklist_template, когда задача относится к навыку \"Шаблон чек-листа релизного гейта\"."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

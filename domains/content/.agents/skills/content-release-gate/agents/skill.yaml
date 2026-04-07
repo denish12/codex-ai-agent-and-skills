@@ -1,0 +1,20 @@
+version: 1
+name: "content-release-gate"
+display_name: "Финальный гейт публикации"
+description: "Финальный гейт перед публикацией контента"
+default_prompt: "Используй $content-release-gate, когда задача относится к навыку \"Финальный гейт публикации\"."
+triggers:
+  - "content-release-gate"
+  - "Финальный гейт публикации"
+  - "Финальный гейт перед публикацией контента"
+capabilities:
+  - "content-release-gate"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

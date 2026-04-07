@@ -1,0 +1,8 @@
+interface:
+  display_name: "Контроль гейтов"
+  short_description: "Контроль гейтов пайплайна производства контента"
+  default_prompt: "Используй $gates, когда задача относится к навыку \"Контроль гейтов\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

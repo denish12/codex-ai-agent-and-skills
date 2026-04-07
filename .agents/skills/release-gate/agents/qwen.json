@@ -1,0 +1,18 @@
+{
+  "name": "release-gate",
+  "display_name": "Релизный гейт",
+  "description": "Финальный релиз-гейт — собрать отчёты Reviewer+Tester+CI, проверить DoD, классифицировать риски, принять решение GO/NO-GO и сформировать план закрытия.",
+  "default_prompt": "Используй $release-gate, когда задача относится к навыку \"Релизный гейт\".",
+  "triggers": [
+    "release-gate",
+    "release gate",
+    "Релизный гейт",
+    "Финальный релиз-гейт — собрать отчёты Reviewer+Tester+CI, проверить DoD, классифицировать риски, принять решение GO/NO-GO и сформировать план закрытия"
+  ],
+  "capabilities": [
+    "release",
+    "gate"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

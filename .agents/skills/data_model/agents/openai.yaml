@@ -1,8 +1,0 @@
-interface:
-  display_name: "Модель данных"
-  short_description: "Модель данных и стратегия хранения — нормализация/денормализация, индексы, транзакции, кэш, (оп…"
-  default_prompt: "Используй $data_model, когда задача относится к навыку \"Модель данных\"."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

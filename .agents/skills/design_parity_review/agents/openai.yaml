@@ -1,8 +1,0 @@
-interface:
-  display_name: "Проверка дизайн-паритета"
-  short_description: "Сравнить дизайн-артефакты с UX Spec или с реализованным UI. Выдать отчёт о расхождениях (Design…"
-  default_prompt: "Используй $design_parity_review, когда задача относится к навыку \"Проверка дизайн-паритета\"."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

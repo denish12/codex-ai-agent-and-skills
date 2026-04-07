@@ -1,0 +1,10 @@
+{
+  "name": "moodboard",
+  "display_name": "Мудборд",
+  "description": "Мудборд — сборка визуальных референсов, стиля, палитры и типографики",
+  "default_prompt": "Используй $moodboard, когда задача относится к навыку \"Мудборд\".",
+  "triggers": ["moodboard", "Мудборд", "Мудборд — сборка визуальных референсов, стиля, палитры и типографики"],
+  "capabilities": ["moodboard"],
+  "tools": [],
+  "implicit_invocation": true
+}

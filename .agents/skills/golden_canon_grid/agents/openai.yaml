@@ -1,8 +1,0 @@
-interface:
-  display_name: "Golden Canon Grid"
-  short_description: "Классические пропорциональные системы для UI-лейаутов — Golden Canon (Van de Graaf), Villard de…"
-  default_prompt: "Используй $golden_canon_grid, когда задача относится к навыку \"Golden Canon Grid\"."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

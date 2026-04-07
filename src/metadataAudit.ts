@@ -48,8 +48,7 @@ async function auditOrchestrator(
 
   const portable = await readYamlSidecar(portablePath, portableLabel, warnings, errors);
   if (portable) {
-    ensureValue(portable, "name", "web_development_orchestra", portablePath, errors, portableLabel);
-    ensureRequired(portable, ["display_name", "description", "default_prompt"], portablePath, errors, portableLabel);
+    ensureRequired(portable, ["name", "display_name", "description", "default_prompt"], portablePath, errors, portableLabel);
   }
 
   if (!(await fs.pathExists(vendorPath))) {
@@ -78,10 +77,9 @@ async function auditOrchestrator(
   if (!payload) {
     return;
   }
-  ensureValue(payload, "name", "web_development_orchestra", vendorPath, errors, portableLabel);
-  ensureRequired(payload, ["display_name", "description", "default_prompt"], vendorPath, errors, portableLabel);
+  ensureRequired(payload, ["name", "display_name", "description", "default_prompt"], vendorPath, errors, portableLabel);
   if (portable) {
-    compareValues(payload, portable, ["display_name", "description", "default_prompt"], vendorPath, portablePath, errors, portableLabel);
+    compareValues(payload, portable, ["name", "display_name", "description", "default_prompt"], vendorPath, portablePath, errors, portableLabel);
   }
 }
 

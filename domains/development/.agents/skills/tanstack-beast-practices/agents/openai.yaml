@@ -1,0 +1,8 @@
+interface:
+  display_name: "Практики TanStack"
+  short_description: "TanStack (Query v5, Table v8, Virtual v3): кэширование, инвалидация, пагинация, infinite scroll…"
+  default_prompt: "Используй $tanstack-beast-practices, когда задача относится к навыку \"Практики TanStack\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

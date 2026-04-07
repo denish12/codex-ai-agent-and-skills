@@ -1,0 +1,8 @@
+interface:
+  display_name: "Промпт-инженерия для изображений"
+  short_description: "Создание точных промптов для AI-генерации изображений (Midjourney, DALL-E, Stable Diffusion)"
+  default_prompt: "Используй $image-prompt-engineering, когда задача относится к навыку \"Промпт-инженерия для изображений\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

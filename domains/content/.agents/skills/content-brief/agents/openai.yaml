@@ -1,0 +1,8 @@
+interface:
+  display_name: "Контент-бриф"
+  short_description: "Бриф на создание единицы контента — полное ТЗ для копирайтера"
+  default_prompt: "Используй $content-brief, когда задача относится к навыку \"Контент-бриф\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

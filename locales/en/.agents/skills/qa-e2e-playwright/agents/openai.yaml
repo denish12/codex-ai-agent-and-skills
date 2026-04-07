@@ -1,0 +1,8 @@
+interface:
+  display_name: "E2E Playwright (CI/CD Automated)"
+  short_description: "E2E testing via Playwright for CI/CD — automated spec files, page objects, visual regression, p…"
+  default_prompt: "Use $qa-e2e-playwright when the task matches the \"E2E Playwright (CI/CD Automated)\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

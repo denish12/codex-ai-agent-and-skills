@@ -1,0 +1,8 @@
+interface:
+  display_name: "Верификация источников"
+  short_description: "Верификация источников: достоверность, актуальность, авторитетность"
+  default_prompt: "Используй $source-verification, когда задача относится к навыку \"Верификация источников\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

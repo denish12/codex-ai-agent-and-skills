@@ -1,0 +1,23 @@
+version: 1
+name: "qa-browser-testing"
+display_name: "Antigravity Browser Testing"
+description: "Визуальное E2E-тестирование через встроенный Antigravity Browser — Pre-Auth Handoff, browser_subagent, скриншоты, visual parity, evidence-сбор."
+default_prompt: "Используй $qa-browser-testing, когда задача относится к навыку \"Antigravity Browser Testing\"."
+triggers:
+  - "qa-browser-testing"
+  - "qa browser testing"
+  - "Antigravity Browser Testing"
+  - "Визуальное E2E-тестирование через встроенный Antigravity Browser — Pre-Auth Handoff, browser_subagent, скриншоты, visual parity, evidence-сбор"
+capabilities:
+  - "qa"
+  - "browser"
+  - "testing"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

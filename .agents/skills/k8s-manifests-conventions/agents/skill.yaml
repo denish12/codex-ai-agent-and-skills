@@ -1,0 +1,23 @@
+version: 1
+name: "k8s-manifests-conventions"
+display_name: "Конвенции Kubernetes-манифестов"
+description: "Конвенции Kubernetes манифестов — структура репо, Helm/Kustomize, overlays per env, naming/labels, secrets/config, policy, validation, GitOps."
+default_prompt: "Используй $k8s-manifests-conventions, когда задача относится к навыку \"Конвенции Kubernetes-манифестов\"."
+triggers:
+  - "k8s-manifests-conventions"
+  - "k8s manifests conventions"
+  - "Конвенции Kubernetes-манифестов"
+  - "Конвенции Kubernetes манифестов — структура репо, Helm/Kustomize, overlays per env, naming/labels, secrets/config, policy, validation, GitOps"
+capabilities:
+  - "k8s"
+  - "manifests"
+  - "conventions"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

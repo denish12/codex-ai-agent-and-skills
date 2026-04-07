@@ -1,0 +1,22 @@
+version: 1
+name: "go-beast-practices"
+display_name: "Go Beast Practices"
+description: "Go best practices — simplicity, errors as values, interfaces, context, concurrency, project structure, linters, and testing (TDD). Table-driven tests, errgroup, graceful shutdown, HTTP handlers. Activate when writing or reviewing Go code, or when answering \"how to properly write X in Go\"."
+default_prompt: "Use $go-beast-practices when the task matches the \"Go Beast Practices\" skill."
+triggers:
+  - "go-beast-practices"
+  - "go beast practices"
+  - "Go best practices — simplicity, errors as values, interfaces, context, concurrency, project structure, linters, and testing (TDD)"
+capabilities:
+  - "go"
+  - "beast"
+  - "practices"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

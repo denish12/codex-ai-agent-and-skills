@@ -1,0 +1,19 @@
+{
+  "name": "cloud-infrastructure-security",
+  "display_name": "Безопасность облака и инфраструктуры",
+  "description": "Security ревью облака/инфры/CI/CD — IAM, secrets manager, сеть, логирование/мониторинг, supply chain, CDN/WAF, backup/DR.",
+  "default_prompt": "Используй $cloud-infrastructure-security, когда задача относится к навыку \"Безопасность облака и инфраструктуры\".",
+  "triggers": [
+    "cloud-infrastructure-security",
+    "cloud infrastructure security",
+    "Безопасность облака и инфраструктуры",
+    "Security ревью облака/инфры/CI/CD — IAM, secrets manager, сеть, логирование/мониторинг, supply chain, CDN/WAF, backup/DR"
+  ],
+  "capabilities": [
+    "cloud",
+    "infrastructure",
+    "security"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

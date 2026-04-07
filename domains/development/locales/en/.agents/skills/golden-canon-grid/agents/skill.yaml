@@ -1,0 +1,22 @@
+version: 1
+name: "golden-canon-grid"
+display_name: "Golden Canon Grid"
+description: "Classic proportional systems for UI layouts — Golden Canon (Van de Graaf), Villard de Honnecourt, Golden Ratio (φ), Rule of Thirds, modular grids. CSS implementation via Grid/custom properties. Activate when designing layouts for popups, landings, dashboard pages, modal windows, or when answering \"how to place elements harmoniously\"."
+default_prompt: "Use $golden-canon-grid when the task matches the \"Golden Canon Grid\" skill."
+triggers:
+  - "golden-canon-grid"
+  - "golden canon grid"
+  - "Classic proportional systems for UI layouts — Golden Canon (Van de Graaf), Villard de Honnecourt, Golden Ratio (φ), Rule of Thirds, modular grids"
+capabilities:
+  - "golden"
+  - "canon"
+  - "grid"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

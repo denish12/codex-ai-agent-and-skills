@@ -1,0 +1,8 @@
+interface:
+  display_name: "Анализ текущего состояния"
+  short_description: "Анализ текущей архитектуры репозитория — конвенции, паттерны, техдолг, узкие места масштабирова…"
+  default_prompt: "Используй $current-state-analysis, когда задача относится к навыку \"Анализ текущего состояния\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

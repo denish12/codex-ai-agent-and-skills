@@ -1,0 +1,10 @@
+{
+  "name": "brand-guidelines",
+  "display_name": "Гайдлайны бренда",
+  "description": "Применение и документирование гайдлайнов бренда в контенте",
+  "default_prompt": "Используй $brand-guidelines, когда задача относится к навыку \"Гайдлайны бренда\".",
+  "triggers": ["brand-guidelines", "Гайдлайны бренда", "Применение и документирование гайдлайнов бренда в контенте"],
+  "capabilities": ["brand-guidelines"],
+  "tools": [],
+  "implicit_invocation": true
+}

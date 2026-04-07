@@ -1,0 +1,20 @@
+{
+  "name": "state-zustand-beast-practices",
+  "display_name": "Zustand Best Practices",
+  "description": "Zustand — simple global state without prop drilling, store modularity, selectors, avoiding unnecessary re-renders. Patterns for slice-stores creation, middleware (immer, persist, devtools), TypeScript typing, testing. Activate when creating a new store, refactoring state management, or for questions \"how to properly organize Zustand\".",
+  "default_prompt": "Use $state-zustand-beast-practices when the task matches the \"Zustand Best Practices\" skill.",
+  "triggers": [
+    "state-zustand-beast-practices",
+    "state zustand beast practices",
+    "Zustand Best Practices",
+    "Zustand — simple global state without prop drilling, store modularity, selectors, avoiding unnecessary re-renders"
+  ],
+  "capabilities": [
+    "state",
+    "zustand",
+    "beast",
+    "practices"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

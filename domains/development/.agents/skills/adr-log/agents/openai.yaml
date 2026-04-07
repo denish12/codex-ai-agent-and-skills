@@ -1,0 +1,8 @@
+interface:
+  display_name: "Журнал ADR"
+  short_description: "Зафиксировать ключевые архитектурные решения (ADR) с trade-offs — Pros/Cons/Alternatives/Decisi…"
+  default_prompt: "Используй $adr-log, когда задача относится к навыку \"Журнал ADR\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

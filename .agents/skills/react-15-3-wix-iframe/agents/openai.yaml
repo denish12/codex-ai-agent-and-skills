@@ -1,0 +1,8 @@
+interface:
+  display_name: "React 15.3 и Wix iFrame"
+  short_description: "Legacy-разработка для Wix iFrame приложений на React 15.3: класс-компоненты, lifecycle методы,…"
+  default_prompt: "Используй $react-15-3-wix-iframe, когда задача относится к навыку \"React 15.3 и Wix iFrame\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

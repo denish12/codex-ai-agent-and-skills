@@ -1,0 +1,8 @@
+interface:
+  display_name: "UX discovery"
+  short_description: "Уточнить UX вводные по PRD — роли, основные потоки, навигация, платформы (responsive), бренд/ре…"
+  default_prompt: "Используй $ux-discovery, когда задача относится к навыку \"UX discovery\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

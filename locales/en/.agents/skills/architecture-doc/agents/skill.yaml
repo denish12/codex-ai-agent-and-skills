@@ -1,0 +1,22 @@
+version: 1
+name: "architecture-doc"
+display_name: "Architecture Document"
+description: "Architectural document based on PRD+UX — modules, flows, data, integrations, errors, testability, bottlenecks, growth plan, and implementation plan."
+default_prompt: "Use $architecture-doc when the task matches the \"Architecture Document\" skill."
+triggers:
+  - "architecture-doc"
+  - "architecture doc"
+  - "Architecture Document"
+  - "Architectural document based on PRD+UX — modules, flows, data, integrations, errors, testability, bottlenecks, growth plan, and implementation plan"
+capabilities:
+  - "architecture"
+  - "doc"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

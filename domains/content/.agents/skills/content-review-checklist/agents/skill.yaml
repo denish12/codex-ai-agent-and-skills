@@ -1,0 +1,20 @@
+version: 1
+name: "content-review-checklist"
+display_name: "Чеклист ревью контента"
+description: "Системный чеклист проверки качества текста и визуала перед публикацией"
+default_prompt: "Используй $content-review-checklist, когда задача относится к навыку \"Чеклист ревью контента\"."
+triggers:
+  - "content-review-checklist"
+  - "Чеклист ревью контента"
+  - "Системный чеклист проверки качества текста и визуала перед публикацией"
+capabilities:
+  - "content-review-checklist"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

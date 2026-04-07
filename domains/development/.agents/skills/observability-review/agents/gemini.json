@@ -1,0 +1,18 @@
+{
+  "name": "observability-review",
+  "display_name": "Проверка наблюдаемости",
+  "description": "Ревью наблюдаемости — структурированные логи, request_id/trace_id, уровни логов, запрет утечек PII/секретов, соответствие Observability Plan.",
+  "default_prompt": "Используй $observability-review, когда задача относится к навыку \"Проверка наблюдаемости\".",
+  "triggers": [
+    "observability-review",
+    "observability review",
+    "Проверка наблюдаемости",
+    "Ревью наблюдаемости — структурированные логи, request_id/trace_id, уровни логов, запрет утечек PII/секретов, соответствие Observability Plan"
+  ],
+  "capabilities": [
+    "observability",
+    "review"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

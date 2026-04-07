@@ -1,0 +1,8 @@
+interface:
+  display_name: "Email-копирайтинг"
+  short_description: "Структура и копирайтинг для email-рассылок с высоким open rate и CTR"
+  default_prompt: "Используй $email-copywriting, когда задача относится к навыку \"Email-копирайтинг\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

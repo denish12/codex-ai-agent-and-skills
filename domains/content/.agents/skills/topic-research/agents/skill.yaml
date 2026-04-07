@@ -1,0 +1,20 @@
+version: 1
+name: "topic-research"
+display_name: "Исследование темы"
+description: "Глубокое исследование темы: факты, статистика, экспертные мнения"
+default_prompt: "Используй $topic-research, когда задача относится к навыку \"Исследование темы\"."
+triggers:
+  - "topic-research"
+  - "Исследование темы"
+  - "Глубокое исследование темы: факты, статистика, экспертные мнения"
+capabilities:
+  - "topic-research"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Базовая security-проверка"
+  short_description: "Security ревью по baseline — OWASP-риски, authz, валидация, SSRF/XSS/CSRF, секреты, безопасные…"
+  default_prompt: "Используй $security-review-baseline, когда задача относится к навыку \"Базовая security-проверка\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

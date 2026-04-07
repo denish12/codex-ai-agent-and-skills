@@ -1,0 +1,8 @@
+interface:
+  display_name: "Стратегия платформ"
+  short_description: "Стратегия по платформам: выбор каналов и форматов под аудиторию"
+  default_prompt: "Используй $platform-strategy, когда задача относится к навыку \"Стратегия платформ\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

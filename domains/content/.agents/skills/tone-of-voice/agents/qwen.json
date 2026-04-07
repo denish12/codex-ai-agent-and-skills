@@ -1,0 +1,10 @@
+{
+  "name": "tone-of-voice",
+  "display_name": "Тон голоса бренда",
+  "description": "Применение и настройка тона голоса бренда к тексту",
+  "default_prompt": "Используй $tone-of-voice, когда задача относится к навыку \"Тон голоса бренда\".",
+  "triggers": ["tone-of-voice", "Тон голоса бренда", "Применение и настройка тона голоса бренда к тексту"],
+  "capabilities": ["tone-of-voice"],
+  "tools": [],
+  "implicit_invocation": true
+}

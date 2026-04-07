@@ -1,0 +1,8 @@
+interface:
+  display_name: "Связка n8n, Pinecone/Qdrant и Supabase"
+  short_description: "Паттерны интеграции n8n (автоматизация workflows) с векторными БД Pinecone и Qdrant и с Supabas…"
+  default_prompt: "Используй $n8n-pinecone-qdrant-supabase, когда задача относится к навыку \"Связка n8n, Pinecone/Qdrant и Supabase\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

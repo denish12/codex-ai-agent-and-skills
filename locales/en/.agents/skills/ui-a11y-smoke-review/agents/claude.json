@@ -1,0 +1,20 @@
+{
+  "name": "ui-a11y-smoke-review",
+  "display_name": "UI & Accessibility Smoke Review",
+  "description": "Quick UI/a11y smoke review by a designer — loading/empty/error states, focus, keyboard, aria/labels, compliance with UX Spec. Executed BEFORE handoff to QA.",
+  "default_prompt": "Use $ui-a11y-smoke-review when the task matches the \"UI & Accessibility Smoke Review\" skill.",
+  "triggers": [
+    "ui-a11y-smoke-review",
+    "ui a11y smoke review",
+    "UI & Accessibility Smoke Review",
+    "Quick UI/a11y smoke review by a designer — loading/empty/error states, focus, keyboard, aria/labels, compliance with UX Spec"
+  ],
+  "capabilities": [
+    "ui",
+    "a11y",
+    "smoke",
+    "review"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

@@ -1,8 +1,0 @@
-interface:
-  display_name: "Observability (Implementation)"
-  short_description: "Implementation of observability at the code level — structured logs (pino), request_id/trace_id…"
-  default_prompt: "Use $observability_logging when the task matches the \"Observability (Implementation)\" skill."
-dependencies:
-  tools: []
-policy:
-  allow_implicit_invocation: true

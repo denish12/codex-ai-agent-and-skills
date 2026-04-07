@@ -1,0 +1,21 @@
+version: 1
+name: "observability-plan"
+display_name: "Observability Plan"
+description: "Observability plan — what logs/metrics/traces to collect, request correlation, log levels, alerts. Without leaking PII/secrets."
+default_prompt: "Use $observability-plan when the task matches the \"Observability Plan\" skill."
+triggers:
+  - "observability-plan"
+  - "observability plan"
+  - "Observability plan — what logs/metrics/traces to collect, request correlation, log levels, alerts"
+capabilities:
+  - "observability"
+  - "plan"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "ru"
+    - "en"

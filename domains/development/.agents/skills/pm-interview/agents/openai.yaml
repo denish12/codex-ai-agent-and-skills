@@ -1,0 +1,8 @@
+interface:
+  display_name: "PM-интервью и дискавери"
+  short_description: "Структурированное интервью/разбор документации — собрать цели, аудиторию, MVP, ограничения, инт…"
+  default_prompt: "Используй $pm-interview, когда задача относится к навыку \"PM-интервью и дискавери\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

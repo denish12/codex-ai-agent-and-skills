@@ -1,0 +1,10 @@
+{
+  "name": "visual-brief",
+  "display_name": "Визуальный бриф",
+  "description": "Создание детального визуального брифа для дизайнера или AI-генерации",
+  "default_prompt": "Используй $visual-brief, когда задача относится к навыку \"Визуальный бриф\".",
+  "triggers": ["visual-brief", "Визуальный бриф", "Создание детального визуального брифа для дизайнера или AI-генерации"],
+  "capabilities": ["visual-brief"],
+  "tools": [],
+  "implicit_invocation": true
+}

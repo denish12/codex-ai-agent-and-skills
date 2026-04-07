@@ -1,0 +1,8 @@
+interface:
+  display_name: "Базовая модель угроз"
+  short_description: "Базовая модель угроз (threat baseline) для MVP — активы, векторы атак, меры. Учитывает OWASP-ри…"
+  default_prompt: "Используй $threat-model-baseline, когда задача относится к навыку \"Базовая модель угроз\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

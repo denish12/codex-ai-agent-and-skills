@@ -1,0 +1,8 @@
+interface:
+  display_name: "PRD (Product Requirements Document)"
+  short_description: "Generate a PRD — Vision, MVP, out-of-scope, user stories, acceptance criteria, NFR, risks, and…"
+  default_prompt: "Use $pm-prd when the task matches the \"PRD (Product Requirements Document)\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

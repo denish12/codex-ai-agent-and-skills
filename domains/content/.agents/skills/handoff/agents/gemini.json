@@ -1,0 +1,10 @@
+{
+  "name": "handoff",
+  "display_name": "Передача между гейтами",
+  "description": "Передача между гейтами контент-пайплайна",
+  "default_prompt": "Используй $handoff, когда задача относится к навыку \"Передача между гейтами\".",
+  "triggers": ["handoff", "Передача между гейтами", "Передача между гейтами контент-пайплайна"],
+  "capabilities": ["handoff"],
+  "tools": [],
+  "implicit_invocation": true
+}

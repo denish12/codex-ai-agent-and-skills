@@ -1,0 +1,20 @@
+{
+  "name": "state-rtk-beast-practices",
+  "display_name": "Практики RTK",
+  "description": "Redux Toolkit — предсказуемый state для сложных приложений. createSlice, createAsyncThunk, createEntityAdapter, createSelector, RTK Query, middleware, TypeScript типизация, тестирование. Активируй при создании нового slice, рефакторинге Redux, или при вопросах «как правильно организовать RTK».",
+  "default_prompt": "Используй $state-rtk-beast-practices, когда задача относится к навыку \"Практики RTK\".",
+  "triggers": [
+    "state-rtk-beast-practices",
+    "state rtk beast practices",
+    "Практики RTK",
+    "Redux Toolkit — предсказуемый state для сложных приложений"
+  ],
+  "capabilities": [
+    "state",
+    "rtk",
+    "beast",
+    "practices"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}
