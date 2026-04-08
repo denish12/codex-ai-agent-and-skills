@@ -1,13 +1,13 @@
 {
   "name": "dependency-supply-chain-review",
   "display_name": "Dependency & Supply Chain Review",
-  "description": "Dependency review — minimization, updates, vulnerability audit, licenses, prohibition of unsafe packages.",
+  "description": "Dependency review with mandatory socket.dev MCP check (depscore) — supply chain, vulnerability, licenses. P0 alerts block installation.",
   "default_prompt": "Use $dependency-supply-chain-review when the task matches the \"Dependency & Supply Chain Review\" skill.",
   "triggers": [
     "dependency-supply-chain-review",
     "dependency supply chain review",
     "Dependency & Supply Chain Review",
-    "Dependency review — minimization, updates, vulnerability audit, licenses, prohibition of unsafe packages"
+    "Dependency review with mandatory socket.dev MCP check (depscore) — supply chain, vulnerability, licenses. P0 alerts block installation"
   ],
   "capabilities": [
     "dependency",
