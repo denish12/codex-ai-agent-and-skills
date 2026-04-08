@@ -1,106 +1,128 @@
-# code-ai installer
+<div align="center">
+  <h1>🤖 Code-AI Installer</h1>
+  <p><b>The ultimate CLI tool to orchestrate AI Agents, Skills, and Workflows across multiple AI Coding Assistants.</b></p>
+  
+  [![npm version](https://img.shields.io/npm/v/code-ai-installer.svg)](https://www.npmjs.com/package/code-ai-installer)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+  [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D20-green.svg)](https://nodejs.org)
+</div>
 
-CLI for installing your `agents/`, `.agents/skills/`, and `.agents/workflows/` assets into AI-specific layouts.
-The global package contains bundled templates, so `code-ai` works from any directory.
+<br/>
 
-## Supported targets
-- `vscode-copilot`
-- `gpt-codex`
+**Code-AI Installer** (`code-ai`) is a powerful, production-ready CLI that injects your `.agents/`, `.agents/skills/`, and `.agents/workflows/` directly into the specific environment layouts required by different AI tools. Write your agentic pipelines once, and deploy them universally to Copilot, Codex, Claude, Qwen, or Google Antigravity.
+
+---
+
+## ✨ Features
+
+- 🚀 **Interactive Wizard**: Out-of-the-box interactive CLI to easily pick targets, agents, and skills.
+- 🌍 **Multi-AI Support**: Automatically adapts instructions, reasoning hints, and files for Copilot, GPT Codex, Claude, Qwen 3.5, and Google Antigravity.
+- 📦 **Standalone & Global**: Bundled with base templates—run it from anywhere on your machine!
+- 🛡️ **Bulletproof Safety**: Default `dry-run` mode, automatic backups to `.code-ai-installer/backups/`, and built-in rollbacks.
+- 🧠 **Smart Transformation**: Normalizes markdown content. Automatically translates target-native AI hints (e.g., mapping `codex reasoning` to `claude thinking` or `gemini reasoning`).
+- 🌐 **Localization**: First-class support for English (`en`) and Russian (`ru`).
+
+---
+
+## 🎯 Supported AI Targets
+
+- `vscode-copilot` / `copilot`
+- `gpt-codex` / `codex`
 - `claude`
-- `qwen-3.5`
-- `google-antugravity`
+- `qwen-3.5` / `qwen`
+- `google-antigravity` / `antigravity`
 
-## Install
+---
+
+## 🔧 Installation
+
+### 1. Global Installation (Recommended)
+
+Install the CLI globally to run it in any of your projects:
+
 ```bash
+# via npm
+npm install -g code-ai-installer
+
+# via pnpm, yarn, or bun
+pnpm add -g code-ai-installer
+yarn global add code-ai-installer
+bun add -g code-ai-installer
+```
+
+Verify the installation:
+```bash
+code-ai --help
+```
+
+### 2. Local Installation (For Development)
+
+If you are cloning this repository to build or contribute:
+```bash
+git clone https://github.com/denish12/codex-ai-agent-and-skills.git
+cd codex-ai-agent-and-skills
 npm install
 npm run build
-```
-
-## Global install
-```bash
-# from npm registry
-npm install -g code-ai-installer
-# or
-pnpm add -g code-ai-installer
-# or
-yarn global add code-ai-installer
-# or
-bun add -g code-ai-installer
-
-# verify binary in system terminal
-code-ai --help
-```
-
-```bash
-# install globally from local repository
 npm install -g .
-code-ai --help
 ```
 
-## Usage
-```bash
-# interactive wizard (recommended)
-code-ai
+---
 
-# list targets
+## 🚀 Usage
+
+### The Interactive Wizard
+Just run `code-ai` inside your project directory to trigger the fully interactive guide:
+```bash
+code-ai
+```
+
+### CLI Commands & Flags
+
+```bash
+# List all supported targets
 code-ai targets
 
-# list available agents and skills from current repository
+# List available agents and skills (from local repo or global fallback)
 code-ai list
 code-ai list --lang en
 
-# health checks
+# Check system health and compatibility for a specific target
 code-ai doctor --target claude
-code-ai doctor --target claude --lang en
 
-# dry-run install (default)
-code-ai install --target claude --agents conductor,reviewer --skills board,security-review
-code-ai install --target claude --lang en --agents conductor,reviewer --skills board,security-review
+# Run a safe Dry-Run installation preview (Default)
+code-ai install --target claude --agents conductor,reviewer --skills board
 
-# install into a newly created folder under current directory
-code-ai install --target gpt-codex --create-dir my-new-project --agents all --skills all --apply
+# Apply Installation (actually write files)
+code-ai install --target gpt-codex --agents all --skills all --apply
 
-# apply install with overwrite
+# Overwrite existing files securely
 code-ai install --target claude --agents all --skills all --overwrite --apply
 
-# strict mode: require explicit target hints in agent/skill files
+# Strict Mode (Enforces explicit target hints in agent files)
 code-ai install --target claude --agents all --skills all --strict-hints --apply
 
-# uninstall preview
-code-ai uninstall --target claude
-
-# uninstall apply
+# Uninstall / Clean up AI assets securely
 code-ai uninstall --target claude --apply
 ```
 
-## What gets generated
-- Root orchestration mirror: `AGENTS.md`
-- Target instruction file:
-  - Copilot: `.github/copilot-instructions.md`
-  - GPT Codex: `CODEX.md`
-  - Claude: `CLAUDE.md`
-  - Qwen: `QWEN.md`
-  - Google Antugravity: `AGENTS.md` (`GEMINI.md` is also installed for compatibility)
-- Agent files copied to target-specific agents directory.
-- Skill files copied to target-specific skills directory.
-- For `gpt-codex`, assets are installed to `agents/`, `.agents/skills/`, and `.agents/workflows/` for native Codex discovery.
-- For `google-antugravity`, root instructions are provided via `AGENTS.md`, and a mirrored `GEMINI.md` is installed for backward compatibility. Assets are installed in antugravity-friendly structure:
-  - agents: `.gemini/agents/<agent>/prompt.md` and `.gemini/agents/<agent>/config.json`
-  - skills: `.gemini/skills/<skill>.md` and `.gemini/skills/<skill>.py`
-- For `qwen-3.5`, installer also generates `.qwen/settings.json` with model/context defaults.
-- Markdown content is normalized per target (model-specific hint comments like `codex:` are transformed).
-  - `codex reasoning` is mapped to target-native hints (`copilot reasoning`, `claude thinking`, `qwen reasoning_effort`, `gemini reasoning`).
+---
 
-## Safety model
-- Default mode is `dry-run`.
-- Backup is created before writes under `.code-ai-installer/backups/<target>/<timestamp>/`.
-- State is tracked in `.code-ai-installer/state/<target>.json` for uninstall.
-- Rollback restores previous files on install failure.
-- Optional strict adaptation mode: `--strict-hints` enforces target-hint emission and auto-fills missing hints with target defaults.
+## 🏗️ What Gets Generated?
 
-## Notes
-- Target aliases are accepted: `copilot`, `codex`, `claude`, `qwen`, `google`, `antigravity`.
-- If your AI tool requires a custom location, pass `--destination <path>`.
-- Source templates are resolved automatically: current directory first, bundled package templates second.
-- Template language is selectable via `--lang ru|en` (default: `ru`).
+Depending on the chosen `--target`, `code-ai` restructures your environment intelligently:
 
+1. **Root Orchestration Rules**: Generates `AGENTS.md` (and alias files like `CLAUDE.md`, `CODEX.md`, `GEMINI.md`, etc.).
+2. **Agents**: Copies roles to target-specific directories (e.g., `.gemini/agents/<agent>/prompt.md`, `.github/copilot-instructions.md`).
+3. **Skills & Workflows**: Deploys the necessary execution skillsets and custom workflows specific to the target AI.
+4. **Configuration**: Generates workspace settings (e.g., `.qwen/settings.json`).
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to check out the [issues page](https://github.com/denish12/codex-ai-agent-and-skills/issues).
+
+## 📄 License
+
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.
