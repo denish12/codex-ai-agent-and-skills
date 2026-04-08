@@ -1,9 +1,9 @@
 {
   "name": "fact-checking",
   "display_name": "Факт-чекинг",
-  "description": "Верификация фактов, статистики и утверждений в тексте",
+  "description": "Верификация фактов — типология, иерархия источников, severity, методы проверки, порог PASS/FAIL",
   "default_prompt": "Используй $fact-checking, когда задача относится к навыку \"Факт-чекинг\".",
-  "triggers": ["fact-checking", "Факт-чекинг", "Верификация фактов, статистики и утверждений в тексте"],
+  "triggers": ["fact-checking", "Факт-чекинг", "Верификация фактов — типология, иерархия источников, severity, методы проверки, порог PASS/FAIL"],
   "capabilities": ["fact-checking"],
   "tools": [],
   "implicit_invocation": true

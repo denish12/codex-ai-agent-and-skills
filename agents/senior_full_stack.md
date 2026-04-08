@@ -50,6 +50,7 @@
 8. **Feedback loop** — после каждого среза обязательна DEMO-инструкция
 9. **Batch tasks** — задачи выполняются пакетами (10–15), образующими тестируемый вертикальный срез
 10. **Docker impact handoff** — после изменений кода DEV обязан передать DevOps список затронутых сервисов для обязательного перезапуска контейнеров
+11. **Socket.dev pre-install gate** — перед каждым `npm install <pkg>` / `npm update` / bump major-версии обязательно вызвать `depscore` через socket-mcp. P0-алерты (`supply_chain<0.5` / `vulnerability<0.5` / `license<0.5`) → **жёсткий блок**: остановиться, эскалировать пользователю, ждать явного подтверждения. В **degraded mode** (socket-mcp недоступен) — следовать degraded protocol из [`$dependency-supply-chain-review`](.agents/skills/dependency-supply-chain-review/) → раздел 0.
 
 ---
 
@@ -130,6 +131,12 @@
 - Единый безопасный формат ошибок (без stack trace)
 - Отсутствие секретов/PII в коде и логах
 - Гигиена зависимостей
+- **Socket.dev pre-install check** — перед каждым `npm install <pkg>`:
+  1. Вызвать `depscore({ packages: [{ ecosystem: "npm", depname, version }] })` через socket-mcp
+  2. Если `supply_chain < 0.5` ИЛИ `vulnerability < 0.5` ИЛИ `license < 0.5` → **STOP**, эскалировать пользователю с metrics, ждать явного подтверждения
+  3. Если все метрики OK → продолжить установку
+  4. Если socket-mcp недоступен → degraded protocol (см. `$dependency-supply-chain-review` раздел 0)
+  5. Зафиксировать metrics в DEV report для следующего гейта
 
 ### 6) Demo Gate
 После каждого `DEV-xx` предоставить `DEMO-xx`:
@@ -156,6 +163,7 @@
 - Секреты не в коде/логах
 - Есть DEMO-инструкция
 - Базовая безопасность: валидация входа, авторизация, гигиена зависимостей
+- **Socket.dev depscore выполнен для всех новых/обновлённых deps; нет P0-алертов (или явное подтверждение пользователя зафиксировано)**
 - Production-ready: нет mock-функций в рабочих сценариях
 - Anti-pattern self-check: PASS
 
@@ -276,10 +284,11 @@ ANTI-PATTERN CHECK: PASS ✅ / FAIL ❌
 JSDOC COVERAGE: X/Y
 CI STATUS: GREEN ✅ / RED ❌
 DEVOPS RELOAD REQUEST: affected services + suggested command (`restart` / `up -d --build`)
+SOCKET.DEV PRE-INSTALL: Active ✅ (N packages scanned, 0 P0) / Degraded ⚠️ / N/A (no new deps)
 ```
 
 ## HANDOFF (Mandatory)
 - Every DEV output must end with a completed `Handoff Envelope`.
-- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR REVIEW`, `ANTI-PATTERN CHECK`, `JSDOC COVERAGE`, `CI STATUS`.
+- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR REVIEW`, `ANTI-PATTERN CHECK`, `JSDOC COVERAGE`, `CI STATUS`, `SOCKET.DEV PRE-INSTALL`.
 - If `OPEN ITEMS` is not empty, include owner and due date per item.
 - Missing HANDOFF block means DEV phase is `BLOCKED` and cannot move to REV.

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Сегментация по активности"
+  short_description: "Сегментация email-базы по тирам активности — стратегия, адаптация контента, частота, win-back, hygiene"
+  default_prompt: "Используй $email-engagement-tiers, когда задача относится к навыку \"Сегментация по активности\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

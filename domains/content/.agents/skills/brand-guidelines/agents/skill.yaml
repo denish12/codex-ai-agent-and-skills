@@ -1,12 +1,12 @@
 version: 1
 name: "brand-guidelines"
 display_name: "Гайдлайны бренда"
-description: "Применение и документирование гайдлайнов бренда в контенте"
+description: "Полный гайдлайн бренда — идентичность, визуал, ToV, messaging, юридика, платформенные адаптации, Do/Don't"
 default_prompt: "Используй $brand-guidelines, когда задача относится к навыку \"Гайдлайны бренда\"."
 triggers:
   - "brand-guidelines"
   - "Гайдлайны бренда"
-  - "Применение и документирование гайдлайнов бренда в контенте"
+  - "Полный гайдлайн бренда — идентичность, визуал, ToV, messaging, юридика, платформенные адаптации, Do/Don't"
 capabilities:
   - "brand-guidelines"
 tools: []

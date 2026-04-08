@@ -1,9 +1,9 @@
 {
   "name": "content-release-gate",
   "display_name": "Финальный гейт публикации",
-  "description": "Финальный гейт перед публикацией контента",
+  "description": "Финальный гейт перед публикацией — проверка артефактов, blocker/non-blocker чеклист, пакет публикации, rollback, post-publish",
   "default_prompt": "Используй $content-release-gate, когда задача относится к навыку \"Финальный гейт публикации\".",
-  "triggers": ["content-release-gate", "Финальный гейт публикации", "Финальный гейт перед публикацией контента"],
+  "triggers": ["content-release-gate", "Финальный гейт публикации", "Финальный гейт перед публикацией — проверка артефактов, blocker/non-blocker чеклист, пакет публикации, rollback, post-publish"],
   "capabilities": ["content-release-gate"],
   "tools": [],
   "implicit_invocation": true

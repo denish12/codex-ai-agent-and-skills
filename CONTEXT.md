@@ -4,9 +4,9 @@
 |------|----------|
 | **Название** | code-ai-installer |
 | **Описание** | CLI для установки AI-агентов и скилов для множества AI-ассистентов |
-| **Текущая фаза** | v2.0.0 — Domain System |
+| **Текущая фаза** | v2.1.0 — Socket.dev Supply-Chain Integration |
 | **Дата создания** | 2026-03-01 |
-| **Последнее обновление** | 2026-04-04 |
+| **Последнее обновление** | 2026-04-08 |
 
 ---
 
@@ -78,3 +78,5 @@
 | Session 1 | 2026-04-03 | Gates 0-1: Conductor + PM (PRD) | docs/prd-domains-v1.md, docs/session-1-summary.md |
 | Session 2 | 2026-04-03 | Gates 2-3: UX + ARCH | docs/ux-spec-domains-v1.md, docs/architecture-domains-v1.md, docs/session-2-summary.md |
 | Session 3 | 2026-04-04 | Gates 4-8: DEV + REV + OPS + TEST + RG | src/domainResolver.ts, domains/, package.json v2.0.0 |
+| Hotfix v2.0.2 | 2026-04-08 | Bugfix + защита от регрессии: (1) 30 content-domain скиллов имели расхождения `description` между SKILL.md frontmatter и портабл/вендор sidecar — приведено к SKILL.md (источник истины), 150 файлов обновлено. (2) 4 скилла (`email-engagement-tiers`, `google-stitch-content`, `mailerlite-email-ops`, `marketing-psychology`) шипились без sidecar — сгенерированы 24 файла (skill.yaml + claude/copilot/gemini/qwen.json + openai.yaml). (3) Test gap: единственный test против реальных файлов смотрел только на легаси-корень репо (= development domain), content domain был слепой. Добавлен `metadataAudit.test.ts → "should pass audit for every domain × every target"` — итерируется по `listDomains() × 5 targets`. (4) `package.json prepack` теперь запускает `doctor:all` (`development` + `content`) — `npm publish` не сможет запаковать сломанный пакет. 94/94 теста зелёные, doctor PASS на всех 5 targets без warnings. **Не публиковался отдельно — все изменения вошли в v2.1.0.** | См. v2.1.0 |
+| Feature v2.1.0 | 2026-04-08 | **Socket.dev Supply-Chain Integration**. Bugfix-pipeline (CONDUCTOR → ARCH lite → DEV → REV → TEST) с user sign-off на каждом гейте. Изменения: (1) `dependency-supply-chain-review` skill v2.0 — добавлена секция «0. Prerequisites» с обязательным `socket-mcp` (HTTP по умолчанию, stdio для paid аккаунтов), detection protocol, degraded mode protocol; новая секция «9. Socket.dev Integration» с `depscore` workflow и threshold matrix (supply_chain≥0.75, vulnerability≥0.80, license≥0.50); checklist 3.2 расширен DEP-05a/05b/05c/05d (P0); Output Template обновлён блоком Socket.dev Audit. (2) Reviewer agent: добавлен socket-mcp в Входы, обязательный принцип supply chain через socket.dev в Главные принципы, поле `SOCKET.DEV MODE` в Handoff Envelope. (3) Senior Full Stack agent: новый принцип #11 (pre-install gate), шаг в Security Baseline, новый DoD пункт, поле `SOCKET.DEV PRE-INSTALL` в Handoff Envelope. (4) RU + EN локали зеркальны. (5) 12 sidecar файлов синхронизированы (RU + EN × 6 файлов). (6) Bonus: фиксы из v2.0.2 (sidecar metadata + regression test + prepack:doctor:all) включены в этот же релиз. P0 алерты от socket.dev блокируют установку до явного подтверждения. Degraded mode (socket-mcp недоступен) — review не блокируется, но статус фиксируется. | package.json v2.1.0, domains/development/.agents/skills/dependency-supply-chain-review/**, domains/development/agents/{reviewer,senior_full_stack}.md, domains/content/** (sidecar fixes из v2.0.2), src/__tests__/metadataAudit.test.ts |

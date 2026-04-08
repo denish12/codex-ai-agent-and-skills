@@ -1,12 +1,12 @@
 version: 1
 name: "headline-formulas"
 display_name: "Формулы заголовков"
-description: "Создание заголовков по proven-формулам для максимального CTR"
+description: "Создание заголовков — 15+ формул, Power Words, воронка, платформенная адаптация, scorecard оценки"
 default_prompt: "Используй $headline-formulas, когда задача относится к навыку \"Формулы заголовков\"."
 triggers:
   - "headline-formulas"
   - "Формулы заголовков"
-  - "Создание заголовков по proven-формулам для максимального CTR"
+  - "Создание заголовков — 15+ формул, Power Words, воронка, платформенная адаптация, scorecard оценки"
 capabilities:
   - "headline-formulas"
 tools: []

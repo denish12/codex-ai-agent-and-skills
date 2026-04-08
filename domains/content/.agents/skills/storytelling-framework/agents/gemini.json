@@ -1,9 +1,9 @@
 {
   "name": "storytelling-framework",
   "display_name": "Фреймворк сторителлинга",
-  "description": "Построение нарратива контента по proven-frameworks",
+  "description": "Фреймворки сторителлинга — 10 frameworks, Decision Tree, emotional arc, платформенная адаптация, примеры",
   "default_prompt": "Используй $storytelling-framework, когда задача относится к навыку \"Фреймворк сторителлинга\".",
-  "triggers": ["storytelling-framework", "Фреймворк сторителлинга", "Построение нарратива контента по proven-frameworks"],
+  "triggers": ["storytelling-framework", "Фреймворк сторителлинга", "Фреймворки сторителлинга — 10 frameworks, Decision Tree, emotional arc, платформенная адаптация, примеры"],
   "capabilities": ["storytelling-framework"],
   "tools": [],
   "implicit_invocation": true

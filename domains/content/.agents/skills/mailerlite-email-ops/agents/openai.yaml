@@ -1,0 +1,8 @@
+interface:
+  display_name: "Операции через MailerLite MCP"
+  short_description: "Управление email через MailerLite MCP — подписчики, сегменты, кампании, автоматизации, аналитика. Прямая работа через MCP-tools"
+  default_prompt: "Используй $mailerlite-email-ops, когда задача относится к навыку \"Операции через MailerLite MCP\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

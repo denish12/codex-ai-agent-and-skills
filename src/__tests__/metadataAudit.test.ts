@@ -4,9 +4,18 @@ import fs from "fs-extra";
 import { describe, expect, it, beforeEach, afterEach } from "vitest";
 import { auditMetadataLayer } from "../metadataAudit.js";
 import { loadSourceCatalog } from "../catalog.js";
-import type { SourceCatalog } from "../types.js";
+import { listDomains, resolveDomainSourceRoot } from "../domainResolver.js";
+import type { SourceCatalog, TargetId } from "../types.js";
 
 const projectRoot = path.resolve(__dirname, "..", "..");
+
+const ALL_TARGETS: TargetId[] = [
+  "claude",
+  "gpt-codex",
+  "qwen-3.5",
+  "vscode-copilot",
+  "google-antugravity",
+];
 
 describe("metadata audit", () => {
   it("should keep skill names aligned with folder names for gpt-codex", async () => {
@@ -14,6 +23,35 @@ describe("metadata audit", () => {
     const result = await auditMetadataLayer(projectRoot, catalog, "gpt-codex");
 
     expect(result.errors).toEqual([]);
+  });
+
+  // Regression guard for v2.0.2: the legacy single-root test above only covers
+  // the development domain (mirrored at repo root). When v2.0.0 introduced the
+  // domains/ layout, the content domain became invisible to tests, and 30
+  // skills shipped in v2.0.1 with description mismatches between SKILL.md
+  // frontmatter and skill.yaml/vendor sidecars. This test audits every domain
+  // discovered under domains/ against every supported target.
+  it("should pass audit for every domain × every target (ru locale)", async () => {
+    const domains = await listDomains(projectRoot);
+    expect(domains.length, "domains/ must contain at least one domain").toBeGreaterThan(0);
+
+    const failures: string[] = [];
+    for (const domain of domains) {
+      const sourceRoot = await resolveDomainSourceRoot({
+        packageRoot: projectRoot,
+        domainId: domain.id,
+        language: "ru",
+      });
+      const catalog = await loadSourceCatalog(sourceRoot);
+      for (const target of ALL_TARGETS) {
+        const result = await auditMetadataLayer(sourceRoot, catalog, target);
+        if (result.errors.length > 0) {
+          failures.push(`[${domain.id} / ${target}]\n  ${result.errors.join("\n  ")}`);
+        }
+      }
+    }
+
+    expect(failures, `\n${failures.join("\n\n")}`).toEqual([]);
   });
 
   describe("YAML parsing via yaml package", () => {

@@ -1,12 +1,12 @@
 version: 1
 name: "email-copywriting"
 display_name: "Email-копирайтинг"
-description: "Структура и копирайтинг для email-рассылок с высоким open rate и CTR"
+description: "Email-копирайтинг — типы писем, формулы subject line, структуры по типам, последовательности, технические требования, юридика"
 default_prompt: "Используй $email-copywriting, когда задача относится к навыку \"Email-копирайтинг\"."
 triggers:
   - "email-copywriting"
   - "Email-копирайтинг"
-  - "Структура и копирайтинг для email-рассылок с высоким open rate и CTR"
+  - "Email-копирайтинг — типы писем, формулы subject line, структуры по типам, последовательности, технические требования, юридика"
 capabilities:
   - "email-copywriting"
 tools: []

@@ -1,0 +1,20 @@
+version: 1
+name: "marketing-psychology"
+display_name: "Психология маркетинга"
+description: "Поведенческая наука и ментальные модели для маркетинговых решений — психологические триггеры с scoring по leverage и feasibility"
+default_prompt: "Используй $marketing-psychology, когда задача относится к навыку \"Психология маркетинга\"."
+triggers:
+  - "marketing-psychology"
+  - "Психология маркетинга"
+  - "Поведенческая наука и ментальные модели для маркетинговых решений — психологические триггеры с scoring по leverage и feasibility"
+capabilities:
+  - "marketing-psychology"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,6 +1,6 @@
 {
   "name": "code-ai-installer",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Production-ready CLI to install code-ai agents and skills for multiple AI coding assistants.",
   "license": "MIT",
   "author": "Denis Harchenko",
@@ -35,7 +35,8 @@
     "dev": "tsx src/index.ts",
     "lint": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run",
-    "prepack": "npm run clean && npm run build"
+    "doctor:all": "node dist/index.js doctor --target claude --domain development && node dist/index.js doctor --target claude --domain content",
+    "prepack": "npm run clean && npm run build && npm run doctor:all"
   },
   "engines": {
     "node": ">=20"

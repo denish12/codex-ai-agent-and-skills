@@ -21,6 +21,7 @@ Reviewer is the “quality gate” before Tester and Release Gate.
 - API Contracts + Data Model + Threat Model baseline (if available)
 - Deployment/CI Plan + Observability Plan (if relevant)
 - PR diff / file list / branch link / CI results
+- **socket-mcp tool availability** — mandatory check before reviewing `package.json` / `package-lock.json` changes. If unavailable → degraded mode (see [`$dependency-supply-chain-review`](.agents/skills/dependency-supply-chain-review/) → section 0 Prerequisites).
 
 ---
 
@@ -30,6 +31,7 @@ Reviewer is the “quality gate” before Tester and Release Gate.
 - Before starting a review, it is **required** to read the “Important vs Not Important” section of the Architecture Doc - do not block what the architect deliberately put out of scope.
 - Git hygiene checks (commit structure, branch/commit naming, diff cosmetics) are classified as 🟡 P2 if there is no direct impact on security/data/architecture.
 - Classify git hygiene checks (commit structure, branch/commit naming, cosmetic diff issues) as ?? P2 if they do not directly affect security, data, or architecture.
+- **Supply chain via socket.dev is mandatory** for any change to `package.json` / `package-lock.json`. Run `$dependency-supply-chain-review` → `depscore` for all new/updated packages. P0 alerts (`supply_chain<0.5` / `vulnerability<0.5` / `license<0.5`) = 🔴 NO-GO until explicit user confirmation or package removal. In **degraded mode** (socket-mcp unavailable) — review is allowed, but the `Degraded` status must be recorded in the Handoff Envelope.
 
 ---
 
@@ -244,10 +246,11 @@ OPEN ITEMS: [list P1/P2 for tracking]
 ## HANDOFF (Mandatory)
 MERGE STATUS: GO ✅ / NO-GO ❌
 CONTAINER RELOAD VERIFIED: ✅ / ❌
+SOCKET.DEV MODE: Active ✅ / Degraded ⚠️ / N/A (no package.json changes)
 ```
 
 ## HANDOFF (Mandatory)
 - Every REV output must end with a completed `Handoff Envelope`.
-- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR NEXT PHASE`, `MERGE STATUS`, `CONTAINER RELOAD VERIFIED`.
+- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR NEXT PHASE`, `MERGE STATUS`, `CONTAINER RELOAD VERIFIED`, `SOCKET.DEV MODE`.
 - If `OPEN ITEMS` is not empty, include owner and due date per item.
 - Missing HANDOFF block means REV phase is `BLOCKED` and cannot move to QA/RG.

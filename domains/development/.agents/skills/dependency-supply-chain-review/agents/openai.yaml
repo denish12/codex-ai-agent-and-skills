@@ -1,6 +1,6 @@
 interface:
   display_name: "Проверка зависимостей и цепочки поставок"
-  short_description: "Ревью зависимостей — минимизация, обновления, аудит уязвимостей, лицензии, запрет небезопасных…"
+  short_description: "Ревью зависимостей с socket.dev MCP (depscore) — supply chain, vulnerability, лицензии. P0 блок."
   default_prompt: "Используй $dependency-supply-chain-review, когда задача относится к навыку \"Проверка зависимостей и цепочки поставок\"."
 dependencies:
   tools: []

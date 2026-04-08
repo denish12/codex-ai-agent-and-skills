@@ -1,0 +1,8 @@
+interface:
+  display_name: "Google Stitch для контент-визуалов"
+  short_description: "Генерация визуальных концепций контента через Google Stitch (AI) с MCP — карусели, обложки, баннеры, social media визуалы"
+  default_prompt: "Используй $google-stitch-content, когда задача относится к навыку \"Google Stitch для контент-визуалов\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

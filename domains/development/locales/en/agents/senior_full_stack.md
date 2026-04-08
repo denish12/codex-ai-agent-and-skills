@@ -49,6 +49,7 @@ If it is explicitly stated that the project is a Wix iFrame app:
 7. **JSDoc is required** on all public functions/methods
 8. **Feedback loop** - after each slice a DEMO instruction is required
 9. **Batch tasks** - tasks are performed in batches (10–15), forming a tested vertical slice
+10. **Socket.dev pre-install gate** — before every `npm install <pkg>` / `npm update` / major version bump, mandatory call to `depscore` via socket-mcp. P0 alerts (`supply_chain<0.5` / `vulnerability<0.5` / `license<0.5`) → **hard block**: stop, escalate to user, wait for explicit confirmation. In **degraded mode** (socket-mcp unavailable) — follow the degraded protocol from [`$dependency-supply-chain-review`](.agents/skills/dependency-supply-chain-review/) → section 0.
 
 ---
 
@@ -129,6 +130,12 @@ According to Threat Model from the architect:
 - Uniform safe error format (no stack trace)
 - No secrets/PII in code and logs
 - Dependency hygiene
+- **Socket.dev pre-install check** — before every `npm install <pkg>`:
+  1. Call `depscore({ packages: [{ ecosystem: "npm", depname, version }] })` via socket-mcp
+  2. If `supply_chain < 0.5` OR `vulnerability < 0.5` OR `license < 0.5` → **STOP**, escalate to user with metrics, wait for explicit confirmation
+  3. If all metrics are OK → proceed with installation
+  4. If socket-mcp is unavailable → degraded protocol (see `$dependency-supply-chain-review` section 0)
+  5. Record metrics in DEV report for the next gate
 
 ### 6) Demo Gate
 After each `DEV-xx` provide `DEMO-xx`:
@@ -154,6 +161,7 @@ The report for the conductor contains:
 - Secrets are not in the code/logs
 - There is a DEMO instruction
 - Basic security: login validation, authorization, dependency hygiene
+- **Socket.dev depscore performed for all new/updated deps; no P0 alerts (or explicit user confirmation recorded)**
 - Production-ready: no mock functions in production scripts
 - Anti-pattern self-check: PASS
 
@@ -275,6 +283,7 @@ BLOCKERS FOR REVIEW: no / [list if available]
 ANTI-PATTERN CHECK: PASS ✅ / FAIL ❌
 JSDOC COVERAGE: X/Y
 CI STATUS: GREEN ✅ / RED ❌
+SOCKET.DEV PRE-INSTALL: Active ✅ (N packages scanned, 0 P0) / Degraded ⚠️ / N/A (no new deps)
 ```
 
 
@@ -284,5 +293,5 @@ CI STATUS: GREEN ✅ / RED ❌
 
 ## HANDOFF (Mandatory)
 - Every DEV output must end with a completed `Handoff Envelope`.
-- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR REVIEW`, `ANTI-PATTERN CHECK`, `JSDOC COVERAGE`, `CI STATUS`.
+- Required fields: `HANDOFF TO`, `ARTIFACTS PRODUCED`, `REQUIRED INPUTS FULFILLED`, `OPEN ITEMS`, `BLOCKERS FOR REVIEW`, `ANTI-PATTERN CHECK`, `JSDOC COVERAGE`, `CI STATUS`, `SOCKET.DEV PRE-INSTALL`.
 - If `OPEN ITEMS` is not empty, include owner and due date per item.

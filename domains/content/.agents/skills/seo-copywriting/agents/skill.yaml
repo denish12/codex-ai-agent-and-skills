@@ -1,12 +1,12 @@
 version: 1
 name: "seo-copywriting"
 display_name: "SEO-копирайтинг"
-description: "SEO-оптимизация текста: ключевые слова, структура, мета-теги"
+description: "SEO-копирайтинг — SERP-анализ, E-E-A-T, Featured Snippets, internal linking, schema markup, оптимизация изображений"
 default_prompt: "Используй $seo-copywriting, когда задача относится к навыку \"SEO-копирайтинг\"."
 triggers:
   - "seo-copywriting"
   - "SEO-копирайтинг"
-  - "SEO-оптимизация текста: ключевые слова, структура, мета-теги"
+  - "SEO-копирайтинг — SERP-анализ, E-E-A-T, Featured Snippets, internal linking, schema markup, оптимизация изображений"
 capabilities:
   - "seo-copywriting"
 tools: []

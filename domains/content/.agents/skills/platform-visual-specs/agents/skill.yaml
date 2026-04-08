@@ -1,12 +1,12 @@
 version: 1
 name: "platform-visual-specs"
 display_name: "Спецификации визуалов"
-description: "Технические спецификации визуалов по платформам: размеры, форматы, ограничения"
+description: "Полный справочник визуальных спецификаций — фото, видео, рекламные форматы, safe zones, accessibility, dark mode"
 default_prompt: "Используй $platform-visual-specs, когда задача относится к навыку \"Спецификации визуалов\"."
 triggers:
   - "platform-visual-specs"
   - "Спецификации визуалов"
-  - "Технические спецификации визуалов по платформам: размеры, форматы, ограничения"
+  - "Полный справочник визуальных спецификаций — фото, видео, рекламные форматы, safe zones, accessibility, dark mode"
 capabilities:
   - "platform-visual-specs"
 tools: []

@@ -1,0 +1,16 @@
+{
+  "name": "email-engagement-tiers",
+  "display_name": "Сегментация по активности",
+  "description": "Сегментация email-базы по тирам активности — стратегия, адаптация контента, частота, win-back, hygiene",
+  "default_prompt": "Используй $email-engagement-tiers, когда задача относится к навыку \"Сегментация по активности\".",
+  "triggers": [
+    "email-engagement-tiers",
+    "Сегментация по активности",
+    "Сегментация email-базы по тирам активности — стратегия, адаптация контента, частота, win-back, hygiene"
+  ],
+  "capabilities": [
+    "email-engagement-tiers"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

@@ -1,12 +1,12 @@
 version: 1
 name: "image-prompt-engineering"
 display_name: "Промпт-инженерия для изображений"
-description: "Создание точных промптов для AI-генерации изображений (Midjourney, DALL-E, Stable Diffusion)"
+description: "Промпт-инженерия для AI-изображений — шаблоны по инструментам, библиотека стилей, композиция, бренд-палитра, workaround'ы артефактов"
 default_prompt: "Используй $image-prompt-engineering, когда задача относится к навыку \"Промпт-инженерия для изображений\"."
 triggers:
   - "image-prompt-engineering"
   - "Промпт-инженерия для изображений"
-  - "Создание точных промптов для AI-генерации изображений (Midjourney, DALL-E, Stable Diffusion)"
+  - "Промпт-инженерия для AI-изображений — шаблоны по инструментам, библиотека стилей, композиция, бренд-палитра, workaround'ы артефактов"
 capabilities:
   - "image-prompt-engineering"
 tools: []

@@ -1,0 +1,20 @@
+version: 1
+name: "mailerlite-email-ops"
+display_name: "Операции через MailerLite MCP"
+description: "Управление email через MailerLite MCP — подписчики, сегменты, кампании, автоматизации, аналитика. Прямая работа через MCP-tools"
+default_prompt: "Используй $mailerlite-email-ops, когда задача относится к навыку \"Операции через MailerLite MCP\"."
+triggers:
+  - "mailerlite-email-ops"
+  - "Операции через MailerLite MCP"
+  - "Управление email через MailerLite MCP — подписчики, сегменты, кампании, автоматизации, аналитика. Прямая работа через MCP-tools"
+capabilities:
+  - "mailerlite-email-ops"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"
