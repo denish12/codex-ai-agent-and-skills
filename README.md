@@ -24,6 +24,17 @@
 
 ---
 
+## 🏛️ Domain Architecture
+
+Code-AI Installer comes pre-bundled with dedicated professional systems separated by **Domains** to cleanly isolate workflows based on your project needs. You can choose which domain to deploy during installation:
+
+- 💻 **Software Development Domain** (`development`): An 8-gate robust agentic pipeline tailored for end-to-end web app development. Includes roles like Product Manager, UX/UI Designer, Architect, Senior Full Stack Developer, Reviewer, DevOps, and QA Tester.
+- 📝 **Content Production Domain** (`content`): A creative pipeline dedicated to producing digital content (social media, blogs, visuals). Orchestrates roles such as Content Strategist, Copywriter, Researcher, and Visual Concept Designer.
+
+*(You can select your target domain during the interactive installation process!)*
+
+---
+
 ## 🎯 Supported AI Targets
 
 - `vscode-copilot` / `copilot`
