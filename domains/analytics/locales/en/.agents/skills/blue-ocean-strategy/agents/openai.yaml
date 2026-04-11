@@ -1,0 +1,8 @@
+interface:
+  display_name: "Blue Ocean Strategy"
+  short_description: "Strategy canvas analysis — ERRC framework, value curve, three tiers of noncustomers"
+  default_prompt: "Use $blue-ocean-strategy when the task relates to the \"Blue Ocean Strategy\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

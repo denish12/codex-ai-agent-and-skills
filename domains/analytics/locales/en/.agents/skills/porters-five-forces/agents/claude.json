@@ -1,0 +1,18 @@
+{
+  "name": "porters-five-forces",
+  "display_name": "Porter's Five Forces",
+  "description": "Industry competitive forces analysis — threat of new entrants, bargaining power of suppliers and buyers, threat of substitutes, industry rivalry",
+  "default_prompt": "Use $porters-five-forces when the task relates to the \"Porter's Five Forces\" skill.",
+  "triggers": [
+    "porters-five-forces",
+    "porter",
+    "5 forces",
+    "porter's five forces",
+    "competitive forces"
+  ],
+  "capabilities": [
+    "porters-five-forces"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

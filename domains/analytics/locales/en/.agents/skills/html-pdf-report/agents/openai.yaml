@@ -1,0 +1,8 @@
+interface:
+  display_name: "HTML/PDF Report"
+  short_description: "Generation of a self-contained HTML report for PDF printing — CSS print layout, Chart.js, Mermaid"
+  default_prompt: "Use $html-pdf-report when the task relates to the \"HTML/PDF Report\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

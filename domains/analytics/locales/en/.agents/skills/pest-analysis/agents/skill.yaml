@@ -1,0 +1,29 @@
+version: 1
+name: "pest-analysis"
+display_name: "PEST/PESTEL Analysis"
+description: "Macro-environment analysis — political, economic, social, technological, environmental, and legal factors"
+default_prompt: "Use $pest-analysis when the task relates to the \"PEST/PESTEL Analysis\" skill."
+triggers:
+  - "PEST"
+  - "PESTEL"
+  - "macro analysis"
+  - "PEST"
+  - "PESTEL"
+  - "macro analysis"
+  - "PEST"
+  - "PESTEL"
+  - "macro analysis"
+  - "pest-analysis"
+  - "PEST"
+  - "PESTEL"
+capabilities:
+  - "pest-analysis"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,0 +1,22 @@
+version: 1
+name: "web-research"
+display_name: "Web Research and Data Verification"
+description: "Mandatory web research and data verification — search protocol, cross-checking, source audit"
+default_prompt: "Use $web-research when the task relates to the \"Web Research and Data Verification\" skill."
+triggers:
+  - "Web research and data verification"
+  - "Mandatory web research and data verification — search protocol, cross-checking, source audit"
+  - "Web research and data verification"
+  - "Web research and data verification"
+  - "web-research"
+capabilities:
+  - "web-research"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

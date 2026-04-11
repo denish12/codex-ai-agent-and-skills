@@ -1,0 +1,8 @@
+interface:
+  display_name: "Next Session Prompt Generation"
+  short_description: "Generation of the prompt for the next session — context gathering, prompt formulation, progress saving"
+  default_prompt: "Use $session-prompt-generator when the task relates to the \"Next Session Prompt Generation\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

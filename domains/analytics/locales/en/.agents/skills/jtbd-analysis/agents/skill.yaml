@@ -1,0 +1,26 @@
+version: 1
+name: "jtbd-analysis"
+display_name: "Jobs To Be Done"
+description: "Analysis of customer jobs — functional, emotional, social jobs, and opportunity score"
+default_prompt: "Use $jtbd-analysis when the task relates to the \"Jobs To Be Done\" skill."
+triggers:
+  - "customer jobs"
+  - "jobs to be done"
+  - "customer jobs"
+  - "jobs to be done"
+  - "customer jobs"
+  - "jobs to be done"
+  - "jtbd-analysis"
+  - "JTBD"
+  - "Jobs To Be Done"
+capabilities:
+  - "jtbd-analysis"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,67 +1,87 @@
 ---
 name: handoff
-description: Context transfer between gates and sessions — Handoff Envelope, cross-session protocol, file generation
+description: Context transfer between gates and sessions — Handoff Envelope, inter-session protocol, file generation
 ---
 # Handoff — Context Transfer Between Gates and Sessions
 
-## When to Use
-- At **every transition** between gates within a session — standard transfer (intra-session handoff).
-- At **session completion** — cross-session transfer (multi-session handoff), saved to file.
-- At **return for rework** — reverse transfer (reverse handoff).
-- **Mandatory** at every transition, in any pipeline mode. No exceptions.
+## When to use
+- At **each transition** between gates within a session — standard transfer (intra-session handoff).
+- Upon **session completion** — inter-session transfer (multi-session handoff), saving to a file.
+- Upon **return for revision** — reverse transfer (reverse handoff).
+- **Mandatory** at every transition, in any pipeline mode. Without exceptions.
 
-> **Distinction:** `$gates` verifies readiness. `$handoff` transfers the work. `$board` tracks status. Order: `$gates` PASS → `$handoff` → update `$board`.
+> **Distinction:** `$gates` checks readiness. `$handoff` transfers work. `$board` tracks status. Sequence: `$gates` PASS → `$handoff` → update `$board`.
 
 ## Input
 
 | Field | Required | Description |
 |-------|:--------:|-------------|
-| `$gates` result | ✅ | PASS or CONDITIONAL PASS — handoff is impossible on FAIL |
-| Sending agent | ✅ | Who is handing off (current gate with ID) |
-| Receiving agent | ✅ | Who receives (next gate with ID) |
-| Gate artifacts | ✅ | Current gate deliverables (from `$gates` registry) |
-| Pipeline mode | ✅ | Full (`/analyze`) / Quick (`/quick-insight`) |
-| Handoff type | ✅ | Forward / Reverse / Session (cross-session) |
-| Session number | ⬚ | For cross-session handoff — current and next session |
+| Result of `$gates` | ✅ | PASS or CONDITIONAL PASS — handoff is impossible on FAIL |
+| Sending Agent | ✅ | Who is transferring (current gate with ID) |
+| Receiving Agent | ✅ | To whom it is transferred (next gate with ID) |
+| Gate Artifacts | ✅ | Deliverables of the current gate (from `$gates` registry) |
+| Pipeline Mode | ✅ | Full (`/analyze`) / Quick (`/quick-insight`) |
+| Handoff Type | ✅ | Forward / Reverse / Session (inter-session) |
+| Session Number | ⬚ | For inter-session handoff — current and next session |
 
-> **Precondition:** Handoff is possible **only** after `$gates` PASS or CONDITIONAL PASS. On FAIL — return to agent, handoff is not executed.
+> **Precondition:** Handoff is possible **only** after a `$gates` PASS or CONDITIONAL PASS. On FAIL — return to agent, handoff is not performed.
+
+### Connection with other skills
+| Skill | Interaction | When |
+|-------|-------------|------|
+| `$gates` | Precondition: PASS / CONDITIONAL PASS → allows handoff. Gate check is attached to the envelope | Before every handoff |
+| `$board` | After handoff: update gate statuses (current → `[✓]`, next → `[→]`) | After every handoff |
+| `$session-prompt-generator` | For Session handoff: generation of the next session's prompt, included in the file | Upon session completion |
+| Framework skills | Framework artifacts (filled templates) — a part of the deliverables of AN-xx gates | Upon transfer from Data Analyst |
 
 ## Handoff Types
 
-| Type | Description | File | Next recipient's context |
-|------|------------|------|--------------------------|
-| **Forward** | Standard transfer between gates within a session | None (in memory) | Full session context available |
-| **Reverse** | Return for rework | None (in memory) | Full session context available |
-| **Session** | Cross-session transfer | `docs/analytics/session-N-handoff.md` | **ZERO** previous context — file must be self-contained |
+| Type | Description | File | Next Recipient's Context |
+|------|-------------|------|--------------------------|
+| **Forward** | Standard transfer between gates within a session | None (in memory) | Full session context is available |
+| **Reverse** | Return for revision | None (in memory) | Full session context is available |
+| **Session** | Inter-session transfer | `docs/analytics/session-N-handoff.md` | **ZERO** previous context — the file must be self-sufficient |
 
-> **Key rule for cross-session handoff:** the next session starts with ZERO context. The handoff file is the only source of information. No references to "see above" or "as discussed". Everything must be in the file.
+> **Key rule for inter-session handoff:** the next session starts with ZERO context. The handoff file is the sole source of information. No links referring to "see above" or "as discussed". Everything must be in the file.
 
-## Transfer Registry — What to Transfer
+## Transfer Registry — what to transfer
 
 ### Full Pipeline (inter-gate)
 
 | Transition | Artifacts | Key Context |
-|-----------|-----------|-------------|
-| **COND-01 → INT-01** | Task scope, mode, board | Business question, constraints, expectations |
-| **INT-01 → Session Handoff** | Research brief, interview context, evaluation mode | All user responses, selected metrics |
-| **COND-02 → RES-01** | Session-1 handoff, research brief | Full interview context, research questions |
+|------------|-----------|-------------|
+| **COND-01 → INT-01** | Task scope, mode, board | Business question, limitations, expectations |
+| **INT-01 → Session Handoff** | Research brief, interview context, assessment mode | All user answers, selected metrics |
+| **COND-02 → RES-01** | Session-1 handoff, research brief | Full context from the interview, questions for research |
 | **RES-01 → AN-01** | Data, sources, facts | Verified data with URLs and dates |
 | **AN-01 → ST-01** | Frameworks, analysis, patterns | Methodology, key insights |
-| **ST-01 → Session Handoff** | Strategy, recommendations | Complete Analyst team package for Critics and Mediator |
-| **COND-03 → RES-02** | Session-2 handoff, Analyst results | Data for critique and alternative research |
-| **RES-02 → AN-02** | Alternative data, critique | Counter-data with sources |
-| **AN-02 → ST-02** | Alternative analysis | Counter-frameworks, differences from Analysts |
-| **ST-02 → Session Handoff** | Alternative strategy, critique | Complete Critic team package |
+| **ST-01 → Session Handoff** | Strategy, recommendations | Full Analysts' package for Critics and Mediator |
+| **COND-03 → RES-02** | Session-2 handoff, Analysts' results | Data for criticism and alternative research |
+| **RES-02 → AN-02** | Alternative data, criticism | Counter-data with sources |
+| **AN-02 → ST-02** | Alternative analysis | Counter-frameworks, differences with Analysts |
+| **ST-02 → Session Handoff** | Alternative strategy, criticism | Full Critics' package |
 | **COND-04 → MED-01** | Session-2 + Session-3 handoff | Both packages (Analysts + Critics) |
-| **MED-01 → Session Handoff** | Final conclusion, scores | Final verdict, justification |
-| **COND-05 → DS-01** | Session-4 handoff | Mediator conclusion for visualization |
-| **DS-01 → LY-01** | Layout, visualization specifications | Report structure, palette, fonts |
+| **MED-01 → Session Handoff** | Final conclusion, evaluations | Final verdict, justification |
+| **COND-05 → DS-01** | Session-4 handoff | Mediator's conclusion for visualization |
+| **DS-01 → LY-01** | Layout, visualization specs | Report structure, palette, fonts |
 
-## Cross-Session Handoff (Session)
+### Quick Pipeline (inter-gate)
+
+| Transition | Artifacts | Key Context |
+|------------|-----------|-------------|
+| **COND-01 → INT-01** | Task scope, mode, board | Business question, limitations |
+| **INT-01 → RES-01** | Research brief, assessment mode | Questions for research, metrics |
+| **RES-01 → AN-01** | Data, sources, facts | Verified data with URLs and dates |
+| **AN-01 → ST-01** | Frameworks, analysis, patterns | Methodology, insights |
+| **ST-01 → MED-01** | Strategy, recommendations | Conclusions and recommendations (without competing team) |
+| **MED-01 → DS-01** | Final conclusion | Final verdict for visualization |
+| **DS-01 → LY-01** | Layout, specifications | Report structure, palette |
+
+## Inter-session Handoff (Session)
 
 ### File Structure `docs/analytics/session-N-handoff.md`
 
-The file contains **all** necessary context. No references, no abbreviations.
+The file contains the **entire** necessary context. No links, no abbreviations.
 
 ```markdown
 # Session [N] Handoff — [Project Name]
@@ -69,18 +89,21 @@ The file contains **all** necessary context. No references, no abbreviations.
 ## Meta
 - **Project:** [Name]
 - **Date:** [YYYY-MM-DD]
-- **Session:** [N] of [M]
+- **Session:** [N] out of [M]
 - **Mode:** Full / Quick
-- **Completed gates:** [list of IDs with deliverables]
-- **Next gate:** [ID] [Name]
+- **Completed Gates:** [list of IDs with deliverables]
+- **Next Gate:** [ID] [Name]
 
 ## Brief Summary
-[2-3 sentences: what was done in this session, key result]
+[2-3 sentences: what was done in this session, the key result]
 
-## Full Artifact Contents
+## Board State ($board)
+[Full copy of the board table in its current state + progress metrics]
+
+## Full Content of Artifacts
 
 ### [Artifact 1 — Name]
-[FULL TEXT of the artifact, not a link or brief description]
+[FULL TEXT of the artifact, not a link and not a brief description]
 
 ### [Artifact 2 — Name]
 [FULL TEXT of the artifact]
@@ -88,105 +111,192 @@ The file contains **all** necessary context. No references, no abbreviations.
 ### [Artifact N — ...]
 [FULL TEXT]
 
+## Decisions and Context
+| # | Decision | Justification | Decided by | Affects |
+|---|----------|---------------|------------|---------|
+| 1 | [What was decided] | [Why] | [User / Conductor] | [Which gates] |
+
+## Open Questions and Blockers
+| # | Question / Blocker | Severity | For which gate | Status |
+|---|--------------------|:--------:|:--------------:|--------|
+| 1 | [Description] | 🔴/🟡/🟢 | [Gate ID] | Open / Resolved |
+
 ## Cumulative Index
 | Session | Gates | Key Artifacts | File |
 |---------|-------|---------------|------|
 | 1 | COND-01, INT-01 | Research brief, interview context | session-1-handoff.md |
-| 2 | RES-01, AN-01, ST-01 | Data, analysis, Analyst strategy | session-2-handoff.md |
+| 2 | RES-01, AN-01, ST-01 | Data, analysis, Analysts' strategy | session-2-handoff.md |
 | [N] | [...] | [...] | session-N-handoff.md |
 
 ## Prompt for the Next Session
 [Generated via $session-prompt-generator — ready-to-paste prompt]
 
 ## Verification Checklist
-- [ ] All artifacts included in full (not as links)
-- [ ] Cumulative index is current
-- [ ] Prompt for the next session generated
-- [ ] Task board ($board) saved in current state
-- [ ] Open questions / blockers recorded
+- [ ] All artifacts are included entirely (not via links)
+- [ ] Requirements board ($board) is saved in its current state
+- [ ] Decisions and context are documented
+- [ ] Open questions / blockers are documented
+- [ ] Cumulative index is up-to-date
+- [ ] Prompt for the next session is generated
+- [ ] The file is self-sufficient — test: can be read without ANY previous context
 ```
+
+### Recovery Protocol (corrupted / incomplete handoff)
+
+Upon loading a session handoff in a new session — the Conductor performs a verification:
+
+| Check | Action upon failure |
+|-------|---------------------|
+| File not found | Request path from the user or recreate from the previous session's memory |
+| Artifacts incomplete (links present instead of content) | Mark as ⚠️, request missing items from the user |
+| Cumulative index does not match the content | Rebuild the index from the actual file contents |
+| Prompt is missing | Generate via `$session-prompt-generator` |
+| Board is missing | Restore from the cumulative index + artifacts |
+
+> For any recovery — explicitly notify the user that the handoff was incomplete and what has been restored.
 
 ## Reverse Handoff
 
-### When It Occurs
+### When it occurs
 - `$gates` — FAIL.
-- Mediator discovered critical data discrepancies.
-- User requested rework.
-- Next gate discovered an issue with a previous gate's artifact.
+- Mediator found critical discrepancies in data.
+- User requested a revision.
+- Next gate found an issue with the previous one's artifact.
 
-### Reverse Handoff Protocol
-1. Specify the **reason for return** — specific gaps / remarks.
-2. Specify **what exactly to rework** — not "redo it" but "verify source X: data from 2023, current 2025 data needed".
-3. Specify **what NOT to touch** — what is already approved and doesn't need changes.
-4. Update `$board` — receiving gate → `[↩] Returned`, sending gate → `[→] In Progress`.
-5. After rework — repeat `$gates` check → forward handoff.
+### Reverse handoff protocol
+1. Indicate the **reason for return** — specific gaps / remarks.
+2. Indicate **what exactly to revise** — not "redo", but "check source X: data is from 2023, need current data for 2025".
+3. Indicate **what NOT to touch** — what is already approved and needs no changes.
+4. Update `$board` — receiving gate → `[↩] Return`, sending gate → `[→] In Progress`.
+5. After revision — repeat `$gates` check → forward handoff.
+
+## Receive Acknowledgement
+
+Upon receiving a handoff, the receiving agent must:
+
+1. **Acknowledge loading:** "Handoff from [ID] received, [N] artifacts loaded".
+2. **List what was received:** a list of artifacts with a brief description.
+3. **Note the gaps:** if CONDITIONAL PASS — explicitly list the received gaps.
+4. **Log issues:** if an artifact is incomplete or unclear — ask for clarification before starting work (do not guess).
+
+> The Acknowledge is embedded at the start of the next gate's work. It is not a separate step, but the first paragraph of the deliverable.
 
 ## Protocol
 
-### Step 0 — Determine Handoff Type
-1. Forward (within session), Reverse (return), Session (cross-session).
-2. For Session — determine file path: `docs/analytics/session-N-handoff.md`.
+### Step 0 — Determine handoff type
+1. Forward (intra-session), Reverse (return), Session (inter-session).
+2. For Session — define file path: `docs/analytics/session-N-handoff.md`.
 
 ### Step 1 — Preconditions
-1. Ensure `$gates` gave PASS or CONDITIONAL PASS (except for Reverse).
-2. Determine the receiving agent from the registry.
+1. Ensure `$gates` gave a PASS or CONDITIONAL PASS (except Reverse).
+2. Determine receiving agent by the registry.
 3. Collect all artifacts from the transfer registry.
 
-### Step 2 — Compose the Envelope
-1. For Forward: fill in the standard envelope template.
-2. For Session: fill in the file template, include FULL artifact contents.
-3. For Reverse: fill in the reverse envelope with gaps.
-4. For CONDITIONAL PASS — explicitly indicate the gaps being transferred.
+### Step 2 — Envelope formation
+1. For Forward: fill out the standard envelope template.
+2. For Session: fill out the file template, include FULL content of artifacts.
+3. For Reverse: fill out the reverse envelope with gaps.
+4. For CONDITIONAL PASS — explicitly state the gaps that are being transferred.
 
-### Step 3 — User Sign-off
+### Step 3 — User sign-off
 1. Show the envelope to the user.
-2. Await explicit **"Approved"**.
-3. Do not proceed without Approved. No exceptions.
+2. Wait for an explicit **"Approved"**.
+3. Do not proceed without an Approved. Without exceptions.
 
-### Step 4 — Save and Activate
+### Step 4 — Save and activate
 1. For Session: save the file to `docs/analytics/session-N-handoff.md`.
-2. Update `$board`: current gate → `[✓] Completed`, next → `[→] In Progress`.
-3. Add an entry to the transfer log.
-4. For Session: call `$session-prompt-generator` to generate the prompt.
+2. Update `$board`: current gate → `[✓] Completed`, next gate → `[→] In Progress`.
+3. Add entry to transfer log.
+4. For Session: call `$session-prompt-generator` to generate a prompt.
+
+## Example — Forward Handoff RES-01 → AN-01 (CONDITIONAL PASS)
+
+```
+### Handoff Envelope — RES-01 Researcher (Analysts) → AN-01 Data Analyst (Analysts)
+
+**Type:** Forward
+**Mode:** Full Pipeline
+**Session:** 2
+**Gate Check:** CONDITIONAL PASS (iteration 1) — 2 Gaps
+**Date:** 2026-04-12
+
+---
+
+**Artifacts:**
+
+1. **Research Report** — 7 sections according to the INT-01 research brief:
+   - EdTech Market Size in Russia (TAM $4.2B, SAM $1.8B, SOM $180M)
+   - Key players: Skillbox, Netology, Yandex Praktikum, GeekBrains, Skyeng
+   - Trends: AI personalization, corporate training, micro-certifications
+   - Regulatory environment: licensing, accreditation
+   - Customer segments: B2C (25-35), B2B (corp. training), B2G (Ministry of Education)
+   - Pricing: subscription $15-80/m, corporate contracts $5K-50K/y
+   - Entry barriers: brand, content, teachers
+
+2. **Source Table** — 28 sources, URL, dates, credibility (✅/⚠️/🔮)
+
+**Gaps (CONDITIONAL PASS):**
+- ⚠️ EdTech TAM: 2 sources instead of 3 (Smart Ranking + HSE, missing third)
+- ⚠️ IDC report on corp. training: 14 months old (Jan 2025), highly recommended to verify
+
+---
+
+**Task for AN-01 Data Analyst (Analysts):**
+Apply competitive analysis and market dimensioning frameworks to RES-01 data. At least 2 frameworks. Take note of the gaps: TAM is marked as ⚠️ Estimated, mark IDC data as ⚠️.
+
+**Expected deliverable:**
+Filled frameworks tied to RES-01 data, patterns, insights, methodology.
+
+**Blockers:** None
+
+---
+
+→ Waiting for **"Approved"** to transition to **AN-01 Data Analyst (Analysts)**
+```
 
 ## Envelope Validation (Quality Gate)
 
-### Standard (Forward) Envelope
-- [ ] `$gates` result attached (PASS / CONDITIONAL PASS)
-- [ ] Sending and receiving agents specified with gate IDs
-- [ ] All artifacts from the transfer registry attached
+### Standard (Forward) envelope
+- [ ] Result of `$gates` attached (PASS / CONDITIONAL PASS)
+- [ ] Sending and receiving agents are indicated with gate IDs
+- [ ] All artifacts from the transfer registry appended
 - [ ] Task for the next agent formulated specifically
-- [ ] Context transferred
+- [ ] Gaps (if CONDITIONAL) are explicitly listed
+- [ ] Context is passed
 - [ ] User Approved obtained
 - [ ] `$board` updated
 
-### Cross-Session (Session) Envelope — additionally
-- [ ] File saved at path `docs/analytics/session-N-handoff.md`
-- [ ] All artifacts included as **full text** (not links or summaries)
-- [ ] Cumulative index is current
-- [ ] Prompt for the next session generated
-- [ ] Verification checklist completed
-- [ ] File is self-contained — can be read without any previous context
+### Inter-session (Session) envelope — additionally
+- [ ] File is saved to `docs/analytics/session-N-handoff.md`
+- [ ] All artifacts are included in **full text** (no links or summaries)
+- [ ] Board state is saved
+- [ ] Decisions and context are documented
+- [ ] Open questions / blockers are documented
+- [ ] Cumulative index is up-to-date
+- [ ] Prompt for the next session is generated
+- [ ] File is self-sufficient — test: can be read without ANY previous context
 
 ## Handoff
-The `$handoff` result is input for: the next agent in the pipeline, `$board` (status updates), `$session-prompt-generator` (for cross-session handoffs).
+The result of `$handoff` is input data for: the next agent in the pipeline, `$board` (status update), `$session-prompt-generator` (for inter-session handoffs).
 
 ## Anti-patterns
 
-| Mistake | Why It's Bad | How to Do It Right |
-|---------|-------------|-------------------|
-| Handoff without `$gates` | Unverified artifacts → problems at the next gate | Always `$gates` PASS → then handoff |
-| Handoff without Approved | Protocol violation, user is uninformed | Always wait for explicit Approved |
-| Session handoff with links instead of content | Next session has no access to context | FULL artifact text in the file |
-| "Do the analysis" instead of a task | Agent doesn't know the scope | Specific task with parameters |
-| Transfer without artifacts | Next agent works blind | All artifacts from the registry attached |
-| Reverse handoff without specifics | Agent doesn't know what to fix | Specific gaps + what NOT to touch |
-| Not updating `$board` | Board is out of sync | Update `$board` on every handoff |
-| Loss of context between sessions | Next session starts from scratch | Cross-session handoff with full content |
+| Mistake | Why it's bad | How to do it right |
+|---------|--------------|--------------------|
+| Handoff without `$gates` | Unverified artifacts → issues at the next gate | Always `$gates` PASS → then handoff |
+| Handoff without Approved | Protocol violation, user unaware | Always wait for explicit Approved |
+| Session handoff with links instead of content | Next session has no access to context | FULL text of artifacts in the file |
+| "Do analysis" instead of task | Agent does not know root scope | Specific task with parameters and anticipated deliverable |
+| Transfer without artifacts | Next agent works blindly | All registry artifacts are attached |
+| Reverse handoff without details | Agent doesn't know what to fix | Explicit gaps + what NOT to touch |
+| Failing to update `$board` | Board gets desynchronized | Update `$board` at every handoff |
+| Context loss between sessions | Next session starts from scratch | Inter-session handoff with complete content |
+| Recipient didn't acknowledge receipt | Unclear if all artifacts are received & understood | Receive Acknowledgement at the start of next gate |
+| Corrupt session file | Next session works with incomplete data | Recovery protocol: verification upon loading |
 
-## Output Template
+## Output Templates
 
-### Forward Handoff (within session)
+### Forward Handoff (intra-session)
 
 ```
 ### Handoff Envelope — [ID From] [Agent From] → [ID To] [Agent To]
@@ -219,7 +329,7 @@ The `$handoff` result is input for: the next agent in the pipeline, `$board` (st
 
 ---
 
-→ Awaiting **"Approved"** to proceed to **[ID To] [Agent To]**
+→ Waiting for **"Approved"** to transition to **[ID To] [Agent To]**
 ```
 
 ### Reverse Handoff
@@ -235,14 +345,26 @@ The `$handoff` result is input for: the next agent in the pipeline, `$board` (st
 
 **What to fix:**
 | # | Gap / Remark | Sev | Specific Action |
-|---|-------------|-----|-----------------|
-| 1 | [description] | Blocker | [what to do] |
+|---|--------------|:---:|-----------------|
+| 1 | [description] | [B] | [what to do] |
 
 **What NOT to touch:**
 - [Artifact / section that is already approved]
 
 ---
 
-→ After rework — re-check via `$gates` (iteration [N+1])
-→ Awaiting **"Approved"** for the return
+→ After revision — repeat `$gates` check (iteration [N+1])
+→ Waiting for **"Approved"** for return
+```
+
+### Receive Acknowledgement (start of recipient's work)
+
+```
+**Handoff received:** [ID From] → [ID To]
+**Artifacts loaded:** [N] pcs.
+- [Artifact 1] — ✅ received
+- [Artifact 2] — ✅ received
+
+**Gaps accepted:** [list or "None"]
+**Issues on loading:** [list or "None"]
 ```

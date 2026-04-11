@@ -1,0 +1,25 @@
+version: 1
+name: "value-chain-analysis"
+display_name: "Value Chain Analysis"
+description: "Analysis of primary and support activities — costs, value added, competitive advantages"
+default_prompt: "Use $value-chain-analysis when the task relates to the \"Value Chain Analysis\" skill."
+triggers:
+  - "value chain"
+  - "value chain analysis"
+  - "value chain"
+  - "value chain analysis"
+  - "value chain"
+  - "value chain analysis"
+  - "value-chain-analysis"
+  - "value chain"
+capabilities:
+  - "value-chain-analysis"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

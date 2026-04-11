@@ -1,0 +1,16 @@
+{
+  "name": "web-research",
+  "display_name": "Web Research and Data Verification",
+  "description": "Mandatory web research and data verification — search protocol, cross-checking, source audit",
+  "default_prompt": "Use $web-research when the task relates to the \"Web Research and Data Verification\" skill.",
+  "triggers": [
+    "web-research",
+    "Web research and data verification",
+    "Mandatory web research and data verification — search protocol, cross-checking, source audit"
+  ],
+  "capabilities": [
+    "web-research"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

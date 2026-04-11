@@ -1,0 +1,17 @@
+{
+  "name": "trend-analysis",
+  "display_name": "Trend Analysis",
+  "description": "Identification and evaluation of market trends — strength, impact, timeline, recommendations",
+  "default_prompt": "Use $trend-analysis when the task relates to the \"Trend Analysis\" skill.",
+  "triggers": [
+    "trend-analysis",
+    "trend identification",
+    "trend analysis",
+    "trends"
+  ],
+  "capabilities": [
+    "trend-analysis"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

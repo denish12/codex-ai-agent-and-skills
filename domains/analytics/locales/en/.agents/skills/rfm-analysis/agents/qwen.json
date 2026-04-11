@@ -1,0 +1,17 @@
+{
+  "name": "rfm-analysis",
+  "display_name": "RFM Analysis",
+  "description": "Customer segmentation by recency, frequency, and monetary value",
+  "default_prompt": "Use $rfm-analysis when the task relates to the \"RFM Analysis\" skill.",
+  "triggers": [
+    "rfm-analysis",
+    "RFM",
+    "RFM analysis",
+    "customer segmentation"
+  ],
+  "capabilities": [
+    "rfm-analysis"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

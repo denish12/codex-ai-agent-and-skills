@@ -1,0 +1,8 @@
+interface:
+  display_name: "Cohort Analysis"
+  short_description: "Cohort analysis — retention, revenue per cohort, behavioral patterns by groups"
+  default_prompt: "Use $cohort-analysis when the task relates to the \"Cohort Analysis\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

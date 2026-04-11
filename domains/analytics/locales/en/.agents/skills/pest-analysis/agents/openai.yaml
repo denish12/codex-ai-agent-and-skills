@@ -1,0 +1,8 @@
+interface:
+  display_name: "PEST/PESTEL Analysis"
+  short_description: "Macro-environment analysis — political, economic, social, technological, environmental, and legal factors"
+  default_prompt: "Use $pest-analysis when the task relates to the \"PEST/PESTEL Analysis\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

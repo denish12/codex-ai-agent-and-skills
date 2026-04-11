@@ -1,0 +1,8 @@
+interface:
+  display_name: "Competitive Analysis"
+  short_description: "Competitor benchmarking — features, pricing, positioning, competitive advantages"
+  default_prompt: "Use $competitive-analysis when the task relates to the \"Competitive Analysis\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

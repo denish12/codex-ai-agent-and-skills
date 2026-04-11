@@ -1,0 +1,8 @@
+interface:
+  display_name: "RFM Analysis"
+  short_description: "Customer segmentation by recency, frequency, and monetary value"
+  default_prompt: "Use $rfm-analysis when the task relates to the \"RFM Analysis\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

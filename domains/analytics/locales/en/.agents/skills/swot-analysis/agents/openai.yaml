@@ -1,0 +1,8 @@
+interface:
+  display_name: "SWOT Analysis"
+  short_description: "Analysis of strengths, weaknesses, opportunities, and threats — with a cross-matrix and prioritization"
+  default_prompt: "Use $swot-analysis when the task relates to the \"SWOT Analysis\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,16 @@
+{
+  "name": "handoff",
+  "display_name": "Context Handoff Between Gates and Sessions",
+  "description": "Context transfer between gates and sessions — Handoff Envelope, cross-session protocol, file generation",
+  "default_prompt": "Use $handoff when the task relates to the \"Context Handoff Between Gates and Sessions\" skill.",
+  "triggers": [
+    "handoff",
+    "Context handoff between gates and sessions",
+    "Context transfer between gates and sessions — Handoff Envelope, cross-session protocol, file generation"
+  ],
+  "capabilities": [
+    "handoff"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

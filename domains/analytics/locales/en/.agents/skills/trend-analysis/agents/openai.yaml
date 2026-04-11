@@ -1,0 +1,8 @@
+interface:
+  display_name: "Trend Analysis"
+  short_description: "Identification and evaluation of market trends — strength, impact, timeline, recommendations"
+  default_prompt: "Use $trend-analysis when the task relates to the \"Trend Analysis\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

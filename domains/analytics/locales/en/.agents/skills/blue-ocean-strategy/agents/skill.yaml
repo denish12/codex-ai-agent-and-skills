@@ -1,0 +1,25 @@
+version: 1
+name: "blue-ocean-strategy"
+display_name: "Blue Ocean Strategy"
+description: "Strategy canvas analysis — ERRC framework, value curve, three tiers of noncustomers"
+default_prompt: "Use $blue-ocean-strategy when the task relates to the \"Blue Ocean Strategy\" skill."
+triggers:
+  - "blue ocean"
+  - "blue ocean strategy"
+  - "blue ocean"
+  - "blue ocean strategy"
+  - "blue ocean"
+  - "blue ocean strategy"
+  - "blue-ocean-strategy"
+  - "blue ocean"
+capabilities:
+  - "blue-ocean-strategy"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,0 +1,19 @@
+{
+  "name": "tam-sam-som",
+  "display_name": "TAM/SAM/SOM",
+  "description": "Market size estimation — total, serviceable, and obtainable market volume",
+  "default_prompt": "Use $tam-sam-som when the task relates to the \"TAM/SAM/SOM\" skill.",
+  "triggers": [
+    "tam-sam-som",
+    "TAM",
+    "SAM",
+    "SOM",
+    "market size",
+    "tam sam som"
+  ],
+  "capabilities": [
+    "tam-sam-som"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

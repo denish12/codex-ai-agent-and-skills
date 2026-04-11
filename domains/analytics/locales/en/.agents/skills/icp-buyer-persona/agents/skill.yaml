@@ -1,0 +1,26 @@
+version: 1
+name: "icp-buyer-persona"
+display_name: "ICP / Buyer Persona"
+description: "Ideal customer profile and buyer personas — firmographics, demographics, decision-making process"
+default_prompt: "Use $icp-buyer-persona when the task relates to the \"ICP / Buyer Persona\" skill."
+triggers:
+  - "ideal customer profile"
+  - "buyer persona"
+  - "ideal customer profile"
+  - "buyer persona"
+  - "ideal customer profile"
+  - "buyer persona"
+  - "icp-buyer-persona"
+  - "ICP"
+  - "buyer persona"
+capabilities:
+  - "icp-buyer-persona"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

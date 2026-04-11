@@ -1,0 +1,25 @@
+version: 1
+name: "report-design"
+display_name: "Report Design"
+description: "Designing the layout of an analytical report — structure, visualizations, hierarchy, color palette"
+default_prompt: "Use $report-design when the task relates to the \"Report Design\" skill."
+triggers:
+  - "report design"
+  - "report structure"
+  - "report design"
+  - "report structure"
+  - "report design"
+  - "report structure"
+  - "report-design"
+  - "report structure"
+capabilities:
+  - "report-design"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

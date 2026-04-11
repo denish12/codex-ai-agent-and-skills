@@ -1,0 +1,25 @@
+version: 1
+name: "swot-analysis"
+display_name: "SWOT Analysis"
+description: "Analysis of strengths, weaknesses, opportunities, and threats — with a cross-matrix and prioritization"
+default_prompt: "Use $swot-analysis when the task relates to the \"SWOT Analysis\" skill."
+triggers:
+  - "SWOT analysis"
+  - "strengths weaknesses"
+  - "SWOT analysis"
+  - "strengths weaknesses"
+  - "SWOT analysis"
+  - "strengths weaknesses"
+  - "swot-analysis"
+  - "SWOT"
+capabilities:
+  - "swot-analysis"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,0 +1,24 @@
+version: 1
+name: "unit-economics"
+display_name: "Unit Economics"
+description: "Unit economy analysis — CAC, LTV, margin, payback period, sensitivity"
+default_prompt: "Use $unit-economics when the task relates to the \"Unit Economics\" skill."
+triggers:
+  - "unit economics"
+  - "unit economics"
+  - "unit economics"
+  - "unit-economics"
+  - "CAC"
+  - "LTV"
+  - "payback period"
+capabilities:
+  - "unit-economics"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

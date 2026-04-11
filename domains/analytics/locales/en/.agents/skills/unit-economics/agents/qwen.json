@@ -1,0 +1,18 @@
+{
+  "name": "unit-economics",
+  "display_name": "Unit Economics",
+  "description": "Unit economy analysis — CAC, LTV, margin, payback period, sensitivity",
+  "default_prompt": "Use $unit-economics when the task relates to the \"Unit Economics\" skill.",
+  "triggers": [
+    "unit-economics",
+    "CAC",
+    "LTV",
+    "payback period",
+    "unit economics"
+  ],
+  "capabilities": [
+    "unit-economics"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

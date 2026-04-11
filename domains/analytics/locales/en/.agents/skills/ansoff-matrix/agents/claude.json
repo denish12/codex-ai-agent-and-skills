@@ -1,0 +1,17 @@
+{
+  "name": "ansoff-matrix",
+  "display_name": "Ansoff Matrix",
+  "description": "Growth strategy — market penetration, market development, product development, diversification",
+  "default_prompt": "Use $ansoff-matrix when the task relates to the \"Ansoff Matrix\" skill.",
+  "triggers": [
+    "ansoff-matrix",
+    "ansoff",
+    "ansoff matrix",
+    "growth matrix"
+  ],
+  "capabilities": [
+    "ansoff-matrix"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

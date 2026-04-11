@@ -1,0 +1,17 @@
+{
+  "name": "pest-analysis",
+  "display_name": "PEST/PESTEL Analysis",
+  "description": "Macro-environment analysis — political, economic, social, technological, environmental, and legal factors",
+  "default_prompt": "Use $pest-analysis when the task relates to the \"PEST/PESTEL Analysis\" skill.",
+  "triggers": [
+    "pest-analysis",
+    "PEST",
+    "PESTEL",
+    "macro analysis"
+  ],
+  "capabilities": [
+    "pest-analysis"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

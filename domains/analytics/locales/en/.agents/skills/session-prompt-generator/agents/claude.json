@@ -1,0 +1,16 @@
+{
+  "name": "session-prompt-generator",
+  "display_name": "Next Session Prompt Generation",
+  "description": "Generation of the prompt for the next session — context gathering, prompt formulation, progress saving",
+  "default_prompt": "Use $session-prompt-generator when the task relates to the \"Next Session Prompt Generation\" skill.",
+  "triggers": [
+    "session-prompt-generator",
+    "next session prompt generation",
+    "Generation of the prompt for the next session — context gathering, prompt formulation, progress saving"
+  ],
+  "capabilities": [
+    "session-prompt-generator"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

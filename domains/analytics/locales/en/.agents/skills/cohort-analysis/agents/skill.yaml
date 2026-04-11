@@ -1,0 +1,25 @@
+version: 1
+name: "cohort-analysis"
+display_name: "Cohort Analysis"
+description: "Cohort analysis — retention, revenue per cohort, behavioral patterns by groups"
+default_prompt: "Use $cohort-analysis when the task relates to the \"Cohort Analysis\" skill."
+triggers:
+  - "cohort analysis"
+  - "cohorts"
+  - "cohort analysis"
+  - "cohorts"
+  - "cohort analysis"
+  - "cohorts"
+  - "cohort-analysis"
+  - "retention analysis"
+capabilities:
+  - "cohort-analysis"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

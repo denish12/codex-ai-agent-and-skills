@@ -1,0 +1,26 @@
+version: 1
+name: "customer-journey-mapping"
+display_name: "Customer Journey Mapping"
+description: "Analysis of customer touchpoints — from awareness to advocacy"
+default_prompt: "Use $customer-journey-mapping when the task relates to the \"Customer Journey Mapping\" skill."
+triggers:
+  - "customer journey mapping"
+  - "cjm"
+  - "customer journey mapping"
+  - "cjm"
+  - "customer journey mapping"
+  - "cjm"
+  - "customer-journey-mapping"
+  - "CJM"
+  - "customer journey"
+capabilities:
+  - "customer-journey-mapping"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

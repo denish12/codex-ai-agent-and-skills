@@ -1,0 +1,8 @@
+interface:
+  display_name: "ICP / Buyer Persona"
+  short_description: "Ideal customer profile and buyer personas — firmographics, demographics, decision-making process"
+  default_prompt: "Use $icp-buyer-persona when the task relates to the \"ICP / Buyer Persona\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

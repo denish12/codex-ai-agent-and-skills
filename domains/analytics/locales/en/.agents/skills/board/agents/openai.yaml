@@ -1,0 +1,8 @@
+interface:
+  display_name: "Analytics Pipeline Project Board"
+  short_description: "Management of the analytics pipeline project board — initialization, statuses, event log, blocker escalation"
+  default_prompt: "Use $board when the task relates to the \"Analytics Pipeline Project Board\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

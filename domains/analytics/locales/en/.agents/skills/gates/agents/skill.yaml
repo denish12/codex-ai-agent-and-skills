@@ -1,0 +1,22 @@
+version: 1
+name: "gates"
+display_name: "Analytics Pipeline Gates Control"
+description: "Quality control of analytics pipeline gates — passing criteria, checklists, blockers"
+default_prompt: "Use $gates when the task relates to the \"Analytics Pipeline Gates Control\" skill."
+triggers:
+  - "Analytics pipeline gates control"
+  - "Quality control of analytics pipeline gates — passing criteria, checklists, blockers"
+  - "Analytics pipeline gates control"
+  - "Analytics pipeline gates control"
+  - "gates"
+capabilities:
+  - "gates"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

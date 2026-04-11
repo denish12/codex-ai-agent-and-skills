@@ -1,0 +1,8 @@
+interface:
+  display_name: "TAM/SAM/SOM"
+  short_description: "Market size estimation — total, serviceable, and obtainable market volume"
+  default_prompt: "Use $tam-sam-som when the task relates to the \"TAM/SAM/SOM\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

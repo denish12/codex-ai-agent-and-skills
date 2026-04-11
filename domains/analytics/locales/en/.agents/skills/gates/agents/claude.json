@@ -1,0 +1,16 @@
+{
+  "name": "gates",
+  "display_name": "Analytics Pipeline Gates Control",
+  "description": "Quality control of analytics pipeline gates — passing criteria, checklists, blockers",
+  "default_prompt": "Use $gates when the task relates to the \"Analytics Pipeline Gates Control\" skill.",
+  "triggers": [
+    "gates",
+    "Analytics pipeline gates control",
+    "Quality control of analytics pipeline gates — passing criteria, checklists, blockers"
+  ],
+  "capabilities": [
+    "gates"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

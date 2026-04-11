@@ -1,0 +1,16 @@
+{
+  "name": "board",
+  "display_name": "Analytics Pipeline Project Board",
+  "description": "Management of the analytics pipeline project board — initialization, statuses, event log, blocker escalation",
+  "default_prompt": "Use $board when the task relates to the \"Analytics Pipeline Project Board\" skill.",
+  "triggers": [
+    "board",
+    "Analytics pipeline project board",
+    "analytics pipeline project board management — initialization, statuses, event log, blocker escalation"
+  ],
+  "capabilities": [
+    "board"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Context Handoff Between Gates and Sessions"
+  short_description: "Context transfer between gates and sessions — Handoff Envelope, cross-session protocol, file generation"
+  default_prompt: "Use $handoff when the task relates to the \"Context Handoff Between Gates and Sessions\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

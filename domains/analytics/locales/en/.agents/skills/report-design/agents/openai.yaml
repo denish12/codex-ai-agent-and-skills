@@ -1,0 +1,8 @@
+interface:
+  display_name: "Report Design"
+  short_description: "Designing the layout of an analytical report — structure, visualizations, hierarchy, color palette"
+  default_prompt: "Use $report-design when the task relates to the \"Report Design\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Value Chain Analysis"
+  short_description: "Analysis of primary and support activities — costs, value added, competitive advantages"
+  default_prompt: "Use $value-chain-analysis when the task relates to the \"Value Chain Analysis\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

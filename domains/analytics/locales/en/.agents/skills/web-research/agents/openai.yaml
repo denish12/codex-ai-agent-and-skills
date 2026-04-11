@@ -1,0 +1,8 @@
+interface:
+  display_name: "Web Research and Data Verification"
+  short_description: "Mandatory web research and data verification — search protocol, cross-checking, source audit"
+  default_prompt: "Use $web-research when the task relates to the \"Web Research and Data Verification\" skill."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true
