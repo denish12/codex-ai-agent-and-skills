@@ -1,0 +1,8 @@
+interface:
+  display_name: "TAM/SAM/SOM"
+  short_description: "Оценка размера рынка — общий, доступный и достижимый объём"
+  default_prompt: "Используй $tam-sam-som, когда задача относится к навыку \"TAM/SAM/SOM\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

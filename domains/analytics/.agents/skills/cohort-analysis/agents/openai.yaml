@@ -1,0 +1,8 @@
+interface:
+  display_name: "Когортный анализ"
+  short_description: "Анализ когорт — retention, revenue per cohort, паттерны поведения по группам"
+  default_prompt: "Используй $cohort-analysis, когда задача относится к навыку \"Когортный анализ\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

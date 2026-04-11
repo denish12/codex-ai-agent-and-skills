@@ -157,6 +157,10 @@ describe("domainResolver", () => {
       expect(normalizeDomain("content")).toBe("content");
     });
 
+    it("accepts valid domain id 'analytics'", () => {
+      expect(normalizeDomain("analytics")).toBe("analytics");
+    });
+
     it("trims whitespace", () => {
       expect(normalizeDomain("  content  ")).toBe("content");
     });
@@ -168,7 +172,7 @@ describe("domainResolver", () => {
 
     it("throws for unknown domain", () => {
       expect(() => normalizeDomain("unknown")).toThrow("Unknown domain");
-      expect(() => normalizeDomain("unknown")).toThrow("development, content");
+      expect(() => normalizeDomain("unknown")).toThrow("development, content, analytics");
     });
 
     it("throws for empty string", () => {

@@ -1,0 +1,21 @@
+version: 1
+name: "bcg-matrix"
+display_name: "Матрица BCG"
+description: "Портфельный анализ — распределение бизнес-единиц по росту рынка и относительной доле"
+default_prompt: "Используй $bcg-matrix, когда задача относится к навыку \"Матрица BCG\"."
+triggers:
+  - "bcg-matrix"
+  - "BCG"
+  - "матрица BCG"
+  - "бостонская матрица"
+capabilities:
+  - "bcg-matrix"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

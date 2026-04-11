@@ -1,0 +1,10 @@
+{
+  "name": "tam-sam-som",
+  "display_name": "TAM/SAM/SOM",
+  "description": "Оценка размера рынка — общий, доступный и достижимый объём",
+  "default_prompt": "Используй $tam-sam-som, когда задача относится к навыку \"TAM/SAM/SOM\".",
+  "triggers": ["tam-sam-som", "TAM", "SAM", "SOM", "размер рынка"],
+  "capabilities": ["tam-sam-som"],
+  "tools": [],
+  "implicit_invocation": true
+}

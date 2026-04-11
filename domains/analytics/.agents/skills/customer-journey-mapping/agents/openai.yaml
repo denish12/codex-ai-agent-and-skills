@@ -1,0 +1,8 @@
+interface:
+  display_name: "Карта путешествия клиента"
+  short_description: "Анализ точек контакта клиента — от осведомлённости до адвокации"
+  default_prompt: "Используй $customer-journey-mapping, когда задача относится к навыку \"Карта путешествия клиента\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

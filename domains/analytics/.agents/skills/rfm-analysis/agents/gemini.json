@@ -1,0 +1,10 @@
+{
+  "name": "rfm-analysis",
+  "display_name": "RFM-анализ",
+  "description": "Сегментация клиентов по давности, частоте и сумме покупок",
+  "default_prompt": "Используй $rfm-analysis, когда задача относится к навыку \"RFM-анализ\".",
+  "triggers": ["rfm-analysis", "RFM", "RFM-анализ", "сегментация клиентов"],
+  "capabilities": ["rfm-analysis"],
+  "tools": [],
+  "implicit_invocation": true
+}

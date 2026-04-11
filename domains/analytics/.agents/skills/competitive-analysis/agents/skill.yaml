@@ -1,0 +1,21 @@
+version: 1
+name: "competitive-analysis"
+display_name: "Конкурентный анализ"
+description: "Бенчмаркинг конкурентов — функционал, цены, позиционирование, конкурентные преимущества"
+default_prompt: "Используй $competitive-analysis, когда задача относится к навыку \"Конкурентный анализ\"."
+triggers:
+  - "competitive-analysis"
+  - "конкурентный анализ"
+  - "бенчмаркинг"
+  - "competitor analysis"
+capabilities:
+  - "competitive-analysis"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

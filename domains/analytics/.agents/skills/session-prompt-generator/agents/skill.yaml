@@ -1,0 +1,20 @@
+version: 1
+name: "session-prompt-generator"
+display_name: "Генерация промпта для следующей сессии"
+description: "Генерация промпта для следующей сессии — сбор контекста, формирование промпта, сохранение прогресса"
+default_prompt: "Используй $session-prompt-generator, когда задача относится к навыку \"Генерация промпта для следующей сессии\"."
+triggers:
+  - "session-prompt-generator"
+  - "Генерация промпта для следующей сессии"
+  - "Генерация промпта для следующей сессии — сбор контекста, формирование промпта, сохранение прогресса"
+capabilities:
+  - "session-prompt-generator"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

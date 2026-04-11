@@ -1,0 +1,8 @@
+interface:
+  display_name: "Дизайн отчёта"
+  short_description: "Проектирование макета аналитического отчёта — структура, визуализации, иерархия, палитра"
+  default_prompt: "Используй $report-design, когда задача относится к навыку \"Дизайн отчёта\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

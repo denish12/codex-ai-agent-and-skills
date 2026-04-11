@@ -1,0 +1,8 @@
+interface:
+  display_name: "5 сил Портера"
+  short_description: "Анализ конкурентных сил отрасли по модели Портера"
+  default_prompt: "Используй $porters-five-forces, когда задача относится к навыку \"5 сил Портера\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

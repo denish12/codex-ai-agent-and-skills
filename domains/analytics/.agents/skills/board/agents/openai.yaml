@@ -1,0 +1,8 @@
+interface:
+  display_name: "Доска задач аналитического пайплайна"
+  short_description: "Управление доской задач аналитического пайплайна"
+  default_prompt: "Используй $board, когда задача относится к навыку \"Доска задач аналитического пайплайна\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

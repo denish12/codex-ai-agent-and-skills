@@ -1,0 +1,8 @@
+interface:
+  display_name: "Генерация промпта для следующей сессии"
+  short_description: "Генерация промпта для следующей сессии аналитического пайплайна"
+  default_prompt: "Используй $session-prompt-generator, когда задача относится к навыку \"Генерация промпта для следующей сессии\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

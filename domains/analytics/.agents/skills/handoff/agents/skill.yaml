@@ -1,0 +1,20 @@
+version: 1
+name: "handoff"
+display_name: "Передача контекста между гейтами и сессиями"
+description: "Передача контекста между гейтами и сессиями — Handoff Envelope, межсессионный протокол, генерация файлов"
+default_prompt: "Используй $handoff, когда задача относится к навыку \"Передача контекста между гейтами и сессиями\"."
+triggers:
+  - "handoff"
+  - "Передача контекста между гейтами и сессиями"
+  - "Передача контекста между гейтами и сессиями — Handoff Envelope, межсессионный протокол, генерация файлов"
+capabilities:
+  - "handoff"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,0 +1,10 @@
+{
+  "name": "porters-five-forces",
+  "display_name": "5 сил Портера",
+  "description": "Анализ конкурентных сил отрасли — угрозы входа, сила поставщиков и покупателей, субституты, внутриотраслевая конкуренция",
+  "default_prompt": "Используй $porters-five-forces, когда задача относится к навыку \"5 сил Портера\".",
+  "triggers": ["porters-five-forces", "5 сил Портера", "porter", "конкурентные силы"],
+  "capabilities": ["porters-five-forces"],
+  "tools": [],
+  "implicit_invocation": true
+}

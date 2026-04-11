@@ -1,0 +1,8 @@
+interface:
+  display_name: "Стратегия голубого океана"
+  short_description: "Анализ стратегической канвы — ERRC, кривая ценности, не-клиенты"
+  default_prompt: "Используй $blue-ocean-strategy, когда задача относится к навыку \"Стратегия голубого океана\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

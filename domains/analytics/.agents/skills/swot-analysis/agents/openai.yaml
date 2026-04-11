@@ -1,0 +1,8 @@
+interface:
+  display_name: "SWOT-анализ"
+  short_description: "Анализ сильных и слабых сторон, возможностей и угроз"
+  default_prompt: "Используй $swot-analysis, когда задача относится к навыку \"SWOT-анализ\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

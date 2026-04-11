@@ -1,0 +1,8 @@
+interface:
+  display_name: "Передача контекста между гейтами и сессиями"
+  short_description: "Передача контекста между гейтами и сессиями аналитического пайплайна"
+  default_prompt: "Используй $handoff, когда задача относится к навыку \"Передача контекста между гейтами и сессиями\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

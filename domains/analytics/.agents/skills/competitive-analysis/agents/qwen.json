@@ -1,0 +1,10 @@
+{
+  "name": "competitive-analysis",
+  "display_name": "Конкурентный анализ",
+  "description": "Бенчмаркинг конкурентов — функционал, цены, позиционирование, конкурентные преимущества",
+  "default_prompt": "Используй $competitive-analysis, когда задача относится к навыку \"Конкурентный анализ\".",
+  "triggers": ["competitive-analysis", "конкурентный анализ", "бенчмаркинг", "competitor analysis"],
+  "capabilities": ["competitive-analysis"],
+  "tools": [],
+  "implicit_invocation": true
+}

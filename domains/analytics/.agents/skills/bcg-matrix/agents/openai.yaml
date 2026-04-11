@@ -1,0 +1,8 @@
+interface:
+  display_name: "Матрица BCG"
+  short_description: "Портфельный анализ бизнес-единиц по росту рынка и относительной доле"
+  default_prompt: "Используй $bcg-matrix, когда задача относится к навыку \"Матрица BCG\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,10 @@
+{
+  "name": "pest-analysis",
+  "display_name": "PEST/PESTEL-анализ",
+  "description": "Анализ макросреды — политические, экономические, социальные, технологические, экологические и правовые факторы",
+  "default_prompt": "Используй $pest-analysis, когда задача относится к навыку \"PEST/PESTEL-анализ\".",
+  "triggers": ["pest-analysis", "PEST", "PESTEL", "ПЕСТ", "макроанализ"],
+  "capabilities": ["pest-analysis"],
+  "tools": [],
+  "implicit_invocation": true
+}

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Веб-поиск и верификация данных"
+  short_description: "Обязательный веб-поиск и верификация данных для аналитического пайплайна"
+  default_prompt: "Используй $web-research, когда задача относится к навыку \"Веб-поиск и верификация данных\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "ICP / Buyer Persona"
+  short_description: "Профиль идеального клиента и покупательские персоны — фирмография, демография, процесс принятия решений"
+  default_prompt: "Используй $icp-buyer-persona, когда задача относится к навыку \"ICP / Buyer Persona\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

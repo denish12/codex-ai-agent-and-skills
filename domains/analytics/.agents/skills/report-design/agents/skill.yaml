@@ -1,0 +1,21 @@
+version: 1
+name: "report-design"
+display_name: "Дизайн отчёта"
+description: "Проектирование макета аналитического отчёта — структура, визуализации, иерархия, палитра"
+default_prompt: "Используй $report-design, когда задача относится к навыку \"Дизайн отчёта\"."
+triggers:
+  - "report-design"
+  - "дизайн отчёта"
+  - "структура отчёта"
+  - "report structure"
+capabilities:
+  - "report-design"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

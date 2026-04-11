@@ -6,13 +6,14 @@ import { loadSourceCatalog, listAgentNames, listSkillNames } from "../catalog.js
 const packageRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname).replace(/^\/([A-Z]:)/, "$1"), "../..");
 
 describe("domain integration (real filesystem)", () => {
-  it("discovers both bundled domains", async () => {
+  it("discovers all bundled domains", async () => {
     const domains = await listDomains(packageRoot);
-    expect(domains.length).toBe(2);
+    expect(domains.length).toBe(3);
 
     const ids = domains.map((d) => d.id);
     expect(ids).toContain("development");
     expect(ids).toContain("content");
+    expect(ids).toContain("analytics");
   });
 
   it("loads development domain catalog with expected counts", async () => {
@@ -41,6 +42,20 @@ describe("domain integration (real filesystem)", () => {
 
     expect(agents.length).toBe(6);
     expect(skills.length).toBeGreaterThanOrEqual(25);
+  });
+
+  it("loads analytics domain catalog with expected counts", async () => {
+    const root = await resolveDomainSourceRoot({
+      packageRoot,
+      domainId: "analytics",
+      language: "ru",
+    });
+    const catalog = await loadSourceCatalog(root);
+    const agents = listAgentNames(catalog);
+    const skills = listSkillNames(catalog);
+
+    expect(agents.length).toBe(8);
+    expect(skills.length).toBeGreaterThanOrEqual(20);
   });
 
   it("domain descriptors have correct agent and skill counts", async () => {

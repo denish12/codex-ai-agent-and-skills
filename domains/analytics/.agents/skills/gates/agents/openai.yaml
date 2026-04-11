@@ -1,0 +1,8 @@
+interface:
+  display_name: "Контроль гейтов аналитического пайплайна"
+  short_description: "Контроль качества гейтов аналитического пайплайна"
+  default_prompt: "Используй $gates, когда задача относится к навыку \"Контроль гейтов аналитического пайплайна\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

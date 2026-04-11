@@ -1,0 +1,8 @@
+interface:
+  display_name: "PEST/PESTEL-анализ"
+  short_description: "Анализ макросреды — политические, экономические, социальные и технологические факторы"
+  default_prompt: "Используй $pest-analysis, когда задача относится к навыку \"PEST/PESTEL-анализ\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

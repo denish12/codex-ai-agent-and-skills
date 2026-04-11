@@ -1,0 +1,21 @@
+version: 1
+name: "customer-journey-mapping"
+display_name: "Карта путешествия клиента"
+description: "Анализ точек контакта клиента — от осведомлённости до адвокации"
+default_prompt: "Используй $customer-journey-mapping, когда задача относится к навыку \"Карта путешествия клиента\"."
+triggers:
+  - "customer-journey-mapping"
+  - "CJM"
+  - "карта путешествия клиента"
+  - "customer journey"
+capabilities:
+  - "customer-journey-mapping"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

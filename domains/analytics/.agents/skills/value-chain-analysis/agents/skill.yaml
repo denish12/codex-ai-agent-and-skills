@@ -1,0 +1,21 @@
+version: 1
+name: "value-chain-analysis"
+display_name: "Анализ цепочки ценности"
+description: "Анализ первичных и поддерживающих видов деятельности — затраты, добавленная стоимость, конкурентные преимущества"
+default_prompt: "Используй $value-chain-analysis, когда задача относится к навыку \"Анализ цепочки ценности\"."
+triggers:
+  - "value-chain-analysis"
+  - "цепочка ценности"
+  - "value chain"
+  - "анализ цепочки"
+capabilities:
+  - "value-chain-analysis"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

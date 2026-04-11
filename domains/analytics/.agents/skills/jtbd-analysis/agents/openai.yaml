@@ -1,0 +1,8 @@
+interface:
+  display_name: "Jobs To Be Done"
+  short_description: "Анализ задач клиента — функциональные, эмоциональные, социальные задачи и opportunity score"
+  default_prompt: "Используй $jtbd-analysis, когда задача относится к навыку \"Jobs To Be Done\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

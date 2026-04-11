@@ -1,0 +1,8 @@
+interface:
+  display_name: "Конкурентный анализ"
+  short_description: "Бенчмаркинг конкурентов — функционал, цены, позиционирование, конкурентные преимущества"
+  default_prompt: "Используй $competitive-analysis, когда задача относится к навыку \"Конкурентный анализ\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

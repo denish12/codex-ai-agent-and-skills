@@ -1,0 +1,22 @@
+version: 1
+name: "unit-economics"
+display_name: "Юнит-экономика"
+description: "Анализ экономики единицы — CAC, LTV, маржа, payback period, сенситивность"
+default_prompt: "Используй $unit-economics, когда задача относится к навыку \"Юнит-экономика\"."
+triggers:
+  - "unit-economics"
+  - "юнит-экономика"
+  - "CAC"
+  - "LTV"
+  - "payback period"
+capabilities:
+  - "unit-economics"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,0 +1,10 @@
+{
+  "name": "swot-analysis",
+  "display_name": "SWOT-анализ",
+  "description": "Анализ сильных и слабых сторон, возможностей и угроз — с перекрёстной матрицей и приоритизацией",
+  "default_prompt": "Используй $swot-analysis, когда задача относится к навыку \"SWOT-анализ\".",
+  "triggers": ["swot-analysis", "SWOT", "SWOT-анализ", "сильные слабые стороны"],
+  "capabilities": ["swot-analysis"],
+  "tools": [],
+  "implicit_invocation": true
+}

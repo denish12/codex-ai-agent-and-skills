@@ -1,0 +1,8 @@
+interface:
+  display_name: "Анализ цепочки ценности"
+  short_description: "Анализ первичных и поддерживающих видов деятельности по модели Портера"
+  default_prompt: "Используй $value-chain-analysis, когда задача относится к навыку \"Анализ цепочки ценности\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

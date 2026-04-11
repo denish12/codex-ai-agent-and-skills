@@ -1,0 +1,21 @@
+version: 1
+name: "html-pdf-report"
+display_name: "HTML/PDF-отчёт"
+description: "Генерация self-contained HTML-отчёта для печати в PDF — CSS print layout, Chart.js, Mermaid"
+default_prompt: "Используй $html-pdf-report, когда задача относится к навыку \"HTML/PDF-отчёт\"."
+triggers:
+  - "html-pdf-report"
+  - "HTML отчёт"
+  - "PDF отчёт"
+  - "генерация отчёта"
+capabilities:
+  - "html-pdf-report"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Анализ трендов"
+  short_description: "Идентификация и оценка рыночных трендов — сила, влияние, таймлайн, рекомендации"
+  default_prompt: "Используй $trend-analysis, когда задача относится к навыку \"Анализ трендов\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "RFM-анализ"
+  short_description: "Сегментация клиентов по давности, частоте и сумме покупок"
+  default_prompt: "Используй $rfm-analysis, когда задача относится к навыку \"RFM-анализ\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true
