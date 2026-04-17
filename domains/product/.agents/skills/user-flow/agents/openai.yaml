@@ -1,0 +1,8 @@
+interface:
+  display_name: "User Flow"
+  short_description: "Документация пользовательских флоу — шаги, decision points, happy path + error s"
+  default_prompt: "Используй $user-flow, когда задача относится к навыку \"User Flow\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

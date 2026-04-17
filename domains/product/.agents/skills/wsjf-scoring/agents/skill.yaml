@@ -1,0 +1,20 @@
+version: 1
+name: "wsjf-scoring"
+display_name: "WSJF Scoring"
+description: "Weighted Shortest Job First — SAFe-style приоритизация для enterprise B2B (cost of delay / job size)"
+default_prompt: "Используй $wsjf-scoring, когда задача относится к навыку \"WSJF Scoring\"."
+triggers:
+  - "wsjf-scoring"
+  - "WSJF"
+  - "weighted shortest job first"
+  - "SAFe"
+capabilities:
+  - "wsjf-scoring"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

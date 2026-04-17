@@ -1,0 +1,15 @@
+{
+  "name": "kano-model",
+  "display_name": "Kano Model",
+  "description": "Feature classification — must-have / performance / delighters / indifferent / reverse",
+  "default_prompt": "Use $kano-model when the task relates to the skill \"Kano Model\".",
+  "triggers": [
+    "kano-model",
+    "kano"
+  ],
+  "capabilities": [
+    "kano-model"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

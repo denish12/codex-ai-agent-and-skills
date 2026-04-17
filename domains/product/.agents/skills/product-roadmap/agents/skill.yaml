@@ -1,0 +1,20 @@
+version: 1
+name: "product-roadmap"
+display_name: "Product Roadmap"
+description: "Дорожная карта по темам — Now / Next / Later, без жёстких дат, attached к OKR"
+default_prompt: "Используй $product-roadmap, когда задача относится к навыку \"Product Roadmap\"."
+triggers:
+  - "product-roadmap"
+  - "roadmap"
+  - "дорожная карта"
+  - "now next later"
+capabilities:
+  - "product-roadmap"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

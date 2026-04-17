@@ -1,0 +1,8 @@
+interface:
+  display_name: "A/B Test Design"
+  short_description: "A/B test design — primary metric, MDE, sample size, duration, guardrails, critical region"
+  default_prompt: "Use $ab-test-design when the task relates to the skill \"A/B Test Design\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

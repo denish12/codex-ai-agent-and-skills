@@ -1,0 +1,8 @@
+interface:
+  display_name: "Handoff — Transferring Context Between Gates and Sessions"
+  short_description: "Transferring artifacts between gates and sessions — structured format with decision context"
+  default_prompt: "Use $handoff when the task relates to the skill \"Handoff — Transferring Context Between Gates and Sessions\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

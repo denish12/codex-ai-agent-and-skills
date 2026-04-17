@@ -1,0 +1,8 @@
+interface:
+  display_name: "PRD Template"
+  short_description: "Шаблон Product Requirements Document для B2B SaaS — problem, solution, stories, "
+  default_prompt: "Используй $prd-template, когда задача относится к навыку \"PRD Template\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

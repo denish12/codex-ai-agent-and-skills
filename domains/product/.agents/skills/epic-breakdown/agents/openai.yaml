@@ -1,0 +1,8 @@
+interface:
+  display_name: "Epic Breakdown"
+  short_description: "Декомпозиция эпика на stories с зависимостями, size estimates (S/M/L/XL), critic"
+  default_prompt: "Используй $epic-breakdown, когда задача относится к навыку \"Epic Breakdown\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

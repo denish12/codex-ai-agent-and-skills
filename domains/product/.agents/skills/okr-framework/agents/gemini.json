@@ -1,0 +1,16 @@
+{
+  "name": "okr-framework",
+  "display_name": "OKR Framework",
+  "description": "Objectives & Key Results для B2B продуктовых команд — квартальный цикл, measurable key results",
+  "default_prompt": "Используй $okr-framework, когда задача относится к навыку \"OKR Framework\".",
+  "triggers": [
+    "okr-framework",
+    "OKR",
+    "objectives key results"
+  ],
+  "capabilities": [
+    "okr-framework"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

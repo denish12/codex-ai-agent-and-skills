@@ -1,0 +1,16 @@
+{
+  "name": "epic-breakdown",
+  "display_name": "Epic Breakdown",
+  "description": "Декомпозиция эпика на stories с зависимостями, size estimates (S/M/L/XL), critical path",
+  "default_prompt": "Используй $epic-breakdown, когда задача относится к навыку \"Epic Breakdown\".",
+  "triggers": [
+    "epic-breakdown",
+    "epic breakdown",
+    "декомпозиция эпика"
+  ],
+  "capabilities": [
+    "epic-breakdown"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

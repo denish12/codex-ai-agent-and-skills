@@ -1,0 +1,8 @@
+interface:
+  display_name: "Session Prompt Generator — Generating a Prompt for the Next Session"
+  short_description: "Generating a ready-to-paste prompt for the next session — context, role, tasks, inputs, expected outputs"
+  default_prompt: "Use $session-prompt-generator when the task relates to the skill \"Session Prompt Generator — Generating a Prompt for the Next Session\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

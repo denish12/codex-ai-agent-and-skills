@@ -1,0 +1,8 @@
+interface:
+  display_name: "AGENTS.md — Product Management Orchestra"
+  short_description: "Orchestration contract for roles, skills, and delivery-gates for B2B SaaS product management with dual adversarial axes (Customer-vs-Business, Build-vs-Cut)."
+  default_prompt: "Use AGENTS.md when the task requires orchestration of the product pipeline."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

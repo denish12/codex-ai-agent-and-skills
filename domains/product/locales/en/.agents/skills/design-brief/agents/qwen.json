@@ -1,0 +1,15 @@
+{
+  "name": "design-brief",
+  "display_name": "Design Brief",
+  "description": "Brief for UX/UI designer — context, goals, users, constraints, references, tone",
+  "default_prompt": "Use $design-brief when the task relates to the skill \"Design Brief\".",
+  "triggers": [
+    "design-brief",
+    "design brief"
+  ],
+  "capabilities": [
+    "design-brief"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

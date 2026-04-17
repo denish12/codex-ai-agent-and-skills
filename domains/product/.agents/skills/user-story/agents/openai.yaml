@@ -1,0 +1,8 @@
+interface:
+  display_name: "User Story"
+  short_description: "Написание user stories по INVEST — As a / I want / So that, разделение buyer/end"
+  default_prompt: "Используй $user-story, когда задача относится к навыку \"User Story\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

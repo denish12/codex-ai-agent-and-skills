@@ -1,0 +1,8 @@
+interface:
+  display_name: "Release Notes (B2B)"
+  short_description: "B2B customer-facing release notes — what's new, why it matters, breaking changes"
+  default_prompt: "Используй $release-notes, когда задача относится к навыку \"Release Notes (B2B)\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

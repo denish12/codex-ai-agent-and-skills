@@ -1,0 +1,15 @@
+{
+  "name": "hypothesis-template",
+  "display_name": "Hypothesis Template",
+  "description": "Testable hypothesis — We believe / Will result in / We'll know when [metric] reaches [threshold]",
+  "default_prompt": "Use $hypothesis-template when the task relates to the skill \"Hypothesis Template\".",
+  "triggers": [
+    "hypothesis-template",
+    "hypothesis"
+  ],
+  "capabilities": [
+    "hypothesis-template"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

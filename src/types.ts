@@ -7,7 +7,7 @@ export type TemplateLanguage = "ru" | "en";
 /**
  * Supported domain identifiers.
  */
-export type DomainId = "development" | "content" | "analytics";
+export type DomainId = "development" | "content" | "analytics" | "product";
 
 /**
  * Domain metadata loaded from domain.json manifest + dynamic counts.

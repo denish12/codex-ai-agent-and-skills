@@ -1,0 +1,8 @@
+interface:
+  display_name: "Скрипт пользовательского интервью (B2B)"
+  short_description: "Структурированный скрипт для B2B интервью — разграничение buyer и end-user, pain"
+  default_prompt: "Используй $user-interview-script, когда задача относится к навыку \"Скрипт пользовательского интервью (B2B)\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

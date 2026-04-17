@@ -1,0 +1,20 @@
+version: 1
+name: "gtm-brief"
+display_name: "Go-to-Market Brief"
+description: "GTM-бриф — positioning, ICP, messaging, launch channels, sales enablement, pricing hooks"
+default_prompt: "Используй $gtm-brief, когда задача относится к навыку \"Go-to-Market Brief\"."
+triggers:
+  - "gtm-brief"
+  - "GTM"
+  - "go-to-market"
+  - "product launch"
+capabilities:
+  - "gtm-brief"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

@@ -1,0 +1,16 @@
+{
+  "name": "prd-template",
+  "display_name": "PRD Template",
+  "description": "Product Requirements Document template for B2B SaaS — problem, solution, stories, AC, NFR, metrics, risks, rollout",
+  "default_prompt": "Use $prd-template when the task relates to the skill \"PRD Template\".",
+  "triggers": [
+    "prd-template",
+    "PRD",
+    "product requirements document"
+  ],
+  "capabilities": [
+    "prd-template"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

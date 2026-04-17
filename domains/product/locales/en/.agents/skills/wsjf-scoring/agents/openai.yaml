@@ -1,0 +1,8 @@
+interface:
+  display_name: "WSJF Scoring"
+  short_description: "Weighted Shortest Job First — SAFe-style prioritization for enterprise B2B (cost of delay / job size)"
+  default_prompt: "Use $wsjf-scoring when the task relates to the skill \"WSJF Scoring\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

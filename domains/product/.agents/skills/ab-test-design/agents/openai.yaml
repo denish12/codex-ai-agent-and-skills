@@ -1,0 +1,8 @@
+interface:
+  display_name: "A/B Test Design"
+  short_description: "Дизайн A/B-теста — primary metric, MDE, sample size, duration, guardrails, criti"
+  default_prompt: "Используй $ab-test-design, когда задача относится к навыку \"A/B Test Design\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

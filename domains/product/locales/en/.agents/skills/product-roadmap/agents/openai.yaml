@@ -1,0 +1,8 @@
+interface:
+  display_name: "Product Roadmap"
+  short_description: "Theme-based roadmap — Now / Next / Later, without hard dates, attached to OKR"
+  default_prompt: "Use $product-roadmap when the task relates to the skill \"Product Roadmap\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

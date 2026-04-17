@@ -5,13 +5,13 @@ import type { DomainId, DomainDescriptor, TemplateLanguage } from "./types.js";
 
 /** Zod schema for domain.json manifest. */
 const domainManifestSchema = z.object({
-  id: z.enum(["development", "content", "analytics"]),
+  id: z.enum(["development", "content", "analytics", "product"]),
   name: z.string().min(1),
   description: z.string().min(1),
 });
 
 /** All valid domain identifiers for normalization. */
-const VALID_DOMAIN_IDS: DomainId[] = ["development", "content", "analytics"];
+const VALID_DOMAIN_IDS: DomainId[] = ["development", "content", "analytics", "product"];
 
 /**
  * Scans domains/ directory and returns available domain descriptors.

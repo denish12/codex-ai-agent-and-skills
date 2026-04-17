@@ -1,0 +1,17 @@
+{
+  "name": "release-notes",
+  "display_name": "Release Notes (B2B)",
+  "description": "B2B customer-facing release notes — what's new, why it matters, breaking changes, migration steps",
+  "default_prompt": "Используй $release-notes, когда задача относится к навыку \"Release Notes (B2B)\".",
+  "triggers": [
+    "release-notes",
+    "release notes",
+    "changelog",
+    "что нового"
+  ],
+  "capabilities": [
+    "release-notes"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

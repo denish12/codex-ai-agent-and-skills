@@ -1,0 +1,20 @@
+version: 1
+name: "north-star-metric"
+display_name: "North Star Metric"
+description: "Выбор NSM для B2B SaaS — баланс leading/lagging, alignment с customer value и business outcome"
+default_prompt: "Используй $north-star-metric, когда задача относится к навыку \"North Star Metric\"."
+triggers:
+  - "north-star-metric"
+  - "north star"
+  - "NSM"
+  - "ведущая метрика"
+capabilities:
+  - "north-star-metric"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

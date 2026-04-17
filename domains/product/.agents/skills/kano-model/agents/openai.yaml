@@ -1,0 +1,8 @@
+interface:
+  display_name: "Kano Model"
+  short_description: "Классификация фич — must-have / performance / delighters / indifferent / reverse"
+  default_prompt: "Используй $kano-model, когда задача относится к навыку \"Kano Model\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

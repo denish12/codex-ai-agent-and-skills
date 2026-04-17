@@ -1,0 +1,8 @@
+interface:
+  display_name: "Acceptance Criteria"
+  short_description: "Критерии приёмки — Gherkin (Given / When / Then) или scenario-based"
+  default_prompt: "Используй $acceptance-criteria, когда задача относится к навыку \"Acceptance Criteria\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

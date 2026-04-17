@@ -1,0 +1,8 @@
+interface:
+  display_name: "Hypothesis Template"
+  short_description: "Testable hypothesis — We believe / Will result in / We'll know when [metric] reaches [threshold]"
+  default_prompt: "Use $hypothesis-template when the task relates to the skill \"Hypothesis Template\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

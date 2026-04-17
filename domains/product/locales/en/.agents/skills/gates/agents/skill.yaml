@@ -1,0 +1,19 @@
+version: 1
+name: "gates"
+display_name: "Gates"
+description: "Quality control at gates — acceptance, rejection, severity (P0/P1/Note), escalation"
+default_prompt: "Use $gates when the task relates to the skill \"Gates — Quality Control of Product Pipeline Gates\"."
+triggers:
+  - "gates"
+  - "gate control"
+  - "quality gate"
+capabilities:
+  - "gates"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "en"

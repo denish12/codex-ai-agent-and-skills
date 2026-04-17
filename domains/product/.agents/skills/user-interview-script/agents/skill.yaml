@@ -1,0 +1,21 @@
+version: 1
+name: "user-interview-script"
+display_name: "Скрипт пользовательского интервью (B2B)"
+description: "Структурированный скрипт для B2B интервью — разграничение buyer и end-user, pain-discovery без leading questions"
+default_prompt: "Используй $user-interview-script, когда задача относится к навыку \"Скрипт пользовательского интервью (B2B)\"."
+triggers:
+  - "user-interview-script"
+  - "user interview"
+  - "пользовательское интервью"
+  - "B2B interview"
+  - "customer discovery"
+capabilities:
+  - "user-interview-script"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

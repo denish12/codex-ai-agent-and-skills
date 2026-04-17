@@ -1,0 +1,20 @@
+version: 1
+name: "html-pdf-report"
+display_name: "HTML→PDF Report"
+description: "Generating a PRD or Product Review Deck from HTML/CSS to PDF — self-contained, print-ready"
+default_prompt: "Use $html-pdf-report when the task relates to the skill \"HTML/PDF Report — Generating a PRD or Product Review Deck as PDF\"."
+triggers:
+  - "html-pdf-report"
+  - "HTML PDF"
+  - "PRD PDF"
+  - "product review deck"
+capabilities:
+  - "html-pdf-report"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "en"

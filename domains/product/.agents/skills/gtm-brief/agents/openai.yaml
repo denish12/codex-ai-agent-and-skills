@@ -1,0 +1,8 @@
+interface:
+  display_name: "Go-to-Market Brief"
+  short_description: "GTM-бриф — positioning, ICP, messaging, launch channels, sales enablement, prici"
+  default_prompt: "Используй $gtm-brief, когда задача относится к навыку \"Go-to-Market Brief\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,20 @@
+version: 1
+name: "opportunity-solution-tree"
+display_name: "Opportunity-Solution Tree"
+description: "Дерево возможностей-решений по Терезе Торрес — desired outcome → opportunities → solutions → experiments"
+default_prompt: "Используй $opportunity-solution-tree, когда задача относится к навыку \"Opportunity-Solution Tree\"."
+triggers:
+  - "opportunity-solution-tree"
+  - "OST"
+  - "дерево возможностей"
+  - "Teresa Torres"
+capabilities:
+  - "opportunity-solution-tree"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

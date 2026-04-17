@@ -1,0 +1,8 @@
+interface:
+  display_name: "SaaS Metrics (B2B)"
+  short_description: "B2B SaaS metrics — MRR/ARR, gross/net churn, NRR, LTV/CAC, Payback, Rule of 40, Magic Number"
+  default_prompt: "Use $saas-metrics when the task relates to the skill \"SaaS Metrics (B2B)\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

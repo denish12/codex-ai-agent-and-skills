@@ -1,0 +1,8 @@
+interface:
+  display_name: "Assumption Mapping"
+  short_description: "Assumption map across value / usability / feasibility / viability axes — hypothesis prioritization for testing"
+  default_prompt: "Use $assumption-mapping when the task relates to the skill \"Assumption Mapping\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

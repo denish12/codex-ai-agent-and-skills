@@ -1,0 +1,17 @@
+{
+  "name": "user-interview-script",
+  "display_name": "User Interview Script (B2B)",
+  "description": "Structured script for B2B interviews — separation of buyer and end-user, pain-discovery without leading questions",
+  "default_prompt": "Use $user-interview-script when the task relates to the skill \"User Interview Script (B2B)\".",
+  "triggers": [
+    "user-interview-script",
+    "user interview",
+    "B2B interview",
+    "customer discovery"
+  ],
+  "capabilities": [
+    "user-interview-script"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

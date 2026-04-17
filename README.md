@@ -30,6 +30,8 @@ Code-AI Installer comes pre-bundled with dedicated professional systems separate
 
 - 💻 **Software Development Domain** (`development`): An 8-gate robust agentic pipeline tailored for end-to-end web app development. Includes roles like Product Manager, UX/UI Designer, Architect, Senior Full Stack Developer, Reviewer, DevOps, and QA Tester.
 - 📝 **Content Production Domain** (`content`): A creative pipeline dedicated to producing digital content (social media, blogs, visuals). Orchestrates roles such as Content Strategist, Copywriter, Researcher, and Visual Concept Designer.
+- 📊 **Business Analytics Domain** (`analytics`): An adversarial analytical pipeline with two competing teams (Analysts vs Critics) and a Mediator — plus Designer and Layouter for PDF reports. Strategic frameworks (SWOT, PEST, Porter's Five Forces, BCG, Blue Ocean, Ansoff, Unit Economics, Cohort, etc.).
+- 📦 **Product Management Domain** (`product`): A B2B SaaS product management pipeline — discovery → strategy → prioritization → PRD → UX → release → measurement. Dual adversarial axes: Customer-Champion vs Business-Champion on strategy, Build-Camp vs Cut-Camp on prioritization. Includes Discovery, Product Strategist, PM, UX Designer, Tech Lead, Data Analyst, Mediator, Designer, Layouter.
 
 *(You can select your target domain during the interactive installation process!)*
 

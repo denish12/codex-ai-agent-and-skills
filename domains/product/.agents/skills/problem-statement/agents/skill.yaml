@@ -1,0 +1,19 @@
+version: 1
+name: "problem-statement"
+display_name: "Problem Statement"
+description: "Формулировка проблемы продукта — actor, context, pain, root cause, evidence"
+default_prompt: "Используй $problem-statement, когда задача относится к навыку \"Problem Statement\"."
+triggers:
+  - "problem-statement"
+  - "problem framing"
+  - "формулировка проблемы"
+capabilities:
+  - "problem-statement"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

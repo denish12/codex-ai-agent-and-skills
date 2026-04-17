@@ -1,0 +1,8 @@
+interface:
+  display_name: "MoSCoW Prioritization"
+  short_description: "Приоритизация по Must / Should / Could / Won't — для coarse scope cuts"
+  default_prompt: "Используй $moscow-prioritization, когда задача относится к навыку \"MoSCoW Prioritization\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

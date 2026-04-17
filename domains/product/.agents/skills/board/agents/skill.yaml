@@ -1,0 +1,19 @@
+version: 1
+name: "board"
+display_name: "Доска задач"
+description: "Управление pipeline-доской — состояния гейтов, переходы, блокеры, эскалация"
+default_prompt: "Используй $board, когда задача относится к навыку \"Доска задач\"."
+triggers:
+  - "board"
+  - "доска задач"
+  - "pipeline board"
+capabilities:
+  - "board"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

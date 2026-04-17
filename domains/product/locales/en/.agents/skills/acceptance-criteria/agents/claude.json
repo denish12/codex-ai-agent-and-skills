@@ -1,0 +1,16 @@
+{
+  "name": "acceptance-criteria",
+  "display_name": "Acceptance Criteria",
+  "description": "Acceptance criteria — Gherkin (Given / When / Then) or scenario-based",
+  "default_prompt": "Use $acceptance-criteria when the task relates to the skill \"Acceptance Criteria\".",
+  "triggers": [
+    "acceptance-criteria",
+    "acceptance criteria",
+    "Gherkin"
+  ],
+  "capabilities": [
+    "acceptance-criteria"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

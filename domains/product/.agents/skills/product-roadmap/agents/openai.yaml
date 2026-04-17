@@ -1,0 +1,8 @@
+interface:
+  display_name: "Product Roadmap"
+  short_description: "Дорожная карта по темам — Now / Next / Later, без жёстких дат, attached к OKR"
+  default_prompt: "Используй $product-roadmap, когда задача относится к навыку \"Product Roadmap\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

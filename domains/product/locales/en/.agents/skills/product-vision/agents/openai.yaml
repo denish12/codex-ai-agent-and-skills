@@ -1,0 +1,8 @@
+interface:
+  display_name: "Product Vision"
+  short_description: "Product vision — for whom / why / what's unique / 2-3 year horizon / guiding principles"
+  default_prompt: "Use $product-vision when the task relates to the skill \"Product Vision\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

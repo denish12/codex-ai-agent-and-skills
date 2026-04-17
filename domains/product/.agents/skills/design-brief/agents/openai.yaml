@@ -1,0 +1,8 @@
+interface:
+  display_name: "Design Brief"
+  short_description: "Бриф для UX/UI дизайнера — context, goals, users, constraints, references, tone"
+  default_prompt: "Используй $design-brief, когда задача относится к навыку \"Design Brief\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

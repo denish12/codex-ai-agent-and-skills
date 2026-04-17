@@ -1,0 +1,17 @@
+{
+  "name": "ab-test-design",
+  "display_name": "A/B Test Design",
+  "description": "Дизайн A/B-теста — primary metric, MDE, sample size, duration, guardrails, critical region",
+  "default_prompt": "Используй $ab-test-design, когда задача относится к навыку \"A/B Test Design\".",
+  "triggers": [
+    "ab-test-design",
+    "A/B test",
+    "сплит-тест",
+    "experiment design"
+  ],
+  "capabilities": [
+    "ab-test-design"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

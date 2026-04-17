@@ -1,0 +1,8 @@
+interface:
+  display_name: "WSJF Scoring"
+  short_description: "Weighted Shortest Job First — SAFe-style приоритизация для enterprise B2B (cost "
+  default_prompt: "Используй $wsjf-scoring, когда задача относится к навыку \"WSJF Scoring\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

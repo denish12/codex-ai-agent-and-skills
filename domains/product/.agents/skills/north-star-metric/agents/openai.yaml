@@ -1,0 +1,8 @@
+interface:
+  display_name: "North Star Metric"
+  short_description: "Выбор NSM для B2B SaaS — баланс leading/lagging, alignment с customer value и bu"
+  default_prompt: "Используй $north-star-metric, когда задача относится к навыку \"North Star Metric\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

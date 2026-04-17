@@ -1,0 +1,16 @@
+{
+  "name": "launch-checklist",
+  "display_name": "Launch Checklist",
+  "description": "Чеклист запуска — внутренний (dogfooding, training, rollback) + внешний (GTM, customer comms)",
+  "default_prompt": "Используй $launch-checklist, когда задача относится к навыку \"Launch Checklist\".",
+  "triggers": [
+    "launch-checklist",
+    "launch checklist",
+    "чеклист запуска"
+  ],
+  "capabilities": [
+    "launch-checklist"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

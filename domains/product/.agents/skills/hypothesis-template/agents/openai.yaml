@@ -1,0 +1,8 @@
+interface:
+  display_name: "Hypothesis Template"
+  short_description: "Тестируемая гипотеза — We believe / Will result in / We'll know when [metric] re"
+  default_prompt: "Используй $hypothesis-template, когда задача относится к навыку \"Hypothesis Template\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

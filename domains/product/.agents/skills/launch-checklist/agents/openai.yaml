@@ -1,0 +1,8 @@
+interface:
+  display_name: "Launch Checklist"
+  short_description: "Чеклист запуска — внутренний (dogfooding, training, rollback) + внешний (GTM, cu"
+  default_prompt: "Используй $launch-checklist, когда задача относится к навыку \"Launch Checklist\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

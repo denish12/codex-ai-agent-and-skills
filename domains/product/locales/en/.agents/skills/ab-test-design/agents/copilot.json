@@ -1,0 +1,16 @@
+{
+  "name": "ab-test-design",
+  "display_name": "A/B Test Design",
+  "description": "A/B test design — primary metric, MDE, sample size, duration, guardrails, critical region",
+  "default_prompt": "Use $ab-test-design when the task relates to the skill \"A/B Test Design\".",
+  "triggers": [
+    "ab-test-design",
+    "A/B test",
+    "experiment design"
+  ],
+  "capabilities": [
+    "ab-test-design"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

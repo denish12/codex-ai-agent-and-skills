@@ -1,0 +1,19 @@
+version: 1
+name: "hypothesis-template"
+display_name: "Hypothesis Template"
+description: "Тестируемая гипотеза — We believe / Will result in / We'll know when [metric] reaches [threshold]"
+default_prompt: "Используй $hypothesis-template, когда задача относится к навыку \"Hypothesis Template\"."
+triggers:
+  - "hypothesis-template"
+  - "hypothesis"
+  - "гипотеза"
+capabilities:
+  - "hypothesis-template"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

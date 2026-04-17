@@ -1,0 +1,8 @@
+interface:
+  display_name: "RICE Scoring"
+  short_description: "Приоритизация по Reach × Impact × Confidence / Effort"
+  default_prompt: "Используй $rice-scoring, когда задача относится к навыку \"RICE Scoring\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

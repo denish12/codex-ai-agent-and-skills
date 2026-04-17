@@ -1,0 +1,19 @@
+version: 1
+name: "product-vision"
+display_name: "Product Vision"
+description: "Видение продукта — for whom / why / what's unique / 2-3 year horizon / guiding principles"
+default_prompt: "Используй $product-vision, когда задача относится к навыку \"Product Vision\"."
+triggers:
+  - "product-vision"
+  - "product vision"
+  - "видение продукта"
+capabilities:
+  - "product-vision"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

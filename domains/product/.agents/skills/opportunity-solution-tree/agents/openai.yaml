@@ -1,0 +1,8 @@
+interface:
+  display_name: "Opportunity-Solution Tree"
+  short_description: "Дерево возможностей-решений по Терезе Торрес — desired outcome → opportunities →"
+  default_prompt: "Используй $opportunity-solution-tree, когда задача относится к навыку \"Opportunity-Solution Tree\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,16 @@
+{
+  "name": "opportunity-solution-tree",
+  "display_name": "Opportunity-Solution Tree",
+  "description": "Opportunity-Solution Tree by Teresa Torres — desired outcome → opportunities → solutions → experiments",
+  "default_prompt": "Use $opportunity-solution-tree when the task relates to the skill \"Opportunity-Solution Tree\".",
+  "triggers": [
+    "opportunity-solution-tree",
+    "OST",
+    "Teresa Torres"
+  ],
+  "capabilities": [
+    "opportunity-solution-tree"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

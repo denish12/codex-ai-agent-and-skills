@@ -118,7 +118,7 @@ program
   .command("list")
   .description("List available bundled agents and skills")
   .option("--project-dir <path>", "Optional custom source root path")
-  .option("--domain <name>", "Domain name (development | content | analytics)")
+  .option("--domain <name>", "Domain name (development | content | analytics | product)")
   .option("--lang <lang>", "Template language: ru | en", "ru")
   .action(async (options: { projectDir?: string; domain?: string; lang: string }) => {
     try {
@@ -148,7 +148,7 @@ program
   .description("Check source and destination health before install")
   .requiredOption("--target <id>", "Target AI id")
   .option("--project-dir <path>", "Optional custom source root path")
-  .option("--domain <name>", "Domain name (development | content | analytics)")
+  .option("--domain <name>", "Domain name (development | content | analytics | product)")
   .option("--destination <path>", "Destination root (default: current directory)")
   .option("--lang <lang>", "Template language: ru | en", "ru")
   .action(async (options: { target: string; projectDir?: string; domain?: string; destination?: string; lang: string }) => {
@@ -192,7 +192,7 @@ program
   .description("Install selected agents and skills for target AI")
   .requiredOption("--target <id>", "Target AI id")
   .option("--project-dir <path>", "Optional custom source root path")
-  .option("--domain <name>", "Domain name (development | content | analytics)")
+  .option("--domain <name>", "Domain name (development | content | analytics | product)")
   .option("--destination <path>", "Destination root (default: current directory)")
   .option("--create-dir <name>", "Create child folder in current directory and install there")
   .option("--lang <lang>", "Template language: ru | en", "ru")
@@ -280,7 +280,7 @@ program
   .command("uninstall")
   .description("Uninstall previously installed files for target")
   .requiredOption("--target <id>", "Target AI id")
-  .option("--domain <name>", "Domain name (development | content | analytics)")
+  .option("--domain <name>", "Domain name (development | content | analytics | product)")
   .option("--destination <path>", "Destination root", process.cwd())
   .option("--apply", "Execute delete operations (default is dry-run)", false)
   .action(async (options: { target: string; domain?: string; destination: string; apply: boolean }) => {

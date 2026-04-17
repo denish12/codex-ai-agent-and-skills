@@ -1,0 +1,8 @@
+interface:
+  display_name: "Handoff"
+  short_description: "Передача артефактов между гейтами и сессиями — структурированный формат с decisi"
+  default_prompt: "Используй $handoff, когда задача относится к навыку \"Handoff\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

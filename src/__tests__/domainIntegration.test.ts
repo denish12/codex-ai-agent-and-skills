@@ -8,12 +8,13 @@ const packageRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname)
 describe("domain integration (real filesystem)", () => {
   it("discovers all bundled domains", async () => {
     const domains = await listDomains(packageRoot);
-    expect(domains.length).toBe(3);
+    expect(domains.length).toBe(4);
 
     const ids = domains.map((d) => d.id);
     expect(ids).toContain("development");
     expect(ids).toContain("content");
     expect(ids).toContain("analytics");
+    expect(ids).toContain("product");
   });
 
   it("loads development domain catalog with expected counts", async () => {
@@ -58,10 +59,25 @@ describe("domain integration (real filesystem)", () => {
     expect(skills.length).toBeGreaterThanOrEqual(20);
   });
 
+  it("loads product domain catalog with expected counts", async () => {
+    const root = await resolveDomainSourceRoot({
+      packageRoot,
+      domainId: "product",
+      language: "ru",
+    });
+    const catalog = await loadSourceCatalog(root);
+    const agents = listAgentNames(catalog);
+    const skills = listSkillNames(catalog);
+
+    expect(agents.length).toBe(10);
+    expect(skills.length).toBeGreaterThanOrEqual(30);
+  });
+
   it("domain descriptors have correct agent and skill counts", async () => {
     const domains = await listDomains(packageRoot);
     const dev = domains.find((d) => d.id === "development");
     const content = domains.find((d) => d.id === "content");
+    const product = domains.find((d) => d.id === "product");
 
     expect(dev).toBeDefined();
     expect(dev!.agentCount).toBe(8);
@@ -70,5 +86,9 @@ describe("domain integration (real filesystem)", () => {
     expect(content).toBeDefined();
     expect(content!.agentCount).toBe(6);
     expect(content!.skillCount).toBeGreaterThanOrEqual(25);
+
+    expect(product).toBeDefined();
+    expect(product!.agentCount).toBe(10);
+    expect(product!.skillCount).toBeGreaterThanOrEqual(30);
   });
 });

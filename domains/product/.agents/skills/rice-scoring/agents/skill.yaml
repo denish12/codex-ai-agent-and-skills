@@ -1,0 +1,19 @@
+version: 1
+name: "rice-scoring"
+display_name: "RICE Scoring"
+description: "Приоритизация по Reach × Impact × Confidence / Effort"
+default_prompt: "Используй $rice-scoring, когда задача относится к навыку \"RICE Scoring\"."
+triggers:
+  - "rice-scoring"
+  - "RICE"
+  - "reach impact confidence effort"
+capabilities:
+  - "rice-scoring"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

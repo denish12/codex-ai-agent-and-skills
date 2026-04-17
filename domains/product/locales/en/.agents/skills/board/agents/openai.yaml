@@ -1,0 +1,8 @@
+interface:
+  display_name: "Board — Product Pipeline Task Board Management"
+  short_description: "Pipeline board management — gate statuses, transitions, blockers, escalation"
+  default_prompt: "Use $board when the task relates to the skill \"Board — Product Pipeline Task Board Management\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

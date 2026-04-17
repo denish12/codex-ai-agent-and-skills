@@ -1,0 +1,16 @@
+{
+  "name": "handoff",
+  "display_name": "Handoff",
+  "description": "Передача артефактов между гейтами и сессиями — структурированный формат с decision context",
+  "default_prompt": "Используй $handoff, когда задача относится к навыку \"Handoff\".",
+  "triggers": [
+    "handoff",
+    "передача",
+    "session handoff"
+  ],
+  "capabilities": [
+    "handoff"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

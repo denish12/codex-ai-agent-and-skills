@@ -1,0 +1,8 @@
+interface:
+  display_name: "Доска задач"
+  short_description: "Управление pipeline-доской — состояния гейтов, переходы, блокеры, эскалация"
+  default_prompt: "Используй $board, когда задача относится к навыку \"Доска задач\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

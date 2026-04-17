@@ -1,0 +1,8 @@
+interface:
+  display_name: "Launch Checklist (B2B SaaS)"
+  short_description: "Launch checklist — internal (dogfooding, training, rollback) + external (GTM, customer comms)"
+  default_prompt: "Use $launch-checklist when the task relates to the skill \"Launch Checklist (B2B SaaS)\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

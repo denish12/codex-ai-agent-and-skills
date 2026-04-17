@@ -1,0 +1,19 @@
+version: 1
+name: "product-roadmap"
+display_name: "Product Roadmap"
+description: "Theme-based roadmap — Now / Next / Later, without hard dates, attached to OKR"
+default_prompt: "Use $product-roadmap when the task relates to the skill \"Product Roadmap\"."
+triggers:
+  - "product-roadmap"
+  - "roadmap"
+  - "now next later"
+capabilities:
+  - "product-roadmap"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "en"

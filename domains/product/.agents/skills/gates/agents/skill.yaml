@@ -1,0 +1,19 @@
+version: 1
+name: "gates"
+display_name: "Gates"
+description: "Контроль качества на гейтах — acceptance, rejection, severity (P0/P1/Note), escalation"
+default_prompt: "Используй $gates, когда задача относится к навыку \"Gates\"."
+triggers:
+  - "gates"
+  - "gate control"
+  - "quality gate"
+capabilities:
+  - "gates"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Design Brief"
+  short_description: "Brief for UX/UI designer — context, goals, users, constraints, references, tone"
+  default_prompt: "Use $design-brief when the task relates to the skill \"Design Brief\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Session Prompt Generator"
+  short_description: "Генерация ready-to-paste промпта для следующей сессии — контекст, роль, задачи, "
+  default_prompt: "Используй $session-prompt-generator, когда задача относится к навыку \"Session Prompt Generator\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

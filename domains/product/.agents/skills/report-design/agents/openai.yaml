@@ -1,0 +1,8 @@
+interface:
+  display_name: "Report Design (PRD / Review Deck)"
+  short_description: "Проектирование макета PRD или Product Review Deck — структура, навигация, визуал"
+  default_prompt: "Используй $report-design, когда задача относится к навыку \"Report Design (PRD / Review Deck)\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

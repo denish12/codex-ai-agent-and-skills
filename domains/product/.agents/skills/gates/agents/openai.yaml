@@ -1,0 +1,8 @@
+interface:
+  display_name: "Gates"
+  short_description: "Контроль качества на гейтах — acceptance, rejection, severity (P0/P1/Note), esca"
+  default_prompt: "Используй $gates, когда задача относится к навыку \"Gates\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

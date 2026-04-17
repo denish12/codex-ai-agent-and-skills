@@ -1,0 +1,8 @@
+interface:
+  display_name: "OKR Framework"
+  short_description: "Objectives & Key Results для B2B продуктовых команд — квартальный цикл, measurab"
+  default_prompt: "Используй $okr-framework, когда задача относится к навыку \"OKR Framework\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,20 @@
+version: 1
+name: "user-story"
+display_name: "User Story"
+description: "Написание user stories по INVEST — As a / I want / So that, разделение buyer/end-user"
+default_prompt: "Используй $user-story, когда задача относится к навыку \"User Story\"."
+triggers:
+  - "user-story"
+  - "user story"
+  - "пользовательская история"
+  - "INVEST"
+capabilities:
+  - "user-story"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

@@ -1,0 +1,20 @@
+version: 1
+name: "assumption-mapping"
+display_name: "Assumption Mapping"
+description: "Карта допущений по осям value / usability / feasibility / viability — приоритизация гипотез для тестирования"
+default_prompt: "Используй $assumption-mapping, когда задача относится к навыку \"Assumption Mapping\"."
+triggers:
+  - "assumption-mapping"
+  - "assumption mapping"
+  - "карта допущений"
+  - "гипотезы"
+capabilities:
+  - "assumption-mapping"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"

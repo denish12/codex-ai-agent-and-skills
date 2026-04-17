@@ -1,0 +1,8 @@
+interface:
+  display_name: "Problem Statement"
+  short_description: "Формулировка проблемы продукта — actor, context, pain, root cause, evidence"
+  default_prompt: "Используй $problem-statement, когда задача относится к навыку \"Problem Statement\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

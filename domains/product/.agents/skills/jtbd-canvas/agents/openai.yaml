@@ -1,0 +1,8 @@
+interface:
+  display_name: "Jobs-to-be-Done Canvas"
+  short_description: "JTBD-канва для B2B продуктов — functional, emotional, social jobs отдельно для b"
+  default_prompt: "Используй $jtbd-canvas, когда задача относится к навыку \"Jobs-to-be-Done Canvas\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

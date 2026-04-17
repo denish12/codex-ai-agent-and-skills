@@ -1,0 +1,8 @@
+interface:
+  display_name: "User Flow"
+  short_description: "Documenting user flows — steps, decision points, happy path + error states"
+  default_prompt: "Use $user-flow when the task relates to the skill \"User Flow\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

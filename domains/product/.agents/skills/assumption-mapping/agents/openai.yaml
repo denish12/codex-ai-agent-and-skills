@@ -1,0 +1,8 @@
+interface:
+  display_name: "Assumption Mapping"
+  short_description: "Карта допущений по осям value / usability / feasibility / viability — приоритиза"
+  default_prompt: "Используй $assumption-mapping, когда задача относится к навыку \"Assumption Mapping\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

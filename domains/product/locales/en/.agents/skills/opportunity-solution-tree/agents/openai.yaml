@@ -1,0 +1,8 @@
+interface:
+  display_name: "Opportunity-Solution Tree (OST)"
+  short_description: "Opportunity-Solution Tree by Teresa Torres — desired outcome → opportunities → solutions → experiments"
+  default_prompt: "Use $opportunity-solution-tree when the task relates to the skill \"Opportunity-Solution Tree (OST)\"."
+dependencies:
+  tools: []
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,20 @@
+version: 1
+name: "report-design"
+display_name: "Report Design (PRD / Review Deck)"
+description: "Designing the layout of a PRD or Product Review Deck — structure, navigation, visual hierarchy"
+default_prompt: "Use $report-design when the task relates to the skill \"Report Design — PRD / Product Review Deck Layout Design\"."
+triggers:
+  - "report-design"
+  - "report design"
+  - "PRD design"
+  - "deck design"
+capabilities:
+  - "report-design"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "en"
+  available_locales:
+    - "en"
