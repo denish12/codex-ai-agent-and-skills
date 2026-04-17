@@ -42,7 +42,11 @@
       "Bash(node fix-quotes.mjs)",
       "Bash(gh pr create --title 'feat: product domain + EN localization \\(v2.3.0\\)' --body ' *)",
       "Bash(where gh *)",
-      "Bash(winget list *)"
+      "Bash(winget list *)",
+      "Bash(npm run *)",
+      "Bash(npm publish *)",
+      "mcp__mempalace__mempalace_get_aaak_spec",
+      "Bash(git -C \"E:\\Light-Tech\\Web\\codex-ai-agents-and-skills\" *)"
     ]
   }
 }
