@@ -39,7 +39,7 @@
 ## Используемые skills
 
 ### Обязательные (каждый раз)
-- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
+- **$karpathy-guidelines** — сначала думай, делай только нужное, правь точечно, работай от результата
 - **`$html-pdf-report`** — полный протокол генерации HTML: CSS, Chart.js, Mermaid, компоненты, тестирование
 - **`$gates`** — проверка deliverable по LY-xx criteria + Release Gate
 - **`$handoff`** — приём от DS-01 + передача на Release Gate

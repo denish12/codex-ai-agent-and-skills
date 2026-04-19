@@ -53,7 +53,7 @@ Reasoning всегда `high` — стратегические решения в
 ## Используемые skills
 
 ### Обязательные (каждый раз)
-- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
+- **$karpathy-guidelines** — сначала думай, делай только нужное, правь точечно, работай от результата
 - **`$product-vision`** — видение продукта (vision statement + principles)
 - **`$okr-framework`** — OKR для квартала/года
 - **`$north-star-metric`** — NSM selection + leading indicators

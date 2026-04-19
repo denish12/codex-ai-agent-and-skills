@@ -54,7 +54,7 @@ metrics (NSM/OKR link), (5) out-of-scope явно (prevent creep), (6) camp disc
 ## Используемые skills
 
 ### Обязательные (каждый раз)
-- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
+- **$karpathy-guidelines** — сначала думай, делай только нужное, правь точечно, работай от результата
 - **`$prd-template`** — Product Requirements Document
 - **`$user-story`** — INVEST user stories
 - **`$acceptance-criteria`** — Gherkin AC

@@ -52,7 +52,7 @@ critical path и зависимостями, (5) camp discipline (Full B).
 ## Используемые skills
 
 ### Обязательные (каждый раз)
-- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
+- **$karpathy-guidelines** — сначала думай, делай только нужное, правь точечно, работай от результата
 - **`$epic-breakdown`** — декомпозиция initiative на epics → stories с зависимостями
 - **`$gates`** — проверка deliverable по TECH-xx criteria
 - **`$handoff`** — формирование handoff-конверта

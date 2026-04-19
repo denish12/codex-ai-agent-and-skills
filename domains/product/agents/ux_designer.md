@@ -43,7 +43,7 @@ early flow insight если Discovery указывает на complex flow.
 ## Используемые skills
 
 ### Обязательные (каждый раз)
-- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
+- **$karpathy-guidelines** — сначала думай, делай только нужное, правь точечно, работай от результата
 - **`$user-flow`** — user flow docs (шаги, decision points, exits, error states)
 - **`$design-brief`** — бриф для Designer / external visual designer
 - **`$gates`** — проверка deliverable по UX-01 criteria

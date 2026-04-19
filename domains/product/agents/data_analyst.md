@@ -50,7 +50,7 @@ guardrails + leading indicators, (2) каждая гипотеза formalized п
 ## Используемые skills
 
 ### Обязательные (каждый раз)
-- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
+- **$karpathy-guidelines** — сначала думай, делай только нужное, правь точечно, работай от результата
 - **`$saas-metrics`** — B2B SaaS метрики (MRR/ARR, churn, NRR, LTV/CAC, Payback, Rule of 40)
 - **`$hypothesis-template`** — формализация гипотез
 - **`$gates`** — проверка deliverable по DATA-01 criteria
