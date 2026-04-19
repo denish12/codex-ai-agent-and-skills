@@ -1,0 +1,25 @@
+version: 1
+name: "karpathy-guidelines"
+display_name: "Karpathy Guidelines"
+description: "Поведенческие правила для снижения типичных ошибок LLM — думай перед тем как делать, простота прежде всего, хирургические изменения, ориентация на цель."
+default_prompt: "Используй $karpathy-guidelines, когда задача требует соблюдения правил качества: написание кода, ревью, рефакторинг, анализ или проектирование."
+triggers:
+  - "karpathy-guidelines"
+  - "karpathy"
+  - "Karpathy Guidelines"
+  - "думай перед тем как делать"
+  - "простота прежде всего"
+  - "хирургические изменения"
+capabilities:
+  - "quality"
+  - "guidelines"
+  - "best-practices"
+tools: []
+invocation:
+  explicit: true
+  implicit: true
+localization:
+  default_locale: "ru"
+  available_locales:
+    - "ru"
+    - "en"
