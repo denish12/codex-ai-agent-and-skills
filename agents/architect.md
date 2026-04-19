@@ -273,6 +273,7 @@
 ---
 
 ## Используемые skills (вызовы)
+- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
 - $current-state-analysis
 - $system-design-checklist
 - $architecture-doc

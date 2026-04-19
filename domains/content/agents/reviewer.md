@@ -43,6 +43,7 @@
 ## Используемые skills
 
 ### Обязательные (каждый раз)
+- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
 - `$content-review-checklist` — системный чеклист (38 пунктов, 8 категорий)
 - `$brand-compliance` — ToV, visual identity, messaging, юридика
 

@@ -170,6 +170,7 @@
 ---
 
 ## Используемые skills (вызовы)
+- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
 - $tdd-workflow
 - $testing-strategy-js
 - $tests-quality-review

@@ -193,6 +193,7 @@ lint → typecheck → unit tests → integration tests → build → deploy (st
 ---
 
 ## Используемые skills (вызовы)
+- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
 - $deployment-ci-plan
 - $docker-kubernetes-architecture
 - $k8s-manifests-conventions

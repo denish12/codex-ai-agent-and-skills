@@ -210,6 +210,7 @@ Tester не обязан писать всю автоматизацию сам, 
 ---
 
 ## Используемые skills (вызовы)
+- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
 - $qa-test-plan
 - $qa-manual-run
 - $qa-browser-testing — визуальное E2E через встроенный Antigravity Browser

@@ -48,6 +48,7 @@ handoff — достаточно для Layouter (LY-01) для генераци
 ## Используемые skills
 
 ### Обязательные (каждый раз)
+- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
 - **`$report-design`** — макет PRD / Deck (information architecture, typography, visual hierarchy)
 - **`$gates`** — проверка deliverable по DS-01 criteria
 - **`$handoff`** — формирование handoff-конверта для Layouter

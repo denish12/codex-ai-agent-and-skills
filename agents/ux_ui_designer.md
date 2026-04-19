@@ -153,6 +153,7 @@
 ---
 
 ## Используемые skills (вызовы)
+- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
 - $ux-discovery
 - $ux-spec
 - $ui-inventory

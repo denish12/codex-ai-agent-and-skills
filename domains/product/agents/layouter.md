@@ -47,6 +47,7 @@ colors, spacing), (4) accessibility — semantic HTML, proper headings, alt-text
 ## Используемые skills
 
 ### Обязательные (каждый раз)
+- **$karpathy-guidelines** — обязательное правило качества (думай, упрощай, хирургически, цель)
 - **`$html-pdf-report`** — HTML/CSS → PDF pipeline (print-ready, self-contained)
 - **`$gates`** — проверка deliverable по LY-01 criteria
 - **`$handoff`** — формирование handoff-конверта для Release Gate
