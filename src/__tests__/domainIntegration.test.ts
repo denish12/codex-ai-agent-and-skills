@@ -28,7 +28,7 @@ describe("domain integration (real filesystem)", () => {
     const skills = listSkillNames(catalog);
 
     expect(agents.length).toBe(8);
-    expect(skills.length).toBe(71);
+    expect(skills.length).toBe(72);
   });
 
   it("loads content domain catalog with expected counts", async () => {
@@ -81,7 +81,7 @@ describe("domain integration (real filesystem)", () => {
 
     expect(dev).toBeDefined();
     expect(dev!.agentCount).toBe(8);
-    expect(dev!.skillCount).toBe(71);
+    expect(dev!.skillCount).toBe(72);
 
     expect(content).toBeDefined();
     expect(content!.agentCount).toBe(6);

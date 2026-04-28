@@ -93,3 +93,6 @@ CONDUCTOR → INTERVIEWER → RESEARCHER → DATA_ANALYST → STRATEGIST → MED
 
 ### Layouter
 - $html-pdf-report — HTML/CSS → PDF generation
+
+### Cross-cutting / Quality (all agents in the domain)
+- $karpathy-guidelines — mandatory before any non-trivial task

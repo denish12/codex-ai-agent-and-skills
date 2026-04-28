@@ -93,3 +93,6 @@ CONDUCTOR → INTERVIEWER → RESEARCHER → DATA_ANALYST → STRATEGIST → MED
 
 ### Верстальщик
 - $html-pdf-report — генерация HTML/CSS → PDF
+
+### Cross-cutting / Quality (все агенты домена)
+- $karpathy-guidelines — обязателен перед любой нетривиальной задачей

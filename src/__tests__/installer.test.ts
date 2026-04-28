@@ -197,13 +197,109 @@ describe("installer", () => {
     const installedAgents = await fs.readFile(path.join(destinationDir, "AGENTS.md"), "utf8");
     const installedGemini = await fs.readFile(path.join(destinationDir, "GEMINI.md"), "utf8");
     expect(installedGemini).toBe(installedAgents);
-    expect(await fs.pathExists(path.join(destinationDir, ".gemini", "agents", "reviewer", "prompt.md"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".gemini", "agents", "reviewer", "reviewer.md"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "agents", "reviewer", "config.json"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board", "SKILL.md"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board", "board.py"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "orchestrator.gemini.json"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board", "agents", "skill.yaml"))).toBe(true);
     expect(await fs.pathExists(path.join(destinationDir, ".gemini", "skills", "board", "agents", "gemini.json"))).toBe(true);
+
+    const config = JSON.parse(
+      await fs.readFile(path.join(destinationDir, ".gemini", "agents", "reviewer", "config.json"), "utf8"),
+    ) as { promptFile: string };
+    expect(config.promptFile).toBe("reviewer.md");
+  });
+
+  it("migrates legacy prompt.md from antugravity installs <= v2.4.0", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+    const agentDir = path.join(destinationDir, ".gemini", "agents", "reviewer");
+    const legacyPath = path.join(agentDir, "prompt.md");
+    const newPath = path.join(agentDir, "reviewer.md");
+    const configPath = path.join(agentDir, "config.json");
+
+    await fs.outputFile(legacyPath, "user-customized prompt body\n", "utf8");
+    await fs.outputJson(configPath, {
+      name: "reviewer",
+      model: "gemini-2.5-pro",
+      promptFile: "prompt.md",
+      reasoning: "high",
+      temperature: 0.5,
+    });
+
+    await runInstall({
+      target: "google-antugravity",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "skip",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(legacyPath)).toBe(false);
+    expect(await fs.pathExists(newPath)).toBe(true);
+    expect(await fs.readFile(newPath, "utf8")).toBe("user-customized prompt body\n");
+
+    const config = (await fs.readJson(configPath)) as { promptFile: string; reasoning: string; temperature: number };
+    expect(config.promptFile).toBe("reviewer.md");
+    expect(config.reasoning).toBe("high");
+    expect(config.temperature).toBe(0.5);
+  });
+
+  it("migrates legacy prompt.md and lets canonical install land under overwrite mode", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+    const agentDir = path.join(destinationDir, ".gemini", "agents", "reviewer");
+    const legacyPath = path.join(agentDir, "prompt.md");
+    const newPath = path.join(agentDir, "reviewer.md");
+
+    await fs.outputFile(legacyPath, "stale v2.4.0 prompt body\n", "utf8");
+
+    await runInstall({
+      target: "google-antugravity",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(legacyPath)).toBe(false);
+    expect(await fs.pathExists(newPath)).toBe(true);
+    const installed = await fs.readFile(newPath, "utf8");
+    expect(installed).not.toBe("stale v2.4.0 prompt body\n");
+    expect(installed).toContain("# reviewer");
+  });
+
+  it("removes orphan prompt.md when reviewer.md already exists in antugravity install", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+    const agentDir = path.join(destinationDir, ".gemini", "agents", "reviewer");
+    const legacyPath = path.join(agentDir, "prompt.md");
+    const newPath = path.join(agentDir, "reviewer.md");
+
+    await fs.outputFile(legacyPath, "stale orphan body\n", "utf8");
+    await fs.outputFile(newPath, "current canonical body\n", "utf8");
+
+    await runInstall({
+      target: "google-antugravity",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "skip",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(legacyPath)).toBe(false);
+    expect(await fs.pathExists(newPath)).toBe(true);
+    expect(await fs.readFile(newPath, "utf8")).toBe("current canonical body\n");
   });
 
   it("installs codex skills into .agents/skills and copies workflows", async () => {

@@ -70,3 +70,6 @@ CONDUCTOR → STRATEGIST → RESEARCHER → COPYWRITER → VISUAL_CONCEPT → RE
 - `$fact-checking` — fact-checking
 - `$readability-scoring` — readability scoring
 - `$platform-compliance` — platform compliance
+
+### Cross-cutting / Quality (all agents in the domain)
+- `$karpathy-guidelines` — mandatory before any non-trivial task

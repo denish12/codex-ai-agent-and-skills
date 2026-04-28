@@ -117,6 +117,9 @@
 - $security-baseline-dev
 - $compass-mongodb
 
+### Cross-cutting / Quality (все агенты, все домены)
+- $karpathy-guidelines — обязателен перед любой нетривиальной задачей
+
 ### Testing (QA)
 - $qa-test-plan
 - $qa-manual-run

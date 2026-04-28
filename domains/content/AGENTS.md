@@ -70,3 +70,6 @@ CONDUCTOR → STRATEGIST → RESEARCHER → COPYWRITER → VISUAL_CONCEPT → RE
 - $fact-checking — факт-чекинг
 - $readability-scoring — оценка читаемости
 - $platform-compliance — соответствие требованиям платформ
+
+### Cross-cutting / Quality (все агенты домена)
+- $karpathy-guidelines — обязателен перед любой нетривиальной задачей

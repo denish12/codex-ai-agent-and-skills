@@ -328,7 +328,7 @@ Data quality: Verified XX% | Estimated XX% | Assumed XX%
 ## Анализ по фреймворкам
 
 ### Фреймворк 1: [Название]
-**Skill:** $skill-name
+**Skill:** `<skill-name>`
 **Quality Gate:** ✅ Пройден (N/N чекбоксов)
 
 **Результат:**

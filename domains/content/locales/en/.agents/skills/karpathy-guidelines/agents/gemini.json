@@ -1,0 +1,22 @@
+{
+  "name": "karpathy-guidelines",
+  "display_name": "Karpathy Guidelines",
+  "description": "Behavioral guidelines to reduce common LLM mistakes — think before coding, simplicity first, surgical changes, goal-driven execution.",
+  "default_prompt": "Use $karpathy-guidelines when the task requires quality discipline: writing code, reviewing, refactoring, analysis, or design.",
+  "triggers": [
+    "karpathy-guidelines",
+    "karpathy",
+    "Karpathy Guidelines",
+    "think before coding",
+    "simplicity first",
+    "surgical changes",
+    "goal-driven execution"
+  ],
+  "capabilities": [
+    "quality",
+    "guidelines",
+    "best-practices"
+  ],
+  "tools": [],
+  "implicit_invocation": true
+}

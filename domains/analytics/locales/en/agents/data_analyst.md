@@ -327,7 +327,7 @@ Data quality array: Verified XX% | Estimated XX% | Assumed XX%
 ## Framework Executions
 
 ### Framework Instance 1: [Name]
-**Active Skill:** $skill-name
+**Active Skill:** `<skill-name>`
 **Quality Gate:** ✅ Defeated (N/N checks)
 
 **Analysis Output:**

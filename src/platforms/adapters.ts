@@ -288,7 +288,7 @@ function planForGeminiLayout(
 
     operations.push({
       sourcePath,
-      destinationPath: path.join(destinationDir, layout.agentsDir, agentName, "prompt.md"),
+      destinationPath: path.join(destinationDir, layout.agentsDir, agentName, `${agentName}.md`),
       generated: false,
       transform: {
         target,
@@ -412,7 +412,7 @@ function renderGeminiAgentConfig(agentName: string): string {
     {
       name: agentName,
       model: "gemini-2.5-pro",
-      promptFile: "prompt.md",
+      promptFile: `${agentName}.md`,
       reasoning: "medium",
       temperature: 0.2,
     },

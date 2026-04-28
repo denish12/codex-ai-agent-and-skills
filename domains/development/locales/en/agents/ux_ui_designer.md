@@ -161,7 +161,7 @@ If the user makes edits (not fully approved):
 - $design-parity-review
 - $design-systems
 - $ui-a11y-smoke-review
-- $google-stitch — AI UI generation via StitchMCP (rapid ideation after Approved UX Proposal)
+- $google-stitch-skill — AI UI generation via StitchMCP (rapid ideation after Approved UX Proposal)
 
 ---
 

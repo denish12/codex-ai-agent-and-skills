@@ -14,6 +14,8 @@ interface ApplyResult {
 
 /**
  * Runs installation for selected target with optional dry-run and backup.
+ * For target=google-antugravity, runs legacy prompt.md migration before applyOperations
+ * so the migrated <agent>.md ends up under applyOperations' backup/rollback coverage.
  * @param options Install options.
  * @returns Install state and write summary.
  */
@@ -38,6 +40,13 @@ export async function runInstall(options: InstallOptions): Promise<{ state: Inst
     selectedAgents: options.selectedAgents,
     selectedSkills: options.selectedSkills,
   };
+
+  if (options.target === "google-antugravity" && !options.dryRun) {
+    await migrateLegacyGeminiPromptFiles({
+      destinationDir: options.destinationDir,
+      selectedAgents: options.selectedAgents,
+    });
+  }
 
   const result = await applyOperations({
     operations,
@@ -227,6 +236,50 @@ async function deleteInstallState(destinationDir: string, target: InstallState["
   const stateFile = getStateFilePath(destinationDir, target, domain);
   if (await fs.pathExists(stateFile)) {
     await fs.remove(stateFile);
+  }
+}
+
+/**
+ * Renames legacy <agentsDir>/<agent>/prompt.md to <agent>.md for installs
+ * created by code-ai-installer <= v2.4.0 on the google-antugravity target.
+ * If both files exist (already migrated, but old prompt.md remained as orphan),
+ * removes the legacy file. Idempotent and safe to run on every install.
+ * Runs before applyOperations so the renamed file is backed up by the normal
+ * install transaction; on apply failure rollback restores user-customized content.
+ * @param args Migration arguments.
+ */
+async function migrateLegacyGeminiPromptFiles(args: {
+  destinationDir: string;
+  selectedAgents: string[];
+}): Promise<void> {
+  const agentsDir = path.join(args.destinationDir, ".gemini", "agents");
+  if (!(await fs.pathExists(agentsDir))) {
+    return;
+  }
+  for (const agentName of args.selectedAgents) {
+    const legacyPath = path.join(agentsDir, agentName, "prompt.md");
+    const newPath = path.join(agentsDir, agentName, `${agentName}.md`);
+    const configPath = path.join(agentsDir, agentName, "config.json");
+
+    if (await fs.pathExists(legacyPath)) {
+      if (await fs.pathExists(newPath)) {
+        await fs.remove(legacyPath);
+      } else {
+        await fs.rename(legacyPath, newPath);
+      }
+    }
+
+    if (await fs.pathExists(configPath)) {
+      try {
+        const config = (await fs.readJson(configPath)) as Record<string, unknown>;
+        if (config.promptFile === "prompt.md") {
+          config.promptFile = `${agentName}.md`;
+          await fs.writeJson(configPath, config, { spaces: 2 });
+        }
+      } catch {
+        // Malformed config.json — leave it for applyOperations (overwrite mode regenerates it).
+      }
+    }
   }
 }
 

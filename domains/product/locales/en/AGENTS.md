@@ -139,6 +139,9 @@ CONDUCTOR → PM → UX_DESIGNER + TECH_LEAD → PRD (markdown)
 - $gtm-brief — GTM brief (handoff to marketing/sales)
 - $release-notes — release notes for B2B clients
 
+### Cross-cutting / Quality (all agents in the domain)
+- $karpathy-guidelines — mandatory before any non-trivial task
+
 ## MCP Integrations (expected)
 - **mempalace** — long-term product memory, decisions, discovery artifacts
 - **shadcn + tailwindcss + stitch** — for UI mockups via UX designer

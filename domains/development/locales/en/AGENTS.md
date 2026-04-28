@@ -98,6 +98,9 @@ Use skills (folders with `SKILL.md`). Full list:
 - $performance-review-baseline
 - $review-reference-snippets
 
+### Cross-cutting / Quality (all agents, all domains)
+- $karpathy-guidelines — mandatory before any non-trivial task
+
 ### Testing (QA)
 - $qa-test-plan
 - $qa-manual-run
