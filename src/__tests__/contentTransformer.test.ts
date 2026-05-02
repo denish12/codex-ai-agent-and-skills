@@ -40,6 +40,22 @@ describe("contentTransformer", () => {
     expect(output.includes("<!-- codex:")).toBe(false);
   });
 
+  it("should map codex hint to kimi hint for moonshot-kimi target", () => {
+    const input = "<!-- codex: reasoning=extra_high; note=\"deep refactor\" -->\n# Agent\n";
+    const output = transformContentForTarget(input, "moonshot-kimi", "agent");
+
+    expect(output.includes("<!-- kimi: reasoning=high; note=\"deep refactor\" -->")).toBe(true);
+    expect(output.includes("<!-- codex:")).toBe(false);
+  });
+
+  it("should keep native kimi hint when present", () => {
+    const input = "<!-- kimi: reasoning=low -->\n<!-- codex: reasoning=high -->\n# Agent\n";
+    const output = transformContentForTarget(input, "moonshot-kimi", "agent");
+
+    expect(output.includes("<!-- kimi: reasoning=low -->")).toBe(true);
+    expect(output.includes("reasoning=high")).toBe(false);
+  });
+
   // Edge cases (DEV-01.11)
 
   it("should handle empty input without crashing", () => {

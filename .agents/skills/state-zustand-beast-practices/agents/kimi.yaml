@@ -1,0 +1,16 @@
+name: "state-zustand-beast-practices"
+display_name: "Практики Zustand"
+description: "Zustand — простой глобальный state без prop drilling, модульность стора, селекторы, избегание лишних ререндеров. Паттерны создания slice-сторов, middleware (immer, persist, devtools), TypeScript типизация, тестирование. Активируй при создании нового стора, рефакторинге state management, или при вопросах «как правильно организовать Zustand»."
+default_prompt: "Используй $state-zustand-beast-practices, когда задача относится к навыку \"Практики Zustand\"."
+triggers:
+  - "state-zustand-beast-practices"
+  - "state zustand beast practices"
+  - "Практики Zustand"
+  - "Zustand — простой глобальный state без prop drilling, модульность стора, селекторы, избегание лишних ререндеров"
+capabilities:
+  - "state"
+  - "zustand"
+  - "beast"
+  - "practices"
+tools: []
+implicit_invocation: true

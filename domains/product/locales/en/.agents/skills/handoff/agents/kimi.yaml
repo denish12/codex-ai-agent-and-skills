@@ -1,0 +1,11 @@
+name: "handoff"
+display_name: "Handoff"
+description: "Transferring artifacts between gates and sessions — structured format with decision context"
+default_prompt: "Use $handoff when the task relates to the skill \"Handoff\"."
+triggers:
+  - "handoff"
+  - "session handoff"
+capabilities:
+  - "handoff"
+tools: []
+implicit_invocation: true

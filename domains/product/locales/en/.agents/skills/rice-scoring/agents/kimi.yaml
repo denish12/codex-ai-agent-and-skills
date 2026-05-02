@@ -1,0 +1,12 @@
+name: "rice-scoring"
+display_name: "RICE Scoring"
+description: "Prioritization by Reach × Impact × Confidence / Effort"
+default_prompt: "Use $rice-scoring when the task relates to the skill \"RICE Scoring\"."
+triggers:
+  - "rice-scoring"
+  - "RICE"
+  - "reach impact confidence effort"
+capabilities:
+  - "rice-scoring"
+tools: []
+implicit_invocation: true

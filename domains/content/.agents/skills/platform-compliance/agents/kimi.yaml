@@ -1,0 +1,12 @@
+name: "platform-compliance"
+display_name: "Соответствие платформам"
+description: "Проверка соответствия контента правилам платформ — реестр требований, алгоритмические риски, severity, рекомендации по исправлению"
+default_prompt: "Используй $platform-compliance, когда задача относится к навыку \"Соответствие платформам\"."
+triggers:
+  - "platform-compliance"
+  - "Соответствие платформам"
+  - "Проверка соответствия контента правилам платформ — реестр требований, алгоритмические риски, severity, рекомендации по исправлению"
+capabilities:
+  - "platform-compliance"
+tools: []
+implicit_invocation: true

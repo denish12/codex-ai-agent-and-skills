@@ -269,6 +269,7 @@ def build_skill_metadata(skill_dir: Path, locale: str) -> None:
     write_json(agents_dir / "gemini.json", base_json)
     write_json(agents_dir / "copilot.json", base_json)
     write_json(agents_dir / "qwen.json", base_json)
+    write_yaml(agents_dir / "kimi.yaml", base_json)
 
 
 def build_orchestrator_metadata(root: Path, locale: str, role_names: list[str], skill_names: list[str]) -> None:
@@ -345,6 +346,7 @@ def build_orchestrator_metadata(root: Path, locale: str, role_names: list[str], 
     write_json(vendor_dir / "orchestrator.gemini.json", base_json)
     write_json(vendor_dir / "orchestrator.copilot.json", base_json)
     write_json(vendor_dir / "orchestrator.qwen.json", base_json)
+    write_yaml(vendor_dir / "orchestrator.kimi.yaml", base_json)
 
 
 def build_fallback_description(name: str, locale: str) -> str:

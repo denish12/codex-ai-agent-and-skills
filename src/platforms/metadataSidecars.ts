@@ -7,6 +7,7 @@ const targetVendorFileNames: Record<TargetId, string> = {
   "qwen-3.5": "qwen.json",
   "google-antugravity": "gemini.json",
   "gpt-codex": "openai.yaml",
+  "moonshot-kimi": "kimi.yaml",
 };
 
 const orchestratorVendorDestinationPaths: Record<TargetId, string> = {
@@ -15,6 +16,7 @@ const orchestratorVendorDestinationPaths: Record<TargetId, string> = {
   "qwen-3.5": path.join(".qwen", "orchestrator.qwen.json"),
   "google-antugravity": path.join(".gemini", "orchestrator.gemini.json"),
   "gpt-codex": path.join("agents", "orchestrator.openai.yaml"),
+  "moonshot-kimi": path.join(".kimi", "orchestrator.kimi.yaml"),
 };
 
 /**

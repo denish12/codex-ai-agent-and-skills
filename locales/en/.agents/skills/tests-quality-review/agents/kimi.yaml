@@ -1,0 +1,14 @@
+name: "tests-quality-review"
+display_name: "Tests Quality Review"
+description: "Quality review of unit/integration tests — scenario coverage, boundaries, resilience, absence of flakes and test \"magic\". Prioritized checklist, good/bad test examples, output report template. Activate when reviewing existing tests, stabilizing flaky tests, or auditing test suite quality."
+default_prompt: "Use $tests-quality-review when the task matches the \"Tests Quality Review\" skill."
+triggers:
+  - "tests-quality-review"
+  - "tests quality review"
+  - "Quality review of unit/integration tests — scenario coverage, boundaries, resilience, absence of flakes and test \"magic\""
+capabilities:
+  - "tests"
+  - "quality"
+  - "review"
+tools: []
+implicit_invocation: true

@@ -1,0 +1,11 @@
+name: "product-vision"
+display_name: "Product Vision"
+description: "Product vision — for whom / why / what's unique / 2-3 year horizon / guiding principles"
+default_prompt: "Use $product-vision when the task relates to the skill \"Product Vision\"."
+triggers:
+  - "product-vision"
+  - "product vision"
+capabilities:
+  - "product-vision"
+tools: []
+implicit_invocation: true

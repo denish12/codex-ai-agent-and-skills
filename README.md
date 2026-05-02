@@ -44,6 +44,7 @@ Code-AI Installer comes pre-bundled with dedicated professional systems separate
 - `claude`
 - `qwen-3.5` / `qwen`
 - `google-antigravity` / `antigravity`
+- `moonshot-kimi` / `kimi` (Kimi CLI + Kimi Code for VS Code)
 
 ---
 

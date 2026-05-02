@@ -1,0 +1,15 @@
+name: "tooling-bun-biome"
+display_name: "Инструменты Bun и Biome"
+description: "Tooling — Biome (lint/format) и Bun (runtime/package manager). biome.json конфиг, ключевые правила, Bun scripts, pre-commit hooks, CI pipeline, миграция с ESLint+Prettier. Активируй при настройке tooling, добавлении линтера, или при вопросах «как настроить Biome/Bun»."
+default_prompt: "Используй $tooling-bun-biome, когда задача относится к навыку \"Инструменты Bun и Biome\"."
+triggers:
+  - "tooling-bun-biome"
+  - "tooling bun biome"
+  - "Инструменты Bun и Biome"
+  - "Tooling — Biome (lint/format) и Bun (runtime/package manager)"
+capabilities:
+  - "tooling"
+  - "bun"
+  - "biome"
+tools: []
+implicit_invocation: true

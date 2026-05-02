@@ -1,0 +1,16 @@
+name: "api-contract-compliance-review"
+display_name: "Проверка соответствия API-контрактам"
+description: "Проверка соответствия реализации API контрактам — схемы, коды ошибок, валидация, авторизация, идемпотентность, пагинация."
+default_prompt: "Используй $api-contract-compliance-review, когда задача относится к навыку \"Проверка соответствия API-контрактам\"."
+triggers:
+  - "api-contract-compliance-review"
+  - "api contract compliance review"
+  - "Проверка соответствия API-контрактам"
+  - "Проверка соответствия реализации API контрактам — схемы, коды ошибок, валидация, авторизация, идемпотентность, пагинация"
+capabilities:
+  - "api"
+  - "contract"
+  - "compliance"
+  - "review"
+tools: []
+implicit_invocation: true

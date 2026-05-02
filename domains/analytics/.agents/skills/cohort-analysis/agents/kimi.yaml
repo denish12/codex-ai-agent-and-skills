@@ -1,0 +1,13 @@
+name: "cohort-analysis"
+display_name: "Когортный анализ"
+description: "Анализ когорт — retention, revenue per cohort, паттерны поведения по группам"
+default_prompt: "Используй $cohort-analysis, когда задача относится к навыку \"Когортный анализ\"."
+triggers:
+  - "cohort-analysis"
+  - "когортный анализ"
+  - "retention analysis"
+  - "когорты"
+capabilities:
+  - "cohort-analysis"
+tools: []
+implicit_invocation: true

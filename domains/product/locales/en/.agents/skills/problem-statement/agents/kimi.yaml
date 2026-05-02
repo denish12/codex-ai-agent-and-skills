@@ -1,0 +1,11 @@
+name: "problem-statement"
+display_name: "Problem Statement"
+description: "Product problem formulation — actor, context, pain, root cause, evidence"
+default_prompt: "Use $problem-statement when the task relates to the skill \"Problem Statement\"."
+triggers:
+  - "problem-statement"
+  - "problem framing"
+capabilities:
+  - "problem-statement"
+tools: []
+implicit_invocation: true

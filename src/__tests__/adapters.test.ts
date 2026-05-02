@@ -9,6 +9,7 @@ const ALL_TARGETS: TargetId[] = [
   "qwen-3.5",
   "google-antugravity",
   "gpt-codex",
+  "moonshot-kimi",
 ];
 
 describe("getPlatformAdapter", () => {

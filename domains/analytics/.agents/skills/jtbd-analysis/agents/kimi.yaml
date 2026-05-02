@@ -1,0 +1,13 @@
+name: "jtbd-analysis"
+display_name: "Jobs To Be Done"
+description: "Анализ задач клиента — функциональные, эмоциональные, социальные задачи и opportunity score"
+default_prompt: "Используй $jtbd-analysis, когда задача относится к навыку \"Jobs To Be Done\"."
+triggers:
+  - "jtbd-analysis"
+  - "JTBD"
+  - "Jobs To Be Done"
+  - "задачи клиента"
+capabilities:
+  - "jtbd-analysis"
+tools: []
+implicit_invocation: true

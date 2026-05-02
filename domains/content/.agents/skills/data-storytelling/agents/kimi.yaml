@@ -1,0 +1,12 @@
+name: "data-storytelling"
+display_name: "Data-сторителлинг"
+description: "Превращение данных в нарративы — типы data stories, техники убедительности, визуализация по типу данных, платформенная адаптация"
+default_prompt: "Используй $data-storytelling, когда задача относится к навыку \"Data-сторителлинг\"."
+triggers:
+  - "data-storytelling"
+  - "Data-сторителлинг"
+  - "Превращение данных в нарративы — типы data stories, техники убедительности, визуализация по типу данных, платформенная адаптация"
+capabilities:
+  - "data-storytelling"
+tools: []
+implicit_invocation: true

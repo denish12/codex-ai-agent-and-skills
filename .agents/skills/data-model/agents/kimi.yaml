@@ -1,0 +1,14 @@
+name: "data-model"
+display_name: "Модель данных"
+description: "Модель данных и стратегия хранения — нормализация/денормализация, индексы, транзакции, кэш, (опц.) event sourcing/eventual consistency — с trade-offs и привязкой к UX flows."
+default_prompt: "Используй $data-model, когда задача относится к навыку \"Модель данных\"."
+triggers:
+  - "data-model"
+  - "data model"
+  - "Модель данных"
+  - "Модель данных и стратегия хранения — нормализация/денормализация, индексы, транзакции, кэш, (опц"
+capabilities:
+  - "data"
+  - "model"
+tools: []
+implicit_invocation: true

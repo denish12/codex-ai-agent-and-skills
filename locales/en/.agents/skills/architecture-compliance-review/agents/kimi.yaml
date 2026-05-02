@@ -1,0 +1,14 @@
+name: "architecture-compliance-review"
+display_name: "Architecture Compliance Review"
+description: "Code compliance review against architecture/ADR — module boundaries, layers, dependencies, conventions, red flags."
+default_prompt: "Use $architecture-compliance-review when the task matches the \"Architecture Compliance Review\" skill."
+triggers:
+  - "architecture-compliance-review"
+  - "architecture compliance review"
+  - "Code compliance review against architecture/ADR — module boundaries, layers, dependencies, conventions, red flags"
+capabilities:
+  - "architecture"
+  - "compliance"
+  - "review"
+tools: []
+implicit_invocation: true

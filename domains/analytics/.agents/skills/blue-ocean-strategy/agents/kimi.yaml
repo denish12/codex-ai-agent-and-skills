@@ -1,0 +1,13 @@
+name: "blue-ocean-strategy"
+display_name: "Стратегия голубого океана"
+description: "Анализ стратегической канвы — фреймворк ERRC, кривая ценности, три уровня не-клиентов"
+default_prompt: "Используй $blue-ocean-strategy, когда задача относится к навыку \"Стратегия голубого океана\"."
+triggers:
+  - "blue-ocean-strategy"
+  - "голубой океан"
+  - "blue ocean"
+  - "стратегия голубого океана"
+capabilities:
+  - "blue-ocean-strategy"
+tools: []
+implicit_invocation: true

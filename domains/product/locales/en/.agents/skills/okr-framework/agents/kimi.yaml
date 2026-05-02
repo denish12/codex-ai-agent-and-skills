@@ -1,0 +1,12 @@
+name: "okr-framework"
+display_name: "OKR Framework"
+description: "Objectives & Key Results for B2B product teams — quarterly cycle, measurable key results"
+default_prompt: "Use $okr-framework when the task relates to the skill \"OKR Framework\"."
+triggers:
+  - "okr-framework"
+  - "OKR"
+  - "objectives key results"
+capabilities:
+  - "okr-framework"
+tools: []
+implicit_invocation: true

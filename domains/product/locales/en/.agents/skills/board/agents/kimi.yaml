@@ -1,0 +1,11 @@
+name: "board"
+display_name: "Board — Product Pipeline Task Board Management"
+description: "Pipeline board management — gate statuses, transitions, blockers, escalation"
+default_prompt: "Use $board when the task relates to the skill \"Board — Product Pipeline Task Board Management\"."
+triggers:
+  - "board"
+  - "pipeline board"
+capabilities:
+  - "board"
+tools: []
+implicit_invocation: true

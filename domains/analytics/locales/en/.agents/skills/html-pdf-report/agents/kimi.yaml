@@ -1,0 +1,13 @@
+name: "html-pdf-report"
+display_name: "HTML/PDF Report"
+description: "Generation of a self-contained HTML report for PDF printing — CSS print layout, Chart.js, Mermaid"
+default_prompt: "Use $html-pdf-report when the task relates to the \"HTML/PDF Report\" skill."
+triggers:
+  - "html-pdf-report"
+  - "HTML report"
+  - "PDF report"
+  - "report generation"
+capabilities:
+  - "html-pdf-report"
+tools: []
+implicit_invocation: true

@@ -1,11 +1,11 @@
 ﻿import type { TargetId } from "./types.js";
 
 interface ModelHint {
-  model: "codex" | "copilot" | "claude" | "qwen" | "gemini";
+  model: "codex" | "copilot" | "claude" | "qwen" | "gemini" | "kimi";
   payload: string;
 }
 
-const hintRegex = /<!--\s*(codex|copilot|claude|qwen|gemini)\s*:\s*([\s\S]*?)-->\s*\n?/gi;
+const hintRegex = /<!--\s*(codex|copilot|claude|qwen|gemini|kimi)\s*:\s*([\s\S]*?)-->\s*\n?/gi;
 
 /**
  * Transforms markdown content for selected AI target.
@@ -101,6 +101,9 @@ function defaultPayloadForTarget(targetModel: ModelHint["model"]): string {
   if (targetModel === "gemini") {
     return "reasoning=medium; note=\"auto-adapted default\"";
   }
+  if (targetModel === "kimi") {
+    return "reasoning=medium; note=\"auto-adapted default\"";
+  }
   return "reasoning=medium; note=\"auto-adapted default\"";
 }
 
@@ -121,6 +124,9 @@ function targetToModel(target: TargetId): ModelHint["model"] {
   }
   if (target === "google-antugravity") {
     return "gemini";
+  }
+  if (target === "moonshot-kimi") {
+    return "kimi";
   }
   return "codex";
 }
@@ -151,8 +157,24 @@ function mapCodexPayload(payload: string, targetModel: ModelHint["model"]): stri
   if (targetModel === "copilot") {
     return withNote(`reasoning=${normalizedReasoning}`, note);
   }
+  if (targetModel === "kimi") {
+    const effort = mapReasoningToKimi(normalizedReasoning);
+    return withNote(`reasoning=${effort}`, note);
+  }
 
   return withNote(`reasoning=${normalizedReasoning}`, note);
+}
+
+/**
+ * Maps normalized reasoning to Kimi reasoning levels.
+ * @param reasoning Normalized codex reasoning.
+ * @returns Kimi reasoning level.
+ */
+function mapReasoningToKimi(reasoning: "low" | "medium" | "high" | "extra_high"): "low" | "medium" | "high" {
+  if (reasoning === "extra_high") {
+    return "high";
+  }
+  return reasoning;
 }
 
 /**

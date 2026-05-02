@@ -1,0 +1,15 @@
+name: "security-baseline-dev"
+display_name: "Security Baseline (Dev)"
+description: ">"
+default_prompt: "Use $security-baseline-dev when the task matches the \"Security Baseline (Dev)\" skill."
+triggers:
+  - "security-baseline-dev"
+  - "security baseline dev"
+  - "Security Baseline (Dev)"
+  - ">"
+capabilities:
+  - "security"
+  - "baseline"
+  - "dev"
+tools: []
+implicit_invocation: true

@@ -1,0 +1,15 @@
+name: "code-review-checklist"
+display_name: "Чек-лист код-ревью"
+description: "Универсальный чек-лист ревью — качество кода, читаемость, тестируемость, безопасность, контракты, DoD."
+default_prompt: "Используй $code-review-checklist, когда задача относится к навыку \"Чек-лист код-ревью\"."
+triggers:
+  - "code-review-checklist"
+  - "code review checklist"
+  - "Чек-лист код-ревью"
+  - "Универсальный чек-лист ревью — качество кода, читаемость, тестируемость, безопасность, контракты, DoD"
+capabilities:
+  - "code"
+  - "review"
+  - "checklist"
+tools: []
+implicit_invocation: true

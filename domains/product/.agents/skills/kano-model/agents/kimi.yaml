@@ -1,0 +1,12 @@
+name: "kano-model"
+display_name: "Kano Model"
+description: "Классификация фич — must-have / performance / delighters / indifferent / reverse"
+default_prompt: "Используй $kano-model, когда задача относится к навыку \"Kano Model\"."
+triggers:
+  - "kano-model"
+  - "kano"
+  - "модель Кано"
+capabilities:
+  - "kano-model"
+tools: []
+implicit_invocation: true

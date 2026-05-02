@@ -1,0 +1,15 @@
+name: "qa-e2e-playwright"
+display_name: "E2E Playwright (CI/CD Automated)"
+description: "E2E testing via Playwright for CI/CD — automated spec files, page objects, visual regression, pipeline integration. For manual testing in Antigravity → $qa-browser-testing."
+default_prompt: "Use $qa-e2e-playwright when the task matches the \"E2E Playwright (CI/CD Automated)\" skill."
+triggers:
+  - "qa-e2e-playwright"
+  - "qa e2e playwright"
+  - "E2E Playwright (CI/CD Automated)"
+  - "E2E testing via Playwright for CI/CD — automated spec files, page objects, visual regression, pipeline integration"
+capabilities:
+  - "qa"
+  - "e2e"
+  - "playwright"
+tools: []
+implicit_invocation: true

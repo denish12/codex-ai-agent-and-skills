@@ -1,0 +1,13 @@
+name: "wsjf-scoring"
+display_name: "WSJF Scoring"
+description: "Weighted Shortest Job First — SAFe-style prioritization for enterprise B2B (cost of delay / job size)"
+default_prompt: "Use $wsjf-scoring when the task relates to the skill \"WSJF Scoring\"."
+triggers:
+  - "wsjf-scoring"
+  - "WSJF"
+  - "weighted shortest job first"
+  - "SAFe"
+capabilities:
+  - "wsjf-scoring"
+tools: []
+implicit_invocation: true

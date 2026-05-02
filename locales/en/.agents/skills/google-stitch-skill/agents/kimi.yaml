@@ -1,0 +1,15 @@
+name: "google-stitch-skill"
+display_name: "Google Stitch"
+description: "Generating UI screens via Google Stitch (AI) with direct access via StitchMCP. Rapid ideation after Approved UX Proposal, prompt engineering, quality control. Tied to the UX/UI Designer gate."
+default_prompt: "Use $google-stitch-skill when the task matches the \"Google Stitch\" skill."
+triggers:
+  - "google-stitch-skill"
+  - "google stitch skill"
+  - "Google Stitch"
+  - "Generating UI screens via Google Stitch (AI) with direct access via StitchMCP"
+capabilities:
+  - "google"
+  - "stitch"
+  - "skill"
+tools: []
+implicit_invocation: true

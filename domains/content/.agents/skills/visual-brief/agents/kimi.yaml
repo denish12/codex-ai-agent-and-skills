@@ -1,0 +1,12 @@
+name: "visual-brief"
+display_name: "Визуальный бриф"
+description: "Визуальный бриф — детальное ТЗ на визуал с композицией, привязкой к moodboard/brand, AI-промпт связкой, A/B вариантами, accessibility"
+default_prompt: "Используй $visual-brief, когда задача относится к навыку \"Визуальный бриф\"."
+triggers:
+  - "visual-brief"
+  - "Визуальный бриф"
+  - "Визуальный бриф — детальное ТЗ на визуал с композицией, привязкой к moodboard/brand, AI-промпт связкой, A/B вариантами, accessibility"
+capabilities:
+  - "visual-brief"
+tools: []
+implicit_invocation: true

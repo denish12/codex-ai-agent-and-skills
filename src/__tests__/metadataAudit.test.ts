@@ -15,6 +15,7 @@ const ALL_TARGETS: TargetId[] = [
   "qwen-3.5",
   "vscode-copilot",
   "google-antugravity",
+  "moonshot-kimi",
 ];
 
 describe("metadata audit", () => {

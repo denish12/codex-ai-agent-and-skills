@@ -1,0 +1,12 @@
+name: "competitor-content-analysis"
+display_name: "Анализ контента конкурентов"
+description: "Глубокий анализ контента конкурентов — контент-микс, воронка, ER, gaps, сравнительная матрица, рекомендации по дифференциации"
+default_prompt: "Используй $competitor-content-analysis, когда задача относится к навыку \"Анализ контента конкурентов\"."
+triggers:
+  - "competitor-content-analysis"
+  - "Анализ контента конкурентов"
+  - "Глубокий анализ контента конкурентов — контент-микс, воронка, ER, gaps, сравнительная матрица, рекомендации по дифференциации"
+capabilities:
+  - "competitor-content-analysis"
+tools: []
+implicit_invocation: true

@@ -1,0 +1,12 @@
+name: "platform-visual-specs"
+display_name: "Спецификации визуалов"
+description: "Полный справочник визуальных спецификаций — фото, видео, рекламные форматы, safe zones, accessibility, dark mode"
+default_prompt: "Используй $platform-visual-specs, когда задача относится к навыку \"Спецификации визуалов\"."
+triggers:
+  - "platform-visual-specs"
+  - "Спецификации визуалов"
+  - "Полный справочник визуальных спецификаций — фото, видео, рекламные форматы, safe zones, accessibility, dark mode"
+capabilities:
+  - "platform-visual-specs"
+tools: []
+implicit_invocation: true

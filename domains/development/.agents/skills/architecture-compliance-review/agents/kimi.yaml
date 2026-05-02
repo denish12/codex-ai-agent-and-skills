@@ -1,0 +1,15 @@
+name: "architecture-compliance-review"
+display_name: "Проверка соответствия архитектуре"
+description: "Проверка соответствия кода архитектуре/ADR — границы модулей, слои, зависимости, конвенции, red flags."
+default_prompt: "Используй $architecture-compliance-review, когда задача относится к навыку \"Проверка соответствия архитектуре\"."
+triggers:
+  - "architecture-compliance-review"
+  - "architecture compliance review"
+  - "Проверка соответствия архитектуре"
+  - "Проверка соответствия кода архитектуре/ADR — границы модулей, слои, зависимости, конвенции, red flags"
+capabilities:
+  - "architecture"
+  - "compliance"
+  - "review"
+tools: []
+implicit_invocation: true

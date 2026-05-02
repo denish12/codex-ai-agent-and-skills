@@ -1,0 +1,17 @@
+name: "saas-metrics"
+display_name: "SaaS Metrics"
+description: "B2B SaaS метрики — MRR/ARR, gross/net churn, NRR, LTV/CAC, Payback, Rule of 40, Magic Number"
+default_prompt: "Используй $saas-metrics, когда задача относится к навыку \"SaaS Metrics\"."
+triggers:
+  - "saas-metrics"
+  - "SaaS metrics"
+  - "MRR"
+  - "ARR"
+  - "churn"
+  - "LTV"
+  - "CAC"
+  - "NRR"
+capabilities:
+  - "saas-metrics"
+tools: []
+implicit_invocation: true

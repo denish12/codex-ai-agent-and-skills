@@ -1,7 +1,13 @@
 /**
  * Supported AI target identifiers.
  */
-export type TargetId = "vscode-copilot" | "claude" | "qwen-3.5" | "google-antugravity" | "gpt-codex";
+export type TargetId =
+  | "vscode-copilot"
+  | "claude"
+  | "qwen-3.5"
+  | "google-antugravity"
+  | "gpt-codex"
+  | "moonshot-kimi";
 export type TemplateLanguage = "ru" | "en";
 
 /**

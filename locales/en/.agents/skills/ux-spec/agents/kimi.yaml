@@ -1,0 +1,13 @@
+name: "ux-spec"
+display_name: "UX Spec"
+description: "Generate UX Spec — user flows, IA, list of screens, specification of each screen (actions/sections/validations/states), UX quality criteria for development and testing."
+default_prompt: "Use $ux-spec when the task matches the \"UX Spec\" skill."
+triggers:
+  - "ux-spec"
+  - "ux spec"
+  - "Generate UX Spec — user flows, IA, list of screens, specification of each screen (actions/sections/validations/states), UX quality criteria for development and testing"
+capabilities:
+  - "ux"
+  - "spec"
+tools: []
+implicit_invocation: true

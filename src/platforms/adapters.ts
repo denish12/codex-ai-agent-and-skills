@@ -52,6 +52,14 @@ const targetLayouts: Record<TargetId, PlatformLayout> = {
     workflowsDir: ".agents/workflows",
     notes: "Uses AGENTS.md/agents/.agents layout compatible with Codex agent discovery, nested skills, and workflow files.",
   },
+  "moonshot-kimi": {
+    instructionFile: "KIMI.md",
+    orchestratorMirrorFile: "AGENTS.md",
+    agentsDir: ".kimi/agents",
+    skillsDir: ".kimi/skills",
+    workflowsDir: ".kimi/workflows",
+    notes: "Uses KIMI.md plus .kimi folder layout shared by Kimi CLI and Kimi Code for VS Code; skills land natively at .kimi/skills/<name>/SKILL.md.",
+  },
 };
 
 /** Module-level adapter cache to avoid re-building adapters on every lookup. */
@@ -68,6 +76,7 @@ export function getPlatformAdapters(): PlatformAdapter[] {
     buildAdapter("qwen-3.5", "Qwen 3.5"),
     buildAdapter("google-antugravity", "Google Antugravity"),
     buildAdapter("gpt-codex", "GPT Codex"),
+    buildAdapter("moonshot-kimi", "Moonshot Kimi"),
   ];
 }
 

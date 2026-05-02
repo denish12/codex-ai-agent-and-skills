@@ -1,0 +1,13 @@
+name: "ansoff-matrix"
+display_name: "Матрица Ансоффа"
+description: "Стратегия роста — проникновение на рынок, развитие рынка, развитие продукта, диверсификация"
+default_prompt: "Используй $ansoff-matrix, когда задача относится к навыку \"Матрица Ансоффа\"."
+triggers:
+  - "ansoff-matrix"
+  - "матрица Ансоффа"
+  - "ansoff"
+  - "матрица роста"
+capabilities:
+  - "ansoff-matrix"
+tools: []
+implicit_invocation: true

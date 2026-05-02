@@ -8,7 +8,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCALE_ROOTS = [ROOT, ROOT / "locales" / "en"]
-SKILL_VENDOR_FILES = ["skill.yaml", "openai.yaml", "claude.json", "gemini.json", "copilot.json", "qwen.json"]
+SKILL_VENDOR_FILES = ["skill.yaml", "openai.yaml", "claude.json", "gemini.json", "copilot.json", "qwen.json", "kimi.yaml"]
 ORCHESTRATOR_VENDOR_FILES = [
     "AGENTS.yaml",
     "agents/orchestrator.openai.yaml",
@@ -16,8 +16,10 @@ ORCHESTRATOR_VENDOR_FILES = [
     "agents/orchestrator.gemini.json",
     "agents/orchestrator.copilot.json",
     "agents/orchestrator.qwen.json",
+    "agents/orchestrator.kimi.yaml",
 ]
 JSON_VENDOR_FILES = ["claude.json", "gemini.json", "copilot.json", "qwen.json"]
+YAML_MODEL_VENDOR_FILES = ["kimi.yaml"]
 
 
 def main() -> int:
@@ -53,8 +55,10 @@ def validate_root(root: Path) -> list[str]:
             errors.append(f"Missing {path}")
             continue
 
-        if path.suffix == ".json":
-            payload = ensure_json(path, errors)
+        is_kimi_orchestrator = path.name == "orchestrator.kimi.yaml"
+
+        if path.suffix == ".json" or is_kimi_orchestrator:
+            payload = ensure_json(path, errors) if path.suffix == ".json" else ensure_yaml(path, errors, "vendor orchestrator")
             if payload is None:
                 continue
             if payload.get("name") != "web_development_orchestra":
@@ -135,6 +139,18 @@ def validate_root(root: Path) -> list[str]:
                 compare_equal(payload, portable_skill, json_path, errors, "display_name")
                 compare_equal(payload, portable_skill, json_path, errors, "description")
                 compare_equal(payload, portable_skill, json_path, errors, "default_prompt")
+
+        for yaml_file_name in YAML_MODEL_VENDOR_FILES:
+            yaml_path = agents_dir / yaml_file_name
+            payload = ensure_yaml(yaml_path, errors, f"skill {expected_name} {yaml_file_name}")
+            if payload is None:
+                continue
+            if payload.get("name") != expected_name:
+                errors.append(f"Vendor metadata name mismatch in {yaml_path}")
+            if portable_skill is not None:
+                compare_equal(payload, portable_skill, yaml_path, errors, "display_name")
+                compare_equal(payload, portable_skill, yaml_path, errors, "description")
+                compare_equal(payload, portable_skill, yaml_path, errors, "default_prompt")
 
     return errors
 

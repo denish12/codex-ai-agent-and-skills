@@ -1,0 +1,12 @@
+name: "platform-strategy"
+display_name: "Стратегия платформ"
+description: "Стратегия по платформам — выбор каналов, воронка, paid/organic, оценка ресурсов, roadmap роста, метрики с бенчмарками"
+default_prompt: "Используй $platform-strategy, когда задача относится к навыку \"Стратегия платформ\"."
+triggers:
+  - "platform-strategy"
+  - "Стратегия платформ"
+  - "Стратегия по платформам — выбор каналов, воронка, paid/organic, оценка ресурсов, roadmap роста, метрики с бенчмарками"
+capabilities:
+  - "platform-strategy"
+tools: []
+implicit_invocation: true

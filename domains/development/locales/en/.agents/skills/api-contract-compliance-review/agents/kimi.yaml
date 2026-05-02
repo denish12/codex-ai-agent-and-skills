@@ -1,0 +1,15 @@
+name: "api-contract-compliance-review"
+display_name: "API Contract Compliance Review"
+description: "API implementation contract compliance review — schemas, error codes, validation, authorization, idempotency, pagination."
+default_prompt: "Use $api-contract-compliance-review when the task matches the \"API Contract Compliance Review\" skill."
+triggers:
+  - "api-contract-compliance-review"
+  - "api contract compliance review"
+  - "API implementation contract compliance review — schemas, error codes, validation, authorization, idempotency, pagination"
+capabilities:
+  - "api"
+  - "contract"
+  - "compliance"
+  - "review"
+tools: []
+implicit_invocation: true

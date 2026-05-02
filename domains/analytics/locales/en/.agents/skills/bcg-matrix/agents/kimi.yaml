@@ -1,0 +1,13 @@
+name: "bcg-matrix"
+display_name: "BCG Matrix"
+description: "Portfolio analysis — distribution of business units by market growth and relative share"
+default_prompt: "Use $bcg-matrix when the task relates to the \"BCG Matrix\" skill."
+triggers:
+  - "bcg-matrix"
+  - "BCG"
+  - "bcg matrix"
+  - "boston matrix"
+capabilities:
+  - "bcg-matrix"
+tools: []
+implicit_invocation: true

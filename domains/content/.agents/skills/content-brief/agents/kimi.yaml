@@ -1,0 +1,12 @@
+name: "content-brief"
+display_name: "Контент-бриф"
+description: "Полный бриф на единицу контента — цель, персона, тезисы, SEO, визуал, референсы, distribution, метрики"
+default_prompt: "Используй $content-brief, когда задача относится к навыку \"Контент-бриф\"."
+triggers:
+  - "content-brief"
+  - "Контент-бриф"
+  - "Полный бриф на единицу контента — цель, персона, тезисы, SEO, визуал, референсы, distribution, метрики"
+capabilities:
+  - "content-brief"
+tools: []
+implicit_invocation: true

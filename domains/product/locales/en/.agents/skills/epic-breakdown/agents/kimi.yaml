@@ -1,0 +1,11 @@
+name: "epic-breakdown"
+display_name: "Epic Breakdown"
+description: "Epic decomposition into stories with dependencies, size estimates (S/M/L/XL), critical path"
+default_prompt: "Use $epic-breakdown when the task relates to the skill \"Epic Breakdown\"."
+triggers:
+  - "epic-breakdown"
+  - "epic breakdown"
+capabilities:
+  - "epic-breakdown"
+tools: []
+implicit_invocation: true

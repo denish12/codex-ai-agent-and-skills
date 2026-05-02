@@ -1,0 +1,14 @@
+name: "tdd-workflow"
+display_name: "TDD-процесс"
+description: "Разработка строго по TDD (RED→GREEN→REFACTOR): формулировка тест-кейсов через user journey, unit + integration тесты с Vitest и Testing Library, e2e с Playwright для критичных потоков. Используй этот скилл ВСЕГДА когда нужно написать тесты, разработать фичу через TDD, провести ревью тестов или объяснить почему тест хрупкий. Активируй при вопросах «как тестировать X», «почему тест ломается при рефакторинге», «что такое хороший тест»."
+default_prompt: "Используй $tdd-workflow, когда задача относится к навыку \"TDD-процесс\"."
+triggers:
+  - "tdd-workflow"
+  - "tdd workflow"
+  - "TDD-процесс"
+  - "Разработка строго по TDD (RED→GREEN→REFACTOR)"
+capabilities:
+  - "tdd"
+  - "workflow"
+tools: []
+implicit_invocation: true

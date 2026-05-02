@@ -1,0 +1,14 @@
+name: "design-patterns-reference"
+display_name: "Design Patterns Reference"
+description: "Справочник паттернов проектирования с DO/DON'T примерами — SOLID, DRY/KISS/YAGNI, GoF (Strategy, Observer, Factory, Adapter, Facade, Decorator, Command, State, Template Method), архитектурные (Repository, Service Layer, DI, Event-Driven, CQRS), микросервисные (Saga, Circuit Breaker). Language-agnostic псевдокод. Используй при проектировании модулей, ревью архитектуры, или при вопросах «какой паттерн применить»."
+default_prompt: "Используй $design-patterns-reference, когда задача относится к навыку \"Design Patterns Reference\"."
+triggers:
+  - "design-patterns-reference"
+  - "design patterns reference"
+  - "Справочник паттернов проектирования с DO/DON'T примерами — SOLID, DRY/KISS/YAGNI, GoF (Strategy, Observer, Factory, Adapter, Facade, Decorator, Command, State, Template Method), архитектурные (Repository, Service Layer, DI, Event-Driven, CQRS), микросервисные (Saga, Circuit Breaker)"
+capabilities:
+  - "design"
+  - "patterns"
+  - "reference"
+tools: []
+implicit_invocation: true

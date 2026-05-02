@@ -1,0 +1,12 @@
+name: "brand-compliance"
+display_name: "Соответствие бренду"
+description: "Проверка соответствия контента бренду — ToV, visual identity, messaging, юридика — с severity-уровнями и рекомендациями по исправлению"
+default_prompt: "Используй $brand-compliance, когда задача относится к навыку \"Соответствие бренду\"."
+triggers:
+  - "brand-compliance"
+  - "Соответствие бренду"
+  - "Проверка соответствия контента бренду — ToV, visual identity, messaging, юридика — с severity-уровнями и рекомендациями по исправлению"
+capabilities:
+  - "brand-compliance"
+tools: []
+implicit_invocation: true

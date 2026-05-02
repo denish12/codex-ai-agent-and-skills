@@ -1,0 +1,13 @@
+name: "html-pdf-report"
+display_name: "HTML→PDF Report"
+description: "Генерация PRD или Product Review Deck из HTML/CSS в PDF — self-contained, print-ready"
+default_prompt: "Используй $html-pdf-report, когда задача относится к навыку \"HTML→PDF Report\"."
+triggers:
+  - "html-pdf-report"
+  - "HTML PDF"
+  - "PRD PDF"
+  - "product review deck"
+capabilities:
+  - "html-pdf-report"
+tools: []
+implicit_invocation: true

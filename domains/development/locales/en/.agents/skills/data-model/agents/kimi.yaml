@@ -1,0 +1,13 @@
+name: "data-model"
+display_name: "Data Model"
+description: "Data model and storage strategy — normalization/denormalization, indexes, transactions, cache, (opt.) event sourcing/eventual consistency — with trade-offs and linked to UX flows."
+default_prompt: "Use $data-model when the task matches the \"Data Model\" skill."
+triggers:
+  - "data-model"
+  - "data model"
+  - "Data model and storage strategy — normalization/denormalization, indexes, transactions, cache, (opt"
+capabilities:
+  - "data"
+  - "model"
+tools: []
+implicit_invocation: true

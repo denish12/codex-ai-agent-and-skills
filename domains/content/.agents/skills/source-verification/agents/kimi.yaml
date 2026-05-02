@@ -1,0 +1,12 @@
+name: "source-verification"
+display_name: "Верификация источников"
+description: "Верификация источников — CRAAP-фреймворк, типы источников, bias-проверка, уровни строгости, рейтинг достоверности"
+default_prompt: "Используй $source-verification, когда задача относится к навыку \"Верификация источников\"."
+triggers:
+  - "source-verification"
+  - "Верификация источников"
+  - "Верификация источников — CRAAP-фреймворк, типы источников, bias-проверка, уровни строгости, рейтинг достоверности"
+capabilities:
+  - "source-verification"
+tools: []
+implicit_invocation: true

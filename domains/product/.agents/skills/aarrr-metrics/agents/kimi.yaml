@@ -1,0 +1,13 @@
+name: "aarrr-metrics"
+display_name: "AARRR Metrics (B2B adapted)"
+description: "Pirate metrics — Acquisition, Activation, Retention, Referral, Revenue — адаптация под B2B"
+default_prompt: "Используй $aarrr-metrics, когда задача относится к навыку \"AARRR Metrics (B2B adapted)\"."
+triggers:
+  - "aarrr-metrics"
+  - "AARRR"
+  - "pirate metrics"
+  - "funnel metrics"
+capabilities:
+  - "aarrr-metrics"
+tools: []
+implicit_invocation: true

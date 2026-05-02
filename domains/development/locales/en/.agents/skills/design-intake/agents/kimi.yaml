@@ -1,0 +1,13 @@
+name: "design-intake"
+display_name: "Design Intake"
+description: "Find and analyze provided design materials (files/links), determine the \"source of truth\" for UI, and extract checkable rules (screens, components, tokens, states)."
+default_prompt: "Use $design-intake when the task matches the \"Design Intake\" skill."
+triggers:
+  - "design-intake"
+  - "design intake"
+  - "Find and analyze provided design materials (files/links), determine the \"source of truth\" for UI, and extract checkable rules (screens, components, tokens, states)"
+capabilities:
+  - "design"
+  - "intake"
+tools: []
+implicit_invocation: true

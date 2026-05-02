@@ -1,0 +1,13 @@
+name: "trend-analysis"
+display_name: "Анализ трендов"
+description: "Идентификация и оценка рыночных трендов — сила, влияние, таймлайн, рекомендации"
+default_prompt: "Используй $trend-analysis, когда задача относится к навыку \"Анализ трендов\"."
+triggers:
+  - "trend-analysis"
+  - "анализ трендов"
+  - "тренды"
+  - "trend identification"
+capabilities:
+  - "trend-analysis"
+tools: []
+implicit_invocation: true

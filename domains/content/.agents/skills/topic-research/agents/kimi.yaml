@@ -1,0 +1,12 @@
+name: "topic-research"
+display_name: "Исследование темы"
+description: "Исследование темы — типы (quick/standard/deep), методология поиска, content gap analysis, минимальные требования, адаптивная актуальность"
+default_prompt: "Используй $topic-research, когда задача относится к навыку \"Исследование темы\"."
+triggers:
+  - "topic-research"
+  - "Исследование темы"
+  - "Исследование темы — типы (quick/standard/deep), методология поиска, content gap analysis, минимальные требования, адаптивная актуальность"
+capabilities:
+  - "topic-research"
+tools: []
+implicit_invocation: true

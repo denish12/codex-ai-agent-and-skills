@@ -1,0 +1,12 @@
+name: "trend-research"
+display_name: "Исследование трендов"
+description: "Исследование трендов — типы, инструменты мониторинга, brand fit, скорость реакции, адаптация под бренд"
+default_prompt: "Используй $trend-research, когда задача относится к навыку \"Исследование трендов\"."
+triggers:
+  - "trend-research"
+  - "Исследование трендов"
+  - "Исследование трендов — типы, инструменты мониторинга, brand fit, скорость реакции, адаптация под бренд"
+capabilities:
+  - "trend-research"
+tools: []
+implicit_invocation: true

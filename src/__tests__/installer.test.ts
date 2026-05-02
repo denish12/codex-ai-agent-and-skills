@@ -30,6 +30,11 @@ async function createFixtureProject(): Promise<string> {
   await fs.outputJson(path.join(root, "agents", "orchestrator.gemini.json"), { name: "orchestrator" }, { spaces: 2 });
   await fs.outputJson(path.join(root, "agents", "orchestrator.copilot.json"), { name: "orchestrator" }, { spaces: 2 });
   await fs.outputJson(path.join(root, "agents", "orchestrator.qwen.json"), { name: "orchestrator" }, { spaces: 2 });
+  await fs.outputFile(
+    path.join(root, "agents", "orchestrator.kimi.yaml"),
+    'name: "orchestrator"\n',
+    "utf8",
+  );
 
   await fs.outputFile(path.join(root, ".agents", "skills", "board", "SKILL.md"), "# board\n", "utf8");
   await fs.outputFile(path.join(root, ".agents", "skills", "board", "agents", "skill.yaml"), 'name: "board"\n', "utf8");
@@ -42,6 +47,11 @@ async function createFixtureProject(): Promise<string> {
   await fs.outputJson(path.join(root, ".agents", "skills", "board", "agents", "gemini.json"), { name: "board" }, { spaces: 2 });
   await fs.outputJson(path.join(root, ".agents", "skills", "board", "agents", "copilot.json"), { name: "board" }, { spaces: 2 });
   await fs.outputJson(path.join(root, ".agents", "skills", "board", "agents", "qwen.json"), { name: "board" }, { spaces: 2 });
+  await fs.outputFile(
+    path.join(root, ".agents", "skills", "board", "agents", "kimi.yaml"),
+    'name: "board"\n',
+    "utf8",
+  );
   await fs.outputFile(path.join(root, ".agents", "workflows", "start-task.md"), "# start-task\n", "utf8");
   await fs.outputFile(path.join(root, "CONTEXT.md"), "# \ud83c\udfaf \u041e\u0431\u0437\u043e\u0440 \u043f\u0440\u043e\u0435\u043a\u0442\u0430\n", "utf8");
 
@@ -350,6 +360,52 @@ describe("installer", () => {
     };
     expect(settings.model.name).toBe("qwen3-coder-plus");
     expect(settings.context.fileName).toEqual(["QWEN.md", "AGENTS.md"]);
+  });
+
+  it("creates kimi layout with KIMI.md, .kimi/agents and .kimi/skills folders", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "moonshot-kimi",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    expect(await fs.pathExists(path.join(destinationDir, "AGENTS.md"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, "KIMI.md"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".kimi", "agents", "reviewer.md"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".kimi", "skills", "board", "SKILL.md"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".kimi", "orchestrator.kimi.yaml"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".kimi", "skills", "board", "agents", "skill.yaml"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".kimi", "skills", "board", "agents", "kimi.yaml"))).toBe(true);
+    expect(await fs.pathExists(path.join(destinationDir, ".kimi", "workflows", "start-task.md"))).toBe(true);
+  });
+
+  it("maps codex hint to kimi hint for moonshot-kimi target", async () => {
+    const projectDir = await createFixtureProject();
+    const destinationDir = path.join(projectDir, "out");
+
+    await runInstall({
+      target: "moonshot-kimi",
+      projectDir,
+      destinationDir,
+      selectedAgents: ["reviewer"],
+      selectedSkills: ["board"],
+      dryRun: false,
+      overwriteMode: "overwrite",
+      strictHints: false,
+    });
+
+    const installedAgent = await fs.readFile(path.join(destinationDir, ".kimi", "agents", "reviewer.md"), "utf8");
+    expect(installedAgent.includes("target=moonshot-kimi")).toBe(true);
+    expect(installedAgent.includes("<!-- codex:")).toBe(false);
+    expect(installedAgent.includes('<!-- kimi: reasoning=high; note="strict review" -->')).toBe(true);
   });
 
   it("copies workflows for vscode-copilot target", async () => {

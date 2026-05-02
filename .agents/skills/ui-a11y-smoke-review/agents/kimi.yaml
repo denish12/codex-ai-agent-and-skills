@@ -1,0 +1,16 @@
+name: "ui-a11y-smoke-review"
+display_name: "UI и a11y smoke-ревью"
+description: "Быстрый UI/a11y smoke review дизайнера — состояния loading/empty/error, фокус, клавиатура, aria/labels, соответствие UX Spec. Выполняется ДО передачи в QA."
+default_prompt: "Используй $ui-a11y-smoke-review, когда задача относится к навыку \"UI и a11y smoke-ревью\"."
+triggers:
+  - "ui-a11y-smoke-review"
+  - "ui a11y smoke review"
+  - "UI и a11y smoke-ревью"
+  - "Быстрый UI/a11y smoke review дизайнера — состояния loading/empty/error, фокус, клавиатура, aria/labels, соответствие UX Spec"
+capabilities:
+  - "ui"
+  - "a11y"
+  - "smoke"
+  - "review"
+tools: []
+implicit_invocation: true

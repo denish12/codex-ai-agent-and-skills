@@ -1,0 +1,12 @@
+name: "handoff"
+display_name: "Handoff Envelope"
+description: "Forming a Context Pack and assigning a task to an agent — goals, constraints, artifacts, decisions, questions, Definition of Done. Requires a standard reply format."
+default_prompt: "Use $handoff when the task matches the \"Handoff Envelope\" skill."
+triggers:
+  - "handoff"
+  - "Handoff Envelope"
+  - "Forming a Context Pack and assigning a task to an agent — goals, constraints, artifacts, decisions, questions, Definition of Done"
+capabilities:
+  - "handoff"
+tools: []
+implicit_invocation: true

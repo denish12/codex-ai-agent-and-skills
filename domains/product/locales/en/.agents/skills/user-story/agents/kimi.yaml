@@ -1,0 +1,12 @@
+name: "user-story"
+display_name: "User Story"
+description: "Writing user stories per INVEST — As a / I want / So that, separation of buyer/end-user"
+default_prompt: "Use $user-story when the task relates to the skill \"User Story\"."
+triggers:
+  - "user-story"
+  - "user story"
+  - "INVEST"
+capabilities:
+  - "user-story"
+tools: []
+implicit_invocation: true

@@ -1,0 +1,12 @@
+name: "audience-analysis"
+display_name: "Анализ аудитории"
+description: "Глубокий анализ целевой аудитории с валидацией — сегменты, персоны, боли, триггеры, платформы"
+default_prompt: "Используй $audience-analysis, когда задача относится к навыку \"Анализ аудитории\"."
+triggers:
+  - "audience-analysis"
+  - "Анализ аудитории"
+  - "Глубокий анализ целевой аудитории с валидацией — сегменты, персоны, боли, триггеры, платформы"
+capabilities:
+  - "audience-analysis"
+tools: []
+implicit_invocation: true

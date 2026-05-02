@@ -1,0 +1,13 @@
+name: "adr-log"
+display_name: "ADR Log"
+description: "Record key Architectural Decision Records (ADR) with trade-offs — Pros/Cons/Alternatives/Decision, status and date."
+default_prompt: "Use $adr-log when the task matches the \"ADR Log\" skill."
+triggers:
+  - "adr-log"
+  - "adr log"
+  - "Record key Architectural Decision Records (ADR) with trade-offs — Pros/Cons/Alternatives/Decision, status and date"
+capabilities:
+  - "adr"
+  - "log"
+tools: []
+implicit_invocation: true

@@ -1,0 +1,12 @@
+name: "readability-scoring"
+display_name: "Оценка читаемости"
+description: "Оценка читаемости — адаптивные нормы по платформам, индексы читаемости, scanability, «вода», suggested fixes"
+default_prompt: "Используй $readability-scoring, когда задача относится к навыку \"Оценка читаемости\"."
+triggers:
+  - "readability-scoring"
+  - "Оценка читаемости"
+  - "Оценка читаемости — адаптивные нормы по платформам, индексы читаемости, scanability, «вода», suggested fixes"
+capabilities:
+  - "readability-scoring"
+tools: []
+implicit_invocation: true

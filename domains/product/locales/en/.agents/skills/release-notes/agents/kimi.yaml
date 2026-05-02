@@ -1,0 +1,12 @@
+name: "release-notes"
+display_name: "Release Notes (B2B)"
+description: "B2B customer-facing release notes — what's new, why it matters, breaking changes, migration steps"
+default_prompt: "Use $release-notes when the task relates to the skill \"Release Notes (B2B)\"."
+triggers:
+  - "release-notes"
+  - "release notes"
+  - "changelog"
+capabilities:
+  - "release-notes"
+tools: []
+implicit_invocation: true

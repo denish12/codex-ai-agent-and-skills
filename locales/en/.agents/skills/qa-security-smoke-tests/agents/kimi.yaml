@@ -1,0 +1,15 @@
+name: "qa-security-smoke-tests"
+display_name: "QA Security Smoke Tests"
+description: "Basic security smoke tests — auth/authz, validation, leaks in errors/logs, rate limiting (if enabled), SSRF/XSS where relevant."
+default_prompt: "Use $qa-security-smoke-tests when the task matches the \"QA Security Smoke Tests\" skill."
+triggers:
+  - "qa-security-smoke-tests"
+  - "qa security smoke tests"
+  - "Basic security smoke tests — auth/authz, validation, leaks in errors/logs, rate limiting (if enabled), SSRF/XSS where relevant"
+capabilities:
+  - "qa"
+  - "security"
+  - "smoke"
+  - "tests"
+tools: []
+implicit_invocation: true

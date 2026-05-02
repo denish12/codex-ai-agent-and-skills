@@ -1,0 +1,15 @@
+name: "testing-strategy-js"
+display_name: "Стратегия тестирования JS/TS"
+description: "Стратегия тестирования для JS/TS проектов — unit (Vitest), integration (API/DB), e2e (Playwright). AAA-паттерн, Vitest конфиг, React Testing Library, моки внешних сервисов, coverage thresholds, naming conventions, CI pipeline. Активируй при написании новых тестов, рефакторинге существующих, или при вопросах «как правильно тестировать X»."
+default_prompt: "Используй $testing-strategy-js, когда задача относится к навыку \"Стратегия тестирования JS/TS\"."
+triggers:
+  - "testing-strategy-js"
+  - "testing strategy js"
+  - "Стратегия тестирования JS/TS"
+  - "Стратегия тестирования для JS/TS проектов — unit (Vitest), integration (API/DB), e2e (Playwright)"
+capabilities:
+  - "testing"
+  - "strategy"
+  - "js"
+tools: []
+implicit_invocation: true

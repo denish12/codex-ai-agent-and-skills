@@ -73,6 +73,18 @@ async function auditOrchestrator(
     return;
   }
 
+  if (target === "moonshot-kimi") {
+    const payload = await readYamlSidecar(vendorPath, portableLabel, warnings, errors);
+    if (!payload) {
+      return;
+    }
+    ensureRequired(payload, ["name", "display_name", "description", "default_prompt"], vendorPath, errors, portableLabel);
+    if (portable) {
+      compareValues(payload, portable, ["name", "display_name", "description", "default_prompt"], vendorPath, portablePath, errors, portableLabel);
+    }
+    return;
+  }
+
   const payload = await readJsonSidecar(vendorPath, portableLabel, errors);
   if (!payload) {
     return;
@@ -133,6 +145,19 @@ async function auditSkills(
       ensureRequired(interfaceSection, ["display_name", "short_description", "default_prompt"], vendorPath, errors, label, "interface.");
       if (portable) {
         compareValues(interfaceSection, portable, ["display_name", "default_prompt"], vendorPath, portablePath, errors, label);
+      }
+      continue;
+    }
+
+    if (target === "moonshot-kimi") {
+      const payload = await readYamlSidecar(vendorPath, label, warnings, errors);
+      if (!payload) {
+        continue;
+      }
+      ensureValue(payload, "name", skillName, vendorPath, errors, label);
+      ensureRequired(payload, ["display_name", "description", "default_prompt"], vendorPath, errors, label);
+      if (portable) {
+        compareValues(payload, portable, ["display_name", "description", "default_prompt"], vendorPath, portablePath, errors, label);
       }
       continue;
     }

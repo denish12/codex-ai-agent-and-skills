@@ -539,6 +539,9 @@ function normalizeTarget(rawTarget: string): TargetId {
     antugravity: "google-antugravity",
     antigravity: "google-antugravity",
     google: "google-antugravity",
+    "moonshot-kimi": "moonshot-kimi",
+    kimi: "moonshot-kimi",
+    moonshot: "moonshot-kimi",
   };
   const normalized = aliasMap[value];
   if (!normalized) {

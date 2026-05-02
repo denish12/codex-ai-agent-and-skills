@@ -1,0 +1,12 @@
+name: "gates"
+display_name: "Контроль гейтов"
+description: "Контроль гейтов пайплайна — реестр deliverables, критерии по гейтам и режимам, severity, лог проверок"
+default_prompt: "Используй $gates, когда задача относится к навыку \"Контроль гейтов\"."
+triggers:
+  - "gates"
+  - "Контроль гейтов"
+  - "Контроль гейтов пайплайна — реестр deliverables, критерии по гейтам и режимам, severity, лог проверок"
+capabilities:
+  - "gates"
+tools: []
+implicit_invocation: true

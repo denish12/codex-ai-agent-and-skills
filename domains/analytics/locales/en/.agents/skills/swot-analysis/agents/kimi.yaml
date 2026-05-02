@@ -1,0 +1,13 @@
+name: "swot-analysis"
+display_name: "SWOT Analysis"
+description: "Analysis of strengths, weaknesses, opportunities, and threats — with a cross-matrix and prioritization"
+default_prompt: "Use $swot-analysis when the task relates to the \"SWOT Analysis\" skill."
+triggers:
+  - "swot-analysis"
+  - "SWOT"
+  - "SWOT analysis"
+  - "strengths weaknesses"
+capabilities:
+  - "swot-analysis"
+tools: []
+implicit_invocation: true
